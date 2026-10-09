@@ -1,0 +1,27 @@
+{
+  "name": "mcd-dual-planner",
+  "version": "0.1.0",
+  "description": "麦麦双赢（M-Dual Planner）—— 基于麦当劳中国 MCP 的省钱 × 营养双目标配餐引擎，零依赖、只读、可复现",
+  "type": "module",
+  "bin": {
+    "mcd-dual": "./bin/mcd-dual.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "demo": "node bin/mcd-dual.mjs plan --demo --budget 30",
+    "doctor": "node bin/mcd-dual.mjs doctor",
+    "test": "node --test tests/"
+  },
+  "keywords": [
+    "mcdonalds",
+    "mcp",
+    "model-context-protocol",
+    "workbuddy",
+    "optimization",
+    "nutrition"
+  ],
+  "license": "MIT",
+  "private": true
+}

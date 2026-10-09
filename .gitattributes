@@ -1,0 +1,8 @@
+# 统一换行符，避免 Windows 环境下出现整文件 diff
+* text=auto eol=lf
+
+# 二进制/生成物不做换行转换
+*.svg text
+*.png binary
+*.jpg binary
+*.ico binary

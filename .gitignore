@@ -1,0 +1,28 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.log
+
+# 运行产物（示例战报在 examples/ 中单独留档）
+reports/
+out/
+
+# 本地凭据与个人数据 —— 绝不入库
+.env
+.env.*
+!.env.example
+*.token
+token.txt
+data/
+*.sqlite
+*.sqlite-journal
+
+# 官方参考资料与本地抓取缓存（不属于参赛作品内容）
+.reference/
+tools/.cache/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,94 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+
+import { buildPlanDemo, buildSolverOptions, pickBestCoupon, extractComboParts } from '../src/pipeline.mjs';
+import { renderReport } from '../src/report.mjs';
+import { demoDataset } from '../src/demo-data.mjs';
+
+test('演示流水线：从数据到战报全链路可跑通', () => {
+  const result = buildPlanDemo({ budgetYuan: 30 });
+  assert.equal(result.meta.mode, 'demo');
+  assert.ok(result.recommendations.length >= 1);
+  assert.ok(result.recommendations.length <= 3);
+  assert.equal(result.coverage.menuTotal, demoDataset().menu.length);
+  assert.equal(result.coverage.unmatched, 0);
+  const svg = renderReport(result);
+  assert.ok(svg.length > 5000);
+});
+
+test('演示流水线：所有推荐方案都在预算内', () => {
+  const result = buildPlanDemo({ budgetYuan: 25 });
+  for (const plan of result.recommendations) {
+    assert.ok(plan.totals.priceFen <= 2500, `方案超预算：${plan.totals.priceFen}`);
+  }
+});
+
+test('演示数据自带醒目的"非官方"声明', () => {
+  const result = buildPlanDemo({ budgetYuan: 30 });
+  assert.ok(result.dataNotes.some((n) => n.includes('演示') || n.includes('合成')));
+  assert.equal(result.meta.store.demo, true);
+});
+
+test('求解参数：命令行覆盖项正确落到 targets 上', () => {
+  const options = buildSolverOptions({ kcal: 900, protein: 45, sodium: 800, kcalTolerance: 0.1, minScore: 80, budgetYuan: 42 });
+  assert.equal(options.targets.kcal, 900);
+  assert.equal(options.targets.proteinG, 45);
+  assert.equal(options.targets.sodiumMaxMg, 800);
+  assert.equal(options.targets.kcalTolerance, 0.1);
+  assert.equal(options.minScore, 80);
+  assert.equal(options.budgetFen, 4200);
+
+  const defaults = buildSolverOptions({});
+  assert.equal(defaults.targets.kcal, 700);
+  assert.equal(defaults.budgetFen, undefined);
+});
+
+test('选券：只挑门槛已满足且优惠最大的那张', () => {
+  const coupons = [
+    { id: 'C1', name: '满30减5', discountFen: 500, thresholdFen: 3000 },
+    { id: 'C2', name: '满50减12', discountFen: 1200, thresholdFen: 5000 },
+    { id: 'C3', name: '甜品减3', discountFen: 300, thresholdFen: 0 },
+  ];
+  assert.equal(pickBestCoupon(coupons, 3500).id, 'C1');
+  assert.equal(pickBestCoupon(coupons, 6000).id, 'C2');
+  assert.equal(pickBestCoupon(coupons, 2000).id, 'C3');
+  assert.equal(pickBestCoupon([], 3000), null);
+});
+
+test('套餐拆解：能从嵌套结构里抽出组成项并按名称去重', () => {
+  const menuItems = [{ name: '巨无霸', code: 'B1' }, { name: '薯条', code: 'F1' }, { name: '可口可乐', code: 'D1' }];
+  const payload = {
+    code: 0,
+    data: {
+      mealDetail: {
+        name: '巨无霸三件套',
+        comboItems: [
+          { productName: '巨无霸' },
+          { productName: '薯条' },
+          { productName: '可口可乐' },
+          { productName: '巨无霸' },
+        ],
+      },
+    },
+  };
+  const parts = extractComboParts(payload, menuItems);
+  const names = parts.map((p) => p.name);
+  assert.ok(names.includes('巨无霸'));
+  assert.ok(names.includes('薯条'));
+  assert.equal(new Set(names).size, names.length, '组成项应当去重');
+  assert.equal(parts.find((p) => p.name === '巨无霸').item.code, 'B1', '组成项应当对齐到菜单项');
+});
+
+test('演示数据集：品类齐全，价格与营养字段完整', () => {
+  const dataset = demoDataset();
+  const categories = new Set(dataset.menu.map((i) => i.category));
+  for (const need of ['主食', '小食', '饮料', '甜品']) assert.ok(categories.has(need), `缺少品类 ${need}`);
+  for (const item of dataset.menu) {
+    assert.ok(item.priceFen > 0);
+    assert.ok(item.code);
+  }
+  for (const row of dataset.nutrition) {
+    assert.ok(row.energyKcal > 0);
+    assert.ok(row.proteinG >= 0);
+  }
+});

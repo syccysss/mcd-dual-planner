@@ -1,0 +1,6714 @@
+{
+  "meta": {
+    "mode": "demo",
+    "generatedAt": "2026-10-09 08:19:22",
+    "store": {
+      "code": "DEMO-0001",
+      "name": "演示餐厅（合成数据，非真实门店）",
+      "address": "演示地址",
+      "demo": true
+    },
+    "endpoint": "离线演示（未连接 MCP）",
+    "toolsUsed": []
+  },
+  "targets": {
+    "kcal": 700,
+    "kcalTolerance": 0.2,
+    "proteinG": 30,
+    "sodiumMaxMg": 1200,
+    "fatMaxG": null
+  },
+  "budgetFen": 3000,
+  "plans": [
+    {
+      "items": [
+        {
+          "code": "D-BIGMAC",
+          "name": "巨无霸",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 700,
+        "proteinG": 30,
+        "fatG": 34,
+        "carbG": 67,
+        "sodiumMg": 1120,
+        "calciumMg": 330,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 96.3,
+      "parts": {
+        "energyFit": 1,
+        "proteinFit": 1,
+        "fatFit": 0.751,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2750,
+        "energyKcal": 700,
+        "proteinG": 27,
+        "fatG": 31,
+        "carbG": 77,
+        "sodiumMg": 1100,
+        "calciumMg": 130,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 93.4,
+      "parts": {
+        "energyFit": 1,
+        "proteinFit": 0.9,
+        "fatFit": 0.861,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-WINGS2",
+          "name": "麦辣鸡翅（2块）",
+          "priceFen": 1250,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 690,
+        "proteinG": 33,
+        "fatG": 34,
+        "carbG": 63,
+        "sodiumMg": 1290,
+        "calciumMg": 345,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 92.2,
+      "parts": {
+        "energyFit": 0.929,
+        "proteinFit": 1.015,
+        "fatFit": 0.751,
+        "sodiumPenalty": 1.88
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SUNDAE",
+          "name": "新地",
+          "priceFen": 900,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2750,
+        "energyKcal": 720,
+        "proteinG": 31,
+        "fatG": 32,
+        "carbG": 79,
+        "sodiumMg": 1110,
+        "calciumMg": 450,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 91.9,
+      "parts": {
+        "energyFit": 0.857,
+        "proteinFit": 1.005,
+        "fatFit": 0.824,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-NUGGET5",
+          "name": "麦乐鸡（5块）",
+          "priceFen": 1350,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 680,
+        "proteinG": 32,
+        "fatG": 31,
+        "carbG": 66,
+        "sodiumMg": 1250,
+        "calciumMg": 350,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 91.6,
+      "parts": {
+        "energyFit": 0.857,
+        "proteinFit": 1.01,
+        "fatFit": 0.861,
+        "sodiumPenalty": 1.04
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-GRILL",
+          "name": "板烧鸡腿堡",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 710,
+        "proteinG": 28,
+        "fatG": 32,
+        "carbG": 78,
+        "sodiumMg": 1150,
+        "calciumMg": 160,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 91.5,
+      "parts": {
+        "energyFit": 0.929,
+        "proteinFit": 0.933,
+        "fatFit": 0.824,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-BACON",
+          "name": "培根蔬萃双层牛堡",
+          "priceFen": 2350,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2750,
+        "energyKcal": 670,
+        "proteinG": 31,
+        "fatG": 32,
+        "carbG": 62,
+        "sodiumMg": 1220,
+        "calciumMg": 310,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 88.6,
+      "parts": {
+        "energyFit": 0.786,
+        "proteinFit": 1.005,
+        "fatFit": 0.824,
+        "sodiumPenalty": 0.42
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2650,
+        "energyKcal": 680,
+        "proteinG": 28,
+        "fatG": 34,
+        "carbG": 67,
+        "sodiumMg": 1200,
+        "calciumMg": 270,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 87.6,
+      "parts": {
+        "energyFit": 0.857,
+        "proteinFit": 0.933,
+        "fatFit": 0.751,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SUNDAE",
+          "name": "新地",
+          "priceFen": 900,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 740,
+        "proteinG": 30,
+        "fatG": 29,
+        "carbG": 89,
+        "sodiumMg": 1010,
+        "calciumMg": 310,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 87.6,
+      "parts": {
+        "energyFit": 0.714,
+        "proteinFit": 1,
+        "fatFit": 0.935,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2450,
+        "energyKcal": 670,
+        "proteinG": 28,
+        "fatG": 31,
+        "carbG": 69,
+        "sodiumMg": 1170,
+        "calciumMg": 280,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 86.3,
+      "parts": {
+        "energyFit": 0.786,
+        "proteinFit": 0.933,
+        "fatFit": 0.861,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MCFLURRY",
+          "name": "麦旋风",
+          "priceFen": 1250,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2800,
+        "energyKcal": 690,
+        "proteinG": 22,
+        "fatG": 27,
+        "carbG": 89,
+        "sodiumMg": 900,
+        "calciumMg": 320,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 85.1,
+      "parts": {
+        "energyFit": 0.929,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 650,
+        "proteinG": 31,
+        "fatG": 31,
+        "carbG": 57,
+        "sodiumMg": 1190,
+        "calciumMg": 390,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 83.9,
+      "parts": {
+        "energyFit": 0.643,
+        "proteinFit": 1.005,
+        "fatFit": 0.861,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-ONION",
+          "name": "洋葱圈",
+          "priceFen": 1200,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 690,
+        "proteinG": 22,
+        "fatG": 31,
+        "carbG": 80,
+        "sodiumMg": 1170,
+        "calciumMg": 360,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 83.1,
+      "parts": {
+        "energyFit": 0.929,
+        "proteinFit": 0.733,
+        "fatFit": 0.861,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 670,
+        "proteinG": 25,
+        "fatG": 29,
+        "carbG": 73,
+        "sodiumMg": 990,
+        "calciumMg": 460,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 82.9,
+      "parts": {
+        "energyFit": 0.786,
+        "proteinFit": 0.833,
+        "fatFit": 0.935,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 670,
+        "proteinG": 24,
+        "fatG": 26,
+        "carbG": 85,
+        "sodiumMg": 1115,
+        "calciumMg": 155,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 82.4,
+      "parts": {
+        "energyFit": 0.786,
+        "proteinFit": 0.8,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 650,
+        "proteinG": 26,
+        "fatG": 27,
+        "carbG": 70,
+        "sodiumMg": 910,
+        "calciumMg": 470,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 79.7,
+      "parts": {
+        "energyFit": 0.643,
+        "proteinFit": 0.867,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 660,
+        "proteinG": 24,
+        "fatG": 26,
+        "carbG": 83,
+        "sodiumMg": 1130,
+        "calciumMg": 155,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 79.6,
+      "parts": {
+        "energyFit": 0.714,
+        "proteinFit": 0.8,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 690,
+        "proteinG": 18,
+        "fatG": 24,
+        "carbG": 101,
+        "sodiumMg": 915,
+        "calciumMg": 225,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 79.1,
+      "parts": {
+        "energyFit": 0.929,
+        "proteinFit": 0.6,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-FRIES-M",
+          "name": "薯条（中）",
+          "priceFen": 1300,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 710,
+        "proteinG": 19,
+        "fatG": 33,
+        "carbG": 81,
+        "sodiumMg": 1020,
+        "calciumMg": 120,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 77.5,
+      "parts": {
+        "energyFit": 0.929,
+        "proteinFit": 0.633,
+        "fatFit": 0.788,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 625,
+        "proteinG": 29.3,
+        "fatG": 28.1,
+        "carbG": 65,
+        "sodiumMg": 1071,
+        "calciumMg": 383,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 77,
+      "parts": {
+        "energyFit": 0.464,
+        "proteinFit": 0.977,
+        "fatFit": 0.968,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MCFLURRY",
+          "name": "麦旋风",
+          "priceFen": 1250,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 660,
+        "proteinG": 22,
+        "fatG": 26,
+        "carbG": 85,
+        "sodiumMg": 850,
+        "calciumMg": 340,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 76.6,
+      "parts": {
+        "energyFit": 0.714,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 680,
+        "proteinG": 18,
+        "fatG": 24,
+        "carbG": 99,
+        "sodiumMg": 930,
+        "calciumMg": 225,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 76.3,
+      "parts": {
+        "energyFit": 0.857,
+        "proteinFit": 0.6,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-GRILL",
+          "name": "板烧鸡腿堡",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 620,
+        "proteinG": 29,
+        "fatG": 26,
+        "carbG": 67,
+        "sodiumMg": 1020,
+        "calciumMg": 270,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 75.6,
+      "parts": {
+        "energyFit": 0.429,
+        "proteinFit": 0.967,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-FRIES-M",
+          "name": "薯条（中）",
+          "priceFen": 1300,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 680,
+        "proteinG": 19,
+        "fatG": 32,
+        "carbG": 77,
+        "sodiumMg": 970,
+        "calciumMg": 140,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 75.2,
+      "parts": {
+        "energyFit": 0.857,
+        "proteinFit": 0.633,
+        "fatFit": 0.824,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 670,
+        "proteinG": 19,
+        "fatG": 22,
+        "carbG": 98,
+        "sodiumMg": 835,
+        "calciumMg": 235,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 74.9,
+      "parts": {
+        "energyFit": 0.786,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SUNDAE",
+          "name": "新地",
+          "priceFen": 900,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2450,
+        "energyKcal": 650,
+        "proteinG": 21,
+        "fatG": 26,
+        "carbG": 83,
+        "sodiumMg": 860,
+        "calciumMg": 300,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 72.2,
+      "parts": {
+        "energyFit": 0.643,
+        "proteinFit": 0.7,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 620,
+        "proteinG": 27,
+        "fatG": 28,
+        "carbG": 67,
+        "sodiumMg": 1105,
+        "calciumMg": 154,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 72.2,
+      "parts": {
+        "energyFit": 0.429,
+        "proteinFit": 0.9,
+        "fatFit": 0.971,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 660,
+        "proteinG": 19,
+        "fatG": 22,
+        "carbG": 96,
+        "sodiumMg": 850,
+        "calciumMg": 235,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 72.1,
+      "parts": {
+        "energyFit": 0.714,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2350,
+        "energyKcal": 610,
+        "proteinG": 28,
+        "fatG": 25,
+        "carbG": 66,
+        "sodiumMg": 970,
+        "calciumMg": 240,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 71.3,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.933,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 620,
+        "proteinG": 26,
+        "fatG": 26,
+        "carbG": 66,
+        "sodiumMg": 860,
+        "calciumMg": 490,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 71.1,
+      "parts": {
+        "energyFit": 0.429,
+        "proteinFit": 0.867,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 760,
+        "proteinG": 27,
+        "fatG": 37,
+        "carbG": 80,
+        "sodiumMg": 1300,
+        "calciumMg": 170,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 70.9,
+      "parts": {
+        "energyFit": 0.571,
+        "proteinFit": 0.9,
+        "fatFit": 0.641,
+        "sodiumPenalty": 2.08
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 640,
+        "proteinG": 21,
+        "fatG": 26,
+        "carbG": 83,
+        "sodiumMg": 905,
+        "calciumMg": 224,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 69.4,
+      "parts": {
+        "energyFit": 0.571,
+        "proteinFit": 0.7,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 590,
+        "proteinG": 31,
+        "fatG": 25,
+        "carbG": 54,
+        "sodiumMg": 990,
+        "calciumMg": 350,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 68.8,
+      "parts": {
+        "energyFit": 0.214,
+        "proteinFit": 1.005,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-WINGS2",
+          "name": "麦辣鸡翅（2块）",
+          "priceFen": 1250,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2800,
+        "energyKcal": 610,
+        "proteinG": 29,
+        "fatG": 33,
+        "carbG": 49,
+        "sodiumMg": 1270,
+        "calciumMg": 115,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 68.1,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.967,
+        "fatFit": 0.788,
+        "sodiumPenalty": 1.46
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SUNDAE",
+          "name": "新地",
+          "priceFen": 900,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 800,
+        "proteinG": 30,
+        "fatG": 35,
+        "carbG": 92,
+        "sodiumMg": 1210,
+        "calciumMg": 350,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 66.9,
+      "parts": {
+        "energyFit": 0.286,
+        "proteinFit": 1,
+        "fatFit": 0.714,
+        "sodiumPenalty": 0.21
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2250,
+        "energyKcal": 590,
+        "proteinG": 29,
+        "fatG": 28,
+        "carbG": 56,
+        "sodiumMg": 1070,
+        "calciumMg": 380,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 66.6,
+      "parts": {
+        "energyFit": 0.214,
+        "proteinFit": 0.967,
+        "fatFit": 0.971,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 640,
+        "proteinG": 19,
+        "fatG": 21,
+        "carbG": 94,
+        "sodiumMg": 785,
+        "calciumMg": 255,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 66.4,
+      "parts": {
+        "energyFit": 0.571,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-NUGGET5",
+          "name": "麦乐鸡（5块）",
+          "priceFen": 1350,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 600,
+        "proteinG": 28,
+        "fatG": 30,
+        "carbG": 52,
+        "sodiumMg": 1230,
+        "calciumMg": 120,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 66.3,
+      "parts": {
+        "energyFit": 0.286,
+        "proteinFit": 0.933,
+        "fatFit": 0.898,
+        "sodiumPenalty": 0.63
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-FRIES-M",
+          "name": "薯条（中）",
+          "priceFen": 1300,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 640,
+        "proteinG": 19,
+        "fatG": 29,
+        "carbG": 73,
+        "sodiumMg": 970,
+        "calciumMg": 220,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 65.4,
+      "parts": {
+        "energyFit": 0.571,
+        "proteinFit": 0.633,
+        "fatFit": 0.935,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 610,
+        "proteinG": 24,
+        "fatG": 20,
+        "carbG": 82,
+        "sodiumMg": 915,
+        "calciumMg": 115,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 65.3,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.8,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MCFLURRY",
+          "name": "麦旋风",
+          "priceFen": 1250,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2500,
+        "energyKcal": 620,
+        "proteinG": 22,
+        "fatG": 23,
+        "carbG": 81,
+        "sodiumMg": 850,
+        "calciumMg": 420,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 65.1,
+      "parts": {
+        "energyFit": 0.429,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 620,
+        "proteinG": 22,
+        "fatG": 24,
+        "carbG": 80,
+        "sodiumMg": 825,
+        "calciumMg": 234,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 65.1,
+      "parts": {
+        "energyFit": 0.429,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-BIGMAC",
+          "name": "巨无霸",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 790,
+        "proteinG": 29,
+        "fatG": 40,
+        "carbG": 78,
+        "sodiumMg": 1250,
+        "calciumMg": 220,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 64.7,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.967,
+        "fatFit": 0.531,
+        "sodiumPenalty": 1.04
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SUNDAE",
+          "name": "新地",
+          "priceFen": 900,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 620,
+        "proteinG": 21,
+        "fatG": 25,
+        "carbG": 79,
+        "sodiumMg": 810,
+        "calciumMg": 320,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 63.6,
+      "parts": {
+        "energyFit": 0.429,
+        "proteinFit": 0.7,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 630,
+        "proteinG": 19,
+        "fatG": 21,
+        "carbG": 92,
+        "sodiumMg": 800,
+        "calciumMg": 255,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 63.5,
+      "parts": {
+        "energyFit": 0.5,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2750,
+        "energyKcal": 570,
+        "proteinG": 32,
+        "fatG": 28,
+        "carbG": 44,
+        "sodiumMg": 1090,
+        "calciumMg": 490,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 62.9,
+      "parts": {
+        "energyFit": 0.071,
+        "proteinFit": 1.01,
+        "fatFit": 0.971,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-SUNDAE",
+          "name": "新地",
+          "priceFen": 900,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 615,
+        "proteinG": 21.3,
+        "fatG": 22.1,
+        "carbG": 84,
+        "sodiumMg": 811,
+        "calciumMg": 403,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 62.7,
+      "parts": {
+        "energyFit": 0.393,
+        "proteinFit": 0.71,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 600,
+        "proteinG": 24,
+        "fatG": 20,
+        "carbG": 80,
+        "sodiumMg": 930,
+        "calciumMg": 115,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 62.4,
+      "parts": {
+        "energyFit": 0.286,
+        "proteinFit": 0.8,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-WINGS2",
+          "name": "麦辣鸡翅（2块）",
+          "priceFen": 1250,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 580,
+        "proteinG": 29,
+        "fatG": 32,
+        "carbG": 45,
+        "sodiumMg": 1220,
+        "calciumMg": 135,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 61.2,
+      "parts": {
+        "energyFit": 0.143,
+        "proteinFit": 0.967,
+        "fatFit": 0.824,
+        "sodiumPenalty": 0.42
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2800,
+        "energyKcal": 590,
+        "proteinG": 25,
+        "fatG": 23,
+        "carbG": 72,
+        "sodiumMg": 1015,
+        "calciumMg": 255,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 61.1,
+      "parts": {
+        "energyFit": 0.214,
+        "proteinFit": 0.833,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-ORANGE",
+          "name": "橙汁",
+          "priceFen": 1300,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 610,
+        "proteinG": 21,
+        "fatG": 18,
+        "carbG": 89,
+        "sodiumMg": 780,
+        "calciumMg": 340,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 60.8,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.7,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-BIGMAC",
+          "name": "巨无霸",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 585,
+        "proteinG": 26.3,
+        "fatG": 29.1,
+        "carbG": 54,
+        "sodiumMg": 1051,
+        "calciumMg": 203,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 60.6,
+      "parts": {
+        "energyFit": 0.179,
+        "proteinFit": 0.877,
+        "fatFit": 0.931,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-FRIES-M",
+          "name": "薯条（中）",
+          "priceFen": 1300,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 790,
+        "proteinG": 23,
+        "fatG": 34,
+        "carbG": 95,
+        "sodiumMg": 1040,
+        "calciumMg": 350,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 60.1,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.767,
+        "fatFit": 0.751,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 580,
+        "proteinG": 26,
+        "fatG": 23,
+        "carbG": 62,
+        "sodiumMg": 860,
+        "calciumMg": 570,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 59.7,
+      "parts": {
+        "energyFit": 0.143,
+        "proteinFit": 0.867,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-NUGGET5",
+          "name": "麦乐鸡（5块）",
+          "priceFen": 1350,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 570,
+        "proteinG": 28,
+        "fatG": 29,
+        "carbG": 48,
+        "sodiumMg": 1180,
+        "calciumMg": 140,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 58.9,
+      "parts": {
+        "energyFit": 0.071,
+        "proteinFit": 0.933,
+        "fatFit": 0.935,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2800,
+        "energyKcal": 580,
+        "proteinG": 25,
+        "fatG": 23,
+        "carbG": 70,
+        "sodiumMg": 1030,
+        "calciumMg": 255,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 58.2,
+      "parts": {
+        "energyFit": 0.143,
+        "proteinFit": 0.833,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-WINGS2",
+          "name": "麦辣鸡翅（2块）",
+          "priceFen": 1250,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2500,
+        "energyKcal": 540,
+        "proteinG": 29,
+        "fatG": 29,
+        "carbG": 41,
+        "sodiumMg": 1220,
+        "calciumMg": 215,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 57.1,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.967,
+        "fatFit": 0.935,
+        "sodiumPenalty": 0.42
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": true,
+        "sodiumOk": false,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-NUGGET5",
+          "name": "麦乐鸡（5块）",
+          "priceFen": 1350,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2600,
+        "energyKcal": 530,
+        "proteinG": 28,
+        "fatG": 26,
+        "carbG": 44,
+        "sodiumMg": 1180,
+        "calciumMg": 220,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 57,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.933,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2800,
+        "energyKcal": 540,
+        "proteinG": 28,
+        "fatG": 25,
+        "carbG": 54,
+        "sodiumMg": 1005,
+        "calciumMg": 254,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 57,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.933,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 590,
+        "proteinG": 22,
+        "fatG": 23,
+        "carbG": 76,
+        "sodiumMg": 775,
+        "calciumMg": 254,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 56.6,
+      "parts": {
+        "energyFit": 0.214,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2350,
+        "energyKcal": 610,
+        "proteinG": 18,
+        "fatG": 28,
+        "carbG": 71,
+        "sodiumMg": 950,
+        "calciumMg": 120,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 55.9,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.6,
+        "fatFit": 0.971,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-BACON",
+          "name": "培根蔬萃双层牛堡",
+          "priceFen": 2350,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2350,
+        "energyKcal": 520,
+        "proteinG": 27,
+        "fatG": 27,
+        "carbG": 40,
+        "sodiumMg": 1150,
+        "calciumMg": 180,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 55.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.9,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 560,
+        "proteinG": 27,
+        "fatG": 22,
+        "carbG": 64,
+        "sodiumMg": 905,
+        "calciumMg": 114,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 55.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.9,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2600,
+        "energyKcal": 600,
+        "proteinG": 19,
+        "fatG": 18,
+        "carbG": 90,
+        "sodiumMg": 785,
+        "calciumMg": 335,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 54.9,
+      "parts": {
+        "energyFit": 0.286,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-ONION",
+          "name": "洋葱圈",
+          "priceFen": 1200,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2750,
+        "energyKcal": 610,
+        "proteinG": 18,
+        "fatG": 30,
+        "carbG": 66,
+        "sodiumMg": 1150,
+        "calciumMg": 130,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 54.8,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.6,
+        "fatFit": 0.898,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-BIGMAC",
+          "name": "巨无霸",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2150,
+        "energyKcal": 550,
+        "proteinG": 26,
+        "fatG": 29,
+        "carbG": 45,
+        "sodiumMg": 1050,
+        "calciumMg": 200,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 53,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.867,
+        "fatFit": 0.935,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2600,
+        "energyKcal": 475,
+        "proteinG": 25.3,
+        "fatG": 23.1,
+        "carbG": 43,
+        "sodiumMg": 1001,
+        "calciumMg": 253,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 53,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.843,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-GRILL",
+          "name": "板烧鸡腿堡",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 505,
+        "proteinG": 25.3,
+        "fatG": 21.1,
+        "carbG": 54,
+        "sodiumMg": 951,
+        "calciumMg": 143,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 53,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.843,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1850,
+        "energyKcal": 440,
+        "proteinG": 25,
+        "fatG": 23,
+        "carbG": 34,
+        "sodiumMg": 1000,
+        "calciumMg": 250,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 52.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.833,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-GRILL",
+          "name": "板烧鸡腿堡",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2150,
+        "energyKcal": 470,
+        "proteinG": 25,
+        "fatG": 21,
+        "carbG": 45,
+        "sodiumMg": 950,
+        "calciumMg": 140,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 52.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.833,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SUNDAE",
+          "name": "新地",
+          "priceFen": 900,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2150,
+        "energyKcal": 580,
+        "proteinG": 21,
+        "fatG": 22,
+        "carbG": 75,
+        "sodiumMg": 810,
+        "calciumMg": 400,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 52.2,
+      "parts": {
+        "energyFit": 0.143,
+        "proteinFit": 0.7,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2600,
+        "energyKcal": 590,
+        "proteinG": 19,
+        "fatG": 18,
+        "carbG": 88,
+        "sodiumMg": 800,
+        "calciumMg": 335,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 52.1,
+      "parts": {
+        "energyFit": 0.214,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2700,
+        "energyKcal": 495,
+        "proteinG": 24.3,
+        "fatG": 20.1,
+        "carbG": 53,
+        "sodiumMg": 901,
+        "calciumMg": 113,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 51.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.81,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2800,
+        "energyKcal": 555,
+        "proteinG": 24.3,
+        "fatG": 26.1,
+        "carbG": 56,
+        "sodiumMg": 1101,
+        "calciumMg": 153,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 51.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.81,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1950,
+        "energyKcal": 460,
+        "proteinG": 24,
+        "fatG": 20,
+        "carbG": 44,
+        "sodiumMg": 900,
+        "calciumMg": 110,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 51,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.8,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2050,
+        "energyKcal": 520,
+        "proteinG": 24,
+        "fatG": 26,
+        "carbG": 47,
+        "sodiumMg": 1100,
+        "calciumMg": 150,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 51,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.8,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-LATTE",
+          "name": "拿铁",
+          "priceFen": 1750,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 430,
+        "proteinG": 23,
+        "fatG": 19,
+        "carbG": 40,
+        "sodiumMg": 790,
+        "calciumMg": 440,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 49.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.767,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2900,
+        "energyKcal": 465,
+        "proteinG": 22.3,
+        "fatG": 18.1,
+        "carbG": 49,
+        "sodiumMg": 791,
+        "calciumMg": 443,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 48.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.743,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2150,
+        "energyKcal": 430,
+        "proteinG": 22,
+        "fatG": 18,
+        "carbG": 40,
+        "sodiumMg": 790,
+        "calciumMg": 440,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 48,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2450,
+        "energyKcal": 500,
+        "proteinG": 22,
+        "fatG": 22,
+        "carbG": 48,
+        "sodiumMg": 840,
+        "calciumMg": 340,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 48,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-MILK",
+          "name": "纯牛奶",
+          "priceFen": 900,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 470,
+        "proteinG": 22,
+        "fatG": 21,
+        "carbG": 44,
+        "sodiumMg": 790,
+        "calciumMg": 360,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 48,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2600,
+        "energyKcal": 550,
+        "proteinG": 22,
+        "fatG": 20,
+        "carbG": 72,
+        "sodiumMg": 775,
+        "calciumMg": 334,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 48,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.733,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2450,
+        "energyKcal": 580,
+        "proteinG": 18,
+        "fatG": 27,
+        "carbG": 67,
+        "sodiumMg": 900,
+        "calciumMg": 140,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 47.7,
+      "parts": {
+        "energyFit": 0.143,
+        "proteinFit": 0.6,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2800,
+        "energyKcal": 575,
+        "proteinG": 18.3,
+        "fatG": 24.1,
+        "carbG": 72,
+        "sodiumMg": 901,
+        "calciumMg": 223,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 46.7,
+      "parts": {
+        "energyFit": 0.107,
+        "proteinFit": 0.61,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-ONION",
+          "name": "洋葱圈",
+          "priceFen": 1200,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 580,
+        "proteinG": 18,
+        "fatG": 29,
+        "carbG": 62,
+        "sodiumMg": 1100,
+        "calciumMg": 150,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 46.7,
+      "parts": {
+        "energyFit": 0.143,
+        "proteinFit": 0.6,
+        "fatFit": 0.935,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-LEMON-TEA",
+          "name": "柠檬茶",
+          "priceFen": 1200,
+          "category": "饮料",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 570,
+        "proteinG": 19,
+        "fatG": 18,
+        "carbG": 82,
+        "sodiumMg": 790,
+        "calciumMg": 335,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 46.4,
+      "parts": {
+        "energyFit": 0.071,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SALAD",
+          "name": "蔬菜沙拉",
+          "priceFen": 1450,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2700,
+        "energyKcal": 430,
+        "proteinG": 20,
+        "fatG": 19,
+        "carbG": 44,
+        "sodiumMg": 1000,
+        "calciumMg": 260,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 45,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.667,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SALAD",
+          "name": "蔬菜沙拉",
+          "priceFen": 1450,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 3000,
+        "energyKcal": 500,
+        "proteinG": 20,
+        "fatG": 23,
+        "carbG": 52,
+        "sodiumMg": 1050,
+        "calciumMg": 160,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 45,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.667,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2400,
+        "energyKcal": 485,
+        "proteinG": 19.3,
+        "fatG": 18.1,
+        "carbG": 61,
+        "sodiumMg": 771,
+        "calciumMg": 333,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 44,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.643,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2700,
+        "energyKcal": 555,
+        "proteinG": 19.3,
+        "fatG": 22.1,
+        "carbG": 69,
+        "sodiumMg": 821,
+        "calciumMg": 233,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 44,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.643,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2800,
+        "energyKcal": 525,
+        "proteinG": 19.3,
+        "fatG": 21.1,
+        "carbG": 65,
+        "sodiumMg": 771,
+        "calciumMg": 253,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 44,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.643,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1650,
+        "energyKcal": 450,
+        "proteinG": 19,
+        "fatG": 18,
+        "carbG": 52,
+        "sodiumMg": 770,
+        "calciumMg": 330,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 43.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1950,
+        "energyKcal": 520,
+        "proteinG": 19,
+        "fatG": 22,
+        "carbG": 60,
+        "sodiumMg": 820,
+        "calciumMg": 230,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 43.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2050,
+        "energyKcal": 490,
+        "proteinG": 19,
+        "fatG": 21,
+        "carbG": 56,
+        "sodiumMg": 770,
+        "calciumMg": 250,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 43.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 435,
+        "proteinG": 18.3,
+        "fatG": 15.1,
+        "carbG": 59,
+        "sodiumMg": 706,
+        "calciumMg": 207,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 42.4,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.61,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-PIE",
+          "name": "苹果派",
+          "priceFen": 800,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2050,
+        "energyKcal": 540,
+        "proteinG": 18,
+        "fatG": 24,
+        "carbG": 63,
+        "sodiumMg": 900,
+        "calciumMg": 220,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 42,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.6,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2200,
+        "energyKcal": 400,
+        "proteinG": 18,
+        "fatG": 15,
+        "carbG": 50,
+        "sodiumMg": 705,
+        "calciumMg": 204,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 42,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.6,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-ONION",
+          "name": "洋葱圈",
+          "priceFen": 1200,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2450,
+        "energyKcal": 540,
+        "proteinG": 18,
+        "fatG": 26,
+        "carbG": 58,
+        "sodiumMg": 1100,
+        "calciumMg": 230,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 42,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.6,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2500,
+        "energyKcal": 470,
+        "proteinG": 18,
+        "fatG": 19,
+        "carbG": 58,
+        "sodiumMg": 755,
+        "calciumMg": 104,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 42,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.6,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CORN",
+          "name": "玉米杯",
+          "priceFen": 950,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2600,
+        "energyKcal": 440,
+        "proteinG": 18,
+        "fatG": 18,
+        "carbG": 54,
+        "sodiumMg": 705,
+        "calciumMg": 124,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 42,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.6,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-ORANGE",
+          "name": "橙汁",
+          "priceFen": 1300,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 460,
+        "proteinG": 17,
+        "fatG": 13,
+        "carbG": 67,
+        "sodiumMg": 710,
+        "calciumMg": 210,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 40.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.567,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-ORANGE",
+          "name": "橙汁",
+          "priceFen": 1300,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 530,
+        "proteinG": 17,
+        "fatG": 17,
+        "carbG": 75,
+        "sodiumMg": 760,
+        "calciumMg": 110,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 40.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.567,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-ORANGE",
+          "name": "橙汁",
+          "priceFen": 1300,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 500,
+        "proteinG": 17,
+        "fatG": 16,
+        "carbG": 71,
+        "sodiumMg": 710,
+        "calciumMg": 130,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 40.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.567,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-AMERICANO",
+          "name": "美式咖啡",
+          "priceFen": 1500,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2750,
+        "energyKcal": 315,
+        "proteinG": 16,
+        "fatG": 13,
+        "carbG": 32,
+        "sodiumMg": 710,
+        "calciumMg": 210,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 39,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.533,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2000,
+        "energyKcal": 335,
+        "proteinG": 15.3,
+        "fatG": 13.1,
+        "carbG": 39,
+        "sodiumMg": 701,
+        "calciumMg": 203,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 38,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.51,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2300,
+        "energyKcal": 405,
+        "proteinG": 15.3,
+        "fatG": 17.1,
+        "carbG": 47,
+        "sodiumMg": 751,
+        "calciumMg": 103,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 38,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.51,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2400,
+        "energyKcal": 375,
+        "proteinG": 15.3,
+        "fatG": 16.1,
+        "carbG": 43,
+        "sodiumMg": 701,
+        "calciumMg": 123,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 38,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.51,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 485,
+        "proteinG": 15.3,
+        "fatG": 13.1,
+        "carbG": 77,
+        "sodiumMg": 716,
+        "calciumMg": 208,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 38,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.51,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-APPLE",
+          "name": "苹果片",
+          "priceFen": 750,
+          "category": "小食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2950,
+        "energyKcal": 475,
+        "proteinG": 15.3,
+        "fatG": 13.1,
+        "carbG": 75,
+        "sodiumMg": 731,
+        "calciumMg": 208,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 38,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.51,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1250,
+        "energyKcal": 300,
+        "proteinG": 15,
+        "fatG": 13,
+        "carbG": 30,
+        "sodiumMg": 700,
+        "calciumMg": 200,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1550,
+        "energyKcal": 370,
+        "proteinG": 15,
+        "fatG": 17,
+        "carbG": 38,
+        "sodiumMg": 750,
+        "calciumMg": 100,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1650,
+        "energyKcal": 340,
+        "proteinG": 15,
+        "fatG": 16,
+        "carbG": 34,
+        "sodiumMg": 700,
+        "calciumMg": 120,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2200,
+        "energyKcal": 450,
+        "proteinG": 15,
+        "fatG": 13,
+        "carbG": 68,
+        "sodiumMg": 715,
+        "calciumMg": 205,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2200,
+        "energyKcal": 440,
+        "proteinG": 15,
+        "fatG": 13,
+        "carbG": 66,
+        "sodiumMg": 730,
+        "calciumMg": 205,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-LEMON-TEA",
+          "name": "柠檬茶",
+          "priceFen": 1200,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2450,
+        "energyKcal": 420,
+        "proteinG": 15,
+        "fatG": 13,
+        "carbG": 60,
+        "sodiumMg": 720,
+        "calciumMg": 205,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2500,
+        "energyKcal": 520,
+        "proteinG": 15,
+        "fatG": 17,
+        "carbG": 76,
+        "sodiumMg": 765,
+        "calciumMg": 105,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2500,
+        "energyKcal": 510,
+        "proteinG": 15,
+        "fatG": 17,
+        "carbG": 74,
+        "sodiumMg": 780,
+        "calciumMg": 105,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-COKE-M",
+          "name": "可口可乐（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2600,
+        "energyKcal": 490,
+        "proteinG": 15,
+        "fatG": 16,
+        "carbG": 72,
+        "sodiumMg": 715,
+        "calciumMg": 125,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-SPRITE-M",
+          "name": "雪碧（中）",
+          "priceFen": 950,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2600,
+        "energyKcal": 480,
+        "proteinG": 15,
+        "fatG": 16,
+        "carbG": 70,
+        "sodiumMg": 730,
+        "calciumMg": 125,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-MCCHICKEN",
+          "name": "麦香鸡",
+          "priceFen": 1550,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-LEMON-TEA",
+          "name": "柠檬茶",
+          "priceFen": 1200,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2750,
+        "energyKcal": 490,
+        "proteinG": 15,
+        "fatG": 17,
+        "carbG": 68,
+        "sodiumMg": 770,
+        "calciumMg": 105,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-FISH",
+          "name": "麦香鱼",
+          "priceFen": 1650,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-LEMON-TEA",
+          "name": "柠檬茶",
+          "priceFen": 1200,
+          "category": "饮料",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2850,
+        "energyKcal": 460,
+        "proteinG": 15,
+        "fatG": 16,
+        "carbG": 64,
+        "sodiumMg": 720,
+        "calciumMg": 125,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    }
+  ],
+  "totalPlans": 10440,
+  "withinBudget": 121,
+  "pareto": [
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1250,
+        "energyKcal": 300,
+        "proteinG": 15,
+        "fatG": 13,
+        "carbG": 30,
+        "sodiumMg": 700,
+        "calciumMg": 200,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1650,
+        "energyKcal": 450,
+        "proteinG": 19,
+        "fatG": 18,
+        "carbG": 52,
+        "sodiumMg": 770,
+        "calciumMg": 330,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 43.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.633,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1850,
+        "energyKcal": 440,
+        "proteinG": 25,
+        "fatG": 23,
+        "carbG": 34,
+        "sodiumMg": 1000,
+        "calciumMg": 250,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 52.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.833,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-BIGMAC",
+          "name": "巨无霸",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2150,
+        "energyKcal": 550,
+        "proteinG": 26,
+        "fatG": 29,
+        "carbG": 45,
+        "sodiumMg": 1050,
+        "calciumMg": 200,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 53,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.867,
+        "fatFit": 0.935,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-DCHEESE",
+          "name": "双层吉士汉堡",
+          "priceFen": 1850,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2250,
+        "energyKcal": 590,
+        "proteinG": 29,
+        "fatG": 28,
+        "carbG": 56,
+        "sodiumMg": 1070,
+        "calciumMg": 380,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 66.6,
+      "parts": {
+        "energyFit": 0.214,
+        "proteinFit": 0.967,
+        "fatFit": 0.971,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2350,
+        "energyKcal": 610,
+        "proteinG": 28,
+        "fatG": 25,
+        "carbG": 66,
+        "sodiumMg": 970,
+        "calciumMg": 240,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 71.3,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.933,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-SPICY",
+          "name": "麦辣鸡腿堡",
+          "priceFen": 2050,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2450,
+        "energyKcal": 670,
+        "proteinG": 28,
+        "fatG": 31,
+        "carbG": 69,
+        "sodiumMg": 1170,
+        "calciumMg": 280,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 86.3,
+      "parts": {
+        "energyFit": 0.786,
+        "proteinFit": 0.933,
+        "fatFit": 0.861,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-BIGMAC",
+          "name": "巨无霸",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 700,
+        "proteinG": 30,
+        "fatG": 34,
+        "carbG": 67,
+        "sodiumMg": 1120,
+        "calciumMg": 330,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 96.3,
+      "parts": {
+        "energyFit": 1,
+        "proteinFit": 1,
+        "fatFit": 0.751,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    }
+  ],
+  "recommendations": [
+    {
+      "items": [
+        {
+          "code": "D-CRISPY",
+          "name": "原味鸡腿堡",
+          "priceFen": 1950,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2350,
+        "energyKcal": 610,
+        "proteinG": 28,
+        "fatG": 25,
+        "carbG": 66,
+        "sodiumMg": 970,
+        "calciumMg": 240,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 71.3,
+      "parts": {
+        "energyFit": 0.357,
+        "proteinFit": 0.933,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-BIGMAC",
+          "name": "巨无霸",
+          "priceFen": 2150,
+          "category": "主食",
+          "demo": true
+        },
+        {
+          "code": "D-CONE",
+          "name": "圆筒冰淇淋",
+          "priceFen": 400,
+          "category": "甜品",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 2550,
+        "energyKcal": 700,
+        "proteinG": 30,
+        "fatG": 34,
+        "carbG": 67,
+        "sodiumMg": 1120,
+        "calciumMg": 330,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 96.3,
+      "parts": {
+        "energyFit": 1,
+        "proteinFit": 1,
+        "fatFit": 0.751,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": true,
+        "proteinMet": true,
+        "sodiumOk": true,
+        "fatOk": false
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    },
+    {
+      "items": [
+        {
+          "code": "D-CHEESE",
+          "name": "吉士汉堡",
+          "priceFen": 1250,
+          "category": "主食",
+          "demo": true
+        }
+      ],
+      "totals": {
+        "priceFen": 1250,
+        "energyKcal": 300,
+        "proteinG": 15,
+        "fatG": 13,
+        "carbG": 30,
+        "sodiumMg": 700,
+        "calciumMg": 200,
+        "unknownFields": 0,
+        "unknownItems": 0
+      },
+      "score": 37.5,
+      "parts": {
+        "energyFit": 0,
+        "proteinFit": 0.5,
+        "fatFit": 1,
+        "sodiumPenalty": 0
+      },
+      "checks": {
+        "kcalInRange": false,
+        "proteinMet": false,
+        "sodiumOk": true,
+        "fatOk": true
+      },
+      "derived": {
+        "targetKcal": 700,
+        "tolerance": 0.2,
+        "targetProtein": 30,
+        "sodiumMax": 1200,
+        "fatMax": 27.2
+      }
+    }
+  ],
+  "stats": {
+    "candidateStats": [
+      {
+        "category": "主食",
+        "inMenu": 10,
+        "withNutrition": 10,
+        "kept": 10,
+        "excludedNoNutrition": 0
+      },
+      {
+        "category": "小食",
+        "inMenu": 7,
+        "withNutrition": 7,
+        "kept": 7,
+        "excludedNoNutrition": 0
+      },
+      {
+        "category": "饮料",
+        "inMenu": 7,
+        "withNutrition": 7,
+        "kept": 7,
+        "excludedNoNutrition": 0
+      },
+      {
+        "category": "甜品",
+        "inMenu": 4,
+        "withNutrition": 4,
+        "kept": 4,
+        "excludedNoNutrition": 0
+      }
+    ],
+    "candidateCount": 28,
+    "enumerated": 10440,
+    "totalPlans": 10440,
+    "withinBudget": 121,
+    "qualifying": 31,
+    "prunedByBudget": 1,
+    "truncated": false,
+    "budgetFen": 3000,
+    "minScore": 70,
+    "perCategory": 8,
+    "dominanceNote": "候选集裁剪后枚举，非全量穷举；裁剪规模见 candidateStats。"
+  },
+  "coverage": {
+    "menuTotal": 28,
+    "matched": 28,
+    "unmatched": 0
+  },
+  "coupons": [
+    {
+      "id": "DEMO-C1",
+      "name": "满 30 元减 5 元（演示券）",
+      "discountFen": 500,
+      "thresholdFen": 3000,
+      "expireAt": null,
+      "scope": "demo",
+      "demo": true
+    },
+    {
+      "id": "DEMO-C2",
+      "name": "满 50 元减 12 元（演示券）",
+      "discountFen": 1200,
+      "thresholdFen": 5000,
+      "expireAt": null,
+      "scope": "demo",
+      "demo": true
+    },
+    {
+      "id": "DEMO-C3",
+      "name": "甜品立减 3 元（演示券）",
+      "discountFen": 300,
+      "thresholdFen": 0,
+      "expireAt": null,
+      "scope": "demo",
+      "demo": true
+    }
+  ],
+  "dataNotes": [
+    "当前为离线演示模式：菜单、价格、营养与优惠券均为合成示意数据，不是麦当劳官方实时数据。",
+    "接入 MCP Token 后（去掉 --demo）将改为调用官方接口获取真实数据。",
+    "未检测到 MCD_MCP_TOKEN，已自动使用演示模式；设置 Token 后即切换为官方实时数据。"
+  ],
+  "priceVerification": null
+}
