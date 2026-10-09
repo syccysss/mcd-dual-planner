@@ -1,7 +1,7 @@
 {
   "meta": {
     "mode": "demo",
-    "generatedAt": "2026-10-09 08:19:22",
+    "generatedAt": "2026-10-09 08:44:27",
     "store": {
       "code": "DEMO-0001",
       "name": "演示餐厅（合成数据，非真实门店）",
@@ -106,7 +106,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -316,7 +316,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -414,7 +414,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -512,7 +512,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -1037,7 +1037,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -1191,7 +1191,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": true
       },
@@ -1394,7 +1394,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -1499,7 +1499,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": true
       },
@@ -1604,7 +1604,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": false,
         "fatOk": false
       },
@@ -1758,7 +1758,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": false,
         "fatOk": false
       },
@@ -1856,7 +1856,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -1961,7 +1961,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": false,
         "fatOk": false
       },
@@ -2213,7 +2213,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": false,
         "fatOk": false
       },
@@ -2521,7 +2521,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": false,
         "fatOk": false
       },
@@ -2836,7 +2836,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -2934,7 +2934,7 @@
       },
       "checks": {
         "kcalInRange": false,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": false,
         "fatOk": false
       },
@@ -2983,7 +2983,7 @@
       },
       "checks": {
         "kcalInRange": false,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": true
       },
@@ -3032,7 +3032,7 @@
       },
       "checks": {
         "kcalInRange": false,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": true
       },
@@ -3179,7 +3179,7 @@
       },
       "checks": {
         "kcalInRange": false,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": true
       },
@@ -3228,7 +3228,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": true
       },
@@ -6326,7 +6326,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -6375,7 +6375,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": true
       },
@@ -6424,7 +6424,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": false
       },
@@ -6524,7 +6524,7 @@
       },
       "checks": {
         "kcalInRange": true,
-        "proteinMet": true,
+        "proteinMet": false,
         "sodiumOk": true,
         "fatOk": true
       },
@@ -6534,7 +6534,8 @@
         "targetProtein": 30,
         "sodiumMax": 1200,
         "fatMax": 27.2
-      }
+      },
+      "kind": "valueBest"
     },
     {
       "items": [
@@ -6583,7 +6584,8 @@
         "targetProtein": 30,
         "sodiumMax": 1200,
         "fatMax": 27.2
-      }
+      },
+      "kind": "topScore"
     },
     {
       "items": [
@@ -6625,7 +6627,8 @@
         "targetProtein": 30,
         "sodiumMax": 1200,
         "fatMax": 27.2
-      }
+      },
+      "kind": "cheapest"
     }
   ],
   "stats": {

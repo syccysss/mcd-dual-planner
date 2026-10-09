@@ -91,16 +91,22 @@ const el = {
 
 const yuan = (fen) => (Number.isFinite(fen) ? (fen / 100).toFixed(2) : '—');
 
+const KIND_LABELS = {
+  valueBest: '双赢推荐',
+  topScore: '营养上限',
+  cheapest: '省钱底线',
+};
+
 function planTitle(plan, index) {
-  const labels = ['双赢推荐', '营养上限', '省钱底线'];
-  return labels[index] ?? `方案 ${String.fromCharCode(65 + index)}`;
+  return KIND_LABELS[plan.kind] ?? `方案 ${String.fromCharCode(65 + index)}`;
 }
 
 function planReason(plan, index, targets) {
   const t = plan.totals;
-  if (index === 0) return `达到营养门槛（得分 ≥ 门槛）的方案里最便宜的一档：¥${yuan(t.priceFen)} 换 ${t.proteinG} g 蛋白`;
-  if (index === 1) return `预算内营养得分最高：${plan.score} 分，热量 ${t.energyKcal} kcal（目标 ${targets.kcal} kcal）`;
-  return `绝对最便宜：¥${yuan(t.priceFen)}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
+  if (plan.kind === 'valueBest') return `达到营养门槛（得分 ≥ 门槛）的方案里最便宜的一档：¥${yuan(t.priceFen)} 换 ${t.proteinG} g 蛋白`;
+  if (plan.kind === 'topScore') return `预算内营养得分最高：${plan.score} 分，热量 ${t.energyKcal} kcal（目标 ${targets.kcal} kcal）`;
+  if (plan.kind === 'cheapest') return `绝对最便宜：¥${yuan(t.priceFen)}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
+  return `候选方案：¥${yuan(t.priceFen)}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
 }
 
 function drawPlanCard(plan, index, ctx) {

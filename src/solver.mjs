@@ -138,7 +138,8 @@ export function scorePlan(totals, targets = DEFAULT_TARGETS, weights = DEFAULT_W
     },
     checks: {
       kcalInRange: kcalDelta <= tolerance,
-      proteinMet: totals.proteinG >= targetProtein * 0.9,
+      // 与用户设定的目标口径一致：28 g 对 30 g 的目标就是未达标，不做 90% 打折扣
+      proteinMet: totals.proteinG >= targetProtein,
       sodiumOk: totals.sodiumMg <= sodiumMax,
       fatOk: totals.fatG <= fatMax,
     },
@@ -357,11 +358,16 @@ export function solve({
   )[0] ?? null;
 
   // 推荐顺序：双赢（达标最便宜） → 预算内最优 → 绝对最便宜，去重后取前 N
+  // 每个推荐携带自己的 kind，展示层按 kind 取标题，而不是按数组下标猜角色
   const recommendations = [];
-  for (const candidate of [valueBest, ranked[0] ?? null, cheapest]) {
+  for (const [candidate, kind] of [
+    [valueBest, 'valueBest'],
+    [ranked[0] ?? null, 'topScore'],
+    [cheapest, 'cheapest'],
+  ]) {
     if (!candidate) continue;
     if (recommendations.some((r) => planSignature(r.items) === planSignature(candidate.items))) continue;
-    recommendations.push(candidate);
+    recommendations.push({ ...candidate, kind });
   }
 
   return {

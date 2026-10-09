@@ -237,10 +237,10 @@ export async function buildPlanLive(registry, options = {}) {
   let priceVerification = null;
   if (options.verify !== false && registry.has('calculate-price') && result.recommendations.length) {
     priceVerification = { verified: [], failures: [] };
-    const labels = ['双赢推荐', '营养上限', '省钱底线'];
+    const KIND_LABELS = { valueBest: '双赢推荐', topScore: '营养上限', cheapest: '省钱底线' };
     for (let i = 0; i < result.recommendations.length; i += 1) {
       const plan = result.recommendations[i];
-      const label = labels[i] ?? `方案 ${String.fromCharCode(65 + i)}`;
+      const label = KIND_LABELS[plan.kind] ?? `方案 ${String.fromCharCode(65 + i)}`;
       try {
         const tool = registry.schema('calculate-price');
         const couponId = pickBestCoupon(uniqCoupons, plan.totals.priceFen);

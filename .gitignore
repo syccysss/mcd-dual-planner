@@ -26,3 +26,6 @@ tools/.cache/
 .idea/
 .DS_Store
 Thumbs.db
+
+# WorkBuddy 本地预览产物
+.workbuddy-preview/

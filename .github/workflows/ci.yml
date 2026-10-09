@@ -23,7 +23,7 @@ jobs:
 
       # 项目零第三方依赖，无需 npm install
       - name: 运行测试
-        run: node --test tests/
+        run: node --test
 
       - name: 检查文档相对链接
         run: node tools/check-links.mjs

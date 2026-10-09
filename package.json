@@ -12,7 +12,7 @@
   "scripts": {
     "demo": "node bin/mcd-dual.mjs plan --demo --budget 30",
     "doctor": "node bin/mcd-dual.mjs doctor",
-    "test": "node --test tests/"
+    "test": "node --test"
   },
   "keywords": [
     "mcdonalds",

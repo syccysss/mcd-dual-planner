@@ -103,11 +103,15 @@ function printPlanSummary(result, { outPath, jsonPath }) {
     + ` · 蛋白 ≥ ${result.targets.proteinG} g · 钠 ≤ ${result.targets.sodiumMaxMg} mg`);
   out.push(line());
 
-  const labels = ['双赢推荐（达标里最便宜）', '营养上限（预算内最高分）', '省钱底线（绝对最便宜）'];
-  result.recommendations.forEach((plan, index) => {
+  const KIND_LABELS = {
+    valueBest: '双赢推荐（达标里最便宜）',
+    topScore: '营养上限（预算内最高分）',
+    cheapest: '省钱底线（绝对最便宜）',
+  };
+  result.recommendations.forEach((plan) => {
     const t = plan.totals;
     out.push('');
-    out.push(`  【${labels[index] ?? `方案 ${index + 1}`}】`);
+    out.push(`  【${KIND_LABELS[plan.kind] ?? `方案 ${result.recommendations.indexOf(plan) + 1}`}】`);
     out.push(`    ${fmtItemList(plan.items)}`);
     out.push(`    本地菜单价合计 ¥${formatYuan(t.priceFen)}　|　${t.energyKcal} kcal　|　蛋白 ${t.proteinG} g`
       + `　|　脂肪 ${t.fatG} g　|　钠 ${t.sodiumMg} mg`);
@@ -277,7 +281,7 @@ async function cmdPlan(options) {
       beType: options['be-type'] !== undefined ? Number(options['be-type']) : undefined,
       searchType: options['search-type'] !== undefined ? Number(options['search-type']) : undefined,
       comboLookupLimit: options['combo-limit'] !== undefined ? Number(options['combo-limit']) : undefined,
-      verify: options.verify !== false,
+      verify: !options['no-verify'],
       endpoint: options.endpoint ?? DEFAULT_ENDPOINT,
     });
   }
