@@ -346,14 +346,13 @@ export function renderReport(result) {
       { size: 14, weight: 700, fill: C.ink }));
     let cy = y + 50;
     const describeCoupon = (c) => {
-      if ((c.couponPriceFen ?? 0) > 0) {
-        return c.appliesToCode
-          ? `指定商品用券价 ¥${yuan(c.couponPriceFen)}（已定位到方案内商品 ${c.appliesToCode}）`
-          : `指定商品用券价 ¥${yuan(c.couponPriceFen)}（未定位到菜单商品，不计入优惠）`;
+      if (c.usable) {
+        if ((c.couponPriceFen ?? 0) > 0) {
+          return `指定商品用券价 ¥${yuan(c.couponPriceFen)}（已定位商品 ${c.appliesToCode}，计入优惠）`;
+        }
+        return `${c.thresholdFen ? `满 ¥${yuan(c.thresholdFen)} ` : '无门槛 '}减 ¥${yuan(c.discountFen)}（计入优惠）`;
       }
-      if ((c.discountFen ?? 0) > 0) return `${c.thresholdFen ? `满 ¥${yuan(c.thresholdFen)} ` : '无门槛 '}减 ¥${yuan(c.discountFen)}`;
-      if ((c.faceValueFen ?? 0) > 0) return `面额 ¥${yuan(c.faceValueFen)}（第二份半价等规则无法量化，不计入优惠）`;
-      return '面额未返回（不计入优惠）';
+      return `${c.excludedReason ?? '面额/规则无法量化'}，不计入优惠`;
     };
     for (const c of rows) {
       chunks.push(el.text(PAD + 20, cy, `${c.name ?? c.id}　${describeCoupon(c)}${c.source ? `　来源：${c.source}` : ''}`,

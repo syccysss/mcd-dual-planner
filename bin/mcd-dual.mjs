@@ -15,6 +15,7 @@ import { dirname, join, resolve } from 'node:path';
 import { McpClient, McpError, DEFAULT_ENDPOINT } from '../src/mcp-client.mjs';
 import { ToolRegistry, READ_ONLY_TOOLS, summarizeCalls } from '../src/tools.mjs';
 import { buildPlanDemo, buildPlanLive } from '../src/pipeline.mjs';
+import { demoDataset } from '../src/demo-data.mjs';
 import { renderReport } from '../src/report.mjs';
 import { formatYuan } from '../src/normalize.mjs';
 
@@ -39,6 +40,8 @@ plan 选项：
   --per-category <数量>      每品类参与枚举的候选数，默认 8（调大更接近穷举）
   --out <path>               战报输出路径，默认 reports/report.svg
   --no-verify                跳过官方算价核验（减少请求量）
+  --dump-data <path>        写出本次使用的原始数据集（门店/菜单/营养/券）快照，
+                             供 tools/build-web-demo.mjs 生成可离线运行的网页 demo
 
 实时模式取数选项：
   --city <城市>              城市，如 成都
@@ -93,21 +96,16 @@ function fmtItemList(items) {
 
 /** 券的一句话说明：区分「可量化并参与计算」与「无法量化、只展示」 */
 function describeCoupon(c) {
-  if ((c.couponPriceFen ?? 0) > 0) {
-    return c.appliesToCode
-      ? `${c.name}：指定商品用券价 ¥${formatYuan(c.couponPriceFen)}（已定位到商品 ${c.appliesToCode}，计入优惠）`
-      : `${c.name}：指定商品用券价 ¥${formatYuan(c.couponPriceFen)}（未定位到菜单商品，不计入优惠）`;
-  }
-  if ((c.discountFen ?? 0) > 0) {
+  if (c.usable) {
+    if ((c.couponPriceFen ?? 0) > 0) {
+      return `${c.name}：指定商品用券价 ¥${formatYuan(c.couponPriceFen)}（已定位商品 ${c.appliesToCode}，计入优惠）`;
+    }
     return `${c.name}：${c.thresholdFen ? `满 ¥${formatYuan(c.thresholdFen)} ` : '无门槛 '}减 ¥${formatYuan(c.discountFen)}（计入优惠）`;
   }
-  if ((c.faceValueFen ?? 0) > 0) {
-    return `${c.name}：面额 ¥${formatYuan(c.faceValueFen)}（第二份半价等规则无法量化，不计入优惠）`;
-  }
-  return `${c.name}：面额未返回（不计入优惠）`;
+  return `${c.name}：${c.excludedReason ?? '面额/规则无法量化'}，不计入优惠`;
 }
 
-function printPlanSummary(result, { outPath, jsonPath }) {
+function printPlanSummary(result, { outPath, jsonPath, dataPath }) {
   const mode = result.meta.mode === 'live' ? '实时数据（官方 MCP）' : '演示数据（离线合成，非官方结果）';
   const out = [];
   out.push('');
@@ -188,6 +186,7 @@ function printPlanSummary(result, { outPath, jsonPath }) {
   out.push(line());
   out.push(`  战报已生成  ${outPath}`);
   if (jsonPath) out.push(`  结果 JSON   ${jsonPath}`);
+  if (dataPath) out.push(`  数据快照    ${dataPath}（用 tools/build-web-demo.mjs 可生成离线网页 demo）`);
   out.push('');
   out.push('  提示：本项目为参赛作品，非麦当劳官方产品；价格与供应以官方渠道实时结果为准。');
   out.push(line('═'));
@@ -321,6 +320,7 @@ async function cmdPlan(options) {
       cache: !options['no-cache'],
       cacheTtlMs: options['cache-ttl'] !== undefined ? Number(options['cache-ttl']) * 60 * 1000 : undefined,
       endpoint: options.endpoint ?? DEFAULT_ENDPOINT,
+      includeDataset: Boolean(options['dump-data']),
     });
   }
 
@@ -343,8 +343,30 @@ async function cmdPlan(options) {
     await writeFile(jsonPath, JSON.stringify(result, null, 2), 'utf8');
   }
 
+  let dataPath = null;
+  if (options['dump-data']) {
+    dataPath = resolve(String(options['dump-data']));
+    await mkdir(dirname(dataPath), { recursive: true });
+    const dataset = useDemo
+      ? { menu: demoDataset().menu, nutrition: demoDataset().nutrition }
+      : result.dataset;
+    if (!dataset) throw new Error('未能取得原始数据集，无法导出快照。');
+    await writeFile(dataPath, JSON.stringify({
+      mode: result.meta.mode,
+      store: result.meta.store,
+      generatedAt: result.meta.generatedAt,
+      targets: result.targets,
+      budgetFen: result.budgetFen,
+      menu: dataset.menu,
+      nutrition: dataset.nutrition,
+      matches: dataset.matches,
+      coupons: result.coupons,
+      dataNotes: result.dataNotes,
+    }, null, 2), 'utf8');
+  }
+
   if (options.quiet) return { ok: true, output: outPath };
-  return { ok: true, output: printPlanSummary(result, { outPath, jsonPath }) };
+  return { ok: true, output: printPlanSummary(result, { outPath, jsonPath, dataPath }) };
 }
 
 async function main() {

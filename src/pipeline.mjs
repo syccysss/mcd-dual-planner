@@ -50,6 +50,8 @@ export function buildPlanDemo(options = {}) {
   const budgetFen = solverOptions.budgetFen ?? 3000;
 
   const nutritionByItem = matchNutrition(dataset.menu, dataset.nutrition);
+  // 演示券都是订单级满减、可直接量化，标记 usable；与实时模式的券结构保持一致
+  const demoCoupons = dataset.coupons.map((c) => ({ ...c, usable: true, excludedReason: null }));
   const result = solve({
     items: dataset.menu,
     nutritionByItem,
@@ -59,7 +61,7 @@ export function buildPlanDemo(options = {}) {
     weights: solverOptions.weights,
     minScore: solverOptions.minScore,
     perCategory: solverOptions.perCategory,
-    coupons: dataset.coupons,
+    coupons: demoCoupons,
   });
 
   const matched = [...nutritionByItem.values()].filter((v) => v.nutrition).length;
@@ -80,10 +82,10 @@ export function buildPlanDemo(options = {}) {
       matched,
       unmatched: dataset.menu.length - matched,
     },
-    coupons: dataset.coupons,
+    coupons: demoCoupons,
     dataNotes: [
       ...dataset.warnings,
-      '口径：预算卡券前菜单价，三个结论按券后实付排序；券按「订单级满减」估算（不区分商品适用范围）。',
+      '口径：预算卡券前菜单价，三个结论按券后实付排序；演示券为订单级满减（真实官方券多为「指定商品用券价」）。',
     ],
     priceVerification: null,
   };
@@ -297,8 +299,19 @@ export async function buildPlanLive(registry, options = {}) {
   let unusableCoupon = 0;
   let unquantifiedCoupon = 0;
   for (const coupon of uniqCoupons) {
-    if (coupon.beTypes?.length && !coupon.beTypes.includes(beType)) { unusableCoupon += 1; continue; }
-    if (coupon.orderTypes?.length && !coupon.orderTypes.includes(orderType)) { unusableCoupon += 1; continue; }
+    coupon.usable = false;
+    coupon.excludedReason = null;
+
+    if (coupon.beTypes?.length && !coupon.beTypes.includes(beType)) {
+      coupon.excludedReason = '与当前取餐方式（beType）不匹配';
+      unusableCoupon += 1;
+      continue;
+    }
+    if (coupon.orderTypes?.length && !coupon.orderTypes.includes(orderType)) {
+      coupon.excludedReason = '与当前订单类型（orderType）不匹配';
+      unusableCoupon += 1;
+      continue;
+    }
 
     if ((coupon.couponPriceFen ?? 0) > 0) {
       // 适用商品：先用官方商品编码，拿不到再按名称匹配菜单（三态匹配的保守版）
@@ -312,14 +325,21 @@ export async function buildPlanLive(registry, options = {}) {
         code = hit?.code ?? null;
       }
       coupon.appliesToCode = code;
-      if (!code) { unquantifiedCoupon += 1; continue; }
+      if (!code) {
+        coupon.excludedReason = '未能定位到菜单中的具体商品';
+        unquantifiedCoupon += 1;
+        continue;
+      }
     } else if ((coupon.discountFen ?? 0) > 0) {
       // 订单级满减：不需要定位商品
     } else {
       // 面额型 / 第二份半价等语义与数量相关，无法折成单一优惠额：不猜测，如实标注未量化
+      coupon.excludedReason = '面额/规则无法量化（如第二份半价）';
       unquantifiedCoupon += 1;
       continue;
     }
+
+    coupon.usable = true;
     usableCoupons.push(coupon);
   }
 
@@ -421,6 +441,25 @@ export async function buildPlanLive(registry, options = {}) {
     coupons: uniqCoupons,
     dataNotes,
     priceVerification,
+    // 可选：把本次取到的原始数据集一并带出，供 --dump-data 固化为可离线运行的网页快照。
+    // 同时带上**已解析的营养匹配结果**（含 query-meal-detail 拆解出的套餐营养），
+    // 否则网页版会比命令行少掉这部分营养，结论会出现差异。
+    ...(options.includeDataset ? {
+      dataset: {
+        menu: menuItems,
+        nutrition: nutritionRows,
+        matches: menuItems.map((item) => {
+          const entry = nutritionByItem.get(item);
+          return {
+            code: item.code,
+            name: item.name,
+            nutrition: entry?.nutrition ?? null,
+            matchType: entry?.matchType ?? 'none',
+            matchedName: entry?.matchedName ?? null,
+          };
+        }),
+      },
+    } : {}),
   };
 }
 

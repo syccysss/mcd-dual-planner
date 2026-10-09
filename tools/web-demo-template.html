@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+  :root{
+    --red:#DA291C; --yellow:#FFC72C; --ink:#1A1A1A; --sub:#6B6B6B; --line:#E6E6E6;
+    --bg:#F7F7F5; --card:#FFFFFF; --warm:#FFF9E8; --good:#1E7F3C; --warn:#B26B00;
+    --bad:#C0392B; --chart:#2E5AAC;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px 56px}
+  header{background:var(--red);color:#fff;border-bottom:8px solid var(--yellow)}
+  header .wrap{padding:26px 20px 22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+  h1{margin:0;font-size:26px;letter-spacing:.5px}
+  .sub{margin:6px 0 0;font-size:13.5px;color:#FFE1DE}
+  .badge{font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:999px;background:#1E7F3C;color:#fff;white-space:nowrap}
+  .badge.demo{background:#7A4B00}
+  .badge.snapshot{background:#1E7F3C}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:20px}
+  section h2{margin:0 0 4px;font-size:16.5px}
+  section .hint{margin:0 0 14px;font-size:12.5px;color:var(--sub)}
+  .meta{font-size:12.5px;color:var(--sub);margin-top:2px}
+  .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px 26px}
+  .ctl label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:6px}
+  .ctl .val{color:var(--red);font-variant-numeric:tabular-nums}
+  .ctl input[type=range]{width:100%;accent-color:var(--red)}
+  .ctl .row{display:flex;gap:8px;align-items:center}
+  .ctl input[type=number]{width:92px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;font-size:13px}
+  .ctls-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}
+  button{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:600}
+  button.primary{background:var(--red);border-color:var(--red);color:#fff}
+  .cards{display:grid;gap:16px}
+  .card{border:1px solid #F0DDA8;background:var(--warm);border-radius:14px;padding:18px 20px;position:relative;overflow:hidden}
+  .card .bar-left{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--yellow)}
+  .card.first .bar-left{background:var(--red)}
+  .card-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+  .card h3{margin:0;font-size:17px}
+  .pill{font-size:12.5px;font-weight:700;padding:4px 12px;border-radius:999px}
+  .pill.good{background:rgba(30,127,60,.12);color:var(--good)}
+  .pill.warn{background:rgba(178,107,0,.14);color:var(--warn)}
+  .items{margin:12px 0 0;padding:0;list-style:none}
+  .items li{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.08)}
+  .items li:last-child{border-bottom:none}
+  .items .price{color:var(--sub);font-variant-numeric:tabular-nums}
+  .nums{margin-top:12px;font-size:13px;color:var(--sub);font-variant-numeric:tabular-nums}
+  .paid{font-size:15px;color:var(--ink);font-weight:700}
+  .paid .cut{color:var(--good);font-weight:700}
+  .meters{margin-top:12px;display:grid;gap:8px}
+  .meter{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--sub)}
+  .meter .track{flex:1;height:10px;border-radius:999px;background:#EDEDED;overflow:hidden}
+  .meter .fill{height:100%;border-radius:999px;background:var(--chart)}
+  .meter .fill.good{background:var(--good)}
+  .meter .fill.bad{background:var(--bad)}
+  .meter .num{width:76px;text-align:right;font-variant-numeric:tabular-nums}
+  .checks{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;font-size:12.5px}
+  .checks span{font-weight:600}
+  .ok{color:var(--good)} .no{color:var(--bad)} .unknown{color:var(--warn)}
+  .reason{margin:12px 0 0;font-size:12.5px;color:var(--sub)}
+  .chartbox svg{width:100%;height:auto;display:block}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12.5px;color:var(--sub);font-weight:600}
+  .notes{margin:0;padding-left:18px;font-size:12.5px;color:var(--sub)}
+  .notes li{margin:5px 0}
+  .tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--sub)}
+  .tag.on{background:rgba(30,127,60,.12);color:var(--good);border-color:transparent}
+  .tag.off{background:rgba(192,57,43,.10);color:var(--bad);border-color:transparent}
+  footer{margin-top:22px;font-size:12px;color:var(--sub);text-align:center}
+  code{background:#F1F1F1;border-radius:5px;padding:1px 5px;font-size:12px}
+  @media (max-width:640px){h1{font-size:21px}.wrap{padding:0 12px 40px}section{padding:16px 14px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div>
+      <h1>麦麦双赢 · 配餐工作台</h1>
+      <p class="sub">「省钱 × 营养」双目标配餐 —— 预算与营养目标一改，三个结论立即重算</p>
+    </div>
+    <span id="mode-badge" class="badge">加载中…</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2>数据来源</h2>
+    <p class="hint">本页是一个零依赖单文件网页：数据与求解器全部内联，双击即可离线运行，不联网、不上传任何信息。</p>
+    <p class="meta" id="dataset-info"></p>
+  </section>
+
+  <section>
+    <h2>调参</h2>
+    <p class="hint">拖动滑块即可重算。所有计算在你的浏览器本地完成（与命令行版本同一套求解器代码）。</p>
+    <div class="controls" id="controls"></div>
+    <div class="ctls-foot">
+      <button class="primary" id="reset">恢复默认</button>
+      <span class="meta" id="search-space"></span>
+    </div>
+  </section>
+
+  <section>
+    <h2>三个可执行结论</h2>
+    <p class="hint" id="cards-hint"></p>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="chartbox">
+    <h2>帕累托前沿：多花一块钱，能换回多少营养分</h2>
+    <p class="hint">红点为非支配解（前沿），一个方案只要在"更便宜"和"更营养"上都不输，就会把别人挤出去。</p>
+    <div id="chart"></div>
+  </section>
+
+  <section>
+    <h2>可用优惠券</h2>
+    <p class="hint">只在能定位到方案内具体商品时才计入优惠；无法量化的券一律如实标注，不猜金额。</p>
+    <div id="coupons"></div>
+  </section>
+
+  <section>
+    <h2>口径与说明</h2>
+    <ul class="notes" id="notes"></ul>
+  </section>
+
+  <footer>
+    __FOOTER__
+  </footer>
+
+</div>
+
+<script>
+/* ============================================================
+   内联数据集（由 tools/build-web-demo.mjs 生成，含门店/菜单/营养/券）
+   ============================================================ */
+const DATA = /*__DATA__*/;
+
+/* ============================================================
+   内联业务代码：直接打包自 src/normalize.mjs 与 src/solver.mjs，
+   保证网页与命令行是同一套口径（不是另写一份）
+   ============================================================ */
+/*__BUNDLES__*/
+
+(function () {
+  const { matchNutrition, formatYuan, nameKey } = Normalize;
+  const { solve, DEFAULT_TARGETS, DEFAULT_RULES, DEFAULT_WEIGHTS, DEFAULT_MIN_SCORE, payableFenOf } = Solver;
+
+  // 预算默认值：快照里存的是 budgetFen（分），演示数据集用 budgetYuan
+  const defaultBudgetYuan = DATA.budgetFen ? Math.round(DATA.budgetFen / 100) : (DATA.budgetYuan || 30);
+
+  const FIELDS = [
+    { key: 'budgetYuan', label: '预算上限', min: 10, max: 80, step: 1, def: Math.min(80, Math.max(10, defaultBudgetYuan)), unit: ' 元' },
+    { key: 'kcal', label: '热量目标', min: 300, max: 1300, step: 10, def: (DATA.targets && DATA.targets.kcal) || 700, unit: ' kcal' },
+    { key: 'protein', label: '蛋白质下限', min: 5, max: 70, step: 1, def: (DATA.targets && DATA.targets.proteinG) || 30, unit: ' g' },
+    { key: 'sodium', label: '钠上限', min: 300, max: 2600, step: 50, def: (DATA.targets && DATA.targets.sodiumMaxMg) || 1200, unit: ' mg' },
+    { key: 'minScore', label: '营养合格门槛', min: 30, max: 95, step: 1, def: DEFAULT_MIN_SCORE, unit: ' 分' },
+    { key: 'perCategory', label: '每品类候选数', min: 3, max: 20, step: 1, def: 8, unit: ' 项' },
+  ];
+
+  const state = {};
+  for (const f of FIELDS) state[f.key] = f.def;
+
+  // 优先使用快照里「已经解析好的营养匹配结果」（含 query-meal-detail 拆解出的套餐营养），
+  // 这样网页版与命令行版口径一致；没有该字段时退化为按名称匹配。
+  const nutritionByItem = (function buildNutritionMap() {
+    const map = new Map();
+    if (Array.isArray(DATA.matches) && DATA.matches.length) {
+      const byCode = new Map(DATA.matches.map((m) => [String(m.code), m]));
+      for (const item of DATA.menu) {
+        const hit = byCode.get(String(item.code));
+        if (hit && hit.nutrition) {
+          map.set(item, { nutrition: hit.nutrition, matchType: hit.matchType, matchedName: hit.matchedName });
+        }
+      }
+      return map;
+    }
+    return matchNutrition(DATA.menu, DATA.nutrition);
+  })();
+  const usableCoupons = (DATA.coupons || []).filter((c) => c.usable);
+  const matched = [...nutritionByItem.values()].filter((v) => v.nutrition).length;
+
+  // ---- 数据来源信息
+  const badge = document.getElementById('mode-badge');
+  const isLive = DATA.mode === 'live';
+  badge.className = 'badge ' + (isLive ? 'snapshot' : 'demo');
+  badge.textContent = isLive ? '真实门店快照（官方 MCP）' : '演示数据（离线合成，非官方）';
+  const store = DATA.store || {};
+  document.getElementById('dataset-info').textContent =
+    '门店：' + (store.name || '—') + (store.code ? '（' + store.code + '）' : '')
+    + '　|　抓取时间：' + (DATA.generatedAt || '—')
+    + '　|　菜单 ' + DATA.menu.length + ' 项，营养匹配 ' + matched + ' 项，可用券 ' + usableCoupons.length + ' 张';
+
+  // ---- 控件
+  const controls = document.getElementById('controls');
+  controls.innerHTML = FIELDS.map((f) => (
+    '<div class="ctl">'
+    + '<label for="in-' + f.key + '">' + f.label + '<span class="val" id="v-' + f.key + '"></span></label>'
+    + '<div class="row">'
+    + '<input type="range" id="in-' + f.key + '" min="' + f.min + '" max="' + f.max + '" step="' + f.step + '">'
+    + '<input type="number" id="n-' + f.key + '" min="' + f.min + '" max="' + f.max + '" step="' + f.step + '">'
+    + '<span class="meta">' + f.unit.trim() + '</span>'
+    + '</div></div>'
+  )).join('');
+
+  function syncInputs() {
+    for (const f of FIELDS) {
+      const v = state[f.key];
+      document.getElementById('in-' + f.key).value = v;
+      document.getElementById('n-' + f.key).value = v;
+      document.getElementById('v-' + f.key).textContent = v + f.unit;
+    }
+  }
+
+  function bindInputs() {
+    for (const f of FIELDS) {
+      const range = document.getElementById('in-' + f.key);
+      const num = document.getElementById('n-' + f.key);
+      const set = (raw) => {
+        let v = Number(raw);
+        if (!Number.isFinite(v)) return;
+        v = Math.min(f.max, Math.max(f.min, v));
+        state[f.key] = v;
+        syncInputs();
+        render();
+      };
+      range.addEventListener('input', (e) => set(e.target.value));
+      num.addEventListener('change', (e) => set(e.target.value));
+    }
+    document.getElementById('reset').addEventListener('click', () => {
+      for (const f of FIELDS) state[f.key] = f.def;
+      syncInputs();
+      render();
+    });
+  }
+
+  // ---- 渲染
+  const CHECKS = [
+    ['热量在容差内', 'kcalInRange'],
+    ['蛋白达标', 'proteinMet'],
+    ['钠未超标', 'sodiumOk'],
+    ['脂肪未超标', 'fatOk'],
+  ];
+  const KIND_TITLE = {
+    valueBest: '双赢推荐（达标里券后最便宜）',
+    topScore: '营养上限（预算内最高分）',
+    cheapest: '省钱底线（券后实付最低）',
+  };
+
+  function num(v, unknown) { return unknown ? '—' : v; }
+
+  function cardHtml(plan, index) {
+    const t = plan.totals;
+    const items = plan.items.map((i) => (
+      '<li><span>' + esc(i.name) + '</span><span class="price">¥' + formatYuan(i.priceFen) + '</span></li>'
+    )).join('');
+    const cut = t.discountFen > 0
+      ? '　<span class="cut">券 −¥' + formatYuan(t.discountFen) + '</span>'
+        + '（券「' + esc(plan.coupon ? plan.coupon.name : '优惠券') + '」）'
+      : '　<span class="meta">未用券</span>';
+    const costRatio = state.budgetYuan > 0 ? payableFenOf(plan) / (state.budgetYuan * 100) : 0;
+    const checks = CHECKS.map(([label, key]) => {
+      const v = plan.checks[key];
+      const cls = v === true ? 'ok' : v === false ? 'no' : 'unknown';
+      const mark = v === true ? '✓' : v === false ? '✗' : '?';
+      return '<span class="' + cls + '">' + mark + ' ' + label + (v === null ? '（数据未知）' : '') + '</span>';
+    }).join('');
+    const unknownTag = t.unknownItems > 0 ? '　<span class="tag">营养未知 ' + t.unknownItems + ' 项</span>' : '';
+    return '<div class="card' + (index === 0 ? ' first' : '') + '">'
+      + '<div class="bar-left"></div>'
+      + '<div class="card-head"><h3>' + (KIND_TITLE[plan.kind] || ('方案 ' + (index + 1))) + '</h3>'
+      + '<span class="pill ' + (plan.score >= state.minScore ? 'good' : 'warn') + '">营养 ' + plan.score + ' 分</span></div>'
+      + '<ul class="items">' + items + '</ul>'
+      + '<p class="paid">券后实付 ¥' + formatYuan(t.payableFen) + '　<span class="meta">（菜单价 ¥' + formatYuan(t.priceFen) + '）</span>' + cut + unknownTag + '</p>'
+      + '<div class="nums">' + num(t.energyKcal, t.unknown && t.unknown.energy) + ' kcal　·　蛋白 '
+      + num(t.proteinG, t.unknown && t.unknown.protein) + ' g　·　脂肪 '
+      + num(t.fatG, t.unknown && t.unknown.fat) + ' g　·　钠 '
+      + num(t.sodiumMg, t.unknown && t.unknown.sodium) + ' mg</div>'
+      + '<div class="meters">'
+      + '<div class="meter"><span>预算占用</span><span class="track"><span class="fill ' + (costRatio > 1 ? 'bad' : '') + '" style="width:' + Math.min(100, Math.round(costRatio * 100)) + '%"></span></span><span class="num">' + Math.round(costRatio * 100) + '%</span></div>'
+      + '<div class="meter"><span>营养得分</span><span class="track"><span class="fill good" style="width:' + Math.round(plan.score) + '%"></span></span><span class="num">' + plan.score + '/100</span></div>'
+      + '</div>'
+      + '<div class="checks">' + checks + '</div>'
+      + '</div>';
+  }
+
+  function chartHtml(plans, paretoFront, recommendations) {
+    const W = 1000, H = 300, padL = 62, padR = 24, padT = 20, padB = 44;
+    const plot = { x: padL, y: padT, w: W - padL - padR, h: H - padT - padB };
+    if (!plans.length) return '<p class="meta">预算内没有可行组合，请提高预算或放宽营养目标。</p>';
+    const cost = (p) => payableFenOf(p) / 100;
+    const costs = plans.map(cost);
+    const scores = plans.map((p) => p.score);
+    const minC = Math.min.apply(null, costs.concat([0]));
+    const maxC = Math.max.apply(null, costs.concat([minC + 1]));
+    const minS = Math.min.apply(null, scores.concat([0]));
+    const maxS = Math.max.apply(null, scores.concat([minS + 1]));
+    const X = (c) => plot.x + ((c - minC) / (maxC - minC || 1)) * plot.w;
+    const Y = (s) => plot.y + plot.h - ((s - minS) / (maxS - minS || 1)) * plot.h;
+    let g = '';
+    for (let i = 0; i <= 4; i += 1) {
+      const gy = plot.y + (plot.h / 4) * i;
+      const val = Math.round(maxS - ((maxS - minS) / 4) * i);
+      g += '<line x1="' + plot.x + '" y1="' + gy + '" x2="' + (plot.x + plot.w) + '" y2="' + gy + '" stroke="#EDEDED"/>';
+      g += '<text x="' + (plot.x - 10) + '" y="' + (gy + 4) + '" font-size="11" fill="#6B6B6B" text-anchor="end">' + val + '</text>';
+    }
+    for (let i = 0; i <= 4; i += 1) {
+      const gx = plot.x + (plot.w / 4) * i;
+      const val = (minC + ((maxC - minC) / 4) * i).toFixed(1);
+      g += '<line x1="' + gx + '" y1="' + plot.y + '" x2="' + gx + '" y2="' + (plot.y + plot.h) + '" stroke="#F5F5F5"/>';
+      g += '<text x="' + gx + '" y="' + (plot.y + plot.h + 20) + '" font-size="11" fill="#6B6B6B" text-anchor="middle">¥' + val + '</text>';
+    }
+    for (const p of plans) {
+      g += '<circle cx="' + X(cost(p)).toFixed(1) + '" cy="' + Y(p.score).toFixed(1) + '" r="3" fill="#2E5AAC" opacity="0.32"/>';
+    }
+    const front = paretoFront.slice().sort((a, b) => payableFenOf(a) - payableFenOf(b));
+    for (let i = 1; i < front.length; i += 1) {
+      g += '<line x1="' + X(cost(front[i - 1])).toFixed(1) + '" y1="' + Y(front[i - 1].score).toFixed(1)
+        + '" x2="' + X(cost(front[i])).toFixed(1) + '" y2="' + Y(front[i].score).toFixed(1) + '" stroke="#DA291C" stroke-width="2"/>';
+    }
+    for (const p of front) {
+      g += '<circle cx="' + X(cost(p)).toFixed(1) + '" cy="' + Y(p.score).toFixed(1) + '" r="4.5" fill="#DA291C"/>';
+    }
+    for (let i = 0; i < recommendations.length; i += 1) {
+      const p = recommendations[i];
+      const px = X(cost(p)), py = Y(p.score);
+      // 标签贴边会被裁掉，这里把文字锚点夹在绘图区内
+      const lx = Math.min(plot.x + plot.w - 34, Math.max(plot.x + 34, px));
+      g += '<circle cx="' + px.toFixed(1) + '" cy="' + py.toFixed(1) + '" r="8" fill="none" stroke="#DA291C" stroke-width="2"/>';
+      g += '<text x="' + lx.toFixed(1) + '" y="' + (py - 14).toFixed(1) + '" font-size="12" font-weight="700" fill="#DA291C" text-anchor="middle">'
+        + esc((KIND_TITLE[p.kind] || '').replace(/（.*/, '')) + '</text>';
+    }
+    g += '<text x="' + (plot.x + plot.w / 2) + '" y="' + (plot.y + plot.h + 40) + '" font-size="12" fill="#6B6B6B" text-anchor="middle">券后实付（元）</text>';
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="帕累托前沿散点图">' + g + '</svg>';
+  }
+
+  function couponsHtml() {
+    const all = DATA.coupons || [];
+    if (!all.length) return '<p class="meta">本次未查询到可用优惠券。</p>';
+    const rows = all.map((c) => {
+      let desc;
+      if (c.usable) {
+        desc = (c.couponPriceFen > 0)
+          ? '指定商品用券价 ¥' + formatYuan(c.couponPriceFen) + '（已定位商品 ' + esc(c.appliesToCode || '') + '）'
+          : (c.thresholdFen ? '满 ¥' + formatYuan(c.thresholdFen) + ' ' : '无门槛 ') + '减 ¥' + formatYuan(c.discountFen);
+      } else {
+        desc = c.excludedReason || '面额/规则无法量化';
+      }
+      const tagCls = c.usable ? 'tag on' : 'tag off';
+      const tagTxt = c.usable ? '计入优惠' : '不计入优惠';
+      return '<tr><td>' + esc(c.name || c.id) + '</td><td>' + esc(desc) + '</td>'
+        + '<td><span class="' + tagCls + '">' + tagTxt + '</span></td>'
+        + '<td class="meta">' + esc(c.source || '—') + '</td></tr>';
+    }).join('');
+    return '<table><thead><tr><th>券</th><th>优惠内容</th><th>是否计入</th><th>来源工具</th></tr></thead><tbody>'
+      + rows + '</tbody></table>';
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+  }
+
+  function render() {
+    const result = solve({
+      items: DATA.menu,
+      nutritionByItem: nutritionByItem,
+      targets: {
+        ...DEFAULT_TARGETS,
+        kcal: state.kcal,
+        proteinG: state.protein,
+        sodiumMaxMg: state.sodium,
+      },
+      budgetFen: state.budgetYuan * 100,
+      rules: DEFAULT_RULES,
+      weights: DEFAULT_WEIGHTS,
+      minScore: state.minScore,
+      perCategory: state.perCategory,
+      coupons: usableCoupons,
+    });
+
+    const s = result.stats;
+    document.getElementById('search-space').textContent =
+      '搜索空间：菜单 ' + DATA.menu.length + ' 项 → 候选 ' + s.candidateCount + ' 项 → 枚举 '
+      + s.totalPlans + ' 个方案 → 预算内 ' + s.withinBudget + ' 个 → 达标 ' + s.qualifying
+      + ' 个　（裁剪后枚举，非全量穷举）';
+
+    const cards = document.getElementById('cards');
+    const hint = document.getElementById('cards-hint');
+    if (!result.recommendations.length) {
+      const reason = s.withinBudget === 0
+        ? '预算内没有可行组合：请提高预算或放宽营养目标。'
+        : '没有方案达到营养门槛：可适当降低"营养合格门槛"，或放宽热量/蛋白/钠目标。';
+      cards.innerHTML = '<p class="meta">' + reason + '</p>';
+      hint.textContent = '';
+    } else {
+      hint.textContent = '成本口径为「券后实付」；预算卡的是「券前菜单价合计」，避免为凑券而超支。';
+      cards.innerHTML = result.recommendations.map((p, i) => cardHtml(p, i)).join('');
+    }
+
+    document.getElementById('chart').innerHTML = chartHtml(result.plans, result.pareto, result.recommendations);
+    document.getElementById('coupons').innerHTML = couponsHtml();
+
+    const notes = (DATA.dataNotes || []).concat([
+      '营养得分是自定义序数指标（热量贴合 40% + 蛋白达成 45% + 脂肪控制 15% − 钠超标惩罚），不代表营养学优劣。',
+      '营养匹配不上的餐品不参与营养类优化（不猜数），但仍可进入「省钱底线」并标注营养未知。',
+      '本项目为「麦当劳程序员创意开发大赛」参赛作品，非麦当劳官方产品；餐品信息、价格与供应以官方渠道实时结果为准。',
+      '本页不构成医疗、营养或任何专业建议。',
+    ]);
+    document.getElementById('notes').innerHTML = notes.map((n) => '<li>' + esc(n) + '</li>').join('');
+  }
+
+  syncInputs();
+  bindInputs();
+  render();
+})();
+</script>
+</body>
+</html>

@@ -9,7 +9,7 @@
 ![Node](https://img.shields.io/badge/Node.js-%E2%89%A520-339933?logo=node.js&logoColor=white)
 ![dependencies](https://img.shields.io/badge/dependencies-0-blue)
 ![read--only](https://img.shields.io/badge/MCP-%E5%8F%AA%E8%AF%BB%E4%B8%8D%E4%B8%8B%E5%8D%95-success)
-![tests](https://img.shields.io/badge/tests-50%20passed-brightgreen)
+![tests](https://img.shields.io/badge/tests-59%20passed-brightgreen)
 
 </div>
 
@@ -22,6 +22,7 @@
 - [它到底算了什么](#它到底算了什么)
 - [快速开始](#快速开始)
 - [使用示例](#使用示例)
+- [在线网页演示](#在线网页演示)
 - [目标用户](#目标用户)
 - [用到了哪些麦当劳 MCP 工具](#用到了哪些麦当劳-mcp-工具)
 - [工程实践](#工程实践)
@@ -146,6 +147,35 @@ node bin/mcd-dual.mjs plan --demo --budget 30 --quiet --json out/result.json
 node bin/mcd-dual.mjs doctor --dump-schema out/tools-schema.json
 ```
 
+## 在线网页演示
+
+不想装 Node、也不想申请 Token？直接双击打开 [`web/index.html`](web/index.html) 即可。
+
+它是一个**零依赖、可离线打开的单文件网页**：把数据集与求解器全部内联进 HTML，打开后拖滑块调预算与
+营养目标，实时重算三个结论与帕累托前沿——不需要服务器、不需要联网、不需要 `npm install`。
+
+| 文件 | 内容 | 数据来源 |
+|---|---|---|
+| [`web/index.html`](web/index.html) | **真实门店快照**（成都春熙路联升巷店，118 品） | 2026-10-09 实时 MCP 抓取，Token 已剥离 |
+| [`web/demo.html`](web/demo.html) | 合成演示数据版（可在无快照时快速预览） | 内置演示数据 |
+
+> 网页里跑的是 `src/normalize.mjs` / `src/solver.mjs` 的**同一份代码**（生成时把 `import/export`
+> 剥掉包成 IIFE），不是另写一份"网页版算法"——所以网页结论与命令行**完全同口径**：
+> 118 项菜单 → 89 候选 → 275,040 方案 → 480 预算内 → 53 达标，与 CLI 输出的数字逐一对得上。
+
+自行用最新数据重新生成（需要 Token）：
+
+```bash
+# 1) 抓一份真实门店快照（Token 只从环境变量读，不会写进快照）
+node bin/mcd-dual.mjs plan --budget 40 --city 成都 --store 春熙路 --dump-data examples/live-snapshot.json
+
+# 2) 用快照生成单文件网页
+node tools/build-web-demo.mjs --data examples/live-snapshot.json --out web/index.html
+
+# 或者直接用内置演示数据生成
+node tools/build-web-demo.mjs --out web/demo.html --title "麦麦双赢（演示数据）"
+```
+
 ## 目标用户
 
 - **健身 / 控体重的麦当劳常客**：想在热量和蛋白质上有把握，又不想放弃吃麦当劳；
@@ -181,7 +211,7 @@ node bin/mcd-dual.mjs doctor --dump-schema out/tools-schema.json
   有一条单元测试会扫描整个仓库，确保没有任何文件包含形似真实 Token 的字符串。
 - **失败不伪装**：实时模式任何一步失败都直接报错并给出可操作提示，**绝不静默降级成演示数据**——
   「看起来像真数据的假数据」是这类工具最危险的失败方式。
-- **可复现**：54 个单元测试覆盖单位推断、名称匹配、约束求解、帕累托前沿、券后实付排序、渲染转义与安全边界；
+- **可复现**：59 个单元测试覆盖单位推断、名称匹配、约束求解、帕累托前沿、券后实付排序、渲染转义与安全边界；
   相同输入两次求解结果完全一致。
 
 ```bash
@@ -192,12 +222,12 @@ npm test        # 或 node --test（自动发现 tests/ 下用例）
 
 诚实比漂亮重要，这一节请务必读完：
 
-- **真实 Token 联调**：✅ 已于 2026-10-09 用真实 Token 完成（成都春熙路门店，116 品，官方验价一致），
+- **真实 Token 联调**：✅ 已于 2026-10-09 用真实 Token 完成（成都春熙路门店，118 品，官方验价一致），
   逐项结果见 [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md)。你用自己的 Token 复现时直接跑 `doctor` 即可。
 - **候选集是裁剪后枚举，不是全量穷举**。裁剪规模会写在战报里；想更接近穷举请调大 `--per-category`。
 - **营养匹配依赖名称**。官方营养库（160 条）与门店菜单的商品名不完全一致时会出现匹配失败
-  （实测匹配率 73/116），这类餐品会被排除而不是估算。套餐营养由组成项累加得到，可能与官方口径有差异。
-- **首次实时求解需逐品调用官方算价**（116 品门店约 140 次请求、约 20 秒），这是官方
+  （实测匹配率 73/118），这类餐品会被排除而不是估算。套餐营养由组成项累加得到，可能与官方口径有差异。
+- **首次实时求解需逐品调用官方算价**（118 品门店约 140 次请求、约 20 秒），这是官方
   `query-meals` 不返回名称与价格造成的固有成本，不是低效实现；**菜单与算价结果按门店缓存 30 分钟**
   （`--no-cache` 可强制刷新，`--cache-ttl` 可调整），TTL 内二次求解只发个位数请求、秒级返回。
 - **优惠券只对语义明确的形态计费**：官方券主要是「指定商品用券价」（如"某餐品 9.9 元"），
@@ -215,14 +245,21 @@ npm test        # 或 node --test（自动发现 tests/ 下用例）
 │   ├── mcp-client.mjs          # 零依赖 MCP Streamable HTTP 客户端（限流 + 脱敏 + 错误分类）
 │   ├── tools.mjs               # 工具白名单与参数自适应映射
 │   ├── normalize.mjs           # 字段/单位容错归一化与营养名称匹配
-│   ├── solver.mjs              # 双目标求解器：约束枚举 + 营养得分 + 帕累托前沿
+│   ├── solver.mjs              # 双目标求解器：约束枚举 + 营养得分 + 帕累托前沿 + 券后实付
 │   ├── pipeline.mjs            # 取数 → 匹配 → 求解 → 验价 的编排
+│   ├── cache.mjs               # 菜单/算价本地缓存（按门店，TTL 30 分钟）
 │   ├── report.mjs              # 自包含 SVG 战报渲染（含 CJK 折行排版）
 │   └── demo-data.mjs           # 离线合成演示数据（显著标注非官方）
+├── tools/
+│   ├── build-web-demo.mjs      # 单文件网页 demo 生成器（内联求解器，零依赖）
+│   └── web-demo-template.html  # 网页模板（滑块调参 + 实时重算）
+├── web/
+│   ├── index.html              # 真实门店快照版单文件网页
+│   └── demo.html               # 演示数据版单文件网页
 ├── skills/mcd-dual-planner/    # WorkBuddy Skill
-├── tests/                      # 54 个单元测试
+├── tests/                      # 59 个单元测试
 ├── docs/                       # 架构、求解器模型、验收记录
-├── examples/                   # 示例战报与结果 JSON
+├── examples/                   # 示例战报、结果 JSON 与真实门店快照
 ├── CONTEST_DECLARATION.md      # 参赛声明（官方原文，未改动）
 └── MCP_INTEGRATION.md          # MCP 集成说明（工具、流程、业务价值）
 ```
