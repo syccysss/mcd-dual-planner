@@ -10,13 +10,15 @@
 ┌───────────────▼─────────────────────────────────────────────┐
 │  src/pipeline.mjs          编排：取数 → 匹配 → 求解 → 验价     │
 │    ├── buildPlanDemo()     离线分支（读 demo-data.mjs）       │
-│    └── buildPlanLive()     实时分支（读 MCP）                 │
+│    ├── buildPlanLive()     实时分支（读 MCP）                 │
+│    └── cache.mjs           菜单+算价本地缓存（TTL 30 分钟）    │
 └───┬───────────┬───────────┬───────────┬─────────────────────┘
     │           │           │           │
     ▼           ▼           ▼           ▼
  mcp-client  tools.mjs   normalize   solver.mjs      report.mjs
  传输/限流    白名单+     字段/单位    约束枚举/        SVG 渲染
- 脱敏/错误    schema 映射  名称匹配     帕累托前沿       CJK 折行
+ 脱敏/错误    schema 映射  名称匹配     券后实付+        CJK 折行
+                                      帕累托前沿
                 │
                 ▼
         ┌───────────────┐

@@ -10,12 +10,13 @@
  * 这不是"随便推荐一个套餐"，而是一个带约束的组合优化问题：
  *   1) 先按品类裁剪候选集（最便宜 / 蛋白性价比最高 / 蛋白最高 / 钠最低 四个方向的并集），
  *      把空间压到可枚举规模，并把裁剪行为写进统计信息里，方便复核；
- *   2) 枚举满足品类规则的组合，用预算剪枝；
- *   3) 对每个组合计算"营养得分"（热量贴合 + 蛋白质达成 + 脂肪控制 − 钠超标惩罚）；
- *   4) 求 (实付, 得分) 的帕累托前沿，并给出三个可执行结论：
+ *   2) 枚举满足品类规则的组合，用预算剪枝（预算卡券前菜单价，避免为凑券超支）；
+ *   3) 对每个组合计算"营养得分"（热量贴合 + 蛋白质达成 + 脂肪控制 − 钠超标惩罚），
+ *      并对每个组合套用"门槛已满足里优惠最大的一张券"，得到券后实付；
+ *   4) 求 (券后实付, 得分) 的帕累托前沿，并给出三个可执行结论：
  *        营养上限 —— 预算内得分最高
- *        双赢推荐 —— 达到营养门槛的方案里最便宜的（"用最少的钱跨过门槛"）
- *        省钱底线 —— 绝对最便宜
+ *        双赢推荐 —— 达到营养门槛的方案里券后实付最低的（"用最少的钱跨过门槛"）
+ *        省钱底线 —— 券后实付最低
  *
  * 设计原则：所有"推断"都要能被复核。裁剪了多少、排除了多少、哪些餐品营养未知，
  * 全部通过 stats / excluded 字段返回，报告里如实呈现，绝不假装是穷举最优解。
@@ -63,6 +64,8 @@ export function sumPlan(items, nutritionByItem) {
     calciumMg: 0,
     unknownFields: 0,
     unknownItems: 0,
+    // 字段级缺失标记：任一餐品缺该字段即为 true（用于显示与达标判断，缺失 ≠ 0）
+    unknown: { energy: false, protein: false, fat: false, carb: false, sodium: false },
   };
 
   for (const item of items) {
@@ -71,6 +74,11 @@ export function sumPlan(items, nutritionByItem) {
     const nutrition = entry?.nutrition ?? null;
     if (!nutrition) {
       totals.unknownItems += 1;
+      totals.unknown.energy = true;
+      totals.unknown.protein = true;
+      totals.unknown.fat = true;
+      totals.unknown.carb = true;
+      totals.unknown.sodium = true;
       continue;
     }
     let known = 0;
@@ -81,6 +89,8 @@ export function sumPlan(items, nutritionByItem) {
         known += 1;
       } else {
         totals.unknownFields += 1;
+        totals.unknown[field === 'energyKcal' ? 'energy' : field === 'proteinG' ? 'protein'
+          : field === 'fatG' ? 'fat' : field === 'carbG' ? 'carb' : 'sodium'] = true;
       }
     }
     if (nutrition.calciumMg !== null && nutrition.calciumMg !== undefined) totals.calciumMg += nutrition.calciumMg;
@@ -137,21 +147,28 @@ export function scorePlan(totals, targets = DEFAULT_TARGETS, weights = DEFAULT_W
       fatMax: Math.round(fatMax * 10) / 10,
     },
     checks: {
-      kcalInRange: kcalDelta <= tolerance,
+      // 字段缺失时返回 null（未知），绝不把"没数据"当成"达标"
+      kcalInRange: totals.unknown?.energy ? null : kcalDelta <= tolerance,
       // 与用户设定的目标口径一致：28 g 对 30 g 的目标就是未达标，不做 90% 打折扣
-      proteinMet: totals.proteinG >= targetProtein,
-      sodiumOk: totals.sodiumMg <= sodiumMax,
-      fatOk: totals.fatG <= fatMax,
+      proteinMet: totals.unknown?.protein ? null : totals.proteinG >= targetProtein,
+      sodiumOk: totals.unknown?.sodium ? null : totals.sodiumMg <= sodiumMax,
+      fatOk: totals.unknown?.fat ? null : totals.fatG <= fatMax,
     },
   };
 }
 
 /**
- * 候选集裁剪：每个品类取四个方向的并集。
+ * 候选集裁剪：每个品类取四个方向的并集，另加「营养未知但便宜」方向（仅供省钱底线）。
  * 之所以要裁剪：全量枚举会到千万级组合，而 600 请求/分钟的官方限流意味着
  * 我们不可能对每个组合都调一次算价接口。裁剪是工程必然，关键是把它说清楚。
+ *
+ * 营养未知品（匹配不到官方营养数据的餐品）默认不参与营养类优化（不猜数），
+ * 但**必须**能参与「绝对最便宜」——否则"省钱底线"名不副实。
+ * 它们只按价格进入 cheapest-unknown 方向，数量受 unknownPerCategory 控制，
+ * 防止组合空间爆炸；其方案得分天然很低，不会误入营养类推荐。
  */
-export function selectCandidates(items, nutritionByItem, { perCategory = 8 } = {}) {
+export function selectCandidates(items, nutritionByItem, { perCategory = 8, unknownPerCategory = null } = {}) {
+  const unknownCap = unknownPerCategory ?? Math.min(perCategory, 6);
   const buckets = new Map();
   for (const item of items) {
     const category = item.category ?? '其他';
@@ -182,6 +199,7 @@ export function selectCandidates(items, nutritionByItem, { perCategory = 8 } = {
     });
 
     const withNutrition = scored.filter((s) => s.hasNutrition);
+    const withoutNutrition = scored.filter((s) => !s.hasNutrition);
     const chosen = new Map();
 
     const take = (list, key) => {
@@ -198,6 +216,8 @@ export function selectCandidates(items, nutritionByItem, { perCategory = 8 } = {
     take([...withNutrition]
       .filter((s) => s.sodium !== null)
       .sort((a, b) => a.sodium - b.sodium), 'sodium-least');
+    // 营养未知品：只按价格取最便宜的 unknownCap 个，供「省钱底线」使用
+    take([...withoutNutrition].sort((a, b) => a.priceFen - b.priceFen), 'cheapest-unknown');
 
     candidates.push(...chosen.keys());
     stats.push({
@@ -205,29 +225,91 @@ export function selectCandidates(items, nutritionByItem, { perCategory = 8 } = {
       inMenu: bucket.length,
       withNutrition: withNutrition.length,
       kept: chosen.size,
-      excludedNoNutrition: bucket.length - withNutrition.length,
+      excludedNoNutrition: bucket.length - withNutrition.length - Math.min(withoutNutrition.length, unknownCap),
+      unknownKept: Math.min(withoutNutrition.length, unknownCap),
     });
   }
 
   return { candidates, stats };
 }
 
-/** 判断 a 是否支配 b（成本不高于 b 且得分不低于 b，且至少一项严格更优） */
-function dominates(a, b) {
-  return a.totals.priceFen <= b.totals.priceFen
-    && a.score >= b.score
-    && (a.totals.priceFen < b.totals.priceFen || a.score > b.score);
+/**
+ * 一个方案套用某张券能省多少钱（分）。官方券有两种形态，这里统一成一个"省多少"的口径：
+ *  ① 商品级用券价（`couponPriceFen` + `appliesToCode`）：
+ *     方案里含该商品时，省 = 该商品菜单价 − 用券价。用券价是官方明确给出的语义，可放心计算。
+ *  ② 订单级满减（`thresholdFen` + `discountFen`）：
+ *     门槛已满足才生效，省 = min(面额, 订单合计)，且不会把订单减成负数。
+ *  面额型券（第二份半价等）不在此列——语义与数量相关，硬当减免会算错，故返回 0 并如实标注"未量化"。
+ */
+export function couponSaving(coupon, planItems) {
+  if (!coupon || !Array.isArray(planItems) || planItems.length === 0) return 0;
+  const totalFen = planItems.reduce((sum, i) => sum + (i.priceFen ?? 0), 0);
+
+  if (coupon.couponPriceFen !== null && coupon.couponPriceFen !== undefined
+    && coupon.couponPriceFen > 0 && coupon.appliesToCode) {
+    const target = planItems.find((i) => i.code === coupon.appliesToCode);
+    return target ? Math.max(0, (target.priceFen ?? 0) - coupon.couponPriceFen) : 0;
+  }
+
+  const face = coupon.discountFen ?? 0;
+  if (face > 0 && (coupon.thresholdFen ?? 0) <= totalFen) return Math.min(face, totalFen);
+  return 0;
 }
 
-/** 帕累托前沿：按价格升序，保留得分严格变高的点 */
+/** 为一个方案挑出"省得最多"的那张券（同一订单只核销一张）；无券可用返回 null */
+export function pickBestCouponForPlan(coupons, planItems) {
+  let best = null;
+  let bestSaving = 0;
+  for (const coupon of coupons) {
+    const saving = couponSaving(coupon, planItems);
+    if (saving > bestSaving) {
+      bestSaving = saving;
+      best = coupon;
+    }
+  }
+  return best;
+}
+
+/**
+ * 选一张门槛已满足、优惠最大的券（订单级满减口径）。
+ * 保留给只关心"订单级满减"的调用方（CLI / 测试）；
+ * 求解器内部走的是 plan 感知的 `pickBestCouponForPlan`。
+ */
+export function pickBestCoupon(coupons, priceFen) {
+  if (!Array.isArray(coupons) || coupons.length === 0) return null;
+  const usable = coupons.filter((c) => (c.thresholdFen ?? 0) <= priceFen && (c.discountFen ?? 0) > 0);
+  if (usable.length === 0) return null;
+  return usable.sort((a, b) => b.discountFen - a.discountFen)[0];
+}
+
+/**
+ * 方案成本口径：券后实付（分）。
+ * 优惠券只有在"券后实付更低"时才有意义，所以目标函数里的"成本"一律取券后实付；
+ * 无券（或旧数据没带 payableFen）时退化为菜单价合计，保证向后兼容。
+ */
+export function payableFenOf(plan) {
+  const t = plan?.totals ?? {};
+  return typeof t.payableFen === 'number' ? t.payableFen : (t.priceFen ?? 0);
+}
+
+/** 判断 a 是否支配 b（券后实付不高于 b 且得分不低于 b，且至少一项严格更优） */
+function dominates(a, b) {
+  const ca = payableFenOf(a);
+  const cb = payableFenOf(b);
+  return ca <= cb
+    && a.score >= b.score
+    && (ca < cb || a.score > b.score);
+}
+
+/** 帕累托前沿：按券后实付升序，保留得分严格变高的点 */
 export function paretoFront(plans) {
-  const sorted = [...plans].sort((a, b) => a.totals.priceFen - b.totals.priceFen || b.score - a.score);
+  const sorted = [...plans].sort((a, b) => payableFenOf(a) - payableFenOf(b) || b.score - a.score);
   const front = [];
   let bestScore = -Infinity;
   for (const plan of sorted) {
     if (plan.score > bestScore) {
       // 去掉被同价更低分支配的点
-      while (front.length && front[front.length - 1].totals.priceFen === plan.totals.priceFen) front.pop();
+      while (front.length && payableFenOf(front[front.length - 1]) === payableFenOf(plan)) front.pop();
       front.push(plan);
       bestScore = plan.score;
     }
@@ -253,7 +335,9 @@ export function solve({
   minScore = DEFAULT_MIN_SCORE,
   perCategory = 8,
   maxResults = 200,
+  coupons = [],
 } = {}) {
+  const couponList = Array.isArray(coupons) ? coupons : [];
   const { candidates, stats: candidateStats } = selectCandidates(items, nutritionByItem, { perCategory });
 
   const byCategory = new Map();
@@ -290,6 +374,12 @@ export function solve({
       const planItems = [...chosen];
       const totals = sumPlan(planItems, nutritionByItem);
       const scored = scorePlan(totals, targets, weights);
+      // 券进入目标：对每个方案挑"省得最多"的一张券（商品级用券价或订单级满减），
+      // 成本口径落到券后实付，这样"省钱"才是用户实际要掏的钱。
+      const coupon = couponList.length ? pickBestCouponForPlan(couponList, planItems) : null;
+      const discountFen = coupon ? couponSaving(coupon, planItems) : 0;
+      totals.discountFen = discountFen;
+      totals.payableFen = Math.max(0, totals.priceFen - discountFen);
       enumerated += 1;
       plans.push({
         items: planItems,
@@ -298,6 +388,9 @@ export function solve({
         parts: scored.parts,
         checks: scored.checks,
         derived: scored.derived,
+        coupon,
+        discountFen,
+        payableFen: totals.payableFen,
       });
 
       if (plans.length > HARD_PLAN_LIMIT) truncated = true;
@@ -341,21 +434,25 @@ export function solve({
 
   rec(0, 0, {});
 
+  // 预算口径说明：预算卡的是「券前菜单价」（避免为了凑满减券而超支），
+  // 而三个结论的择优一律按「券后实付」排序 —— 用户真正关心的是掏多少钱。
   const withinBudget = budgetFen === undefined || budgetFen === null
     ? plans
     : plans.filter((p) => p.totals.priceFen <= budgetFen);
 
-  const ranked = [...withinBudget].sort((a, b) => b.score - a.score || a.totals.priceFen - b.totals.priceFen);
+  const byCost = (a, b) => payableFenOf(a) - payableFenOf(b)
+    || a.totals.priceFen - b.totals.priceFen
+    || b.score - a.score;
+
+  const ranked = [...withinBudget].sort(
+    (a, b) => b.score - a.score || payableFenOf(a) - payableFenOf(b) || a.totals.priceFen - b.totals.priceFen,
+  );
   const pareto = paretoFront(withinBudget);
 
   const qualifying = withinBudget.filter((p) => p.score >= minScore);
-  const valueBest = [...qualifying].sort(
-    (a, b) => a.totals.priceFen - b.totals.priceFen || b.score - a.score,
-  )[0] ?? null;
+  const valueBest = [...qualifying].sort(byCost)[0] ?? null;
 
-  const cheapest = [...withinBudget].sort(
-    (a, b) => a.totals.priceFen - b.totals.priceFen || b.score - a.score,
-  )[0] ?? null;
+  const cheapest = [...withinBudget].sort(byCost)[0] ?? null;
 
   // 推荐顺序：双赢（达标最便宜） → 预算内最优 → 绝对最便宜，去重后取前 N
   // 每个推荐携带自己的 kind，展示层按 kind 取标题，而不是按数组下标猜角色
@@ -388,6 +485,9 @@ export function solve({
       budgetFen: budgetFen ?? null,
       minScore,
       perCategory,
+      couponCount: couponList.length,
+      couponApplied: withinBudget.filter((p) => (p.discountFen ?? 0) > 0).length,
+      costBasis: '菜单价过滤预算，券后实付排序',
       dominanceNote: '候选集裁剪后枚举，非全量穷举；裁剪规模见 candidateStats。',
     },
   };

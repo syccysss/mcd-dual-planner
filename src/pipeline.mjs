@@ -11,8 +11,9 @@
  */
 
 import { normalizeCoupons, normalizeNutrition, normalizePrice, normalizeStores,
-  matchNutrition, sanityCheckMenu, nameKey, inferCategory } from './normalize.mjs';
-import { solve, DEFAULT_RULES, DEFAULT_TARGETS, DEFAULT_WEIGHTS, DEFAULT_MIN_SCORE } from './solver.mjs';
+  matchNutrition, sanityCheckMenu, nameKey, inferCategory, mergeCoupon } from './normalize.mjs';
+import { cacheLoad, cacheSave } from './cache.mjs';
+import { solve, pickBestCoupon, DEFAULT_RULES, DEFAULT_TARGETS, DEFAULT_WEIGHTS, DEFAULT_MIN_SCORE } from './solver.mjs';
 import { ToolRegistry, summarizeCalls, mapParams } from './tools.mjs';
 import { demoDataset } from './demo-data.mjs';
 
@@ -58,6 +59,7 @@ export function buildPlanDemo(options = {}) {
     weights: solverOptions.weights,
     minScore: solverOptions.minScore,
     perCategory: solverOptions.perCategory,
+    coupons: dataset.coupons,
   });
 
   const matched = [...nutritionByItem.values()].filter((v) => v.nutrition).length;
@@ -79,7 +81,10 @@ export function buildPlanDemo(options = {}) {
       unmatched: dataset.menu.length - matched,
     },
     coupons: dataset.coupons,
-    dataNotes: dataset.warnings,
+    dataNotes: [
+      ...dataset.warnings,
+      '口径：预算卡券前菜单价，三个结论按券后实付排序；券按「订单级满减」估算（不区分商品适用范围）。',
+    ],
     priceVerification: null,
   };
 }
@@ -134,61 +139,79 @@ export async function buildPlanLive(registry, options = {}) {
   if (!store.code) throw new Error('门店返回中缺少门店编码，无法继续查询菜单。');
 
   // 3) 菜单编码清单：官方 query-meals 只返回商品编码与标签，名称与价格需逐品调用官方算价
-  const menuTool = registry.schema('query-meals');
-  if (!menuTool) throw new Error('当前 MCP 服务未暴露 query-meals，无法获取菜单。');
-  const menuParams = mapParams(menuTool, [
-    { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
-    { keys: ['beType'], value: options.beType ?? 1 },
-    { keys: ['orderType'], value: options.orderType ?? 1 },
-  ]);
-  const menuRes = await registry.call('query-meals', menuParams.args);
-  toolsUsed.push('query-meals');
-  const menuEntries = extractMenuCodes(menuRes.data ?? menuRes.raw);
-  if (menuEntries.length === 0) {
-    throw new Error('菜单为空：可能是门店编码或取餐方式（beType）不匹配，请核对后重试。');
-  }
-
-  // 4) 逐品算价：官方 calculate-price 一次返回 productName 与单价，同时补齐名称与价格
-  const priceTool = registry.schema('calculate-price');
-  if (!priceTool) throw new Error('当前 MCP 服务未暴露 calculate-price，无法获取餐品名称与价格。');
-  const menuItems = [];
+  //    两步整体可走本地缓存（TTL 内复用，二次求解从 140 次请求降到个位数）
+  const cacheParams = { storeCode: store.code, beType: options.beType ?? 1, orderType: options.orderType ?? 1 };
+  let menuItems = null;
   let pricingFailed = 0;
-  for (const entry of menuEntries) {
-    try {
-      const priceGroups = [
-        { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
-        { keys: ['beType'], value: options.beType ?? 1 },
-        { keys: ['orderType'], value: options.orderType ?? 1 },
-        { keys: ['products', 'meals', 'items', 'productList', 'cart'], value: [{ productCode: entry.code, quantity: 1 }] },
-      ];
-      const priceParams = mapParams(priceTool, priceGroups);
-      const priceRes = await registry.call('calculate-price', priceParams.args);
-      const priced = normalizePrice(priceRes.data ?? priceRes.raw);
-      const line = priced?.lines?.[0];
-      if (line && priced.totalFen !== null) {
-        const { category, inferred } = inferCategory(line.name);
-        menuItems.push({
-          code: entry.code,
-          name: line.name,
-          priceFen: priced.totalFen,
-          priceSource: 'official-calculate-price',
-          category,
-          categoryInferred: inferred,
-          rawCategory: entry.cat ?? null,
-          tags: entry.tags ?? [],
-        });
-      } else {
-        pricingFailed += 1;
-      }
-    } catch {
-      pricingFailed += 1; // 单品售罄/不可售（官方错误码 60006）或网络抖动：跳过该品，不影响整体
+  if (options.cache !== false) {
+    const hit = await cacheLoad(cacheParams, { ttlMs: options.cacheTtlMs ?? 30 * 60 * 1000 });
+    if (hit) {
+      menuItems = hit.menu;
+      pricingFailed = hit.pricingFailed;
+      const when = new Date(hit.savedAt).toLocaleString('zh-CN', { hour12: false });
+      dataNotes.push(`菜单复用本地缓存（${when} 抓取，TTL 内未消耗额外请求；--no-cache 可强制刷新）。`);
     }
   }
-  toolsUsed.push('calculate-price');
-  if (menuItems.length === 0) {
-    throw new Error('菜单中所有商品都无法取得官方算价，请换一家门店或调整取餐方式后重试。');
+
+  if (!menuItems) {
+    const menuTool = registry.schema('query-meals');
+    if (!menuTool) throw new Error('当前 MCP 服务未暴露 query-meals，无法获取菜单。');
+    const menuParams = mapParams(menuTool, [
+      { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
+      { keys: ['beType'], value: options.beType ?? 1 },
+      { keys: ['orderType'], value: options.orderType ?? 1 },
+    ]);
+    const menuRes = await registry.call('query-meals', menuParams.args);
+    toolsUsed.push('query-meals');
+    const menuEntries = extractMenuCodes(menuRes.data ?? menuRes.raw);
+    if (menuEntries.length === 0) {
+      throw new Error('菜单为空：可能是门店编码或取餐方式（beType）不匹配，请核对后重试。');
+    }
+
+    // 4) 逐品算价：官方 calculate-price 一次返回 productName 与单价，同时补齐名称与价格
+    const priceTool = registry.schema('calculate-price');
+    if (!priceTool) throw new Error('当前 MCP 服务未暴露 calculate-price，无法获取餐品名称与价格。');
+    menuItems = [];
+    for (const entry of menuEntries) {
+      try {
+        const priceGroups = [
+          { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
+          { keys: ['beType'], value: options.beType ?? 1 },
+          { keys: ['orderType'], value: options.orderType ?? 1 },
+          { keys: ['products', 'meals', 'items', 'productList', 'cart'], value: [{ productCode: entry.code, quantity: 1 }] },
+        ];
+        const priceParams = mapParams(priceTool, priceGroups);
+        const priceRes = await registry.call('calculate-price', priceParams.args);
+        const priced = normalizePrice(priceRes.data ?? priceRes.raw);
+        const line = priced?.lines?.[0];
+        if (line && priced.totalFen !== null) {
+          const { category, inferred } = inferCategory(line.name);
+          menuItems.push({
+            code: entry.code,
+            name: line.name,
+            priceFen: priced.totalFen,
+            priceSource: 'official-calculate-price',
+            category,
+            categoryInferred: inferred,
+            rawCategory: entry.cat ?? null,
+            tags: entry.tags ?? [],
+          });
+        } else {
+          pricingFailed += 1;
+        }
+      } catch {
+        pricingFailed += 1; // 单品售罄/不可售（官方错误码 60006）或网络抖动：跳过该品，不影响整体
+      }
+    }
+    toolsUsed.push('calculate-price');
+    if (menuItems.length === 0) {
+      throw new Error('菜单中所有商品都无法取得官方算价，请换一家门店或调整取餐方式后重试。');
+    }
+    if (options.cache !== false) {
+      await cacheSave(cacheParams, { menu: menuItems, pricingFailed }).catch(() => {});
+    }
   }
-  dataNotes.push(`菜单 ${menuEntries.length} 个编码中，${menuItems.length} 个取得官方算价（名称与单价），${pricingFailed} 个售罄/不可售已跳过。`);
+  dataNotes.push(`菜单 ${menuItems.length} 项参与计算（名称与单价均来自官方算价 calculate-price）${pricingFailed > 0 ? `；${pricingFailed} 个售罄/不可售已跳过` : ''}。`);
 
   // 4) 营养库
   const nutritionRes = await registry.call('list-nutrition-foods', {});
@@ -260,7 +283,45 @@ export async function buildPlanLive(registry, options = {}) {
       warnings.push(`查询优惠券 ${toolName} 失败：${err.message}`);
     }
   }
-  const uniqCoupons = [...new Map(coupons.map((c) => [c.id, c])).values()];
+  // 同一张券会同时出现在门店券（带适用商品）与卡包券（带用券价）里，按 id 合并而不是覆盖
+  const couponById = new Map();
+  for (const c of coupons) couponById.set(c.id, mergeCoupon(couponById.get(c.id), c));
+  const uniqCoupons = [...couponById.values()];
+
+  // 6.1) 券落到具体商品：官方券是「商品级用券价」，必须定位到方案里确实包含的商品才算数；
+  //      同时按当前取餐方式（beType / orderType）过滤掉用不了的券。
+  const beType = options.beType ?? 1;
+  const orderType = options.orderType ?? 1;
+  const menuCodeSet = new Set(menuItems.map((m) => String(m.code)));
+  const usableCoupons = [];
+  let unusableCoupon = 0;
+  let unquantifiedCoupon = 0;
+  for (const coupon of uniqCoupons) {
+    if (coupon.beTypes?.length && !coupon.beTypes.includes(beType)) { unusableCoupon += 1; continue; }
+    if (coupon.orderTypes?.length && !coupon.orderTypes.includes(orderType)) { unusableCoupon += 1; continue; }
+
+    if ((coupon.couponPriceFen ?? 0) > 0) {
+      // 适用商品：先用官方商品编码，拿不到再按名称匹配菜单（三态匹配的保守版）
+      let code = (coupon.targetCodes ?? []).find((c) => menuCodeSet.has(String(c))) ?? null;
+      if (!code) {
+        const key = nameKey(coupon.name);
+        const hit = key
+          ? menuItems.find((m) => nameKey(m.name) === key)
+            ?? menuItems.find((m) => nameKey(m.name) && (nameKey(m.name).includes(key) || key.includes(nameKey(m.name))))
+          : null;
+        code = hit?.code ?? null;
+      }
+      coupon.appliesToCode = code;
+      if (!code) { unquantifiedCoupon += 1; continue; }
+    } else if ((coupon.discountFen ?? 0) > 0) {
+      // 订单级满减：不需要定位商品
+    } else {
+      // 面额型 / 第二份半价等语义与数量相关，无法折成单一优惠额：不猜测，如实标注未量化
+      unquantifiedCoupon += 1;
+      continue;
+    }
+    usableCoupons.push(coupon);
+  }
 
   // 7) 求解
   const budgetFen = solverOptions.budgetFen
@@ -276,6 +337,7 @@ export async function buildPlanLive(registry, options = {}) {
     weights: solverOptions.weights,
     minScore: solverOptions.minScore,
     perCategory: solverOptions.perCategory,
+    coupons: usableCoupons,
   });
 
   // 8) 官方验价（只对推荐方案调用，控制请求量）
@@ -288,7 +350,8 @@ export async function buildPlanLive(registry, options = {}) {
       const label = KIND_LABELS[plan.kind] ?? `方案 ${String.fromCharCode(65 + i)}`;
       try {
         const tool = registry.schema('calculate-price');
-        const couponId = pickBestCoupon(uniqCoupons, plan.totals.priceFen);
+        // 券在求解阶段已选定并计入券后实付，这里把同一张券带给官方算价做核验
+        const couponId = plan.coupon ?? pickBestCoupon(uniqCoupons, plan.totals.priceFen);
         // 官方算价 items 的商品编码字段名是 productCode，不是 code
         const groups = [
           { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
@@ -305,8 +368,9 @@ export async function buildPlanLive(registry, options = {}) {
           index: i,
           label,
           localFen: plan.totals.priceFen,
+          localPayableFen: plan.totals.payableFen,
           officialFen: priced?.totalFen ?? null,
-          discountFen: priced?.discountFen ?? null,
+          discountFen: priced?.discountFen ?? plan.discountFen ?? null,
           couponName: couponId?.name ?? null,
         });
       } catch (err) {
@@ -320,14 +384,17 @@ export async function buildPlanLive(registry, options = {}) {
 
   // 9) 汇总口径说明
   const sanity = sanityCheckMenu(menuItems);
-  dataNotes.push(`菜单 ${menuItems.length} 项参与计算（名称与单价均来自官方算价 calculate-price）。`);
   if (matchStats.unmatched > 0) {
-    dataNotes.push(`有 ${matchStats.unmatched} 项餐品未匹配到官方营养数据，已排除在优化之外（不使用猜测值）。`);
+    dataNotes.push(`有 ${matchStats.unmatched} 项餐品未匹配到官方营养数据：营养类优化中排除（不使用猜测值），但仍可参与「省钱底线」并在方案中标注营养未知。`);
   }
+  dataNotes.push('口径：预算卡的是券前菜单价合计（避免为凑满减券而超支）；三个结论一律按券后实付排序。');
   if (uniqCoupons.length > 0) {
-    dataNotes.push(`发现 ${uniqCoupons.length} 张可用优惠券，仅用于估算优惠后金额；本项目不会自动领券。`);
+    dataNotes.push(`发现 ${uniqCoupons.length} 张可用券：${usableCoupons.length} 张可量化并已纳入方案择优`
+      + `${unquantifiedCoupon > 0 ? `，${unquantifiedCoupon} 张面额/规则无法量化（如第二份半价）不参与计算` : ''}`
+      + `${unusableCoupon > 0 ? `，${unusableCoupon} 张与当前取餐方式不匹配已排除` : ''}；本项目不会自动领券。`);
+    dataNotes.push('官方券多为「指定商品用券价」（如某餐品 9.9 元），本工具只在能定位到方案内具体商品时才计入优惠；定位不到的券宁可不算，也不猜一个金额。');
   } else {
-    dataNotes.push('本次未查询到可用优惠券，金额为未用券口径。');
+    dataNotes.push('本次未查询到可用优惠券，方案按菜单价口径排序（等价于券后实付）。');
   }
   dataNotes.push(...sanity, ...warnings);
 
@@ -446,9 +513,8 @@ function sumPartsNutrition(parts, nutritionByItem) {
   return acc;
 }
 
-/** 选一张门槛已满足、优惠最大的券（仅用于估算，不领券） */
-export function pickBestCoupon(coupons, priceFen) {
-  const usable = coupons.filter((c) => (c.thresholdFen ?? 0) <= priceFen && (c.discountFen ?? 0) > 0);
-  if (usable.length === 0) return null;
-  return usable.sort((a, b) => b.discountFen - a.discountFen)[0];
-}
+/**
+ * 选券：与求解器内使用的口径完全一致（同一订单只核销一张券，取门槛已满足里优惠最大的）。
+ * 保留此处导出是为了旧的调用方（CLI / 测试）仍能从这里引用。
+ */
+export { pickBestCoupon };

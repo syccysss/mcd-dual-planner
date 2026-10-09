@@ -87,11 +87,16 @@ export const DEMO_NUTRITION = [
   { name: '苹果派', energyKcal: 240, proteinG: 3, fatG: 11, carbG: 33, sodiumMg: 200, calciumMg: 20 },
 ];
 
-/** 演示优惠券 */
+/**
+ * 演示优惠券。
+ * 注意：这里只建模「订单级满减」（门槛 + 面额），不建模商品适用范围 ——
+ * 因为官方券的适用范围字段语义不透明，猜错会得出"券根本用不了"的假结论。
+ * 因此演示券一律是订单级，避免出现"甜品券套在纯汉堡订单上"这类自相矛盾的展示。
+ */
 export const DEMO_COUPONS = [
-  { id: 'DEMO-C1', name: '满 30 元减 5 元（演示券）', discountFen: 500, thresholdFen: 3000, expireAt: null, scope: 'demo' },
-  { id: 'DEMO-C2', name: '满 50 元减 12 元（演示券）', discountFen: 1200, thresholdFen: 5000, expireAt: null, scope: 'demo' },
-  { id: 'DEMO-C3', name: '甜品立减 3 元（演示券）', discountFen: 300, thresholdFen: 0, expireAt: null, scope: 'demo' },
+  { id: 'DEMO-C1', name: '满 30 元减 5 元（演示券）', discountFen: 500, thresholdFen: 3000, expireAt: null, scope: 'order' },
+  { id: 'DEMO-C2', name: '满 50 元减 12 元（演示券）', discountFen: 1200, thresholdFen: 5000, expireAt: null, scope: 'order' },
+  { id: 'DEMO-C3', name: '无门槛立减 3 元（演示券）', discountFen: 300, thresholdFen: 0, expireAt: null, scope: 'order' },
 ];
 
 export function demoDataset() {

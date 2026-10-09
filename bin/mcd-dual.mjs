@@ -48,6 +48,8 @@ plan 选项：
   --order-type <数字>        订单类型，1=到店（默认），2=外送
   --search-type <数字>       1=收藏餐厅，2=按城市+关键词搜索（默认）
   --combo-limit <数量>       最多拆解多少个套餐的营养，默认 12
+  --no-cache                 禁用本地菜单缓存（强制重新拉取菜单与逐品算价）
+  --cache-ttl <分钟>         菜单缓存有效期，默认 30（缓存文件在 ~/.mcd-dual/）
   --endpoint <URL>           MCP 端点，默认 https://mcp.mcd.cn
   --min-interval-ms <毫秒>   请求最小间隔，默认 120（官方限流 600/分钟）
   --timeout-ms <毫秒>        单请求超时，默认 30000
@@ -89,6 +91,22 @@ function fmtItemList(items) {
   return items.map((i) => `${i.name}（${formatYuan(i.priceFen, { withSymbol: true })}）`).join(' + ');
 }
 
+/** 券的一句话说明：区分「可量化并参与计算」与「无法量化、只展示」 */
+function describeCoupon(c) {
+  if ((c.couponPriceFen ?? 0) > 0) {
+    return c.appliesToCode
+      ? `${c.name}：指定商品用券价 ¥${formatYuan(c.couponPriceFen)}（已定位到商品 ${c.appliesToCode}，计入优惠）`
+      : `${c.name}：指定商品用券价 ¥${formatYuan(c.couponPriceFen)}（未定位到菜单商品，不计入优惠）`;
+  }
+  if ((c.discountFen ?? 0) > 0) {
+    return `${c.name}：${c.thresholdFen ? `满 ¥${formatYuan(c.thresholdFen)} ` : '无门槛 '}减 ¥${formatYuan(c.discountFen)}（计入优惠）`;
+  }
+  if ((c.faceValueFen ?? 0) > 0) {
+    return `${c.name}：面额 ¥${formatYuan(c.faceValueFen)}（第二份半价等规则无法量化，不计入优惠）`;
+  }
+  return `${c.name}：面额未返回（不计入优惠）`;
+}
+
 function printPlanSummary(result, { outPath, jsonPath }) {
   const mode = result.meta.mode === 'live' ? '实时数据（官方 MCP）' : '演示数据（离线合成，非官方结果）';
   const out = [];
@@ -105,18 +123,25 @@ function printPlanSummary(result, { outPath, jsonPath }) {
   out.push(line());
 
   const KIND_LABELS = {
-    valueBest: '双赢推荐（达标里最便宜）',
+    valueBest: '双赢推荐（达标里券后最便宜）',
     topScore: '营养上限（预算内最高分）',
-    cheapest: '省钱底线（绝对最便宜）',
+    cheapest: '省钱底线（券后实付最低）',
   };
   result.recommendations.forEach((plan) => {
     const t = plan.totals;
     out.push('');
     out.push(`  【${KIND_LABELS[plan.kind] ?? `方案 ${result.recommendations.indexOf(plan) + 1}`}】`);
     out.push(`    ${fmtItemList(plan.items)}`);
-    out.push(`    本地菜单价合计 ¥${formatYuan(t.priceFen)}　|　${t.energyKcal} kcal　|　蛋白 ${t.proteinG} g`
-      + `　|　脂肪 ${t.fatG} g　|　钠 ${t.sodiumMg} mg`);
-    const checks = Object.entries(plan.checks).map(([k, v]) => `${v ? '✓' : '✗'}${k}`).join(' ');
+    const num = (v, unknown) => (unknown ? '—' : v);
+    const unknownTag = t.unknownItems > 0 ? `（营养未知 ${t.unknownItems} 项，营养为部分合计）` : '';
+    const couponTag = (plan.discountFen ?? 0) > 0
+      ? `　|　券「${plan.coupon?.name ?? '优惠券'}」−¥${formatYuan(plan.discountFen)}　|　券后实付 ¥${formatYuan(t.payableFen)}`
+      : '　|　未用券';
+    out.push(`    菜单价合计 ¥${formatYuan(t.priceFen)}${couponTag}`);
+    out.push(`    ${num(t.energyKcal, t.unknown?.energy)} kcal`
+      + `　|　蛋白 ${num(t.proteinG, t.unknown?.protein)} g　|　脂肪 ${num(t.fatG, t.unknown?.fat)} g`
+      + `　|　钠 ${num(t.sodiumMg, t.unknown?.sodium)} mg${unknownTag}`);
+    const checks = Object.entries(plan.checks).map(([k, v]) => `${v === true ? '✓' : v === false ? '✗' : '?未'}${k}`).join(' ');
     out.push(`    营养得分 ${plan.score}/100　达标：${checks}`);
   });
 
@@ -127,8 +152,10 @@ function printPlanSummary(result, { outPath, jsonPath }) {
     for (const row of result.priceVerification.verified) {
       const delta = row.localFen !== null && row.officialFen !== null ? row.officialFen - row.localFen : null;
       const deltaText = delta === null ? '无法比较' : delta === 0 ? '一致' : `${delta > 0 ? '+' : ''}${formatYuan(delta)} 元`;
-      const coupon = row.couponName ? `　券：${row.couponName}` : '';
-      out.push(`    ${row.label}：本地 ¥${formatYuan(row.localFen)} → 官方 ¥${formatYuan(row.officialFen)}（${deltaText}）${coupon}`);
+      const coupon = row.couponName ? `　券：${row.couponName}` : '　未用券';
+      const payable = row.localPayableFen !== undefined && row.localPayableFen !== row.localFen
+        ? `　本地估算券后实付 ¥${formatYuan(row.localPayableFen)}` : '';
+      out.push(`    ${row.label}：本地菜单价 ¥${formatYuan(row.localFen)} → 官方 ¥${formatYuan(row.officialFen)}（${deltaText}）${coupon}${payable}`);
     }
     for (const row of result.priceVerification.failures) {
       out.push(`    ${row.label}：验价失败 —— ${row.reason}`);
@@ -144,6 +171,12 @@ function printPlanSummary(result, { outPath, jsonPath }) {
   out.push(`  营养覆盖  ${result.coverage.matched}/${result.coverage.menuTotal} 项匹配到${nutritionSource}`
     + `（未匹配 ${result.coverage.unmatched} 项已排除，不使用猜测值）`);
   out.push(`  帕累托前沿 ${result.pareto.length} 个非支配解`);
+  if (result.coupons?.length) {
+    out.push(`  优惠券  ${result.coupons.length} 张可用，${s.couponCount ?? 0} 张可量化（已纳入求解），`
+      + `${s.couponApplied ?? 0} 个预算内方案用券降低成本`);
+    for (const c of result.coupons.slice(0, 6)) out.push(`          · ${describeCoupon(c)}`);
+    if (result.coupons.length > 6) out.push(`          · …… 另有 ${result.coupons.length - 6} 张未逐一列出`);
+  }
 
   if (result.dataNotes?.length) {
     out.push('');
@@ -285,6 +318,8 @@ async function cmdPlan(options) {
       searchType: options['search-type'] !== undefined ? Number(options['search-type']) : undefined,
       comboLookupLimit: options['combo-limit'] !== undefined ? Number(options['combo-limit']) : undefined,
       verify: !options['no-verify'],
+      cache: !options['no-cache'],
+      cacheTtlMs: options['cache-ttl'] !== undefined ? Number(options['cache-ttl']) * 60 * 1000 : undefined,
       endpoint: options.endpoint ?? DEFAULT_ENDPOINT,
     });
   }

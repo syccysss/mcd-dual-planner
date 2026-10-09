@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   solve, scorePlan, sumPlan, selectCandidates, paretoFront,
+  couponSaving, pickBestCouponForPlan,
   DEFAULT_TARGETS, DEFAULT_RULES, DEFAULT_WEIGHTS,
 } from '../src/solver.mjs';
 
@@ -153,4 +154,116 @@ test('solve：统计信息如实反映裁剪与枚举规模', () => {
   assert.equal(result.stats.budgetFen, 3000);
   assert.ok(result.stats.dominanceNote.includes('裁剪'));
   assert.equal(result.stats.truncated, false);
+});
+
+test('solve：营养未知品可进入候选，省钱底线是真正的绝对最便宜', () => {
+  const { items, nutritionByItem } = makeFixture();
+  // 无营养主食 ¥9.00 比最便宜的有营养主食（吉士汉堡 ¥12.50）更便宜
+  const mystery = { name: '神秘新品堡', code: 'X1', priceFen: 900, category: '主食' };
+  const mysterySnack = { name: '神秘甜品', code: 'X2', priceFen: 100, category: '甜品' };
+  items.push(mystery, mysterySnack);
+  nutritionByItem.set(mystery, { nutrition: null, matchType: 'none', matchedName: null });
+  nutritionByItem.set(mysterySnack, { nutrition: null, matchType: 'none', matchedName: null });
+
+  const result = solve({ items, nutritionByItem, budgetFen: 5000, minScore: 60 });
+  const cheapest = result.recommendations.find((p) => p.kind === 'cheapest');
+  assert.ok(cheapest, '省钱底线应存在');
+  assert.ok(cheapest.items.some((i) => i.code === 'X1'), '营养未知的最便宜主食应进入省钱底线');
+  assert.equal(cheapest.totals.priceFen, 900, '省钱底线价格应为营养未知主食的 900 分');
+  assert.ok(cheapest.totals.unknownItems > 0, '方案应如实标注营养未知项数');
+  // 营养未知品不应破坏营养类推荐的门槛
+  const valueBest = result.recommendations.find((p) => p.kind === 'valueBest');
+  assert.ok(valueBest);
+  assert.ok(valueBest.totals.unknownItems === 0, '双赢推荐不应包含营养未知品');
+  // 候选统计如实反映未知品保留情况
+  const dessert = result.stats.candidateStats.find((s) => s.category === '甜品');
+  assert.ok(dessert.unknownKept >= 1);
+});
+
+test('solve：券纳入目标 —— 券后实付最低才是"省钱底线"，哪怕菜单价不是最低', () => {
+  const { items, nutritionByItem } = makeFixture();
+  // 满 20 减 10：单价 ¥12.50 的吉士汉堡不够门槛（无券），¥21.50 的巨无霸够门槛（−¥10）
+  const coupons = [{ id: 'C1', name: '满20减10', discountFen: 1000, thresholdFen: 2000 }];
+  const result = solve({ items, nutritionByItem, budgetFen: 3000, minScore: 60, coupons });
+
+  const cheapest = result.recommendations.find((p) => p.kind === 'cheapest');
+  assert.ok(cheapest);
+  // 省钱底线 = 所有预算内方案里券后实付最低的
+  const minPayable = Math.min(...result.plans.map((p) => p.totals.payableFen));
+  assert.equal(cheapest.totals.payableFen, minPayable);
+  // 该方案确实用了券，且券后实付低于"菜单价最低的方案"（¥12.50）——证明是券改变了结论
+  assert.ok(cheapest.totals.discountFen > 0, '省钱底线应使用优惠券');
+  assert.equal(cheapest.coupon.id, 'C1');
+  const minMenu = Math.min(...result.plans.map((p) => p.totals.priceFen));
+  assert.ok(cheapest.totals.payableFen < minMenu,
+    `券后实付（${cheapest.totals.payableFen}）应低于任何方案的菜单价（最低 ${minMenu}）`);
+  assert.equal(cheapest.totals.priceFen, cheapest.totals.payableFen + cheapest.totals.discountFen);
+
+  // 无券时成本口径退化为菜单价，向后兼容
+  const noCoupon = solve({ items, nutritionByItem, budgetFen: 3000, coupons: [] });
+  for (const plan of noCoupon.plans) {
+    assert.equal(plan.totals.payableFen, plan.totals.priceFen);
+    assert.equal(plan.totals.discountFen, 0);
+  }
+});
+
+test('solve：预算卡券前菜单价 —— 不能靠券把超预算的方案"救"进结果', () => {
+  const { items, nutritionByItem } = makeFixture();
+  const coupons = [{ id: 'C1', name: '满30减12', discountFen: 1200, thresholdFen: 3000 }];
+  const result = solve({ items, nutritionByItem, budgetFen: 2000, coupons });
+  for (const plan of result.plans) {
+    assert.ok(plan.totals.priceFen <= 2000, `菜单价必须落在预算内：${plan.totals.priceFen}`);
+  }
+  assert.equal(result.stats.couponCount, 1);
+  assert.ok(result.stats.costBasis.includes('券后实付'));
+});
+
+test('paretoFront：前沿改用券后实付作为成本轴', () => {
+  const plans = [
+    { totals: { priceFen: 2000, payableFen: 1000 }, score: 60 },
+    { totals: { priceFen: 1500, payableFen: 1500 }, score: 50 },
+  ];
+  const front = paretoFront(plans);
+  assert.equal(front[0].totals.payableFen, 1000, '券后实付更低的点应排在前面');
+  assert.deepEqual(front.map((p) => p.score), [60]);
+});
+
+test('couponSaving：商品级用券价按「原价 − 用券价」计算，方案不含该商品则不省', () => {
+  const coupon = { id: 'W1', name: '薯条任选', couponPriceFen: 990, appliesToCode: 'F1' };
+  const withTarget = [{ code: 'F1', priceFen: 1300 }, { code: 'B2', priceFen: 1250 }];
+  const withoutTarget = [{ code: 'B2', priceFen: 1250 }];
+  assert.equal(couponSaving(coupon, withTarget), 310);
+  assert.equal(couponSaving(coupon, withoutTarget), 0);
+  // 用券价高于原价时不得出现「负优惠」
+  assert.equal(couponSaving({ couponPriceFen: 2000, appliesToCode: 'F1' }, withTarget), 0);
+  // 订单级满减仍可用，且不会把订单减成负数
+  assert.equal(couponSaving({ discountFen: 500, thresholdFen: 0 }, [{ priceFen: 300 }]), 300);
+  assert.equal(couponSaving({ discountFen: 500, thresholdFen: 9999 }, [{ priceFen: 1300 }]), 0);
+  // 无券
+  assert.equal(couponSaving(null, withTarget), 0);
+});
+
+test('pickBestCouponForPlan：选省得最多的那张券，无可用券返回 null', () => {
+  const coupons = [
+    { id: 'A', name: '减3', discountFen: 300, thresholdFen: 0 },
+    { id: 'B', name: '薯条券价', couponPriceFen: 990, appliesToCode: 'F1' },
+  ];
+  const plan = [{ code: 'F1', priceFen: 1300 }];
+  assert.equal(pickBestCouponForPlan(coupons, plan).id, 'B'); // 省 310 > 300
+  assert.equal(pickBestCouponForPlan([], plan), null);
+  assert.equal(pickBestCouponForPlan([{ id: 'C', discountFen: 500, thresholdFen: 9999 }], plan), null);
+});
+
+test('solve：商品级用券价生效后，含该商品的方案券后实付下降', () => {
+  const { items, nutritionByItem } = makeFixture();
+  // 薯条 1300 → 用券价 990，省 310
+  const coupons = [{ id: 'W1', name: '薯条任选', couponPriceFen: 990, appliesToCode: 'F1' }];
+  const result = solve({ items, nutritionByItem, budgetFen: 3000, coupons });
+  assert.ok(result.stats.couponApplied > 0, '应有预算内方案用券降低成本');
+  const planWithFries = result.plans.find((p) => p.items.some((i) => i.code === 'F1'));
+  assert.ok(planWithFries, '应存在含薯条的方案');
+  assert.equal(planWithFries.discountFen, 310);
+  assert.equal(planWithFries.totals.payableFen, planWithFries.totals.priceFen - 310);
+  const planNoFries = result.plans.find((p) => !p.items.some((i) => i.code === 'F1'));
+  assert.equal(planNoFries.discountFen, 0, '不含目标商品的方案不应降价');
 });

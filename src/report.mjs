@@ -10,6 +10,8 @@
  * （CJK 记 2 个单位、ASCII 记 1 个单位），避免长餐品名溢出卡片。
  */
 
+import { payableFenOf } from './solver.mjs';
+
 const C = {
   red: '#DA291C',
   yellow: '#FFC72C',
@@ -103,10 +105,13 @@ function planTitle(plan, index) {
 
 function planReason(plan, index, targets) {
   const t = plan.totals;
-  if (plan.kind === 'valueBest') return `达到营养门槛（得分 ≥ 门槛）的方案里最便宜的一档：¥${yuan(t.priceFen)} 换 ${t.proteinG} g 蛋白`;
+  const paid = t.discountFen > 0
+    ? `券后实付 ¥${yuan(t.payableFen)}（菜单价 ¥${yuan(t.priceFen)} − 券 ¥${yuan(t.discountFen)}）`
+    : `¥${yuan(t.priceFen)}`;
+  if (plan.kind === 'valueBest') return `达到营养门槛（得分 ≥ 门槛）的方案里券后最便宜的一档：${paid} 换 ${t.proteinG} g 蛋白`;
   if (plan.kind === 'topScore') return `预算内营养得分最高：${plan.score} 分，热量 ${t.energyKcal} kcal（目标 ${targets.kcal} kcal）`;
-  if (plan.kind === 'cheapest') return `绝对最便宜：¥${yuan(t.priceFen)}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
-  return `候选方案：¥${yuan(t.priceFen)}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
+  if (plan.kind === 'cheapest') return `券后实付最低：${paid}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
+  return `候选方案：${paid}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
 }
 
 function drawPlanCard(plan, index, ctx) {
@@ -137,7 +142,10 @@ function drawPlanCard(plan, index, ctx) {
   const badgeFill = plan.score >= ctx.minScore ? C.good : C.warn;
   parts.push(el.rect(x + w - 132, y + 14, 112, 26, { rx: 13, fill: badgeFill, opacity: 0.12 }));
   parts.push(el.text(x + w - 76, y + 32, `营养 ${plan.score} 分`, { size: 13, weight: 600, fill: badgeFill, anchor: 'middle' }));
-  parts.push(el.text(x + 20, y + 52, `实付 ¥${yuan(t.priceFen)} · ${t.energyKcal} kcal · 蛋白 ${t.proteinG} g · 钠 ${t.sodiumMg} mg`,
+  const unknownTag = t.unknownItems > 0 ? ` · 营养未知 ${t.unknownItems} 项` : '';
+  const couponTag = t.discountFen > 0 ? ` · 券 −¥${yuan(t.discountFen)}` : '';
+  const num = (v, unknown) => (unknown ? '—' : v);
+  parts.push(el.text(x + 20, y + 52, `券后实付 ¥${yuan(t.payableFen)}（菜单价 ¥${yuan(t.priceFen)}）${couponTag} · ${num(t.energyKcal, t.unknown?.energy)} kcal · 蛋白 ${num(t.proteinG, t.unknown?.protein)} g · 钠 ${num(t.sodiumMg, t.unknown?.sodium)} mg${unknownTag}`,
     { size: 12.5, fill: C.sub }));
 
   // 明细
@@ -151,7 +159,7 @@ function drawPlanCard(plan, index, ctx) {
   // 双目标进度条
   const meterY = ly + 10;
   const meterW = w - 40;
-  const costRatio = ctx.budgetFen > 0 ? t.priceFen / ctx.budgetFen : 0;
+  const costRatio = ctx.budgetFen > 0 ? payableFenOf(plan) / ctx.budgetFen : 0;
   parts.push(el.text(x + 20, meterY, '预算占用', { size: 11.5, fill: C.sub }));
   parts.push(el.bar(x + 100, meterY - 9, meterW - 80, 10, costRatio, { fill: costRatio > 1 ? C.bad : C.chart }));
   parts.push(el.text(x + w - 20, meterY, `${Math.round(costRatio * 100)}%`, { size: 11.5, fill: C.sub, anchor: 'end' }));
@@ -170,8 +178,10 @@ function drawPlanCard(plan, index, ctx) {
   ];
   let cx = x + 20;
   for (const [label, ok] of checks) {
-    parts.push(el.text(cx, checkY, (ok ? '✓ ' : '✗ ') + label, { size: 12, fill: ok ? C.good : C.bad }));
-    cx += displayWidth((ok ? '✓ ' : '✗ ') + label) * 6 + 16;
+    const mark = ok === true ? '✓ ' : ok === false ? '✗ ' : '? ';
+    const fill = ok === true ? C.good : ok === false ? C.bad : C.sub;
+    parts.push(el.text(cx, checkY, mark + label + (ok === null ? '（未知）' : ''), { size: 12, fill }));
+    cx += displayWidth(mark + label + (ok === null ? '（未知）' : '')) * 6 + 16;
   }
 
   parts.push(el.text(x + 20, y + h - 12, planReason(plan, index, ctx.targets), { size: 11.5, fill: C.sub }));
@@ -185,7 +195,7 @@ function drawParetoChart(plans, ctx) {
   parts.push(el.text(x + 20, y + 28, '帕累托前沿：多花一块钱，能换回多少营养分', { size: 15, weight: 700, fill: C.ink }));
 
   const plot = { x: x + 62, y: y + 52, w: w - 110, h: h - 108 };
-  const costs = plans.map((p) => p.totals.priceFen / 100);
+  const costs = plans.map((p) => payableFenOf(p) / 100);
   const scores = plans.map((p) => p.score);
   const minCost = Math.min(...costs, 0);
   const maxCost = Math.max(...costs, minCost + 1);
@@ -208,10 +218,10 @@ function drawParetoChart(plans, ctx) {
     parts.push(el.line(gx, plot.y, gx, plot.y + plot.h, { stroke: '#F5F5F5' }));
     parts.push(el.text(gx, plot.y + plot.h + 20, `¥${value}`, { size: 11, fill: C.sub, anchor: 'middle' }));
   }
-  parts.push(el.text(plot.x + plot.w / 2, plot.y + plot.h + 42, '实付金额（元）', { size: 12, fill: C.sub, anchor: 'middle' }));
+  parts.push(el.text(plot.x + plot.w / 2, plot.y + plot.h + 42, '券后实付（元）；预算按券前菜单价', { size: 12, fill: C.sub, anchor: 'middle' }));
   parts.push(el.text(x + 16, plot.y + 10, '营养得分', { size: 12, fill: C.sub }));
 
-  // 预算线
+  // 预算线（预算为券前菜单价口径，故与横轴的券后实付不同口径）
   if (ctx.budgetFen) {
     const bx = sx(ctx.budgetFen / 100);
     if (bx >= plot.x && bx <= plot.x + plot.w) {
@@ -222,24 +232,24 @@ function drawParetoChart(plans, ctx) {
 
   // 全部可行解
   for (const plan of plans) {
-    parts.push(el.circle(sx(plan.totals.priceFen / 100), sy(plan.score), 3, { fill: C.chart, opacity: 0.35 }));
+    parts.push(el.circle(sx(payableFenOf(plan) / 100), sy(plan.score), 3, { fill: C.chart, opacity: 0.35 }));
   }
 
   // 前沿连线 + 推荐点
-  const front = [...ctx.pareto].sort((a, b) => a.totals.priceFen - b.totals.priceFen);
+  const front = [...ctx.pareto].sort((a, b) => payableFenOf(a) - payableFenOf(b));
   for (let i = 1; i < front.length; i += 1) {
     parts.push(el.line(
-      sx(front[i - 1].totals.priceFen / 100), sy(front[i - 1].score),
-      sx(front[i].totals.priceFen / 100), sy(front[i].score),
+      sx(payableFenOf(front[i - 1]) / 100), sy(front[i - 1].score),
+      sx(payableFenOf(front[i]) / 100), sy(front[i].score),
       { stroke: C.red, sw: 2 },
     ));
   }
   for (const plan of front) {
-    parts.push(el.circle(sx(plan.totals.priceFen / 100), sy(plan.score), 4.5, { fill: C.red }));
+    parts.push(el.circle(sx(payableFenOf(plan) / 100), sy(plan.score), 4.5, { fill: C.red }));
   }
 
   ctx.recommendations.forEach((plan, index) => {
-    const px = sx(plan.totals.priceFen / 100);
+    const px = sx(payableFenOf(plan) / 100);
     const py = sy(plan.score);
     parts.push(el.circle(px, py, 8, { fill: 'none', stroke: C.red, sw: 2, opacity: 0.9 }));
     parts.push(el.text(px, py - 14, planTitle(plan, index), { size: 12, weight: 700, fill: C.red, anchor: 'middle' }));
@@ -264,6 +274,7 @@ export function renderReport(result) {
     stats = {},
     coverage = {},
     dataNotes = [],
+    coupons = [],
     priceVerification = null,
   } = result;
 
@@ -310,14 +321,14 @@ export function renderReport(result) {
   y += goalH + 24;
 
   // ---- 方案卡片
-  const cardResults = recommendations.map((plan, index) => {
+  // 注意：卡片必须逐张累加 y 后绘制。否则三张卡片会画在同一个 y 上互相覆盖
+  // （只看得见最后一张），而总高度却按三张算，留下大片空白。
+  const cardMarkup = recommendations.map((plan, index) => {
     const res = drawPlanCard(plan, index, { x: PAD, y, w: W - PAD * 2, budgetFen, targets, minScore: stats.minScore ?? 70 });
-    return res;
+    y += res.height + (index === recommendations.length - 1 ? 24 : 14);
+    return res.markup;
   });
-  cardResults.forEach((res, index) => {
-    chunks.push(res.markup);
-    y += res.height + (index === cardResults.length - 1 ? 24 : 14);
-  });
+  chunks.push(cardMarkup.join(''));
 
   // ---- 帕累托图
   const chart = drawParetoChart(plans, {
@@ -325,6 +336,35 @@ export function renderReport(result) {
   });
   chunks.push(chart.markup);
   y += chart.height + 24;
+
+  // ---- 可用优惠券（仅用于估算，不自动领取）
+  if (coupons.length) {
+    const rows = coupons.slice(0, 8);
+    const boxH = 34 + rows.length * 22 + 16;
+    chunks.push(el.rect(PAD, y, W - PAD * 2, boxH, { rx: 10, fill: '#FFFFFF', stroke: C.line, sw: 1 }));
+    chunks.push(el.text(PAD + 20, y + 26, `可用优惠券 ${coupons.length} 张（可量化者已纳入方案择优，按券后实付排序；本项目不会自动领券）`,
+      { size: 14, weight: 700, fill: C.ink }));
+    let cy = y + 50;
+    const describeCoupon = (c) => {
+      if ((c.couponPriceFen ?? 0) > 0) {
+        return c.appliesToCode
+          ? `指定商品用券价 ¥${yuan(c.couponPriceFen)}（已定位到方案内商品 ${c.appliesToCode}）`
+          : `指定商品用券价 ¥${yuan(c.couponPriceFen)}（未定位到菜单商品，不计入优惠）`;
+      }
+      if ((c.discountFen ?? 0) > 0) return `${c.thresholdFen ? `满 ¥${yuan(c.thresholdFen)} ` : '无门槛 '}减 ¥${yuan(c.discountFen)}`;
+      if ((c.faceValueFen ?? 0) > 0) return `面额 ¥${yuan(c.faceValueFen)}（第二份半价等规则无法量化，不计入优惠）`;
+      return '面额未返回（不计入优惠）';
+    };
+    for (const c of rows) {
+      chunks.push(el.text(PAD + 20, cy, `${c.name ?? c.id}　${describeCoupon(c)}${c.source ? `　来源：${c.source}` : ''}`,
+        { size: 12, fill: C.ink }));
+      cy += 22;
+    }
+    if (coupons.length > rows.length) {
+      chunks.push(el.text(PAD + 20, cy, `…… 另有 ${coupons.length - rows.length} 张未逐一列出（估算法仍会考虑）。`, { size: 11.5, fill: C.sub }));
+    }
+    y += boxH + 24;
+  }
 
   // ---- 官方验价
   if (priceVerification && (priceVerification.verified?.length || priceVerification.failures?.length)) {
@@ -338,7 +378,10 @@ export function renderReport(result) {
       const couponText = row.couponName
         ? `　使用券「${row.couponName}」${row.discountFen ? `，券面优惠 ¥${yuan(row.discountFen)}` : ''}`
         : '　未使用优惠券';
-      chunks.push(el.text(PAD + 20, ly, `#${row.index + 1} ${row.label}：本地 ¥${yuan(row.localFen)} → 官方 ¥${yuan(row.officialFen)}（${deltaText}）`,
+      const localText = row.localPayableFen !== undefined && row.localPayableFen !== row.localFen
+        ? `本地菜单价 ¥${yuan(row.localFen)}（估算券后 ¥${yuan(row.localPayableFen)}）`
+        : `本地菜单价 ¥${yuan(row.localFen)}`;
+      chunks.push(el.text(PAD + 20, ly, `#${row.index + 1} ${row.label}：${localText} → 官方 ¥${yuan(row.officialFen)}（${deltaText}）`,
         { size: 12, fill: C.ink }));
       chunks.push(el.text(PAD + 640, ly, couponText, { size: 11.5, fill: C.sub }));
       ly += 22;

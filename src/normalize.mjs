@@ -385,6 +385,25 @@ export function matchNutrition(menuItems, nutritionRows) {
 
 // ---------------------------------------------------------------- 优惠券 / 算价
 
+/** 把 1 / [1] / [1,5] 这类取值统一成整数数组 */
+function toIntArray(value) {
+  if (value === undefined || value === null) return [];
+  const list = Array.isArray(value) ? value : [value];
+  return [...new Set(list.map((v) => toNumber(v)).filter((v) => v !== null).map((v) => Math.trunc(v)))];
+}
+
+/**
+ * 优惠券归一化。
+ *
+ * 官方券有两种形态，字段完全不同，必须分开建模：
+ *  ① 订单级满减：门槛 + 面额（本项目演示数据用这种）
+ *  ② 商品级用券价：`discountInfo = { discountDesc: "用券价格", discountValue: "9.9" }`，
+ *     表示"适用商品可按 ¥9.9 购买"；适用商品在 `products[].productCode`，
+ *     若该券来自用户卡包则需按 `id` / `promotionId` 与门店券合并才能拿到商品编码。
+ *
+ * 面额型（denomination / tenderAmount）只记录不参与计算：官方出现「第二份半价」这类
+ * 数量相关的券，名义面额不等于真实优惠，硬当减免会算出错误结论——宁可标注"未量化"。
+ */
 export function normalizeCoupons(payload) {
   const nodes = collect(payload, (obj) => {
     const name = pick(obj, NAME_KEYS);
@@ -394,23 +413,75 @@ export function normalizeCoupons(payload) {
 
   const byId = new Map();
   for (const node of nodes) {
-    const id = pick(node, ['couponId', 'coupon_id', 'id', 'code']);
-    if (id === undefined || id === null) continue;
+    const rawId = pick(node, ['couponId', 'coupon_id', 'id', 'code']);
+    if (rawId === undefined || rawId === null) continue;
+    const id = String(rawId);
     const name = String(pick(node, NAME_KEYS)).trim();
+
     const discountFen = toNumber(pick(node, ['discountAmount', 'discount_amount', 'discount', 'amount',
-      'reduceAmount', 'reduce_amount', 'value', 'faceValue']));
+      'reduceAmount', 'reduce_amount', 'faceValue']));
     const thresholdFen = toNumber(pick(node, ['threshold', 'minAmount', 'min_amount', 'conditionAmount',
       'limitAmount', 'useCondition']));
-    byId.set(String(id), {
-      id: String(id),
+
+    // 商品级用券价：仅当语义明确（discountDesc 含"用券价"）且数值为正时采信
+    const info = node.discountInfo && typeof node.discountInfo === 'object' ? node.discountInfo : null;
+    const desc = info ? String(pick(info, ['discountDesc', 'discount_desc']) ?? '') : '';
+    const infoValue = info ? toNumber(pick(info, ['discountValue', 'discount_value'])) : null;
+    const couponPriceFen = desc.includes('用券价') && infoValue !== null && infoValue > 0
+      ? Math.round(infoValue * 100)
+      : null;
+
+    const faceValueFen = toNumber(pick(node, ['denomination', 'tenderAmount', 'tender_amount',
+      'currentBalance', 'balance']));
+
+    const products = Array.isArray(node.products) ? node.products : [];
+    const targetCodes = [];
+    for (const p of products) {
+      const code = pick(p, ['productCode', 'product_code', 'mealCode', 'code']);
+      if (code !== undefined && code !== null) targetCodes.push(String(code));
+    }
+
+    const entry = {
+      id,
       name,
-      discountFen: discountFen === null ? null : Math.round(discountFen),
       thresholdFen: thresholdFen === null ? null : Math.round(thresholdFen),
-      expireAt: pick(node, ['expireTime', 'expire_time', 'endTime', 'end_time', 'validEndTime', 'expireDate']) ?? null,
-      scope: pick(node, ['scope', 'useScope', 'channel', 'beType', 'orderType']) ?? null,
-    });
+      discountFen: discountFen === null ? null : Math.round(discountFen),
+      couponPriceFen,
+      faceValueFen: faceValueFen === null ? null : Math.round(faceValueFen),
+      targetCodes: [...new Set(targetCodes)],
+      appliesToCode: null, // 由 pipeline 结合菜单解析后回填
+      promotionId: pick(node, ['promotionId', 'promotion_id']) !== undefined
+        ? String(pick(node, ['promotionId', 'promotion_id'])) : null,
+      orderTypes: toIntArray(pick(node, ['orderTypes', 'orderType'])),
+      beTypes: toIntArray(pick(node, ['beTypes', 'beType'])),
+      expireAt: pick(node, ['expireTime', 'expire_time', 'endTime', 'end_time', 'validEndTime', 'expireDate',
+        'tradeEndDateTime', 'tradeEndDate']) ?? null,
+      scope: pick(node, ['scope', 'useScope', 'channel']) ?? null,
+    };
+
+    // 同一张券可能同时出现在门店券（有 products）与卡包券（有 discountInfo）里：
+    // 按 id 合并，而不是后者覆盖前者，否则会丢掉适用商品或面额。
+    byId.set(id, mergeCoupon(byId.get(id), entry));
   }
   return [...byId.values()];
+}
+
+/** 合并同一张券的两份视图：字段级取"更具体"的一份，适用商品取并集 */
+export function mergeCoupon(prev, next) {
+  if (!prev) return next;
+  return {
+    ...prev,
+    ...next,
+    name: next.name || prev.name,
+    thresholdFen: next.thresholdFen ?? prev.thresholdFen,
+    discountFen: next.discountFen ?? prev.discountFen,
+    couponPriceFen: next.couponPriceFen ?? prev.couponPriceFen,
+    faceValueFen: next.faceValueFen ?? prev.faceValueFen,
+    promotionId: next.promotionId ?? prev.promotionId,
+    targetCodes: [...new Set([...(prev.targetCodes ?? []), ...(next.targetCodes ?? [])])],
+    orderTypes: next.orderTypes?.length ? next.orderTypes : prev.orderTypes,
+    beTypes: next.beTypes?.length ? next.beTypes : prev.beTypes,
+  };
 }
 
 /**

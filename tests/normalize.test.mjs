@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import {
   fenToYuan, yuanToFen, formatYuan, toNumber, nameKey, inferCategory,
   extractNutrition, normalizeMenu, normalizeNutrition, parseToonTable, matchNutrition,
-  normalizeCoupons, normalizePrice, normalizeStores, sanityCheckMenu,
+  normalizeCoupons, mergeCoupon, normalizePrice, normalizeStores, sanityCheckMenu,
 } from '../src/normalize.mjs';
 
 test('金额换算：分 ↔ 元，格式化固定两位小数', () => {
@@ -168,4 +168,35 @@ test('菜单体检：价格单位可疑或缺编码时给出警告', () => {
   ]);
   assert.ok(warnings.some((w) => w.includes('分')));
   assert.ok(warnings.some((w) => w.includes('商品编码')));
+});
+
+test('优惠券归一化：解析商品级用券价与适用商品，并按 id 合并门店券与卡包券两份视图', () => {
+  // 门店券视图：带适用商品编码
+  const fromStore = normalizeCoupons({
+    data: [{ couponId: 'W1', title: '麦旋风任选', promotionId: 'P1',
+      products: [{ productCode: '9900014239', productName: '麦旋风任选1' }] }],
+  });
+  // 卡包券视图：带用券价与取餐方式
+  const fromWallet = normalizeCoupons({
+    data: { coupons: [{ id: 'W1', title: '麦旋风任选', promotionId: 'P1', orderTypes: [1], beTypes: [1, 5],
+      discountInfo: { discountValue: '9.9', discountDesc: '用券价格', discountTypeText: '¥' } }] },
+  });
+  assert.equal(fromStore[0].targetCodes[0], '9900014239');
+  assert.equal(fromWallet[0].couponPriceFen, 990);
+  assert.deepEqual(fromWallet[0].beTypes, [1, 5]);
+  assert.equal(fromWallet[0].discountFen, null, '用券价券不应被误读成订单满减');
+
+  const merged = mergeCoupon(fromStore[0], fromWallet[0]);
+  assert.equal(merged.name, '麦旋风任选');
+  assert.equal(merged.couponPriceFen, 990);
+  assert.equal(merged.targetCodes[0], '9900014239');
+  assert.deepEqual(merged.beTypes, [1, 5]);
+
+  // 面额型券（第二份半价）：只记录面额，不当作减免
+  const face = normalizeCoupons({
+    data: { coupons: [{ id: 'F1', title: '灰焰圆筒第二份半价', denomination: 750, isPrepaid: 1 }] },
+  });
+  assert.equal(face[0].faceValueFen, 750);
+  assert.equal(face[0].couponPriceFen, null);
+  assert.equal(face[0].discountFen, null);
 });
