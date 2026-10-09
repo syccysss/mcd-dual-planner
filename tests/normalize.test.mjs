@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   fenToYuan, yuanToFen, formatYuan, toNumber, nameKey, inferCategory,
-  extractNutrition, normalizeMenu, normalizeNutrition, matchNutrition,
+  extractNutrition, normalizeMenu, normalizeNutrition, parseToonTable, matchNutrition,
   normalizeCoupons, normalizePrice, normalizeStores, sanityCheckMenu,
 } from '../src/normalize.mjs';
 
@@ -83,6 +83,28 @@ test('营养归一化：支持数组与映射表两种形态', () => {
   const fromMap = normalizeNutrition({ 巨无霸: { energy: 550, protein: 26 } });
   assert.equal(fromMap.length, 1);
   assert.equal(fromMap[0].name, '巨无霸');
+});
+
+test('营养归一化：解析官方 toon 紧凑格式（真实返回样例）', () => {
+  const toon = '[2]{productName,nutritionDescription,energyKj,energyKcal,protein,fat,carbohydrate,sodium,calcium}:\n'
+    + '  猪柳麦满分,null,1288,308,16,16,24,781,213\n'
+    + '  巨无霸,null,2146,513,27,26,42,961,171';
+  const rows = parseToonTable(toon);
+  assert.equal(rows.length, 2);
+  assert.equal(rows[0].productName, '猪柳麦满分');
+  assert.equal(rows[0].energyKj, '1288');
+  assert.equal(rows[1].energyKcal, '513');
+
+  // 字符串直传与 {data: "toon"} 包装都支持；energyKcal 字段命中 kcal 别名，不做 kJ 换算
+  const direct = normalizeNutrition(toon);
+  assert.equal(direct.length, 2);
+  assert.equal(direct[1].energyKcal, 513);
+  assert.equal(direct[1].proteinG, 27);
+  assert.equal(direct[1].sodiumMg, 961);
+
+  const wrapped = normalizeNutrition({ success: true, code: 200, data: toon });
+  assert.equal(wrapped.length, 2);
+  assert.equal(wrapped[0].energyKcal, 308);
 });
 
 test('营养匹配：精确 / 包含 / 未命中 三种结果都可追溯', () => {

@@ -42,9 +42,9 @@ SVG 战报。零第三方依赖，全程只读，不领券不下单。
 | `CONTEST_DECLARATION.md` | **官方原文，文件名与内容均不可改动**（1522 bytes，SHA256 `CD28101B…`） | ✅ |
 | `MCP_INTEGRATION.md` | 说明实际使用的 Server / Tool / 调用流程 / 业务价值 | ✅ |
 | `mcp-config.example.json` | 脱敏配置示例，**只允许环境变量占位符** | ✅ |
-| `workbuddy.md` | 参与 WorkBuddy 专项奖励时必须提交；**需替换为真实会话记录** | ⚠️ 见下 |
+| `workbuddy.md` | 参与 WorkBuddy 专项奖励时必须提交；已替换为真实会话记录 | ✅ |
 | 项目真实使用麦当劳 MCP | 代码中实际调用官方接口 | ✅ |
-| 项目真实使用腾讯 WorkBuddy | 需真实使用并提交 `workbuddy.md` | ⚠️ 见下 |
+| 项目真实使用腾讯 WorkBuddy | 已真实使用并提交 `workbuddy.md` | ✅ |
 | 仓库公开可访问 | Public 仓库 | ⏳ 建仓后确认 |
 | 仓库创建时间 | 2025-12-25 00:00 至 2026-10-25 23:59（北京时间） | ⏳ 建仓即满足 |
 | 报名时间 | 2026-10-09 10:30 至 2026-10-25 23:59（北京时间） | ⏳ |
@@ -62,7 +62,7 @@ SVG 战报。零第三方依赖，全程只读，不领券不下单。
 ### 加分项
 
 - [x] 战报示例图已放入 `examples/`，README 直接可见；
-- [x] 48 个单元测试，`npm test` 可复现；
+- [x] 50 个单元测试，`npm test` 可复现；
 - [x] 零依赖，评审 `git clone` 即可运行；
 - [x] 已知限制与未验证项如实列出（`docs/ACCEPTANCE.md`）；
 - [x] GitHub Actions 工作流（`.github/workflows/ci.yml`）：跑测试、离线冒烟、SVG 几何校验，
@@ -91,11 +91,10 @@ git push -u origin main
 
 ## 两个必须由本人完成的动作
 
-1. **接入真实 MCP Token 并跑一次实时验证**：按 [ACCEPTANCE.md](ACCEPTANCE.md) 第 3 节执行，
-   回填 12 项验证结果。没有这一步，项目里「实时模式」的部分只能算未验证。
-2. **用 WorkBuddy 真实开发并替换 `workbuddy.md`**：当前该文件是复现任务清单，不是真实会话记录。
-   请按 [workbuddy.md](../workbuddy.md) 的任务逐条在 WorkBuddy 中执行，导出真实上下文后替换，
-   再提交报名。若最终未使用 WorkBuddy，请从报名材料中移除该文件，不要提交非真实记录。
+1. ~~接入真实 MCP Token 并跑一次实时验证~~ ✅ **已完成**（2026-10-09，成都春熙路门店实测，
+   `docs/ACCEPTANCE.md` 第 3 节 12 项全部回填）。
+2. ~~用 WorkBuddy 真实开发并替换 `workbuddy.md`~~ ✅ **已完成**：`workbuddy.md` 现为真实
+   WorkBuddy 会话记录（含两轮共 12 项修复与联调过程）。
 
 ## 排名机制提醒
 

@@ -10,8 +10,8 @@
  * 全流程只读：不创建订单、不领券、不扣积分。
  */
 
-import { normalizeCoupons, normalizeMenu, normalizeNutrition, normalizePrice, normalizeStores,
-  matchNutrition, sanityCheckMenu, nameKey } from './normalize.mjs';
+import { normalizeCoupons, normalizeNutrition, normalizePrice, normalizeStores,
+  matchNutrition, sanityCheckMenu, nameKey, inferCategory } from './normalize.mjs';
 import { solve, DEFAULT_RULES, DEFAULT_TARGETS, DEFAULT_WEIGHTS, DEFAULT_MIN_SCORE } from './solver.mjs';
 import { ToolRegistry, summarizeCalls, mapParams } from './tools.mjs';
 import { demoDataset } from './demo-data.mjs';
@@ -133,19 +133,62 @@ export async function buildPlanLive(registry, options = {}) {
     : stores[0];
   if (!store.code) throw new Error('门店返回中缺少门店编码，无法继续查询菜单。');
 
-  // 3) 菜单
+  // 3) 菜单编码清单：官方 query-meals 只返回商品编码与标签，名称与价格需逐品调用官方算价
   const menuTool = registry.schema('query-meals');
   if (!menuTool) throw new Error('当前 MCP 服务未暴露 query-meals，无法获取菜单。');
   const menuParams = mapParams(menuTool, [
-    { keys: ['beCode', 'storeCode', 'storeId', 'code'], value: store.code },
+    { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
     { keys: ['beType'], value: options.beType ?? 1 },
+    { keys: ['orderType'], value: options.orderType ?? 1 },
   ]);
   const menuRes = await registry.call('query-meals', menuParams.args);
   toolsUsed.push('query-meals');
-  const { items: menuItems, rawCount } = normalizeMenu(menuRes.data ?? menuRes.raw);
-  if (menuItems.length === 0) {
+  const menuEntries = extractMenuCodes(menuRes.data ?? menuRes.raw);
+  if (menuEntries.length === 0) {
     throw new Error('菜单为空：可能是门店编码或取餐方式（beType）不匹配，请核对后重试。');
   }
+
+  // 4) 逐品算价：官方 calculate-price 一次返回 productName 与单价，同时补齐名称与价格
+  const priceTool = registry.schema('calculate-price');
+  if (!priceTool) throw new Error('当前 MCP 服务未暴露 calculate-price，无法获取餐品名称与价格。');
+  const menuItems = [];
+  let pricingFailed = 0;
+  for (const entry of menuEntries) {
+    try {
+      const priceGroups = [
+        { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
+        { keys: ['beType'], value: options.beType ?? 1 },
+        { keys: ['orderType'], value: options.orderType ?? 1 },
+        { keys: ['products', 'meals', 'items', 'productList', 'cart'], value: [{ productCode: entry.code, quantity: 1 }] },
+      ];
+      const priceParams = mapParams(priceTool, priceGroups);
+      const priceRes = await registry.call('calculate-price', priceParams.args);
+      const priced = normalizePrice(priceRes.data ?? priceRes.raw);
+      const line = priced?.lines?.[0];
+      if (line && priced.totalFen !== null) {
+        const { category, inferred } = inferCategory(line.name);
+        menuItems.push({
+          code: entry.code,
+          name: line.name,
+          priceFen: priced.totalFen,
+          priceSource: 'official-calculate-price',
+          category,
+          categoryInferred: inferred,
+          rawCategory: entry.cat ?? null,
+          tags: entry.tags ?? [],
+        });
+      } else {
+        pricingFailed += 1;
+      }
+    } catch {
+      pricingFailed += 1; // 单品售罄/不可售（官方错误码 60006）或网络抖动：跳过该品，不影响整体
+    }
+  }
+  toolsUsed.push('calculate-price');
+  if (menuItems.length === 0) {
+    throw new Error('菜单中所有商品都无法取得官方算价，请换一家门店或调整取餐方式后重试。');
+  }
+  dataNotes.push(`菜单 ${menuEntries.length} 个编码中，${menuItems.length} 个取得官方算价（名称与单价），${pricingFailed} 个售罄/不可售已跳过。`);
 
   // 4) 营养库
   const nutritionRes = await registry.call('list-nutrition-foods', {});
@@ -166,8 +209,9 @@ export async function buildPlanLive(registry, options = {}) {
       try {
         const detailParams = mapParams(detailTool, [
           { keys: ['code', 'productCode', 'mealCode', 'skuCode'], value: item.code },
-          { keys: ['beCode', 'storeCode', 'storeId'], value: store.code },
+          { keys: ['storeCode', 'storeId', 'beCode'], value: store.code },
           { keys: ['beType'], value: options.beType ?? 1 },
+          { keys: ['orderType'], value: options.orderType ?? 1 },
         ]);
         const detailRes = await registry.call('query-meal-detail', detailParams.args);
         const parts = extractComboParts(detailRes.data ?? detailRes.raw, menuItems);
@@ -198,8 +242,9 @@ export async function buildPlanLive(registry, options = {}) {
   // 6) 优惠券（只读：不领券）
   const coupons = [];
   const couponSources = [
-    ['query-store-coupons', [{ keys: ['beCode', 'storeCode', 'storeId', 'code'], value: store.code },
-      { keys: ['beType'], value: options.beType ?? 1 }]],
+    ['query-store-coupons', [{ keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
+      { keys: ['beType'], value: options.beType ?? 1 },
+      { keys: ['orderType'], value: options.orderType ?? 1 }]],
     ['available-coupons', []],
     ['query-my-coupons', []],
   ];
@@ -244,10 +289,12 @@ export async function buildPlanLive(registry, options = {}) {
       try {
         const tool = registry.schema('calculate-price');
         const couponId = pickBestCoupon(uniqCoupons, plan.totals.priceFen);
+        // 官方算价 items 的商品编码字段名是 productCode，不是 code
         const groups = [
-          { keys: ['beCode', 'storeCode', 'storeId', 'code'], value: store.code },
+          { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
           { keys: ['beType'], value: options.beType ?? 1 },
-          { keys: ['products', 'meals', 'items', 'productList', 'cart'], value: plan.items.map((item) => ({ code: item.code, quantity: 1 })) },
+          { keys: ['orderType'], value: options.orderType ?? 1 },
+          { keys: ['products', 'meals', 'items', 'productList', 'cart'], value: plan.items.map((item) => ({ productCode: item.code, quantity: 1 })) },
           { keys: ['couponIds', 'couponId', 'coupons'], value: couponId ? [couponId.id] : undefined },
         ];
         const params = mapParams(tool, groups);
@@ -273,7 +320,7 @@ export async function buildPlanLive(registry, options = {}) {
 
   // 9) 汇总口径说明
   const sanity = sanityCheckMenu(menuItems);
-  dataNotes.push(`菜单原始条目 ${rawCount} 条，去重后 ${menuItems.length} 项参与计算。`);
+  dataNotes.push(`菜单 ${menuItems.length} 项参与计算（名称与单价均来自官方算价 calculate-price）。`);
   if (matchStats.unmatched > 0) {
     dataNotes.push(`有 ${matchStats.unmatched} 项餐品未匹配到官方营养数据，已排除在优化之外（不使用猜测值）。`);
   }
@@ -287,7 +334,8 @@ export async function buildPlanLive(registry, options = {}) {
   return {
     meta: {
       mode: 'live',
-      generatedAt: serverTime ? String(typeof serverTime === 'string' ? serverTime : JSON.stringify(serverTime)).slice(0, 60)
+      generatedAt: serverTime
+        ? (serverTime?.datetime ?? (typeof serverTime === 'string' ? serverTime : null)) ?? new Date().toISOString().replace('T', ' ').slice(0, 19)
         : new Date().toISOString().replace('T', ' ').slice(0, 19),
       store,
       endpoint: options.endpoint ?? 'https://mcp.mcd.cn',
@@ -310,6 +358,32 @@ export async function buildPlanLive(registry, options = {}) {
 }
 
 // ---------------------------------------------------------------- 辅助
+
+/** 从 query-meals 返回里抽出商品编码清单（官方仅返回 code 与 tags，分类名作原始分类保留） */
+export function extractMenuCodes(payload) {
+  const found = [];
+  const seen = new Set();
+  const visit = (node, cat = null) => {
+    if (!node || typeof node !== 'object' || node === null) return;
+    if (Array.isArray(node)) {
+      node.forEach((n) => visit(n, cat));
+      return;
+    }
+    if (typeof node.code === 'string' && node.code.trim()) {
+      if (!seen.has(node.code)) {
+        seen.add(node.code);
+        found.push({ code: node.code, tags: Array.isArray(node.tags) ? node.tags : [], cat });
+      }
+    }
+    if (typeof node.name === 'string' && Array.isArray(node.meals)) {
+      visit(node.meals, node.name);
+      return;
+    }
+    Object.values(node).forEach((v) => visit(v, cat));
+  };
+  visit(payload);
+  return found;
+}
 
 function summarizeMatch(nutritionByItem, menuItems) {
   const byMatchType = {};

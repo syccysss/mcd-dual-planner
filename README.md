@@ -9,7 +9,7 @@
 ![Node](https://img.shields.io/badge/Node.js-%E2%89%A520-339933?logo=node.js&logoColor=white)
 ![dependencies](https://img.shields.io/badge/dependencies-0-blue)
 ![read--only](https://img.shields.io/badge/MCP-%E5%8F%AA%E8%AF%BB%E4%B8%8D%E4%B8%8B%E5%8D%95-success)
-![tests](https://img.shields.io/badge/tests-48%20passed-brightgreen)
+![tests](https://img.shields.io/badge/tests-50%20passed-brightgreen)
 
 </div>
 
@@ -181,22 +181,24 @@ node bin/mcd-dual.mjs doctor --dump-schema out/tools-schema.json
   有一条单元测试会扫描整个仓库，确保没有任何文件包含形似真实 Token 的字符串。
 - **失败不伪装**：实时模式任何一步失败都直接报错并给出可操作提示，**绝不静默降级成演示数据**——
   「看起来像真数据的假数据」是这类工具最危险的失败方式。
-- **可复现**：48 个单元测试覆盖单位推断、名称匹配、约束求解、帕累托前沿、渲染转义与安全边界；
+- **可复现**：50 个单元测试覆盖单位推断、名称匹配、约束求解、帕累托前沿、渲染转义与安全边界；
   相同输入两次求解结果完全一致。
 
 ```bash
-npm test        # 或 node --test tests/
+npm test        # 或 node --test（自动发现 tests/ 下用例）
 ```
 
 ## 已知限制与未验证项
 
 诚实比漂亮重要，这一节请务必读完：
 
-- **真实 Token 联调状态**见 [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md)。离线演示模式与全部单元测试已通过；
-  涉及真实门店的读取、算价核验，需要你自己的 MCP Token 才能验证——`doctor` 命令会逐项报告结果。
+- **真实 Token 联调**：✅ 已于 2026-10-09 用真实 Token 完成（成都春熙路门店，116 品，官方验价一致），
+  逐项结果见 [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md)。你用自己的 Token 复现时直接跑 `doctor` 即可。
 - **候选集是裁剪后枚举，不是全量穷举**。裁剪规模会写在战报里；想更接近穷举请调大 `--per-category`。
-- **营养匹配依赖名称**。官方营养库与菜单的商品名不完全一致时会出现匹配失败，
-  这类餐品会被排除而不是估算。套餐营养由组成项累加得到，可能与官方口径有差异。
+- **营养匹配依赖名称**。官方营养库（160 条）与门店菜单的商品名不完全一致时会出现匹配失败
+  （实测匹配率 73/116），这类餐品会被排除而不是估算。套餐营养由组成项累加得到，可能与官方口径有差异。
+- **每次实时求解需逐品调用官方算价**（116 品门店约 140 次请求、约 20 秒），这是官方
+  `query-meals` 不返回名称与价格造成的固有成本，不是低效实现。
 - **优惠券只做估算**。券是否真正可用以官方算价和下单页为准，本项目不会自动领券或下单。
 - **不是营养或医疗建议**。目标值由用户自己设定，引擎只负责在给定目标下求最优。
 
@@ -214,7 +216,7 @@ npm test        # 或 node --test tests/
 │   ├── report.mjs              # 自包含 SVG 战报渲染（含 CJK 折行排版）
 │   └── demo-data.mjs           # 离线合成演示数据（显著标注非官方）
 ├── skills/mcd-dual-planner/    # WorkBuddy Skill
-├── tests/                      # 48 个单元测试
+├── tests/                      # 50 个单元测试
 ├── docs/                       # 架构、求解器模型、验收记录
 ├── examples/                   # 示例战报与结果 JSON
 ├── CONTEST_DECLARATION.md      # 参赛声明（官方原文，未改动）

@@ -44,7 +44,8 @@ plan 选项：
   --city <城市>              城市，如 成都
   --store <关键词>           门店名或地标关键词
   --store-code <门店编码>    直接指定门店编码
-  --be-type <数字>           取餐方式，1=到店自取（默认），5=得来速
+  --be-type <数字>           取餐方式，1=到店取餐，2=麦乐送，5=得来速，6=企业团餐（默认 1）
+  --order-type <数字>        订单类型，1=到店（默认），2=外送
   --search-type <数字>       1=收藏餐厅，2=按城市+关键词搜索（默认）
   --combo-limit <数量>       最多拆解多少个套餐的营养，默认 12
   --endpoint <URL>           MCP 端点，默认 https://mcp.mcd.cn
@@ -219,7 +220,8 @@ async function cmdDoctor(options) {
     if (options['dump-schema']) {
       const target = resolve(String(options['dump-schema']));
       await mkdir(dirname(target), { recursive: true });
-      await writeFile(target, JSON.stringify(tools, null, 2), 'utf8');
+      // tools 是 Map，直接 stringify 会得到 {}，必须先转数组
+      await writeFile(target, JSON.stringify([...tools.values()], null, 2), 'utf8');
       out.push(`    📄 工具 schema 已导出：${target}（不含 Token，可安全分享）`);
     }
 
@@ -279,6 +281,7 @@ async function cmdPlan(options) {
       storeKeyword: options.store,
       storeCode: options['store-code'],
       beType: options['be-type'] !== undefined ? Number(options['be-type']) : undefined,
+      orderType: options['order-type'] !== undefined ? Number(options['order-type']) : undefined,
       searchType: options['search-type'] !== undefined ? Number(options['search-type']) : undefined,
       comboLookupLimit: options['combo-limit'] !== undefined ? Number(options['combo-limit']) : undefined,
       verify: !options['no-verify'],

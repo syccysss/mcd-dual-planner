@@ -203,6 +203,32 @@ export function normalizeMenu(payload) {
 
 // ---------------------------------------------------------------- 营养
 
+/**
+ * 解析官方营养库的 toon 紧凑格式，例如：
+ *   [160]{productName,nutritionDescription,energyKj,energyKcal,protein,fat,carbohydrate,sodium,calcium}:\n
+ *     猪柳麦满分,null,1288,308,16,16,24,781,213
+ * 返回与 collect 路径一致的行结构，供 normalizeNutrition 统一使用。
+ */
+export function parseToonTable(text) {
+  if (typeof text !== 'string') return [];
+  const match = text.match(/\[(\d+)\]\{([^}]+)\}:/);
+  const headerLine = match ? match[2] : text.split('\n')[0];
+  const header = headerLine.split(',').map((h) => h.trim());
+  const rows = [];
+  for (const rawLine of text.split('\n')) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('[') || line.startsWith('{')) continue;
+    const cells = line.split(',').map((c) => c.trim());
+    const row = {};
+    for (let i = 0; i < header.length; i += 1) {
+      const value = cells[i];
+      row[header[i]] = value === 'null' || value === '' ? null : value;
+    }
+    if (row.productName) rows.push(row);
+  }
+  return rows;
+}
+
 function looksLikeNutrition(obj) {
   const name = pick(obj, NAME_KEYS);
   if (typeof name !== 'string' || !name.trim()) return false;
@@ -252,6 +278,12 @@ export function extractNutrition(node) {
 }
 
 export function normalizeNutrition(payload) {
+  // toon 紧凑格式：官方营养库的 data 字段本身就是这种文本（或包在 {data: "..."} 里）
+  if (typeof payload === 'string') payload = parseToonTable(payload);
+  else if (payload && typeof payload === 'object' && !Array.isArray(payload) && typeof payload.data === 'string') {
+    payload = parseToonTable(payload.data);
+  }
+
   // 形态兼容：数组 / { list: [...] } / { "巨无霸": {...} } 映射表
   const nodes = collect(payload, looksLikeNutrition);
   const rows = [];
@@ -393,7 +425,7 @@ export function normalizePrice(payload) {
   const nested = obj.priceInfo ?? obj.price ?? obj.amount ?? obj.result ?? null;
   let source = nested && typeof nested === 'object' ? { ...obj, ...nested } : obj;
 
-  const TOTAL_KEYS = ['totalAmount', 'total_amount', 'payAmount', 'pay_amount', 'totalPrice', 'total_price',
+  const TOTAL_KEYS = ['price', 'totalAmount', 'total_amount', 'payAmount', 'pay_amount', 'totalPrice', 'total_price',
     'amount', 'actualAmount', 'actual_amount', 'finalAmount'];
 
   // 兜底：字段可能包在未知层级的 data / result / orderInfo 里，

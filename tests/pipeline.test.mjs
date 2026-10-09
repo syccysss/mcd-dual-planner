@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { buildPlanDemo, buildSolverOptions, pickBestCoupon, extractComboParts } from '../src/pipeline.mjs';
+import { buildPlanDemo, buildSolverOptions, pickBestCoupon, extractComboParts, extractMenuCodes } from '../src/pipeline.mjs';
 import { renderReport } from '../src/report.mjs';
 import { demoDataset } from '../src/demo-data.mjs';
 
@@ -91,4 +91,22 @@ test('演示数据集：品类齐全，价格与营养字段完整', () => {
     assert.ok(row.energyKcal > 0);
     assert.ok(row.proteinG >= 0);
   }
+});
+
+test('菜单编码提取：从官方 query-meals 结构（categories + 顶层 meals）抽出编码清单', () => {
+  const payload = {
+    success: true,
+    data: {
+      categories: [
+        { name: '人气热卖', meals: [{ code: '9900016076', tags: ['心形薯饼同款比心'] }, { code: '521954' }] },
+        { name: '经典汉堡', meals: [{ code: '515946' }] },
+      ],
+      meals: [{ code: '9900016076' }], // 顶层平铺与分类重复，应去重
+    },
+  };
+  const codes = extractMenuCodes(payload);
+  assert.equal(codes.length, 3);
+  assert.deepEqual(codes.map((c) => c.code).sort(), ['515946', '521954', '9900016076']);
+  assert.equal(codes.find((c) => c.code === '9900016076').tags[0], '心形薯饼同款比心');
+  assert.equal(codes.find((c) => c.code === '521954').cat, '人气热卖');
 });
