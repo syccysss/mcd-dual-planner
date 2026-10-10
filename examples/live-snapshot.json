@@ -1,5 +1,6 @@
 {
   "mode": "live",
+  "city": "成都",
   "store": {
     "code": "3450410",
     "name": "麦当劳成都锦江区联升巷(京都大厦)餐厅",
@@ -8,7 +9,7 @@
     "city": null,
     "supportsReservation": true
   },
-  "generatedAt": "2026-10-09 21:23:40",
+  "generatedAt": "2026-10-10 11:14:33",
   "targets": {
     "kcal": 700,
     "kcalTolerance": 0.2,
@@ -77,9 +78,9 @@
       "tags": []
     },
     {
-      "code": "9900016311",
-      "name": "龙焰美味四件套",
-      "priceFen": 5700,
+      "code": "9900011056",
+      "name": "全明星双人分享餐八件套",
+      "priceFen": 11750,
       "priceSource": "official-calculate-price",
       "category": "主食",
       "categoryInferred": true,
@@ -108,6 +109,44 @@
       "rawCategory": "人气热卖",
       "tags": [
         "蓝莓"
+      ]
+    },
+    {
+      "code": "515946",
+      "name": "冰浓浓黑巧中杯",
+      "priceFen": 1390,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": []
+    },
+    {
+      "code": "9900014837",
+      "name": "枫糖风味厚松饼猪柳蛋堡三件套",
+      "priceFen": 2790,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "精选单人餐",
+      "tags": [
+        "经典精选",
+        "全球爆款",
+        "全天供应"
+      ]
+    },
+    {
+      "code": "9900014974",
+      "name": "枫糖风味厚松饼猪柳堡三件套",
+      "priceFen": 2390,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "精选单人餐",
+      "tags": [
+        "经典精选",
+        "全球爆款",
+        "全天供应"
       ]
     },
     {
@@ -287,18 +326,6 @@
       ]
     },
     {
-      "code": "9900003537",
-      "name": "学生专享汉堡小食随心选",
-      "priceFen": 2800,
-      "priceSource": "official-calculate-price",
-      "category": "主食",
-      "categoryInferred": true,
-      "rawCategory": "鸡肉汉堡\n/卷",
-      "tags": [
-        "套餐"
-      ]
-    },
-    {
       "code": "1440",
       "name": "麦辣鸡腿汉堡",
       "priceFen": 2250,
@@ -379,6 +406,20 @@
       ]
     },
     {
+      "code": "9900015151",
+      "name": "麦麦周末双人餐",
+      "priceFen": 4990,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "小食拼盘\n/多人餐",
+      "tags": [
+        "多人餐",
+        "全球爆款",
+        "全天供应"
+      ]
+    },
+    {
       "code": "9900006332",
       "name": "薄皮V翅双拼十翅",
       "priceFen": 4990,
@@ -415,18 +456,6 @@
       "tags": [
         "小食拼盘",
         "万种组合"
-      ]
-    },
-    {
-      "code": "9900011056",
-      "name": "全明星双人分享餐八件套",
-      "priceFen": 11750,
-      "priceSource": "official-calculate-price",
-      "category": "主食",
-      "categoryInferred": true,
-      "rawCategory": "小食拼盘\n/多人餐",
-      "tags": [
-        "麦金卡"
       ]
     },
     {
@@ -570,6 +599,18 @@
       ]
     },
     {
+      "code": "9900016301",
+      "name": "枫糖风味厚松饼猪柳蛋堡四件套",
+      "priceFen": 5200,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
       "code": "9900000888",
       "name": "巨无霸四件套",
       "priceFen": 5950,
@@ -706,6 +747,34 @@
       "tags": [
         "套餐",
         "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "521730",
+      "name": "枫糖风味厚松饼猪柳蛋堡",
+      "priceFen": 2200,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "全球爆款",
+        "全天供应"
+      ]
+    },
+    {
+      "code": "521731",
+      "name": "枫糖风味厚松饼猪柳堡",
+      "priceFen": 1800,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "全球爆款",
+        "全天供应"
       ]
     },
     {
@@ -1034,6 +1103,18 @@
       ]
     },
     {
+      "code": "521741",
+      "name": "脆薯饼",
+      "priceFen": 850,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "小食"
+      ]
+    },
+    {
       "code": "4810",
       "name": "中薯条",
       "priceFen": 1450,
@@ -1155,18 +1236,6 @@
       "tags": [
         "限定特惠",
         "人气雪冰喝一夏"
-      ]
-    },
-    {
-      "code": "515946",
-      "name": "冰浓浓黑巧中杯",
-      "priceFen": 1390,
-      "priceSource": "official-calculate-price",
-      "category": "饮料",
-      "categoryInferred": true,
-      "rawCategory": "麦咖啡™",
-      "tags": [
-        "限定特惠"
       ]
     },
     {
@@ -1458,18 +1527,6 @@
       "code": "3757",
       "name": "纯悦",
       "priceFen": 750,
-      "priceSource": "official-calculate-price",
-      "category": "饮料",
-      "categoryInferred": true,
-      "rawCategory": "饮品",
-      "tags": [
-        "冷饮"
-      ]
-    },
-    {
-      "code": "9900003538",
-      "name": "学生专享饮品随心选",
-      "priceFen": 1000,
       "priceSource": "official-calculate-price",
       "category": "饮料",
       "categoryInferred": true,
@@ -2785,35 +2842,35 @@
       "code": "9900016075",
       "name": "龙焰芝士棒鸡腿堡三件套",
       "nutrition": {
-        "energyKcal": 1815,
-        "proteinG": 35,
-        "fatG": 38,
-        "carbG": 319,
-        "sodiumMg": 5578,
-        "calciumMg": 1057,
+        "energyKcal": 436,
+        "proteinG": 4,
+        "fatG": 12,
+        "carbG": 74,
+        "sodiumMg": 165,
+        "calciumMg": 28,
         "inferred": [
           "套餐营养按组成项累加"
         ]
       },
       "matchType": "combo",
-      "matchedName": "龙焰芝士棒鸡腿堡三件套 + 龙焰芝士棒鸡腿堡 + 辣椒黄油风味酱 + 切块生菜 + 选择套餐内小食 + 中薯条 + 5块心形薯饼+韩式辣椒黄油风味酱 + 大薯条 + 小杯玉米杯 + 选择套餐内饮料 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰 + 【美汁源】“多汁柠柠” + 热浓浓黑巧中杯 + 换燕麦奶 + 美禄可可雪冰 + 无糖可口可乐中杯 + 雪碧中杯 + 阳光柠檬红茶中杯 + 纯牛奶 + 麦咖啡™冰美式中杯 + 不加 + 加 + 大杯鲜萃咖啡 + 奶油球 + 白砂糖 + 麦咖啡™热美式中杯 + 麦咖啡™冰奶铁中杯 + 冰浓浓黑巧中杯 + 热浓浓燕麦黑巧中杯 + 冰浓浓燕麦黑巧中杯 + 大杯怡泉+C + 麦咖啡™热奶铁中杯 + 【美汁源】“黄金橙橙” + 锡兰红茶 + 100%苹果汁"
+      "matchedName": "龙焰芝士棒鸡腿堡 + 辣椒黄油风味酱 + 切块生菜 + 中薯条 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
     },
     {
       "code": "9900016073",
       "name": "龙焰鸡腿堡三件套",
       "nutrition": {
-        "energyKcal": 1815,
-        "proteinG": 35,
-        "fatG": 38,
-        "carbG": 319,
-        "sodiumMg": 5578,
-        "calciumMg": 1057,
+        "energyKcal": 436,
+        "proteinG": 4,
+        "fatG": 12,
+        "carbG": 74,
+        "sodiumMg": 165,
+        "calciumMg": 28,
         "inferred": [
           "套餐营养按组成项累加"
         ]
       },
       "matchType": "combo",
-      "matchedName": "龙焰鸡腿堡三件套 + 龙焰鸡腿堡 + 辣椒黄油风味酱 + 切块生菜 + 选择套餐内小食 + 中薯条 + 5块心形薯饼+韩式辣椒黄油风味酱 + 大薯条 + 小杯玉米杯 + 选择套餐内饮料 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰 + 【美汁源】“多汁柠柠” + 热浓浓黑巧中杯 + 换燕麦奶 + 美禄可可雪冰 + 无糖可口可乐中杯 + 雪碧中杯 + 阳光柠檬红茶中杯 + 纯牛奶 + 麦咖啡™冰美式中杯 + 不加 + 加 + 大杯鲜萃咖啡 + 奶油球 + 白砂糖 + 麦咖啡™热美式中杯 + 麦咖啡™冰奶铁中杯 + 冰浓浓黑巧中杯 + 热浓浓燕麦黑巧中杯 + 冰浓浓燕麦黑巧中杯 + 大杯怡泉+C + 麦咖啡™热奶铁中杯 + 【美汁源】“黄金橙橙” + 锡兰红茶 + 100%苹果汁"
+      "matchedName": "龙焰鸡腿堡 + 辣椒黄油风味酱 + 切块生菜 + 中薯条 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
     },
     {
       "code": "9900016077",
@@ -2830,18 +2887,38 @@
       "matchedName": "麦麦趣鸡球"
     },
     {
-      "code": "9900016311",
-      "name": "龙焰美味四件套",
-      "nutrition": null,
-      "matchType": "rejected-implausible",
-      "matchedName": "组成项累加超出常理，已按营养未知处理"
+      "code": "9900011056",
+      "name": "全明星双人分享餐八件套",
+      "nutrition": {
+        "energyKcal": 1905,
+        "proteinG": 79,
+        "fatG": 85,
+        "carbG": 199,
+        "sodiumMg": 3682,
+        "calciumMg": 361,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "麦辣鸡腿汉堡 + 麦香鸡酱 + 切块生菜 + 板烧鸡腿堡 + 烤味酱 + 麦乐鸡4块 + 麦辣鸡翅2块 + 中薯条 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
     },
     {
       "code": "9900004064",
       "name": "精选单人餐三件套",
-      "nutrition": null,
-      "matchType": "rejected-implausible",
-      "matchedName": "组成项累加超出常理，已按营养未知处理"
+      "nutrition": {
+        "energyKcal": 827,
+        "proteinG": 27,
+        "fatG": 29,
+        "carbG": 109,
+        "sodiumMg": 1206,
+        "calciumMg": 121,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "板烧鸡腿堡 + 烤味酱 + 切块生菜 + 中薯条 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
     },
     {
       "code": "521950",
@@ -2851,25 +2928,86 @@
       "matchedName": "草莓麦旋风"
     },
     {
+      "code": "515946",
+      "name": "冰浓浓黑巧中杯",
+      "nutrition": {
+        "name": "冰浓浓黑巧中杯",
+        "key": "冰浓浓黑巧",
+        "energyKcal": 135,
+        "proteinG": 8,
+        "fatG": 6,
+        "carbG": 12,
+        "sodiumMg": 77,
+        "calciumMg": 244,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "冰浓浓黑巧中杯"
+    },
+    {
+      "code": "9900014837",
+      "name": "枫糖风味厚松饼猪柳蛋堡三件套",
+      "nutrition": {
+        "energyKcal": 1024,
+        "proteinG": 33,
+        "fatG": 43,
+        "carbG": 119,
+        "sodiumMg": 4493,
+        "calciumMg": 275,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "枫糖风味厚松饼猪柳蛋堡 + 吉士 + 脆薯饼 + 中薯条 + 小杯鲜萃咖啡 + 奶油球 + 白砂糖 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
+    },
+    {
+      "code": "9900014974",
+      "name": "枫糖风味厚松饼猪柳堡三件套",
+      "nutrition": {
+        "energyKcal": 1024,
+        "proteinG": 33,
+        "fatG": 43,
+        "carbG": 119,
+        "sodiumMg": 4493,
+        "calciumMg": 275,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "枫糖风味厚松饼猪柳堡 + 吉士 + 脆薯饼 + 中薯条 + 小杯鲜萃咖啡 + 奶油球 + 白砂糖 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
+    },
+    {
       "code": "9900004236",
       "name": "人气超值四件套随心选",
-      "nutrition": null,
-      "matchType": "rejected-implausible",
-      "matchedName": "组成项累加超出常理，已按营养未知处理"
+      "nutrition": {
+        "energyKcal": 1290,
+        "proteinG": 43,
+        "fatG": 53,
+        "carbG": 155,
+        "sodiumMg": 2104,
+        "calciumMg": 255,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "麦辣鸡腿汉堡 + 麦香鸡酱 + 切块生菜 + 中薯条 + 麦乐鸡4块 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
     },
     {
       "code": "9900010110",
       "name": "鱼牛汉堡四件套随心选",
       "nutrition": null,
-      "matchType": "rejected-implausible",
-      "matchedName": "组成项累加超出常理，已按营养未知处理"
+      "matchType": "none",
+      "matchedName": "吉士汉堡包"
     },
     {
       "code": "9900006957",
       "name": "安格斯厚牛堡四件套随心选",
       "nutrition": null,
-      "matchType": "rejected-implausible",
-      "matchedName": "组成项累加超出常理，已按营养未知处理"
+      "matchType": "none",
+      "matchedName": "培根安格斯厚牛堡"
     },
     {
       "code": "521953",
@@ -3009,13 +3147,6 @@
       "matchedName": "酥酥多笋卷"
     },
     {
-      "code": "9900003537",
-      "name": "学生专享汉堡小食随心选",
-      "nutrition": null,
-      "matchType": "none",
-      "matchedName": "吉士汉堡包"
-    },
-    {
       "code": "1440",
       "name": "麦辣鸡腿汉堡",
       "nutrition": {
@@ -3098,6 +3229,13 @@
       "matchedName": "麦辣鸡翅-2块"
     },
     {
+      "code": "9900015151",
+      "name": "麦麦周末双人餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "双层猪柳蛋麦满分"
+    },
+    {
       "code": "9900006332",
       "name": "薄皮V翅双拼十翅",
       "nutrition": null,
@@ -3117,13 +3255,6 @@
       "nutrition": null,
       "matchType": "none",
       "matchedName": "汉堡包"
-    },
-    {
-      "code": "9900011056",
-      "name": "全明星双人分享餐八件套",
-      "nutrition": null,
-      "matchType": "none",
-      "matchedName": "双层原味板烧鸡腿麦满分"
     },
     {
       "code": "9900005321",
@@ -3201,6 +3332,13 @@
       "nutrition": null,
       "matchType": "none",
       "matchedName": "大薯条"
+    },
+    {
+      "code": "9900016301",
+      "name": "枫糖风味厚松饼猪柳蛋堡四件套",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "猪柳炒双蛋堡"
     },
     {
       "code": "9900000888",
@@ -3388,6 +3526,20 @@
       },
       "matchType": "contains",
       "matchedName": "吉士汉堡包"
+    },
+    {
+      "code": "521730",
+      "name": "枫糖风味厚松饼猪柳蛋堡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "猪柳炒双蛋堡"
+    },
+    {
+      "code": "521731",
+      "name": "枫糖风味厚松饼猪柳堡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "猪柳炒双蛋堡"
     },
     {
       "code": "1100",
@@ -3725,6 +3877,23 @@
       "matchedName": "奥利奥麦旋风"
     },
     {
+      "code": "521741",
+      "name": "脆薯饼",
+      "nutrition": {
+        "name": "脆薯饼",
+        "key": "脆薯饼",
+        "energyKcal": 146,
+        "proteinG": 1,
+        "fatG": 9,
+        "carbG": 14,
+        "sodiumMg": 311,
+        "calciumMg": 7,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "脆薯饼"
+    },
+    {
       "code": "4810",
       "name": "中薯条",
       "nutrition": {
@@ -3855,23 +4024,6 @@
       "nutrition": null,
       "matchType": "none",
       "matchedName": "大杯鲜萃咖啡"
-    },
-    {
-      "code": "515946",
-      "name": "冰浓浓黑巧中杯",
-      "nutrition": {
-        "name": "冰浓浓黑巧中杯",
-        "key": "冰浓浓黑巧",
-        "energyKcal": 135,
-        "proteinG": 8,
-        "fatG": 6,
-        "carbG": 12,
-        "sodiumMg": 77,
-        "calciumMg": 244,
-        "inferred": []
-      },
-      "matchType": "exact",
-      "matchedName": "冰浓浓黑巧中杯"
     },
     {
       "code": "515955",
@@ -4261,13 +4413,6 @@
       "matchedName": "纯悦"
     },
     {
-      "code": "9900003538",
-      "name": "学生专享饮品随心选",
-      "nutrition": null,
-      "matchType": "none",
-      "matchedName": "优品豆浆大杯"
-    },
-    {
       "code": "3505",
       "name": "锡兰红茶",
       "nutrition": {
@@ -4286,60 +4431,6 @@
     }
   ],
   "coupons": [
-    {
-      "id": "71F939A874735C2495517B8B24323CFB",
-      "name": "麦旋风任选",
-      "thresholdFen": null,
-      "discountFen": null,
-      "couponPriceFen": 990,
-      "faceValueFen": null,
-      "targetCodes": [
-        "9900014239"
-      ],
-      "appliesToCode": "9900008754",
-      "promotionId": "112458030",
-      "orderTypes": [
-        1,
-        2
-      ],
-      "beTypes": [
-        1,
-        2,
-        5
-      ],
-      "expireAt": "2026-10-09 23:59:59",
-      "scope": null,
-      "source": "query-my-coupons",
-      "usable": true,
-      "excludedReason": null
-    },
-    {
-      "id": "E86377A0349D730EF7C27EBBE7B4C0FE",
-      "name": "薯薯任选",
-      "thresholdFen": null,
-      "discountFen": null,
-      "couponPriceFen": 990,
-      "faceValueFen": null,
-      "targetCodes": [
-        "9900016370"
-      ],
-      "appliesToCode": null,
-      "promotionId": "112458027",
-      "orderTypes": [
-        1,
-        2
-      ],
-      "beTypes": [
-        1,
-        2,
-        5
-      ],
-      "expireAt": "2026-10-09 23:59:59",
-      "scope": null,
-      "source": "query-my-coupons",
-      "usable": false,
-      "excludedReason": "未能定位到菜单中的具体商品"
-    },
     {
       "id": "B2F635C28AF377A949D4A99E406A82DA",
       "name": "灰焰圆筒第二份半价",
@@ -4366,184 +4457,50 @@
       "excludedReason": "面额/规则无法量化（如第二份半价）"
     },
     {
-      "id": "3850230009F2CEA902FB0FFDE7B0E11A",
-      "name": "巧克力味厚松饼猪柳蛋套餐",
+      "id": "8692944B045928451618BFF22F535D2A",
+      "name": "中薯条买一送一",
       "thresholdFen": null,
       "discountFen": null,
-      "couponPriceFen": 2990,
+      "couponPriceFen": 1350,
       "faceValueFen": null,
       "targetCodes": [],
-      "appliesToCode": null,
-      "promotionId": "112458014",
+      "appliesToCode": "4810",
+      "promotionId": "112458028",
       "orderTypes": [
-        1
+        1,
+        2
       ],
       "beTypes": [
         1,
+        2,
         5
       ],
-      "expireAt": "2026-10-10 10:29:59",
+      "expireAt": "2026-10-16 23:59:59",
       "scope": null,
       "source": "query-my-coupons",
-      "usable": false,
-      "excludedReason": "未能定位到菜单中的具体商品"
+      "usable": true,
+      "excludedReason": null
     },
     {
-      "id": "E85705ED6843E5CFF4B7C4DCDEDBADC4",
-      "name": "巧克力味厚松饼猪柳蛋套餐",
+      "id": "E05F6BFB4BAFAA5DB44B233583BFE711",
+      "name": "王牌小食拼",
       "thresholdFen": null,
       "discountFen": null,
-      "couponPriceFen": 2990,
+      "couponPriceFen": 1590,
       "faceValueFen": null,
       "targetCodes": [],
       "appliesToCode": null,
-      "promotionId": "112458016",
+      "promotionId": "112458029",
       "orderTypes": [
-        1
+        1,
+        2
       ],
       "beTypes": [
         1,
+        2,
         5
       ],
-      "expireAt": "2026-10-11 10:29:59",
-      "scope": null,
-      "source": "query-my-coupons",
-      "usable": false,
-      "excludedReason": "未能定位到菜单中的具体商品"
-    },
-    {
-      "id": "6DB49884FB87FC97B889F5BF5B7C3D4C",
-      "name": "火腿扒堡早餐两件套",
-      "thresholdFen": null,
-      "discountFen": null,
-      "couponPriceFen": 990,
-      "faceValueFen": null,
-      "targetCodes": [],
-      "appliesToCode": null,
-      "promotionId": "112457029",
-      "orderTypes": [
-        1
-      ],
-      "beTypes": [
-        1,
-        5
-      ],
-      "expireAt": "2026-10-12 10:29:59",
-      "scope": null,
-      "source": "query-my-coupons",
-      "usable": false,
-      "excludedReason": "未能定位到菜单中的具体商品"
-    },
-    {
-      "id": "389E15D0F4FD42AE3FC887F3B609CF7C",
-      "name": "芝香脆鸡扒堡早餐两件套",
-      "thresholdFen": null,
-      "discountFen": null,
-      "couponPriceFen": 990,
-      "faceValueFen": null,
-      "targetCodes": [],
-      "appliesToCode": null,
-      "promotionId": "112457031",
-      "orderTypes": [
-        1
-      ],
-      "beTypes": [
-        1,
-        5
-      ],
-      "expireAt": "2026-10-13 10:29:59",
-      "scope": null,
-      "source": "query-my-coupons",
-      "usable": false,
-      "excludedReason": "未能定位到菜单中的具体商品"
-    },
-    {
-      "id": "89457D500597299604D40C3305B796C5",
-      "name": "高达芝士蛋堡早餐两件套",
-      "thresholdFen": null,
-      "discountFen": null,
-      "couponPriceFen": 990,
-      "faceValueFen": null,
-      "targetCodes": [],
-      "appliesToCode": null,
-      "promotionId": "112457024",
-      "orderTypes": [
-        1
-      ],
-      "beTypes": [
-        1,
-        5
-      ],
-      "expireAt": "2026-10-14 10:29:59",
-      "scope": null,
-      "source": "query-my-coupons",
-      "usable": false,
-      "excludedReason": "未能定位到菜单中的具体商品"
-    },
-    {
-      "id": "38190F2EAF191C2BB51657535EAA1E80",
-      "name": "大脆鸡扒堡早餐两件套",
-      "thresholdFen": null,
-      "discountFen": null,
-      "couponPriceFen": 990,
-      "faceValueFen": null,
-      "targetCodes": [],
-      "appliesToCode": null,
-      "promotionId": "112457026",
-      "orderTypes": [
-        1
-      ],
-      "beTypes": [
-        1,
-        5
-      ],
-      "expireAt": "2026-10-15 10:29:59",
-      "scope": null,
-      "source": "query-my-coupons",
-      "usable": false,
-      "excludedReason": "未能定位到菜单中的具体商品"
-    },
-    {
-      "id": "7F0DDEE1CB49428072168DAEAF8DED2C",
-      "name": "火腿扒堡早餐两件套",
-      "thresholdFen": null,
-      "discountFen": null,
-      "couponPriceFen": 990,
-      "faceValueFen": null,
-      "targetCodes": [],
-      "appliesToCode": null,
-      "promotionId": "112457028",
-      "orderTypes": [
-        1
-      ],
-      "beTypes": [
-        1,
-        5
-      ],
-      "expireAt": "2026-10-16 10:29:59",
-      "scope": null,
-      "source": "query-my-coupons",
-      "usable": false,
-      "excludedReason": "未能定位到菜单中的具体商品"
-    },
-    {
-      "id": "7390AF213CDB886D86C7A4785237A4B7",
-      "name": "巧克力味厚松饼猪柳蛋套餐",
-      "thresholdFen": null,
-      "discountFen": null,
-      "couponPriceFen": 2990,
-      "faceValueFen": null,
-      "targetCodes": [],
-      "appliesToCode": null,
-      "promotionId": "112458018",
-      "orderTypes": [
-        1
-      ],
-      "beTypes": [
-        1,
-        5
-      ],
-      "expireAt": "2026-10-17 10:29:59",
+      "expireAt": "2026-10-16 23:59:59",
       "scope": null,
       "source": "query-my-coupons",
       "usable": false,
@@ -4640,16 +4597,40 @@
       "source": "query-my-coupons",
       "usable": false,
       "excludedReason": "未能定位到菜单中的具体商品"
+    },
+    {
+      "id": "38190F2EAF191C2BB51657535EAA1E80",
+      "name": "大脆鸡扒堡早餐两件套",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": 990,
+      "faceValueFen": null,
+      "targetCodes": [],
+      "appliesToCode": null,
+      "promotionId": "112457026",
+      "orderTypes": [
+        1
+      ],
+      "beTypes": [
+        1,
+        5
+      ],
+      "expireAt": "2026-10-15 10:29:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": false,
+      "excludedReason": "未能定位到菜单中的具体商品"
     }
   ],
   "dataNotes": [
-    "菜单复用本地缓存（2026/10/9 21:00:28 抓取，TTL 内未消耗额外请求；--no-cache 可强制刷新）。",
-    "菜单 118 项参与计算（名称与单价均来自官方算价 calculate-price）。",
-    "通过 query-meal-detail 拆解并累加营养的套餐：7 个（营养值为组成项之和）。",
+    "菜单 122 项参与计算（名称与单价均来自官方算价 calculate-price）。",
+    "通过 query-meal-detail 拆解并累加营养的套餐：7 个（只取 isDefault 默认组成项）。",
+    "有 1 个套餐的组成项累加结果超出常理（>3000 kcal），已按\"营养未知\"处理而不是拿错数硬算。",
     "官方算价（calculate-price）结果已用于核验本地菜单价合计；与本地不一致时请以官方返回为准。",
-    "有 45 项餐品未匹配到官方营养数据：营养类优化中排除（不使用猜测值），但仍可参与「省钱底线」并在方案中标注营养未知。",
-    "口径：预算卡的是券前菜单价合计（避免为凑满减券而超支）；三个结论一律按券后实付排序。",
-    "发现 15 张可用券：1 张可量化并已纳入方案择优，14 张面额/规则无法量化（如第二份半价）不参与计算；本项目不会自动领券。",
+    "有 48 项餐品未匹配到官方营养数据：营养类优化中排除（不使用猜测值），但仍可参与「省钱底线」并在方案中标注营养未知。",
+    "口径：预算卡的是券前菜单价合计（避免为凑满减券而超支）；结论一律按券后实付排序。",
+    "发现 8 张可用券：1 张可量化并已纳入方案择优，7 张面额/规则无法量化（如第二份半价）不参与计算；本项目不会自动领券。",
     "官方券多为「指定商品用券价」（如某餐品 9.9 元），本工具只在能定位到方案内具体商品时才计入优惠；定位不到的券宁可不算，也不猜一个金额。"
-  ]
+  ],
+  "exportedAt": "2026-10-10"
 }

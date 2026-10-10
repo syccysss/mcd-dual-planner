@@ -1,7 +1,7 @@
 {
   "meta": {
     "mode": "demo",
-    "generatedAt": "2026-10-10 02:02:01",
+    "generatedAt": "2026-10-10 03:10:18",
     "store": {
       "code": "DEMO-0001",
       "name": "演示餐厅（合成数据，非真实门店）",
@@ -9511,6 +9511,7 @@
     "budgetFen": 3000,
     "minScore": 70,
     "perCategory": 6,
+    "perCategoryAdjusted": null,
     "couponCount": 3,
     "couponApplied": 121,
     "costBasis": "菜单价过滤预算，券后实付排序",

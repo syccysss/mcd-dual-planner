@@ -1,0 +1,4606 @@
+{
+  "mode": "live",
+  "city": "上海",
+  "store": {
+    "code": "1450104",
+    "name": "麦当劳上海黄浦悦荟广场餐厅",
+    "address": "南京东路３５３号（山东中路九江路）",
+    "distance": 194,
+    "city": null,
+    "supportsReservation": true
+  },
+  "generatedAt": "2026-10-10 11:14:01",
+  "targets": {
+    "kcal": 700,
+    "kcalTolerance": 0.2,
+    "proteinG": 30,
+    "sodiumMaxMg": 1200,
+    "fatMaxG": null
+  },
+  "budgetFen": 4000,
+  "menu": [
+    {
+      "code": "9900016076",
+      "name": "“我就喜欢”鸡薯双全盒",
+      "priceFen": 1590,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": [
+        "心形薯饼同款比心"
+      ]
+    },
+    {
+      "code": "9900016075",
+      "name": "龙焰芝士棒鸡腿堡三件套",
+      "priceFen": 2990,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": [
+        "浓郁奶香拉丝芝士"
+      ]
+    },
+    {
+      "code": "9900016073",
+      "name": "龙焰鸡腿堡三件套",
+      "priceFen": 2690,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": [
+        "韩式辣椒黄油风味"
+      ]
+    },
+    {
+      "code": "9900016077",
+      "name": "蘸酱炸鸡",
+      "priceFen": 1190,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": [
+        "韩式芝士风味酱上新"
+      ]
+    },
+    {
+      "code": "521954",
+      "name": "麦当劳联名复古棒球帽",
+      "priceFen": 3990,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": []
+    },
+    {
+      "code": "9900011056",
+      "name": "全明星双人分享餐八件套",
+      "priceFen": 11450,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": []
+    },
+    {
+      "code": "9900004064",
+      "name": "精选单人餐三件套",
+      "priceFen": 3450,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": [
+        "爆款"
+      ]
+    },
+    {
+      "code": "521950",
+      "name": "蓝莓爆爆珠麦旋风",
+      "priceFen": 1650,
+      "priceSource": "official-calculate-price",
+      "category": "甜品",
+      "categoryInferred": true,
+      "rawCategory": "人气热卖",
+      "tags": [
+        "蓝莓"
+      ]
+    },
+    {
+      "code": "9900015902",
+      "name": "泷泷星愿四件套",
+      "priceFen": 3990,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "精选单人餐",
+      "tags": [
+        "经典精选",
+        "汪苏泷限量周边"
+      ]
+    },
+    {
+      "code": "9900004236",
+      "name": "人气超值四件套随心选",
+      "priceFen": 5700,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "精选单人餐",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900010110",
+      "name": "鱼牛汉堡四件套随心选",
+      "priceFen": 5850,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "精选单人餐",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900006957",
+      "name": "安格斯厚牛堡四件套随心选",
+      "priceFen": 6600,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "精选单人餐",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "521953",
+      "name": "龙焰芝士棒鸡腿堡",
+      "priceFen": 2700,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "上新",
+        "浓郁奶香拉丝芝士"
+      ]
+    },
+    {
+      "code": "521952",
+      "name": "龙焰鸡腿堡",
+      "priceFen": 2400,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "上新",
+        "韩式辣椒黄油风味"
+      ]
+    },
+    {
+      "code": "9900016310",
+      "name": "龙焰芝士棒鸡腿堡四件套",
+      "priceFen": 5700,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900016309",
+      "name": "龙焰鸡腿堡四件套",
+      "priceFen": 5700,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900000891",
+      "name": "麦辣鸡腿堡四件套",
+      "priceFen": 5700,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900000890",
+      "name": "板烧鸡腿堡四件套",
+      "priceFen": 5700,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900000884",
+      "name": "酥酥多笋卷四件套",
+      "priceFen": 5500,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900005462",
+      "name": "板烧鸡腿堡三件套",
+      "priceFen": 3450,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "套餐",
+        "新升级",
+        "更多汁"
+      ]
+    },
+    {
+      "code": "9900005456",
+      "name": "麦辣鸡腿汉堡三件套",
+      "priceFen": 3350,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "套餐",
+        "立省10.5元起"
+      ]
+    },
+    {
+      "code": "9900005453",
+      "name": "麦香鸡中套餐",
+      "priceFen": 2800,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "套餐",
+        "立省10.5元起"
+      ]
+    },
+    {
+      "code": "9900015008",
+      "name": "酥酥多笋卷三件套",
+      "priceFen": 3150,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "套餐",
+        "全新升级",
+        "川香风味"
+      ]
+    },
+    {
+      "code": "1440",
+      "name": "麦辣鸡腿汉堡",
+      "priceFen": 2250,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "单品",
+        "人气经典",
+        "外酥里嫩"
+      ]
+    },
+    {
+      "code": "1406",
+      "name": "板烧鸡腿堡",
+      "priceFen": 2350,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "单品",
+        "板烧滋滋",
+        "多汁惹味"
+      ]
+    },
+    {
+      "code": "1450",
+      "name": "麦香鸡",
+      "priceFen": 1700,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "单品"
+      ]
+    },
+    {
+      "code": "521816",
+      "name": "酥酥多笋卷",
+      "priceFen": 2050,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "单品",
+        "全新升级",
+        "川香风味"
+      ]
+    },
+    {
+      "code": "9900008746",
+      "name": "鸡肉堡单品精选",
+      "priceFen": 2350,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "鸡肉汉堡\n/卷",
+      "tags": [
+        "单品",
+        "人气"
+      ]
+    },
+    {
+      "code": "9900016308",
+      "name": "蘸酱脆皮鸡块8块",
+      "priceFen": 1990,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食拼盘\n/多人餐",
+      "tags": [
+        "上新",
+        "蘸酱炸鸡新吃法"
+      ]
+    },
+    {
+      "code": "9900006332",
+      "name": "薄皮V翅双拼十翅",
+      "priceFen": 4990,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食拼盘\n/多人餐",
+      "tags": [
+        "小食拼盘",
+        "超值"
+      ]
+    },
+    {
+      "code": "9900015730",
+      "name": "BFF四宫格小食盘",
+      "priceFen": 3980,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食拼盘\n/多人餐",
+      "tags": [
+        "小食拼盘",
+        "随心拼"
+      ]
+    },
+    {
+      "code": "9900004066",
+      "name": "堡堡随心拼（7件任选）",
+      "priceFen": 7250,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "小食拼盘\n/多人餐",
+      "tags": [
+        "小食拼盘",
+        "万种组合"
+      ]
+    },
+    {
+      "code": "9900005321",
+      "name": "BFF四宫格小食盘双人餐",
+      "priceFen": 12250,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食拼盘\n/多人餐",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900016078",
+      "name": "蘸酱麦麦脆汁鸡",
+      "priceFen": 1190,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "蘸酱炸鸡",
+      "tags": [
+        "蘸酱炸鸡",
+        "韩式芝士风味酱上新"
+      ]
+    },
+    {
+      "code": "9900016079",
+      "name": "蘸酱脆皮鸡柳",
+      "priceFen": 1190,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "蘸酱炸鸡",
+      "tags": [
+        "蘸酱炸鸡",
+        "韩式芝士风味酱上新"
+      ]
+    },
+    {
+      "code": "9900016099",
+      "name": "蘸酱脆皮鸡块",
+      "priceFen": 1190,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "蘸酱炸鸡",
+      "tags": [
+        "蘸酱炸鸡",
+        "韩式芝士风味酱上新"
+      ]
+    },
+    {
+      "code": "9900015729",
+      "name": "蘸酱BFF四宫格小食盘",
+      "priceFen": 4280,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "蘸酱炸鸡",
+      "tags": [
+        "蘸酱炸鸡",
+        "蘸酱炸鸡新吃法"
+      ]
+    },
+    {
+      "code": "521966",
+      "name": "韩式烟熏芝士风味酱",
+      "priceFen": 300,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "蘸酱炸鸡",
+      "tags": [
+        "蘸酱",
+        "韩式风味",
+        "浓郁芝香"
+      ]
+    },
+    {
+      "code": "521799",
+      "name": "日式鲜磨山葵酱",
+      "priceFen": 300,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "蘸酱炸鸡",
+      "tags": [
+        "蘸酱",
+        "优选高原山葵"
+      ]
+    },
+    {
+      "code": "9900013304",
+      "name": "人气经典随心配",
+      "priceFen": 1490,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "随心配\n1+1",
+      "tags": [
+        "超值百种组合随心配"
+      ]
+    },
+    {
+      "code": "9900015568",
+      "name": "精选超值随心配",
+      "priceFen": 1390,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "随心配\n1+1",
+      "tags": [
+        "超值百种组合随心配"
+      ]
+    },
+    {
+      "code": "9900015602",
+      "name": "大堡口福三件套",
+      "priceFen": 2290,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "大堡口福\n单人餐",
+      "tags": [
+        "大口吃肉好快乐"
+      ]
+    },
+    {
+      "code": "9900016301",
+      "name": "枫糖风味厚松饼猪柳蛋堡四件套",
+      "priceFen": 5200,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900000888",
+      "name": "巨无霸四件套",
+      "priceFen": 5850,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900000886",
+      "name": "不素之霸双层牛堡四件套",
+      "priceFen": 5850,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900000885",
+      "name": "培根蔬萃双层牛堡四件套",
+      "priceFen": 5850,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900000893",
+      "name": "双层深海鳕鱼堡四件套",
+      "priceFen": 5850,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900005411",
+      "name": "不素之霸双层牛堡三件套",
+      "priceFen": 3750,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "套餐",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "9900005466",
+      "name": "巨无霸三件套",
+      "priceFen": 3650,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "套餐",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "9900005468",
+      "name": "培根蔬萃双层牛堡三件套",
+      "priceFen": 3550,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "套餐",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "9900005413",
+      "name": "双层深海鳕鱼堡三件套",
+      "priceFen": 3500,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "套餐",
+        "麦香鱼系列"
+      ]
+    },
+    {
+      "code": "9900005460",
+      "name": "麦香鱼中套餐",
+      "priceFen": 3350,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "套餐",
+        "麦香鱼系列"
+      ]
+    },
+    {
+      "code": "9900005464",
+      "name": "双层吉士汉堡中套餐",
+      "priceFen": 3400,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "套餐",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "9900005449",
+      "name": "吉士汉堡包中套餐",
+      "priceFen": 2600,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "套餐",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "521730",
+      "name": "枫糖风味厚松饼猪柳蛋堡",
+      "priceFen": 2200,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "全球爆款",
+        "全天供应"
+      ]
+    },
+    {
+      "code": "521731",
+      "name": "枫糖风味厚松饼猪柳堡",
+      "priceFen": 1800,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "全球爆款",
+        "全天供应"
+      ]
+    },
+    {
+      "code": "1100",
+      "name": "巨无霸",
+      "priceFen": 2550,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "9900003586",
+      "name": "双层深海鳕鱼堡",
+      "priceFen": 2400,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "麦香鱼系列"
+      ]
+    },
+    {
+      "code": "1600",
+      "name": "麦香鱼",
+      "priceFen": 2250,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "麦香鱼系列"
+      ]
+    },
+    {
+      "code": "4648",
+      "name": "不素之霸双层牛堡",
+      "priceFen": 2650,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "1106",
+      "name": "培根蔬萃双层牛堡",
+      "priceFen": 2450,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "1120",
+      "name": "双层吉士汉堡",
+      "priceFen": 2300,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "521316",
+      "name": "高达吉士双牛堡",
+      "priceFen": 2250,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "100%纯牛肉",
+        "人气"
+      ]
+    },
+    {
+      "code": "9900008747",
+      "name": "牛肉堡单品精选",
+      "priceFen": 1400,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "巨无霸\n牛鱼肉堡",
+      "tags": [
+        "单品",
+        "100%纯牛肉"
+      ]
+    },
+    {
+      "code": "9900000881",
+      "name": "培根安格斯厚牛堡四件套",
+      "priceFen": 6600,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "安格斯MAX\n厚牛堡",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900000882",
+      "name": "芝士安格斯厚牛堡四件套",
+      "priceFen": 6600,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "安格斯MAX\n厚牛堡",
+      "tags": [
+        "麦金卡"
+      ]
+    },
+    {
+      "code": "9900005428",
+      "name": "培根安格斯厚牛堡三件套",
+      "priceFen": 4550,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "安格斯MAX\n厚牛堡",
+      "tags": [
+        "套餐",
+        "100%安格斯牛肉"
+      ]
+    },
+    {
+      "code": "9900005430",
+      "name": "芝士安格斯厚牛堡三件套",
+      "priceFen": 4250,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "安格斯MAX\n厚牛堡",
+      "tags": [
+        "套餐",
+        "100%安格斯牛肉"
+      ]
+    },
+    {
+      "code": "511781",
+      "name": "培根安格斯厚牛堡",
+      "priceFen": 3450,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "安格斯MAX\n厚牛堡",
+      "tags": [
+        "单品",
+        "100%安格斯牛肉"
+      ]
+    },
+    {
+      "code": "511782",
+      "name": "芝士安格斯厚牛堡",
+      "priceFen": 3150,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "安格斯MAX\n厚牛堡",
+      "tags": [
+        "单品",
+        "100%安格斯牛肉"
+      ]
+    },
+    {
+      "code": "9900005451",
+      "name": "麦辣鸡翅4块中套餐",
+      "priceFen": 3650,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "炸鸡",
+      "tags": [
+        "套餐",
+        "立省10.5元起"
+      ]
+    },
+    {
+      "code": "9900004835",
+      "name": "麦乐鸡经典中套餐",
+      "priceFen": 2500,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "炸鸡",
+      "tags": [
+        "套餐",
+        "立省10.5元起"
+      ]
+    },
+    {
+      "code": "1700",
+      "name": "麦辣鸡翅2块",
+      "priceFen": 1500,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "炸鸡",
+      "tags": [
+        "单品",
+        "黄金酥脆",
+        "鲜嫩多汁"
+      ]
+    },
+    {
+      "code": "520445",
+      "name": "薄皮焦香V翅",
+      "priceFen": 1600,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "炸鸡",
+      "tags": [
+        "单品",
+        "人气"
+      ]
+    },
+    {
+      "code": "1401",
+      "name": "麦乐鸡5块",
+      "priceFen": 1400,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "炸鸡",
+      "tags": [
+        "单品",
+        "人气"
+      ]
+    },
+    {
+      "code": "521156",
+      "name": "那么大鸡排（椒盐风味）",
+      "priceFen": 1400,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "炸鸡",
+      "tags": [
+        "单品"
+      ]
+    },
+    {
+      "code": "9900005432",
+      "name": "麦麦脆汁鸡1块(鸡腿或带骨里脊)",
+      "priceFen": 1500,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "炸鸡",
+      "tags": [
+        "单品"
+      ]
+    },
+    {
+      "code": "521986",
+      "name": "马苏里拉拉丝芝士条",
+      "priceFen": 1100,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "上新",
+        "趁热拉丝",
+        "奶香醇厚"
+      ]
+    },
+    {
+      "code": "9900016082",
+      "name": "心形薯饼5块",
+      "priceFen": 1450,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "上新",
+        "口口酥脆",
+        "含一份蘸酱"
+      ]
+    },
+    {
+      "code": "521951",
+      "name": "灰焰圆筒",
+      "priceFen": 500,
+      "priceSource": "official-calculate-price",
+      "category": "甜品",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "上新",
+        "灰焰"
+      ]
+    },
+    {
+      "code": "521908",
+      "name": "黑洋酥小圆子风味派",
+      "priceFen": 500,
+      "priceSource": "official-calculate-price",
+      "category": "甜品",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "上新",
+        "浓醇芝麻香"
+      ]
+    },
+    {
+      "code": "521914",
+      "name": "“葱不求人“按摩捶痒痒挠",
+      "priceFen": 1490,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "上新",
+        "既可捶背",
+        "又可挠痒"
+      ]
+    },
+    {
+      "code": "521901",
+      "name": "月下相思扭扭薯",
+      "priceFen": 1500,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "上新",
+        "口口酥脆",
+        "薯香十足"
+      ]
+    },
+    {
+      "code": "521741",
+      "name": "脆薯饼",
+      "priceFen": 850,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "小食"
+      ]
+    },
+    {
+      "code": "4810",
+      "name": "中薯条",
+      "priceFen": 1350,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "小食"
+      ]
+    },
+    {
+      "code": "4437",
+      "name": "小杯玉米杯",
+      "priceFen": 1300,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "小食"
+      ]
+    },
+    {
+      "code": "6102",
+      "name": "苹果片一袋(60g)",
+      "priceFen": 700,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "小食"
+      ]
+    },
+    {
+      "code": "9900008754",
+      "name": "经典麦旋风",
+      "priceFen": 1550,
+      "priceSource": "official-calculate-price",
+      "category": "甜品",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "冰淇淋"
+      ]
+    },
+    {
+      "code": "9900008745",
+      "name": "新地",
+      "priceFen": 1200,
+      "priceSource": "official-calculate-price",
+      "category": "甜品",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "冰淇淋"
+      ]
+    },
+    {
+      "code": "515837",
+      "name": "圆筒冰淇淋",
+      "priceFen": 500,
+      "priceSource": "official-calculate-price",
+      "category": "甜品",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "冰淇淋"
+      ]
+    },
+    {
+      "code": "9900008752",
+      "name": "派",
+      "priceFen": 850,
+      "priceSource": "official-calculate-price",
+      "category": "甜品",
+      "categoryInferred": true,
+      "rawCategory": "小食甜品\n/其他",
+      "tags": [
+        "派",
+        "第二份优惠"
+      ]
+    },
+    {
+      "code": "9900016057",
+      "name": "汉堡开心乐园餐",
+      "priceFen": 2350,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "开心乐园",
+      "tags": [
+        "开心乐园餐",
+        "童年童款"
+      ]
+    },
+    {
+      "code": "9900016058",
+      "name": "鱼排堡开心乐园餐",
+      "priceFen": 2400,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "开心乐园",
+      "tags": [
+        "开心乐园餐",
+        "童年童款"
+      ]
+    },
+    {
+      "code": "9900016056",
+      "name": "麦乐鸡开心乐园餐",
+      "priceFen": 2500,
+      "priceSource": "official-calculate-price",
+      "category": "小食",
+      "categoryInferred": true,
+      "rawCategory": "开心乐园",
+      "tags": [
+        "开心乐园餐",
+        "童年童款"
+      ]
+    },
+    {
+      "code": "9900016055",
+      "name": "开心亲子双人餐",
+      "priceFen": 5950,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "开心乐园",
+      "tags": [
+        "开心亲子餐",
+        "童年童款"
+      ]
+    },
+    {
+      "code": "515955",
+      "name": "冰浓浓燕麦黑巧中杯",
+      "priceFen": 1590,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "限定特惠"
+      ]
+    },
+    {
+      "code": "507411",
+      "name": "麦咖啡™冰美式中杯",
+      "priceFen": 1190,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "限定特惠"
+      ]
+    },
+    {
+      "code": "507409",
+      "name": "麦咖啡™冰奶铁中杯",
+      "priceFen": 1390,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "限定特惠",
+        "更奶更浓"
+      ]
+    },
+    {
+      "code": "510479",
+      "name": "冰燕麦奶铁中杯",
+      "priceFen": 2300,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "麦咖啡™咖啡"
+      ]
+    },
+    {
+      "code": "507387",
+      "name": "卡布奇诺中杯",
+      "priceFen": 2100,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "麦咖啡™咖啡"
+      ]
+    },
+    {
+      "code": "520689",
+      "name": "小杯鲜萃咖啡",
+      "priceFen": 950,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "麦咖啡™咖啡",
+        "鲜萃咖啡"
+      ]
+    },
+    {
+      "code": "507389",
+      "name": "浓缩咖啡",
+      "priceFen": 1500,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "麦咖啡™咖啡"
+      ]
+    },
+    {
+      "code": "512937",
+      "name": "冰浓浓抹茶牛奶中杯",
+      "priceFen": 2300,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "其他"
+      ]
+    },
+    {
+      "code": "507394",
+      "name": "热牛奶中杯",
+      "priceFen": 1900,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "其他"
+      ]
+    },
+    {
+      "code": "510488",
+      "name": "热燕麦奶中杯",
+      "priceFen": 2100,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "麦咖啡™",
+      "tags": [
+        "其他"
+      ]
+    },
+    {
+      "code": "9900011128",
+      "name": "“堡”你欢乐套餐",
+      "priceFen": 2800,
+      "priceSource": "official-calculate-price",
+      "category": "主食",
+      "categoryInferred": true,
+      "rawCategory": "500\n大卡套餐",
+      "tags": [
+        "粉丝之选"
+      ]
+    },
+    {
+      "code": "9900011121",
+      "name": "“苹”水相“鱼”套餐",
+      "priceFen": 3600,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "500\n大卡套餐",
+      "tags": [
+        "粉丝之选"
+      ]
+    },
+    {
+      "code": "9900011126",
+      "name": "酥脆无双套餐",
+      "priceFen": 2000,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "500\n大卡套餐",
+      "tags": []
+    },
+    {
+      "code": "9900011123",
+      "name": "“辣”么快乐套餐",
+      "priceFen": 2400,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "500\n大卡套餐",
+      "tags": []
+    },
+    {
+      "code": "9900009245",
+      "name": "牛气满满套餐",
+      "priceFen": 3500,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "500\n大卡套餐",
+      "tags": []
+    },
+    {
+      "code": "9900009242",
+      "name": "“苹板”支撑Pro套餐",
+      "priceFen": 3950,
+      "priceSource": "official-calculate-price",
+      "category": "其他",
+      "categoryInferred": true,
+      "rawCategory": "500\n大卡套餐",
+      "tags": []
+    },
+    {
+      "code": "521817",
+      "name": "【美汁源】“多汁柠柠”",
+      "priceFen": 1200,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "上新",
+        "清爽上新"
+      ]
+    },
+    {
+      "code": "9900008751",
+      "name": "可乐",
+      "priceFen": 950,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "冷饮"
+      ]
+    },
+    {
+      "code": "3010",
+      "name": "雪碧小杯",
+      "priceFen": 950,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "冷饮"
+      ]
+    },
+    {
+      "code": "515520",
+      "name": "中杯怡泉+C",
+      "priceFen": 1150,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "冷饮"
+      ]
+    },
+    {
+      "code": "2430",
+      "name": "【美汁源】“黄金橙橙”",
+      "priceFen": 1300,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "冷饮"
+      ]
+    },
+    {
+      "code": "515280",
+      "name": "阳光柠檬红茶小杯",
+      "priceFen": 950,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "冷饮"
+      ]
+    },
+    {
+      "code": "3755",
+      "name": "纯牛奶",
+      "priceFen": 1050,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "冷饮"
+      ]
+    },
+    {
+      "code": "6362",
+      "name": "100%苹果汁",
+      "priceFen": 1150,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "冷饮"
+      ]
+    },
+    {
+      "code": "3757",
+      "name": "纯悦",
+      "priceFen": 750,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "冷饮"
+      ]
+    },
+    {
+      "code": "3505",
+      "name": "锡兰红茶",
+      "priceFen": 1150,
+      "priceSource": "official-calculate-price",
+      "category": "饮料",
+      "categoryInferred": true,
+      "rawCategory": "饮品",
+      "tags": [
+        "热饮"
+      ]
+    }
+  ],
+  "nutrition": [
+    {
+      "name": "猪柳麦满分",
+      "key": "猪柳麦满分",
+      "energyKcal": 308,
+      "proteinG": 16,
+      "fatG": 16,
+      "carbG": 24,
+      "sodiumMg": 781,
+      "calciumMg": 213,
+      "inferred": []
+    },
+    {
+      "name": "猪柳蛋麦满分",
+      "key": "猪柳蛋麦满分",
+      "energyKcal": 387,
+      "proteinG": 23,
+      "fatG": 21,
+      "carbG": 25,
+      "sodiumMg": 846,
+      "calciumMg": 243,
+      "inferred": []
+    },
+    {
+      "name": "烟肉蛋麦满分",
+      "key": "烟肉蛋麦满分",
+      "energyKcal": 260,
+      "proteinG": 16,
+      "fatG": 10,
+      "carbG": 24,
+      "sodiumMg": 483,
+      "calciumMg": 238,
+      "inferred": []
+    },
+    {
+      "name": "火腿扒麦满分",
+      "key": "火腿扒麦满分",
+      "energyKcal": 261,
+      "proteinG": 14,
+      "fatG": 12,
+      "carbG": 24,
+      "sodiumMg": 608,
+      "calciumMg": 131,
+      "inferred": []
+    },
+    {
+      "name": "中薯条",
+      "key": "中薯条",
+      "energyKcal": 289,
+      "proteinG": 4,
+      "fatG": 12,
+      "carbG": 38,
+      "sodiumMg": 165,
+      "calciumMg": 18,
+      "inferred": []
+    },
+    {
+      "name": "大薯条",
+      "key": "大薯条",
+      "energyKcal": 379,
+      "proteinG": 6,
+      "fatG": 16,
+      "carbG": 50,
+      "sodiumMg": 216,
+      "calciumMg": 23,
+      "inferred": []
+    },
+    {
+      "name": "小薯条",
+      "key": "小薯条",
+      "energyKcal": 210,
+      "proteinG": 3,
+      "fatG": 9,
+      "carbG": 28,
+      "sodiumMg": 120,
+      "calciumMg": 13,
+      "inferred": []
+    },
+    {
+      "name": "迷你薯条",
+      "key": "迷你薯条",
+      "energyKcal": 106,
+      "proteinG": 2,
+      "fatG": 4,
+      "carbG": 14,
+      "sodiumMg": 61,
+      "calciumMg": 6,
+      "inferred": []
+    },
+    {
+      "name": "圆筒冰淇淋",
+      "key": "圆筒冰淇淋",
+      "energyKcal": 93,
+      "proteinG": 2,
+      "fatG": 3,
+      "carbG": 14,
+      "sodiumMg": 36,
+      "calciumMg": 77,
+      "inferred": []
+    },
+    {
+      "name": "麦乐鸡5块",
+      "key": "麦乐鸡5块",
+      "energyKcal": 213,
+      "proteinG": 12,
+      "fatG": 12,
+      "carbG": 13,
+      "sodiumMg": 422,
+      "calciumMg": 9,
+      "inferred": []
+    },
+    {
+      "name": "大杯玉米杯",
+      "key": "玉米杯",
+      "energyKcal": 87,
+      "proteinG": 4,
+      "fatG": 1,
+      "carbG": 12,
+      "sodiumMg": 2000,
+      "calciumMg": 10,
+      "inferred": [
+        "钠按 g→mg 换算"
+      ]
+    },
+    {
+      "name": "麦辣鸡翅-2块",
+      "key": "麦辣鸡翅2块",
+      "energyKcal": 224,
+      "proteinG": 13,
+      "fatG": 15,
+      "carbG": 9,
+      "sodiumMg": 537,
+      "calciumMg": 13,
+      "inferred": []
+    },
+    {
+      "name": "朱古力新地",
+      "key": "朱古力新地",
+      "energyKcal": 282,
+      "proteinG": 5,
+      "fatG": 9,
+      "carbG": 44,
+      "sodiumMg": 126,
+      "calciumMg": 182,
+      "inferred": []
+    },
+    {
+      "name": "草莓新地",
+      "key": "草莓新地",
+      "energyKcal": 245,
+      "proteinG": 4,
+      "fatG": 6,
+      "carbG": 43,
+      "sodiumMg": 84,
+      "calciumMg": 158,
+      "inferred": []
+    },
+    {
+      "name": "奥利奥麦旋风",
+      "key": "奥利奥麦旋风",
+      "energyKcal": 266,
+      "proteinG": 5,
+      "fatG": 9,
+      "carbG": 40,
+      "sodiumMg": 116,
+      "calciumMg": 185,
+      "inferred": []
+    },
+    {
+      "name": "草莓麦旋风",
+      "key": "草莓麦旋风",
+      "energyKcal": 295,
+      "proteinG": 6,
+      "fatG": 9,
+      "carbG": 47,
+      "sodiumMg": 122,
+      "calciumMg": 186,
+      "inferred": []
+    },
+    {
+      "name": "香芋派",
+      "key": "香芋派",
+      "energyKcal": 232,
+      "proteinG": 2,
+      "fatG": 12,
+      "carbG": 28,
+      "sodiumMg": 159,
+      "calciumMg": 7,
+      "inferred": []
+    },
+    {
+      "name": "菠萝派",
+      "key": "菠萝派",
+      "energyKcal": 221,
+      "proteinG": 2,
+      "fatG": 11,
+      "carbG": 27,
+      "sodiumMg": 147,
+      "calciumMg": 5,
+      "inferred": []
+    },
+    {
+      "name": "大脆鸡扒麦满分",
+      "key": "大脆鸡扒麦满分",
+      "energyKcal": 361,
+      "proteinG": 16,
+      "fatG": 17,
+      "carbG": 35,
+      "sodiumMg": 804,
+      "calciumMg": 130,
+      "inferred": []
+    },
+    {
+      "name": "原味板烧鸡腿麦满分",
+      "key": "原味板烧鸡腿麦满分",
+      "energyKcal": 246,
+      "proteinG": 15,
+      "fatG": 9,
+      "carbG": 25,
+      "sodiumMg": 611,
+      "calciumMg": 133,
+      "inferred": []
+    },
+    {
+      "name": "双层原味板烧鸡腿麦满分",
+      "key": "双层原味板烧鸡腿麦满分",
+      "energyKcal": 355,
+      "proteinG": 23,
+      "fatG": 17,
+      "carbG": 27,
+      "sodiumMg": 984,
+      "calciumMg": 138,
+      "inferred": []
+    },
+    {
+      "name": "吉士汉堡包",
+      "key": "吉士汉堡包",
+      "energyKcal": 294,
+      "proteinG": 16,
+      "fatG": 12,
+      "carbG": 30,
+      "sodiumMg": 673,
+      "calciumMg": 144,
+      "inferred": []
+    },
+    {
+      "name": "双层吉士汉堡",
+      "key": "双层吉士汉堡",
+      "energyKcal": 429,
+      "proteinG": 27,
+      "fatG": 22,
+      "carbG": 31,
+      "sodiumMg": 1017,
+      "calciumMg": 232,
+      "inferred": []
+    },
+    {
+      "name": "麦香鸡",
+      "key": "麦香鸡",
+      "energyKcal": 369,
+      "proteinG": 15,
+      "fatG": 17,
+      "carbG": 39,
+      "sodiumMg": 731,
+      "calciumMg": 73,
+      "inferred": []
+    },
+    {
+      "name": "麦香鱼",
+      "key": "麦香鱼",
+      "energyKcal": 325,
+      "proteinG": 16,
+      "fatG": 13,
+      "carbG": 35,
+      "sodiumMg": 556,
+      "calciumMg": 99,
+      "inferred": []
+    },
+    {
+      "name": "麦辣鸡腿汉堡",
+      "key": "麦辣鸡腿汉堡",
+      "energyKcal": 485,
+      "proteinG": 24,
+      "fatG": 24,
+      "carbG": 42,
+      "sodiumMg": 1208,
+      "calciumMg": 154,
+      "inferred": []
+    },
+    {
+      "name": "板烧鸡腿堡",
+      "key": "板烧鸡腿堡",
+      "energyKcal": 391,
+      "proteinG": 23,
+      "fatG": 17,
+      "carbG": 35,
+      "sodiumMg": 1041,
+      "calciumMg": 93,
+      "inferred": []
+    },
+    {
+      "name": "巨无霸",
+      "key": "巨无霸",
+      "energyKcal": 513,
+      "proteinG": 27,
+      "fatG": 26,
+      "carbG": 42,
+      "sodiumMg": 961,
+      "calciumMg": 171,
+      "inferred": []
+    },
+    {
+      "name": "培根蔬萃双层牛堡",
+      "key": "培根蔬萃双层牛堡",
+      "energyKcal": 442,
+      "proteinG": 24,
+      "fatG": 23,
+      "carbG": 34,
+      "sodiumMg": 728,
+      "calciumMg": 73,
+      "inferred": []
+    },
+    {
+      "name": "可乐中杯",
+      "key": "可乐",
+      "energyKcal": 147,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 36,
+      "sodiumMg": 0,
+      "calciumMg": 10,
+      "inferred": []
+    },
+    {
+      "name": "雪碧中杯",
+      "key": "雪碧",
+      "energyKcal": 105,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 26,
+      "sodiumMg": 29,
+      "calciumMg": 0,
+      "inferred": []
+    },
+    {
+      "name": "无糖可口可乐中杯",
+      "key": "无糖可口可乐",
+      "energyKcal": 0,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 1,
+      "sodiumMg": 35,
+      "calciumMg": 0,
+      "inferred": []
+    },
+    {
+      "name": "大杯鲜萃咖啡",
+      "key": "鲜萃咖啡",
+      "energyKcal": 13,
+      "proteinG": 1,
+      "fatG": 0,
+      "carbG": 0,
+      "sodiumMg": 3000,
+      "calciumMg": 8,
+      "inferred": [
+        "钠按 g→mg 换算"
+      ]
+    },
+    {
+      "name": "锡兰红茶",
+      "key": "锡兰红茶",
+      "energyKcal": 2,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 0,
+      "sodiumMg": 0,
+      "calciumMg": 5,
+      "inferred": []
+    },
+    {
+      "name": "热朱古力",
+      "key": "热朱古力",
+      "energyKcal": 125,
+      "proteinG": 2,
+      "fatG": 2,
+      "carbG": 22,
+      "sodiumMg": 107,
+      "calciumMg": 36,
+      "inferred": []
+    },
+    {
+      "name": "纯牛奶（盒装）",
+      "key": "纯牛奶",
+      "energyKcal": 129,
+      "proteinG": 7,
+      "fatG": 7,
+      "carbG": 10,
+      "sodiumMg": 73,
+      "calciumMg": 231,
+      "inferred": []
+    },
+    {
+      "name": "麦旋酷阳光橙",
+      "key": "麦旋酷阳光橙",
+      "energyKcal": 228,
+      "proteinG": 1,
+      "fatG": 2,
+      "carbG": 50,
+      "sodiumMg": 77,
+      "calciumMg": 52,
+      "inferred": []
+    },
+    {
+      "name": "浓缩咖啡",
+      "key": "浓缩咖啡",
+      "energyKcal": 13,
+      "proteinG": 1,
+      "fatG": 0,
+      "carbG": 2,
+      "sodiumMg": 0,
+      "calciumMg": 7,
+      "inferred": []
+    },
+    {
+      "name": "那么大鸡排",
+      "key": "那么大鸡排",
+      "energyKcal": 385,
+      "proteinG": 24,
+      "fatG": 21,
+      "carbG": 24,
+      "sodiumMg": 996,
+      "calciumMg": 13,
+      "inferred": []
+    },
+    {
+      "name": "阳光柠檬红茶中杯",
+      "key": "阳光柠檬红茶",
+      "energyKcal": 117,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 29,
+      "sodiumMg": 17,
+      "calciumMg": 0,
+      "inferred": []
+    },
+    {
+      "name": "脆薯饼",
+      "key": "脆薯饼",
+      "energyKcal": 146,
+      "proteinG": 1,
+      "fatG": 9,
+      "carbG": 14,
+      "sodiumMg": 311,
+      "calciumMg": 7,
+      "inferred": []
+    },
+    {
+      "name": "脆香油条",
+      "key": "脆香油条",
+      "energyKcal": 202,
+      "proteinG": 5,
+      "fatG": 12,
+      "carbG": 19,
+      "sodiumMg": 230,
+      "calciumMg": 18,
+      "inferred": []
+    },
+    {
+      "name": "100%苹果汁",
+      "key": "100%苹果汁",
+      "energyKcal": 88,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 21,
+      "sodiumMg": 0,
+      "calciumMg": 0,
+      "inferred": []
+    },
+    {
+      "name": "汉堡包",
+      "key": "汉堡包",
+      "energyKcal": 248,
+      "proteinG": 13,
+      "fatG": 8,
+      "carbG": 29,
+      "sodiumMg": 492,
+      "calciumMg": 61,
+      "inferred": []
+    },
+    {
+      "name": "麦乐鸡4块",
+      "key": "麦乐鸡4块",
+      "energyKcal": 170,
+      "proteinG": 10,
+      "fatG": 10,
+      "carbG": 11,
+      "sodiumMg": 337,
+      "calciumMg": 7,
+      "inferred": []
+    },
+    {
+      "name": "纯悦",
+      "key": "纯悦",
+      "energyKcal": 0,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 0,
+      "sodiumMg": 0,
+      "calciumMg": 0,
+      "inferred": []
+    },
+    {
+      "name": "苹果片",
+      "key": "苹果片",
+      "energyKcal": 32,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 7,
+      "sodiumMg": 0,
+      "calciumMg": 18,
+      "inferred": []
+    },
+    {
+      "name": "不素之霸双层牛堡",
+      "key": "不素之霸双层牛堡",
+      "energyKcal": 493,
+      "proteinG": 28,
+      "fatG": 27,
+      "carbG": 34,
+      "sodiumMg": 1012,
+      "calciumMg": 75,
+      "inferred": []
+    },
+    {
+      "name": "双层深海鳕鱼堡",
+      "key": "双层深海鳕鱼堡",
+      "energyKcal": 485,
+      "proteinG": 28,
+      "fatG": 21,
+      "carbG": 46,
+      "sodiumMg": 917,
+      "calciumMg": 147,
+      "inferred": []
+    },
+    {
+      "name": "儿童鱼排堡",
+      "key": "儿童鱼排堡",
+      "energyKcal": 269,
+      "proteinG": 15,
+      "fatG": 6,
+      "carbG": 36,
+      "sodiumMg": 442,
+      "calciumMg": 58,
+      "inferred": []
+    },
+    {
+      "name": "培根安格斯厚牛堡",
+      "key": "培根安格斯厚牛堡",
+      "energyKcal": 707,
+      "proteinG": 34,
+      "fatG": 44,
+      "carbG": 43,
+      "sodiumMg": 1037,
+      "calciumMg": 161,
+      "inferred": []
+    },
+    {
+      "name": "芝士安格斯厚牛堡",
+      "key": "芝士安格斯厚牛堡",
+      "energyKcal": 696,
+      "proteinG": 32,
+      "fatG": 44,
+      "carbG": 43,
+      "sodiumMg": 897,
+      "calciumMg": 150,
+      "inferred": []
+    },
+    {
+      "name": "yeyeyeye奶冻款",
+      "key": "yeyeyeye奶冻款",
+      "energyKcal": 223,
+      "proteinG": 1,
+      "fatG": 4,
+      "carbG": 43,
+      "sodiumMg": 37,
+      "calciumMg": 64,
+      "inferred": []
+    },
+    {
+      "name": "皮蛋鸡肉粥",
+      "key": "皮蛋鸡肉粥",
+      "energyKcal": 133,
+      "proteinG": 6,
+      "fatG": 3,
+      "carbG": 20,
+      "sodiumMg": 611,
+      "calciumMg": 20,
+      "inferred": []
+    },
+    {
+      "name": "雪菜脆笋鸡肉粥",
+      "key": "雪菜脆笋鸡肉粥",
+      "energyKcal": 120,
+      "proteinG": 4,
+      "fatG": 2,
+      "carbG": 22,
+      "sodiumMg": 552,
+      "calciumMg": 14,
+      "inferred": []
+    },
+    {
+      "name": "猪柳炒双蛋堡",
+      "key": "猪柳炒双蛋堡",
+      "energyKcal": 437,
+      "proteinG": 25,
+      "fatG": 24,
+      "carbG": 29,
+      "sodiumMg": 705,
+      "calciumMg": 116,
+      "inferred": []
+    },
+    {
+      "name": "yeyeyeye爆珠款",
+      "key": "yeyeyeye爆珠款",
+      "energyKcal": 212,
+      "proteinG": 1,
+      "fatG": 3,
+      "carbG": 42,
+      "sodiumMg": 122,
+      "calciumMg": 124,
+      "inferred": []
+    },
+    {
+      "name": "柠檬拉明顿",
+      "key": "柠檬拉明顿",
+      "energyKcal": 121,
+      "proteinG": 2,
+      "fatG": 7,
+      "carbG": 12,
+      "sodiumMg": 35,
+      "calciumMg": 17,
+      "inferred": []
+    },
+    {
+      "name": "芝士双层安格斯厚牛堡",
+      "key": "芝士双层安格斯厚牛堡",
+      "energyKcal": 1003,
+      "proteinG": 58,
+      "fatG": 65,
+      "carbG": 46,
+      "sodiumMg": 1373,
+      "calciumMg": 251,
+      "inferred": []
+    },
+    {
+      "name": "培根双层安格斯厚牛堡",
+      "key": "培根双层安格斯厚牛堡",
+      "energyKcal": 987,
+      "proteinG": 55,
+      "fatG": 64,
+      "carbG": 46,
+      "sodiumMg": 1191,
+      "calciumMg": 226,
+      "inferred": []
+    },
+    {
+      "name": "火腿扒早安营养卷",
+      "key": "火腿扒早安营养卷",
+      "energyKcal": 444,
+      "proteinG": 16,
+      "fatG": 24,
+      "carbG": 39,
+      "sodiumMg": 1065,
+      "calciumMg": 108,
+      "inferred": []
+    },
+    {
+      "name": "麦麦脆汁鸡-琵琶腿",
+      "key": "麦麦脆汁鸡琵琶腿",
+      "energyKcal": 328,
+      "proteinG": 21,
+      "fatG": 20,
+      "carbG": 16,
+      "sodiumMg": 905,
+      "calciumMg": 24,
+      "inferred": []
+    },
+    {
+      "name": "德式图林根香肠",
+      "key": "德式图林根香肠",
+      "energyKcal": 87,
+      "proteinG": 5,
+      "fatG": 6,
+      "carbG": 2,
+      "sodiumMg": 293,
+      "calciumMg": 5,
+      "inferred": []
+    },
+    {
+      "name": "图林根香肠早安营养卷",
+      "key": "图林根香肠早安营养卷",
+      "energyKcal": 425,
+      "proteinG": 14,
+      "fatG": 23,
+      "carbG": 38,
+      "sodiumMg": 977,
+      "calciumMg": 68,
+      "inferred": []
+    },
+    {
+      "name": "麦麦脆汁鸡-带骨里脊",
+      "key": "麦麦脆汁鸡带骨里脊",
+      "energyKcal": 332,
+      "proteinG": 22,
+      "fatG": 18,
+      "carbG": 16,
+      "sodiumMg": 812,
+      "calciumMg": 25,
+      "inferred": []
+    },
+    {
+      "name": "【美汁源】“黄金橙橙”",
+      "key": "黄金橙橙",
+      "energyKcal": 165,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 41,
+      "sodiumMg": 53,
+      "calciumMg": 0,
+      "inferred": []
+    },
+    {
+      "name": "优品豆浆大杯",
+      "key": "优品豆浆",
+      "energyKcal": 202,
+      "proteinG": 8,
+      "fatG": 4,
+      "carbG": 33,
+      "sodiumMg": 43,
+      "calciumMg": 21,
+      "inferred": []
+    },
+    {
+      "name": "浓浓黑巧雪冰中杯",
+      "key": "浓浓黑巧雪冰",
+      "energyKcal": 359,
+      "proteinG": 8,
+      "fatG": 12,
+      "carbG": 51,
+      "sodiumMg": 224,
+      "calciumMg": 207,
+      "inferred": []
+    },
+    {
+      "name": "特浓奶香雪冰中杯",
+      "key": "特浓奶香雪冰",
+      "energyKcal": 269,
+      "proteinG": 6,
+      "fatG": 11,
+      "carbG": 36,
+      "sodiumMg": 180,
+      "calciumMg": 188,
+      "inferred": []
+    },
+    {
+      "name": "浓浓抹茶雪冰中杯",
+      "key": "浓浓抹茶雪冰",
+      "energyKcal": 289,
+      "proteinG": 7,
+      "fatG": 11,
+      "carbG": 39,
+      "sodiumMg": 181,
+      "calciumMg": 220,
+      "inferred": []
+    },
+    {
+      "name": "热牛奶中杯",
+      "key": "热牛奶",
+      "energyKcal": 176,
+      "proteinG": 10,
+      "fatG": 8,
+      "carbG": 15,
+      "sodiumMg": 101,
+      "calciumMg": 319,
+      "inferred": []
+    },
+    {
+      "name": "冰牛奶中杯",
+      "key": "冰牛奶",
+      "energyKcal": 224,
+      "proteinG": 13,
+      "fatG": 11,
+      "carbG": 19,
+      "sodiumMg": 128,
+      "calciumMg": 406,
+      "inferred": []
+    },
+    {
+      "name": "冰奶铁中杯",
+      "key": "冰奶铁",
+      "energyKcal": 148,
+      "proteinG": 8,
+      "fatG": 7,
+      "carbG": 13,
+      "sodiumMg": 77,
+      "calciumMg": 251,
+      "inferred": []
+    },
+    {
+      "name": "热奶铁中杯",
+      "key": "热奶铁",
+      "energyKcal": 186,
+      "proteinG": 11,
+      "fatG": 8,
+      "carbG": 17,
+      "sodiumMg": 99,
+      "calciumMg": 320,
+      "inferred": []
+    },
+    {
+      "name": "冰燕麦奶铁中杯",
+      "key": "冰燕麦奶铁",
+      "energyKcal": 132,
+      "proteinG": 3,
+      "fatG": 5,
+      "carbG": 17,
+      "sodiumMg": 87,
+      "calciumMg": 270,
+      "inferred": []
+    },
+    {
+      "name": "热燕麦奶铁中杯",
+      "key": "热燕麦奶铁",
+      "energyKcal": 167,
+      "proteinG": 4,
+      "fatG": 6,
+      "carbG": 22,
+      "sodiumMg": 112,
+      "calciumMg": 345,
+      "inferred": []
+    },
+    {
+      "name": "冰美式中杯",
+      "key": "冰美式",
+      "energyKcal": 13,
+      "proteinG": 1,
+      "fatG": 0,
+      "carbG": 2,
+      "sodiumMg": 0,
+      "calciumMg": 7,
+      "inferred": []
+    },
+    {
+      "name": "热美式中杯",
+      "key": "热美式",
+      "energyKcal": 13,
+      "proteinG": 1,
+      "fatG": 0,
+      "carbG": 2,
+      "sodiumMg": 0,
+      "calciumMg": 7,
+      "inferred": []
+    },
+    {
+      "name": "冰焦糖玛奇朵",
+      "key": "冰焦糖玛奇朵",
+      "energyKcal": 148,
+      "proteinG": 8,
+      "fatG": 7,
+      "carbG": 13,
+      "sodiumMg": 77,
+      "calciumMg": 251,
+      "inferred": []
+    },
+    {
+      "name": "热焦糖玛奇朵",
+      "key": "热焦糖玛奇朵",
+      "energyKcal": 167,
+      "proteinG": 9,
+      "fatG": 7,
+      "carbG": 15,
+      "sodiumMg": 88,
+      "calciumMg": 284,
+      "inferred": []
+    },
+    {
+      "name": "卡布奇诺中杯",
+      "key": "卡布奇诺",
+      "energyKcal": 167,
+      "proteinG": 9,
+      "fatG": 7,
+      "carbG": 15,
+      "sodiumMg": 88,
+      "calciumMg": 285,
+      "inferred": []
+    },
+    {
+      "name": "冰浓浓燕麦黑巧中杯",
+      "key": "冰浓浓燕麦黑巧",
+      "energyKcal": 120,
+      "proteinG": 2,
+      "fatG": 5,
+      "carbG": 16,
+      "sodiumMg": 87,
+      "calciumMg": 263,
+      "inferred": []
+    },
+    {
+      "name": "冰燕麦奶中杯",
+      "key": "冰燕麦奶",
+      "energyKcal": 199,
+      "proteinG": 4,
+      "fatG": 8,
+      "carbG": 26,
+      "sodiumMg": 145,
+      "calciumMg": 438,
+      "inferred": []
+    },
+    {
+      "name": "热燕麦奶中杯",
+      "key": "热燕麦奶",
+      "energyKcal": 157,
+      "proteinG": 3,
+      "fatG": 6,
+      "carbG": 21,
+      "sodiumMg": 114,
+      "calciumMg": 344,
+      "inferred": []
+    },
+    {
+      "name": "冰浓浓抹茶牛奶中杯",
+      "key": "冰浓浓抹茶牛奶",
+      "energyKcal": 196,
+      "proteinG": 8,
+      "fatG": 6,
+      "carbG": 25,
+      "sodiumMg": 80,
+      "calciumMg": 275,
+      "inferred": []
+    },
+    {
+      "name": "热浓浓抹茶牛奶中杯",
+      "key": "热浓浓抹茶牛奶",
+      "energyKcal": 238,
+      "proteinG": 11,
+      "fatG": 8,
+      "carbG": 29,
+      "sodiumMg": 104,
+      "calciumMg": 351,
+      "inferred": []
+    },
+    {
+      "name": "冰浓浓黑巧中杯",
+      "key": "冰浓浓黑巧",
+      "energyKcal": 135,
+      "proteinG": 8,
+      "fatG": 6,
+      "carbG": 12,
+      "sodiumMg": 77,
+      "calciumMg": 244,
+      "inferred": []
+    },
+    {
+      "name": "热浓浓黑巧中杯",
+      "key": "热浓浓黑巧",
+      "energyKcal": 176,
+      "proteinG": 10,
+      "fatG": 8,
+      "carbG": 15,
+      "sodiumMg": 101,
+      "calciumMg": 319,
+      "inferred": []
+    },
+    {
+      "name": "川宁伯爵红茶",
+      "key": "川宁伯爵红茶",
+      "energyKcal": 2,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 0,
+      "sodiumMg": 0,
+      "calciumMg": 0,
+      "inferred": []
+    },
+    {
+      "name": "抹茶阿芙佳朵",
+      "key": "抹茶阿芙佳朵",
+      "energyKcal": 147,
+      "proteinG": 3,
+      "fatG": 4,
+      "carbG": 23,
+      "sodiumMg": 50,
+      "calciumMg": 136,
+      "inferred": []
+    },
+    {
+      "name": "咖啡阿芙佳朵",
+      "key": "咖啡阿芙佳朵",
+      "energyKcal": 139,
+      "proteinG": 4,
+      "fatG": 4,
+      "carbG": 21,
+      "sodiumMg": 49,
+      "calciumMg": 111,
+      "inferred": []
+    },
+    {
+      "name": "热浓浓燕麦黑巧中杯",
+      "key": "热浓浓燕麦黑巧",
+      "energyKcal": 157,
+      "proteinG": 3,
+      "fatG": 6,
+      "carbG": 21,
+      "sodiumMg": 114,
+      "calciumMg": 344,
+      "inferred": []
+    },
+    {
+      "name": "草莓拉明顿",
+      "key": "草莓拉明顿",
+      "energyKcal": 121,
+      "proteinG": 2,
+      "fatG": 8,
+      "carbG": 11,
+      "sodiumMg": 34,
+      "calciumMg": 17,
+      "inferred": []
+    },
+    {
+      "name": "原味板烧鸡腿炒双蛋堡",
+      "key": "原味板烧鸡腿炒双蛋堡",
+      "energyKcal": 419,
+      "proteinG": 27,
+      "fatG": 21,
+      "carbG": 30,
+      "sodiumMg": 715,
+      "calciumMg": 116,
+      "inferred": []
+    },
+    {
+      "name": "双层猪柳蛋麦满分",
+      "key": "双层猪柳蛋麦满分",
+      "energyKcal": 513,
+      "proteinG": 29,
+      "fatG": 32,
+      "carbG": 26,
+      "sodiumMg": 1210,
+      "calciumMg": 249,
+      "inferred": []
+    },
+    {
+      "name": "双层火腿扒麦满分",
+      "key": "双层火腿扒麦满分",
+      "energyKcal": 385,
+      "proteinG": 21,
+      "fatG": 22,
+      "carbG": 26,
+      "sodiumMg": 979,
+      "calciumMg": 134,
+      "inferred": []
+    },
+    {
+      "name": "脆脆薯条",
+      "key": "脆脆薯条",
+      "energyKcal": 279,
+      "proteinG": 4,
+      "fatG": 14,
+      "carbG": 32,
+      "sodiumMg": 540,
+      "calciumMg": 13,
+      "inferred": []
+    },
+    {
+      "name": "麦麦趣鸡球",
+      "key": "麦麦趣鸡球",
+      "energyKcal": 266,
+      "proteinG": 17,
+      "fatG": 13,
+      "carbG": 19,
+      "sodiumMg": 789,
+      "calciumMg": 13,
+      "inferred": []
+    },
+    {
+      "name": "酥酥多笋卷",
+      "key": "酥酥多笋卷",
+      "energyKcal": 342,
+      "proteinG": 14,
+      "fatG": 15,
+      "carbG": 36,
+      "sodiumMg": 1044,
+      "calciumMg": 41,
+      "inferred": []
+    },
+    {
+      "name": "薄皮焦香V翅",
+      "key": "薄皮焦香v翅",
+      "energyKcal": 192,
+      "proteinG": 17,
+      "fatG": 11,
+      "carbG": 6,
+      "sodiumMg": 594,
+      "calciumMg": 15,
+      "inferred": []
+    },
+    {
+      "name": "蜜汁BBQ风味薄皮脆汁鸡-带骨里脊",
+      "key": "蜜汁bbq风味薄皮脆汁鸡带骨里脊",
+      "energyKcal": 152,
+      "proteinG": 20,
+      "fatG": 5,
+      "carbG": 6,
+      "sodiumMg": 635,
+      "calciumMg": 28,
+      "inferred": []
+    },
+    {
+      "name": "蜜汁BBQ风味薄皮脆汁鸡-琵琶腿",
+      "key": "蜜汁bbq风味薄皮脆汁鸡琵琶腿",
+      "energyKcal": 173,
+      "proteinG": 18,
+      "fatG": 9,
+      "carbG": 5,
+      "sodiumMg": 547,
+      "calciumMg": 15,
+      "inferred": []
+    },
+    {
+      "name": "果然多肉",
+      "key": "果然多肉",
+      "energyKcal": 478,
+      "proteinG": 36,
+      "fatG": 17,
+      "carbG": 44,
+      "sodiumMg": 1343,
+      "calciumMg": 190,
+      "inferred": []
+    },
+    {
+      "name": "“苹板”支撑Pro",
+      "key": "苹板支撑pro",
+      "energyKcal": 476,
+      "proteinG": 25,
+      "fatG": 18,
+      "carbG": 50,
+      "sodiumMg": 1077,
+      "calciumMg": 117,
+      "inferred": []
+    },
+    {
+      "name": "专“薯鱼”你",
+      "key": "专薯鱼你",
+      "energyKcal": 463,
+      "proteinG": 18,
+      "fatG": 17,
+      "carbG": 57,
+      "sodiumMg": 652,
+      "calciumMg": 123,
+      "inferred": []
+    },
+    {
+      "name": "绝代双翅",
+      "key": "绝代双翅",
+      "energyKcal": 469,
+      "proteinG": 32,
+      "fatG": 27,
+      "carbG": 23,
+      "sodiumMg": 1167,
+      "calciumMg": 34,
+      "inferred": []
+    },
+    {
+      "name": "牛气满满",
+      "key": "牛气满满",
+      "energyKcal": 495,
+      "proteinG": 26,
+      "fatG": 24,
+      "carbG": 42,
+      "sodiumMg": 764,
+      "calciumMg": 79,
+      "inferred": []
+    },
+    {
+      "name": "蜜汁快乐",
+      "key": "蜜汁快乐",
+      "energyKcal": 258,
+      "proteinG": 22,
+      "fatG": 9,
+      "carbG": 20,
+      "sodiumMg": 721,
+      "calciumMg": 34,
+      "inferred": []
+    },
+    {
+      "name": "迷你朱古力新地",
+      "key": "迷你朱古力新地",
+      "energyKcal": 140,
+      "proteinG": 3,
+      "fatG": 4,
+      "carbG": 22,
+      "sodiumMg": 63,
+      "calciumMg": 90,
+      "inferred": []
+    },
+    {
+      "name": "迷你草莓新地",
+      "key": "迷你草莓新地",
+      "energyKcal": 122,
+      "proteinG": 2,
+      "fatG": 3,
+      "carbG": 21,
+      "sodiumMg": 42,
+      "calciumMg": 78,
+      "inferred": []
+    },
+    {
+      "name": "鲜蔬蛋沙拉叠叠卷",
+      "key": "鲜蔬蛋沙拉叠叠卷",
+      "energyKcal": 266,
+      "proteinG": 11,
+      "fatG": 14,
+      "carbG": 24,
+      "sodiumMg": 518,
+      "calciumMg": 62,
+      "inferred": []
+    },
+    {
+      "name": "鸡肉蛋沙拉叠叠卷",
+      "key": "鸡肉蛋沙拉叠叠卷",
+      "energyKcal": 387,
+      "proteinG": 17,
+      "fatG": 21,
+      "carbG": 31,
+      "sodiumMg": 842,
+      "calciumMg": 67,
+      "inferred": []
+    },
+    {
+      "name": "中杯怡泉+C",
+      "key": "怡泉c",
+      "energyKcal": 110,
+      "proteinG": 0,
+      "fatG": 0,
+      "carbG": 27,
+      "sodiumMg": 0,
+      "calciumMg": 0,
+      "inferred": []
+    },
+    {
+      "name": "蒜了吧黄油风味薄皮脆汁鸡-琵琶腿",
+      "key": "蒜了吧黄油风味薄皮脆汁鸡琵琶腿",
+      "energyKcal": 164,
+      "proteinG": 19,
+      "fatG": 6,
+      "carbG": 6,
+      "sodiumMg": 867,
+      "calciumMg": 9,
+      "inferred": []
+    },
+    {
+      "name": "蒜了吧黄油风味薄皮脆汁鸡-带骨里脊",
+      "key": "蒜了吧黄油风味薄皮脆汁鸡带骨里脊",
+      "energyKcal": 126,
+      "proteinG": 19,
+      "fatG": 2,
+      "carbG": 4,
+      "sodiumMg": 750,
+      "calciumMg": 59,
+      "inferred": []
+    },
+    {
+      "name": "柠萌风味薄皮焦香V翅",
+      "key": "柠萌风味薄皮焦香v翅",
+      "energyKcal": 204,
+      "proteinG": 18,
+      "fatG": 11,
+      "carbG": 6,
+      "sodiumMg": 768,
+      "calciumMg": 22,
+      "inferred": []
+    }
+  ],
+  "matches": [
+    {
+      "code": "9900016076",
+      "name": "“我就喜欢”鸡薯双全盒",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "原味板烧鸡腿炒双蛋堡"
+    },
+    {
+      "code": "9900016075",
+      "name": "龙焰芝士棒鸡腿堡三件套",
+      "nutrition": {
+        "energyKcal": 436,
+        "proteinG": 4,
+        "fatG": 12,
+        "carbG": 74,
+        "sodiumMg": 165,
+        "calciumMg": 28,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "龙焰芝士棒鸡腿堡 + 辣椒黄油风味酱 + 切块生菜 + 中薯条 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
+    },
+    {
+      "code": "9900016073",
+      "name": "龙焰鸡腿堡三件套",
+      "nutrition": {
+        "energyKcal": 436,
+        "proteinG": 4,
+        "fatG": 12,
+        "carbG": 74,
+        "sodiumMg": 165,
+        "calciumMg": 28,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "龙焰鸡腿堡 + 辣椒黄油风味酱 + 切块生菜 + 中薯条 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
+    },
+    {
+      "code": "9900016077",
+      "name": "蘸酱炸鸡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦香鸡"
+    },
+    {
+      "code": "521954",
+      "name": "麦当劳联名复古棒球帽",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦麦趣鸡球"
+    },
+    {
+      "code": "9900011056",
+      "name": "全明星双人分享餐八件套",
+      "nutrition": {
+        "energyKcal": 1905,
+        "proteinG": 79,
+        "fatG": 85,
+        "carbG": 199,
+        "sodiumMg": 3682,
+        "calciumMg": 361,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "麦辣鸡腿汉堡 + 麦香鸡酱 + 切块生菜 + 板烧鸡腿堡 + 烤味酱 + 麦乐鸡4块 + 麦辣鸡翅2块 + 中薯条 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
+    },
+    {
+      "code": "9900004064",
+      "name": "精选单人餐三件套",
+      "nutrition": {
+        "energyKcal": 827,
+        "proteinG": 27,
+        "fatG": 29,
+        "carbG": 109,
+        "sodiumMg": 1206,
+        "calciumMg": 121,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "板烧鸡腿堡 + 烤味酱 + 切块生菜 + 中薯条 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
+    },
+    {
+      "code": "521950",
+      "name": "蓝莓爆爆珠麦旋风",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "草莓麦旋风"
+    },
+    {
+      "code": "9900015902",
+      "name": "泷泷星愿四件套",
+      "nutrition": {
+        "energyKcal": 1585,
+        "proteinG": 49,
+        "fatG": 62,
+        "carbG": 202,
+        "sodiumMg": 2226,
+        "calciumMg": 441,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "麦辣鸡腿汉堡 + 麦香鸡酱 + 切块生菜 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰 + 中薯条 + 奥利奥麦旋风 + 旋旋星愿贴"
+    },
+    {
+      "code": "9900004236",
+      "name": "人气超值四件套随心选",
+      "nutrition": {
+        "energyKcal": 1290,
+        "proteinG": 43,
+        "fatG": 53,
+        "carbG": 155,
+        "sodiumMg": 2104,
+        "calciumMg": 255,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "麦辣鸡腿汉堡 + 麦香鸡酱 + 切块生菜 + 中薯条 + 麦乐鸡4块 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
+    },
+    {
+      "code": "9900010110",
+      "name": "鱼牛汉堡四件套随心选",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "吉士汉堡包"
+    },
+    {
+      "code": "9900006957",
+      "name": "安格斯厚牛堡四件套随心选",
+      "nutrition": {
+        "energyKcal": 1132,
+        "proteinG": 36,
+        "fatG": 56,
+        "carbG": 117,
+        "sodiumMg": 1062,
+        "calciumMg": 178,
+        "inferred": [
+          "套餐营养按组成项累加"
+        ]
+      },
+      "matchType": "combo",
+      "matchedName": "芝士安格斯厚牛堡 + 醇香芝士风味酱 + 高达干酪片 + 番茄片 + 黄油 + 中薯条 + 麦乐鸡4块 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰"
+    },
+    {
+      "code": "521953",
+      "name": "龙焰芝士棒鸡腿堡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦辣鸡腿汉堡"
+    },
+    {
+      "code": "521952",
+      "name": "龙焰鸡腿堡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "板烧鸡腿堡"
+    },
+    {
+      "code": "9900016310",
+      "name": "龙焰芝士棒鸡腿堡四件套",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦辣鸡腿汉堡"
+    },
+    {
+      "code": "9900016309",
+      "name": "龙焰鸡腿堡四件套",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦辣鸡腿汉堡"
+    },
+    {
+      "code": "9900000891",
+      "name": "麦辣鸡腿堡四件套",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦辣鸡腿汉堡"
+    },
+    {
+      "code": "9900000890",
+      "name": "板烧鸡腿堡四件套",
+      "nutrition": {
+        "name": "板烧鸡腿堡",
+        "key": "板烧鸡腿堡",
+        "energyKcal": 391,
+        "proteinG": 23,
+        "fatG": 17,
+        "carbG": 35,
+        "sodiumMg": 1041,
+        "calciumMg": 93,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "板烧鸡腿堡"
+    },
+    {
+      "code": "9900000884",
+      "name": "酥酥多笋卷四件套",
+      "nutrition": {
+        "name": "酥酥多笋卷",
+        "key": "酥酥多笋卷",
+        "energyKcal": 342,
+        "proteinG": 14,
+        "fatG": 15,
+        "carbG": 36,
+        "sodiumMg": 1044,
+        "calciumMg": 41,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "酥酥多笋卷"
+    },
+    {
+      "code": "9900005462",
+      "name": "板烧鸡腿堡三件套",
+      "nutrition": {
+        "name": "板烧鸡腿堡",
+        "key": "板烧鸡腿堡",
+        "energyKcal": 391,
+        "proteinG": 23,
+        "fatG": 17,
+        "carbG": 35,
+        "sodiumMg": 1041,
+        "calciumMg": 93,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "板烧鸡腿堡"
+    },
+    {
+      "code": "9900005456",
+      "name": "麦辣鸡腿汉堡三件套",
+      "nutrition": {
+        "name": "麦辣鸡腿汉堡",
+        "key": "麦辣鸡腿汉堡",
+        "energyKcal": 485,
+        "proteinG": 24,
+        "fatG": 24,
+        "carbG": 42,
+        "sodiumMg": 1208,
+        "calciumMg": 154,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "麦辣鸡腿汉堡"
+    },
+    {
+      "code": "9900005453",
+      "name": "麦香鸡中套餐",
+      "nutrition": {
+        "name": "麦香鸡",
+        "key": "麦香鸡",
+        "energyKcal": 369,
+        "proteinG": 15,
+        "fatG": 17,
+        "carbG": 39,
+        "sodiumMg": 731,
+        "calciumMg": 73,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "麦香鸡"
+    },
+    {
+      "code": "9900015008",
+      "name": "酥酥多笋卷三件套",
+      "nutrition": {
+        "name": "酥酥多笋卷",
+        "key": "酥酥多笋卷",
+        "energyKcal": 342,
+        "proteinG": 14,
+        "fatG": 15,
+        "carbG": 36,
+        "sodiumMg": 1044,
+        "calciumMg": 41,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "酥酥多笋卷"
+    },
+    {
+      "code": "1440",
+      "name": "麦辣鸡腿汉堡",
+      "nutrition": {
+        "name": "麦辣鸡腿汉堡",
+        "key": "麦辣鸡腿汉堡",
+        "energyKcal": 485,
+        "proteinG": 24,
+        "fatG": 24,
+        "carbG": 42,
+        "sodiumMg": 1208,
+        "calciumMg": 154,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "麦辣鸡腿汉堡"
+    },
+    {
+      "code": "1406",
+      "name": "板烧鸡腿堡",
+      "nutrition": {
+        "name": "板烧鸡腿堡",
+        "key": "板烧鸡腿堡",
+        "energyKcal": 391,
+        "proteinG": 23,
+        "fatG": 17,
+        "carbG": 35,
+        "sodiumMg": 1041,
+        "calciumMg": 93,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "板烧鸡腿堡"
+    },
+    {
+      "code": "1450",
+      "name": "麦香鸡",
+      "nutrition": {
+        "name": "麦香鸡",
+        "key": "麦香鸡",
+        "energyKcal": 369,
+        "proteinG": 15,
+        "fatG": 17,
+        "carbG": 39,
+        "sodiumMg": 731,
+        "calciumMg": 73,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "麦香鸡"
+    },
+    {
+      "code": "521816",
+      "name": "酥酥多笋卷",
+      "nutrition": {
+        "name": "酥酥多笋卷",
+        "key": "酥酥多笋卷",
+        "energyKcal": 342,
+        "proteinG": 14,
+        "fatG": 15,
+        "carbG": 36,
+        "sodiumMg": 1044,
+        "calciumMg": 41,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "酥酥多笋卷"
+    },
+    {
+      "code": "9900008746",
+      "name": "鸡肉堡单品精选",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦辣鸡腿汉堡"
+    },
+    {
+      "code": "9900016308",
+      "name": "蘸酱脆皮鸡块8块",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦乐鸡5块"
+    },
+    {
+      "code": "9900006332",
+      "name": "薄皮V翅双拼十翅",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "薄皮焦香V翅"
+    },
+    {
+      "code": "9900015730",
+      "name": "BFF四宫格小食盘",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "小薯条"
+    },
+    {
+      "code": "9900004066",
+      "name": "堡堡随心拼（7件任选）",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "汉堡包"
+    },
+    {
+      "code": "9900005321",
+      "name": "BFF四宫格小食盘双人餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "芝士双层安格斯厚牛堡"
+    },
+    {
+      "code": "9900016078",
+      "name": "蘸酱麦麦脆汁鸡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦麦脆汁鸡-琵琶腿"
+    },
+    {
+      "code": "9900016079",
+      "name": "蘸酱脆皮鸡柳",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "皮蛋鸡肉粥"
+    },
+    {
+      "code": "9900016099",
+      "name": "蘸酱脆皮鸡块",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦乐鸡5块"
+    },
+    {
+      "code": "9900015729",
+      "name": "蘸酱BFF四宫格小食盘",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "小薯条"
+    },
+    {
+      "code": "521966",
+      "name": "韩式烟熏芝士风味酱",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "芝士安格斯厚牛堡"
+    },
+    {
+      "code": "521799",
+      "name": "日式鲜磨山葵酱",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "大杯鲜萃咖啡"
+    },
+    {
+      "code": "9900013304",
+      "name": "人气经典随心配",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "牛气满满"
+    },
+    {
+      "code": "9900015568",
+      "name": "精选超值随心配",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": null
+    },
+    {
+      "code": "9900015602",
+      "name": "大堡口福三件套",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "大薯条"
+    },
+    {
+      "code": "9900016301",
+      "name": "枫糖风味厚松饼猪柳蛋堡四件套",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "猪柳炒双蛋堡"
+    },
+    {
+      "code": "9900000888",
+      "name": "巨无霸四件套",
+      "nutrition": {
+        "name": "巨无霸",
+        "key": "巨无霸",
+        "energyKcal": 513,
+        "proteinG": 27,
+        "fatG": 26,
+        "carbG": 42,
+        "sodiumMg": 961,
+        "calciumMg": 171,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "巨无霸"
+    },
+    {
+      "code": "9900000886",
+      "name": "不素之霸双层牛堡四件套",
+      "nutrition": {
+        "name": "不素之霸双层牛堡",
+        "key": "不素之霸双层牛堡",
+        "energyKcal": 493,
+        "proteinG": 28,
+        "fatG": 27,
+        "carbG": 34,
+        "sodiumMg": 1012,
+        "calciumMg": 75,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "不素之霸双层牛堡"
+    },
+    {
+      "code": "9900000885",
+      "name": "培根蔬萃双层牛堡四件套",
+      "nutrition": {
+        "name": "培根蔬萃双层牛堡",
+        "key": "培根蔬萃双层牛堡",
+        "energyKcal": 442,
+        "proteinG": 24,
+        "fatG": 23,
+        "carbG": 34,
+        "sodiumMg": 728,
+        "calciumMg": 73,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "培根蔬萃双层牛堡"
+    },
+    {
+      "code": "9900000893",
+      "name": "双层深海鳕鱼堡四件套",
+      "nutrition": {
+        "name": "双层深海鳕鱼堡",
+        "key": "双层深海鳕鱼堡",
+        "energyKcal": 485,
+        "proteinG": 28,
+        "fatG": 21,
+        "carbG": 46,
+        "sodiumMg": 917,
+        "calciumMg": 147,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "双层深海鳕鱼堡"
+    },
+    {
+      "code": "9900005411",
+      "name": "不素之霸双层牛堡三件套",
+      "nutrition": {
+        "name": "不素之霸双层牛堡",
+        "key": "不素之霸双层牛堡",
+        "energyKcal": 493,
+        "proteinG": 28,
+        "fatG": 27,
+        "carbG": 34,
+        "sodiumMg": 1012,
+        "calciumMg": 75,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "不素之霸双层牛堡"
+    },
+    {
+      "code": "9900005466",
+      "name": "巨无霸三件套",
+      "nutrition": {
+        "name": "巨无霸",
+        "key": "巨无霸",
+        "energyKcal": 513,
+        "proteinG": 27,
+        "fatG": 26,
+        "carbG": 42,
+        "sodiumMg": 961,
+        "calciumMg": 171,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "巨无霸"
+    },
+    {
+      "code": "9900005468",
+      "name": "培根蔬萃双层牛堡三件套",
+      "nutrition": {
+        "name": "培根蔬萃双层牛堡",
+        "key": "培根蔬萃双层牛堡",
+        "energyKcal": 442,
+        "proteinG": 24,
+        "fatG": 23,
+        "carbG": 34,
+        "sodiumMg": 728,
+        "calciumMg": 73,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "培根蔬萃双层牛堡"
+    },
+    {
+      "code": "9900005413",
+      "name": "双层深海鳕鱼堡三件套",
+      "nutrition": {
+        "name": "双层深海鳕鱼堡",
+        "key": "双层深海鳕鱼堡",
+        "energyKcal": 485,
+        "proteinG": 28,
+        "fatG": 21,
+        "carbG": 46,
+        "sodiumMg": 917,
+        "calciumMg": 147,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "双层深海鳕鱼堡"
+    },
+    {
+      "code": "9900005460",
+      "name": "麦香鱼中套餐",
+      "nutrition": {
+        "name": "麦香鱼",
+        "key": "麦香鱼",
+        "energyKcal": 325,
+        "proteinG": 16,
+        "fatG": 13,
+        "carbG": 35,
+        "sodiumMg": 556,
+        "calciumMg": 99,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "麦香鱼"
+    },
+    {
+      "code": "9900005464",
+      "name": "双层吉士汉堡中套餐",
+      "nutrition": {
+        "name": "双层吉士汉堡",
+        "key": "双层吉士汉堡",
+        "energyKcal": 429,
+        "proteinG": 27,
+        "fatG": 22,
+        "carbG": 31,
+        "sodiumMg": 1017,
+        "calciumMg": 232,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "双层吉士汉堡"
+    },
+    {
+      "code": "9900005449",
+      "name": "吉士汉堡包中套餐",
+      "nutrition": {
+        "name": "吉士汉堡包",
+        "key": "吉士汉堡包",
+        "energyKcal": 294,
+        "proteinG": 16,
+        "fatG": 12,
+        "carbG": 30,
+        "sodiumMg": 673,
+        "calciumMg": 144,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "吉士汉堡包"
+    },
+    {
+      "code": "521730",
+      "name": "枫糖风味厚松饼猪柳蛋堡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "猪柳炒双蛋堡"
+    },
+    {
+      "code": "521731",
+      "name": "枫糖风味厚松饼猪柳堡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "猪柳炒双蛋堡"
+    },
+    {
+      "code": "1100",
+      "name": "巨无霸",
+      "nutrition": {
+        "name": "巨无霸",
+        "key": "巨无霸",
+        "energyKcal": 513,
+        "proteinG": 27,
+        "fatG": 26,
+        "carbG": 42,
+        "sodiumMg": 961,
+        "calciumMg": 171,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "巨无霸"
+    },
+    {
+      "code": "9900003586",
+      "name": "双层深海鳕鱼堡",
+      "nutrition": {
+        "name": "双层深海鳕鱼堡",
+        "key": "双层深海鳕鱼堡",
+        "energyKcal": 485,
+        "proteinG": 28,
+        "fatG": 21,
+        "carbG": 46,
+        "sodiumMg": 917,
+        "calciumMg": 147,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "双层深海鳕鱼堡"
+    },
+    {
+      "code": "1600",
+      "name": "麦香鱼",
+      "nutrition": {
+        "name": "麦香鱼",
+        "key": "麦香鱼",
+        "energyKcal": 325,
+        "proteinG": 16,
+        "fatG": 13,
+        "carbG": 35,
+        "sodiumMg": 556,
+        "calciumMg": 99,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "麦香鱼"
+    },
+    {
+      "code": "4648",
+      "name": "不素之霸双层牛堡",
+      "nutrition": {
+        "name": "不素之霸双层牛堡",
+        "key": "不素之霸双层牛堡",
+        "energyKcal": 493,
+        "proteinG": 28,
+        "fatG": 27,
+        "carbG": 34,
+        "sodiumMg": 1012,
+        "calciumMg": 75,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "不素之霸双层牛堡"
+    },
+    {
+      "code": "1106",
+      "name": "培根蔬萃双层牛堡",
+      "nutrition": {
+        "name": "培根蔬萃双层牛堡",
+        "key": "培根蔬萃双层牛堡",
+        "energyKcal": 442,
+        "proteinG": 24,
+        "fatG": 23,
+        "carbG": 34,
+        "sodiumMg": 728,
+        "calciumMg": 73,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "培根蔬萃双层牛堡"
+    },
+    {
+      "code": "1120",
+      "name": "双层吉士汉堡",
+      "nutrition": {
+        "name": "双层吉士汉堡",
+        "key": "双层吉士汉堡",
+        "energyKcal": 429,
+        "proteinG": 27,
+        "fatG": 22,
+        "carbG": 31,
+        "sodiumMg": 1017,
+        "calciumMg": 232,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "双层吉士汉堡"
+    },
+    {
+      "code": "521316",
+      "name": "高达吉士双牛堡",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "双层吉士汉堡"
+    },
+    {
+      "code": "9900008747",
+      "name": "牛肉堡单品精选",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "培根蔬萃双层牛堡"
+    },
+    {
+      "code": "9900000881",
+      "name": "培根安格斯厚牛堡四件套",
+      "nutrition": {
+        "name": "培根安格斯厚牛堡",
+        "key": "培根安格斯厚牛堡",
+        "energyKcal": 707,
+        "proteinG": 34,
+        "fatG": 44,
+        "carbG": 43,
+        "sodiumMg": 1037,
+        "calciumMg": 161,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "培根安格斯厚牛堡"
+    },
+    {
+      "code": "9900000882",
+      "name": "芝士安格斯厚牛堡四件套",
+      "nutrition": {
+        "name": "芝士安格斯厚牛堡",
+        "key": "芝士安格斯厚牛堡",
+        "energyKcal": 696,
+        "proteinG": 32,
+        "fatG": 44,
+        "carbG": 43,
+        "sodiumMg": 897,
+        "calciumMg": 150,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "芝士安格斯厚牛堡"
+    },
+    {
+      "code": "9900005428",
+      "name": "培根安格斯厚牛堡三件套",
+      "nutrition": {
+        "name": "培根安格斯厚牛堡",
+        "key": "培根安格斯厚牛堡",
+        "energyKcal": 707,
+        "proteinG": 34,
+        "fatG": 44,
+        "carbG": 43,
+        "sodiumMg": 1037,
+        "calciumMg": 161,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "培根安格斯厚牛堡"
+    },
+    {
+      "code": "9900005430",
+      "name": "芝士安格斯厚牛堡三件套",
+      "nutrition": {
+        "name": "芝士安格斯厚牛堡",
+        "key": "芝士安格斯厚牛堡",
+        "energyKcal": 696,
+        "proteinG": 32,
+        "fatG": 44,
+        "carbG": 43,
+        "sodiumMg": 897,
+        "calciumMg": 150,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "芝士安格斯厚牛堡"
+    },
+    {
+      "code": "511781",
+      "name": "培根安格斯厚牛堡",
+      "nutrition": {
+        "name": "培根安格斯厚牛堡",
+        "key": "培根安格斯厚牛堡",
+        "energyKcal": 707,
+        "proteinG": 34,
+        "fatG": 44,
+        "carbG": 43,
+        "sodiumMg": 1037,
+        "calciumMg": 161,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "培根安格斯厚牛堡"
+    },
+    {
+      "code": "511782",
+      "name": "芝士安格斯厚牛堡",
+      "nutrition": {
+        "name": "芝士安格斯厚牛堡",
+        "key": "芝士安格斯厚牛堡",
+        "energyKcal": 696,
+        "proteinG": 32,
+        "fatG": 44,
+        "carbG": 43,
+        "sodiumMg": 897,
+        "calciumMg": 150,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "芝士安格斯厚牛堡"
+    },
+    {
+      "code": "9900005451",
+      "name": "麦辣鸡翅4块中套餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦辣鸡翅-2块"
+    },
+    {
+      "code": "9900004835",
+      "name": "麦乐鸡经典中套餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦乐鸡5块"
+    },
+    {
+      "code": "1700",
+      "name": "麦辣鸡翅2块",
+      "nutrition": {
+        "name": "麦辣鸡翅-2块",
+        "key": "麦辣鸡翅2块",
+        "energyKcal": 224,
+        "proteinG": 13,
+        "fatG": 15,
+        "carbG": 9,
+        "sodiumMg": 537,
+        "calciumMg": 13,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "麦辣鸡翅-2块"
+    },
+    {
+      "code": "520445",
+      "name": "薄皮焦香V翅",
+      "nutrition": {
+        "name": "薄皮焦香V翅",
+        "key": "薄皮焦香v翅",
+        "energyKcal": 192,
+        "proteinG": 17,
+        "fatG": 11,
+        "carbG": 6,
+        "sodiumMg": 594,
+        "calciumMg": 15,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "薄皮焦香V翅"
+    },
+    {
+      "code": "1401",
+      "name": "麦乐鸡5块",
+      "nutrition": {
+        "name": "麦乐鸡5块",
+        "key": "麦乐鸡5块",
+        "energyKcal": 213,
+        "proteinG": 12,
+        "fatG": 12,
+        "carbG": 13,
+        "sodiumMg": 422,
+        "calciumMg": 9,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "麦乐鸡5块"
+    },
+    {
+      "code": "521156",
+      "name": "那么大鸡排（椒盐风味）",
+      "nutrition": {
+        "name": "那么大鸡排",
+        "key": "那么大鸡排",
+        "energyKcal": 385,
+        "proteinG": 24,
+        "fatG": 21,
+        "carbG": 24,
+        "sodiumMg": 996,
+        "calciumMg": 13,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "那么大鸡排"
+    },
+    {
+      "code": "9900005432",
+      "name": "麦麦脆汁鸡1块(鸡腿或带骨里脊)",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦麦脆汁鸡-琵琶腿"
+    },
+    {
+      "code": "521986",
+      "name": "马苏里拉拉丝芝士条",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "芝士安格斯厚牛堡"
+    },
+    {
+      "code": "9900016082",
+      "name": "心形薯饼5块",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦乐鸡5块"
+    },
+    {
+      "code": "521951",
+      "name": "灰焰圆筒",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "圆筒冰淇淋"
+    },
+    {
+      "code": "521908",
+      "name": "黑洋酥小圆子风味派",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "柠萌风味薄皮焦香V翅"
+    },
+    {
+      "code": "521914",
+      "name": "“葱不求人“按摩捶痒痒挠",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "不素之霸双层牛堡"
+    },
+    {
+      "code": "521901",
+      "name": "月下相思扭扭薯",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "中薯条"
+    },
+    {
+      "code": "521741",
+      "name": "脆薯饼",
+      "nutrition": {
+        "name": "脆薯饼",
+        "key": "脆薯饼",
+        "energyKcal": 146,
+        "proteinG": 1,
+        "fatG": 9,
+        "carbG": 14,
+        "sodiumMg": 311,
+        "calciumMg": 7,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "脆薯饼"
+    },
+    {
+      "code": "4810",
+      "name": "中薯条",
+      "nutrition": {
+        "name": "中薯条",
+        "key": "中薯条",
+        "energyKcal": 289,
+        "proteinG": 4,
+        "fatG": 12,
+        "carbG": 38,
+        "sodiumMg": 165,
+        "calciumMg": 18,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "中薯条"
+    },
+    {
+      "code": "4437",
+      "name": "小杯玉米杯",
+      "nutrition": {
+        "name": "大杯玉米杯",
+        "key": "玉米杯",
+        "energyKcal": 87,
+        "proteinG": 4,
+        "fatG": 1,
+        "carbG": 12,
+        "sodiumMg": 2000,
+        "calciumMg": 10,
+        "inferred": [
+          "钠按 g→mg 换算"
+        ]
+      },
+      "matchType": "exact",
+      "matchedName": "大杯玉米杯"
+    },
+    {
+      "code": "6102",
+      "name": "苹果片一袋(60g)",
+      "nutrition": {
+        "name": "苹果片",
+        "key": "苹果片",
+        "energyKcal": 32,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 7,
+        "sodiumMg": 0,
+        "calciumMg": 18,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "苹果片"
+    },
+    {
+      "code": "9900008754",
+      "name": "经典麦旋风",
+      "nutrition": {
+        "name": "草莓麦旋风",
+        "key": "草莓麦旋风",
+        "energyKcal": 295,
+        "proteinG": 6,
+        "fatG": 9,
+        "carbG": 47,
+        "sodiumMg": 122,
+        "calciumMg": 186,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "草莓麦旋风"
+    },
+    {
+      "code": "9900008745",
+      "name": "新地",
+      "nutrition": {
+        "name": "草莓新地",
+        "key": "草莓新地",
+        "energyKcal": 245,
+        "proteinG": 4,
+        "fatG": 6,
+        "carbG": 43,
+        "sodiumMg": 84,
+        "calciumMg": 158,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "草莓新地"
+    },
+    {
+      "code": "515837",
+      "name": "圆筒冰淇淋",
+      "nutrition": {
+        "name": "圆筒冰淇淋",
+        "key": "圆筒冰淇淋",
+        "energyKcal": 93,
+        "proteinG": 2,
+        "fatG": 3,
+        "carbG": 14,
+        "sodiumMg": 36,
+        "calciumMg": 77,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "圆筒冰淇淋"
+    },
+    {
+      "code": "9900008752",
+      "name": "派",
+      "nutrition": {
+        "name": "香芋派",
+        "key": "香芋派",
+        "energyKcal": 232,
+        "proteinG": 2,
+        "fatG": 12,
+        "carbG": 28,
+        "sodiumMg": 159,
+        "calciumMg": 7,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "香芋派"
+    },
+    {
+      "code": "9900016057",
+      "name": "汉堡开心乐园餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "吉士汉堡包"
+    },
+    {
+      "code": "9900016058",
+      "name": "鱼排堡开心乐园餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "儿童鱼排堡"
+    },
+    {
+      "code": "9900016056",
+      "name": "麦乐鸡开心乐园餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦乐鸡5块"
+    },
+    {
+      "code": "9900016055",
+      "name": "开心亲子双人餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "双层吉士汉堡"
+    },
+    {
+      "code": "515955",
+      "name": "冰浓浓燕麦黑巧中杯",
+      "nutrition": {
+        "name": "冰浓浓燕麦黑巧中杯",
+        "key": "冰浓浓燕麦黑巧",
+        "energyKcal": 120,
+        "proteinG": 2,
+        "fatG": 5,
+        "carbG": 16,
+        "sodiumMg": 87,
+        "calciumMg": 263,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "冰浓浓燕麦黑巧中杯"
+    },
+    {
+      "code": "507411",
+      "name": "麦咖啡™冰美式中杯",
+      "nutrition": {
+        "name": "冰美式中杯",
+        "key": "冰美式",
+        "energyKcal": 13,
+        "proteinG": 1,
+        "fatG": 0,
+        "carbG": 2,
+        "sodiumMg": 0,
+        "calciumMg": 7,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "冰美式中杯"
+    },
+    {
+      "code": "507409",
+      "name": "麦咖啡™冰奶铁中杯",
+      "nutrition": {
+        "name": "冰奶铁中杯",
+        "key": "冰奶铁",
+        "energyKcal": 148,
+        "proteinG": 8,
+        "fatG": 7,
+        "carbG": 13,
+        "sodiumMg": 77,
+        "calciumMg": 251,
+        "inferred": []
+      },
+      "matchType": "contains",
+      "matchedName": "冰奶铁中杯"
+    },
+    {
+      "code": "510479",
+      "name": "冰燕麦奶铁中杯",
+      "nutrition": {
+        "name": "冰燕麦奶铁中杯",
+        "key": "冰燕麦奶铁",
+        "energyKcal": 132,
+        "proteinG": 3,
+        "fatG": 5,
+        "carbG": 17,
+        "sodiumMg": 87,
+        "calciumMg": 270,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "冰燕麦奶铁中杯"
+    },
+    {
+      "code": "507387",
+      "name": "卡布奇诺中杯",
+      "nutrition": {
+        "name": "卡布奇诺中杯",
+        "key": "卡布奇诺",
+        "energyKcal": 167,
+        "proteinG": 9,
+        "fatG": 7,
+        "carbG": 15,
+        "sodiumMg": 88,
+        "calciumMg": 285,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "卡布奇诺中杯"
+    },
+    {
+      "code": "520689",
+      "name": "小杯鲜萃咖啡",
+      "nutrition": {
+        "name": "大杯鲜萃咖啡",
+        "key": "鲜萃咖啡",
+        "energyKcal": 13,
+        "proteinG": 1,
+        "fatG": 0,
+        "carbG": 0,
+        "sodiumMg": 3000,
+        "calciumMg": 8,
+        "inferred": [
+          "钠按 g→mg 换算"
+        ]
+      },
+      "matchType": "exact",
+      "matchedName": "大杯鲜萃咖啡"
+    },
+    {
+      "code": "507389",
+      "name": "浓缩咖啡",
+      "nutrition": {
+        "name": "浓缩咖啡",
+        "key": "浓缩咖啡",
+        "energyKcal": 13,
+        "proteinG": 1,
+        "fatG": 0,
+        "carbG": 2,
+        "sodiumMg": 0,
+        "calciumMg": 7,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "浓缩咖啡"
+    },
+    {
+      "code": "512937",
+      "name": "冰浓浓抹茶牛奶中杯",
+      "nutrition": {
+        "name": "冰浓浓抹茶牛奶中杯",
+        "key": "冰浓浓抹茶牛奶",
+        "energyKcal": 196,
+        "proteinG": 8,
+        "fatG": 6,
+        "carbG": 25,
+        "sodiumMg": 80,
+        "calciumMg": 275,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "冰浓浓抹茶牛奶中杯"
+    },
+    {
+      "code": "507394",
+      "name": "热牛奶中杯",
+      "nutrition": {
+        "name": "热牛奶中杯",
+        "key": "热牛奶",
+        "energyKcal": 176,
+        "proteinG": 10,
+        "fatG": 8,
+        "carbG": 15,
+        "sodiumMg": 101,
+        "calciumMg": 319,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "热牛奶中杯"
+    },
+    {
+      "code": "510488",
+      "name": "热燕麦奶中杯",
+      "nutrition": {
+        "name": "热燕麦奶中杯",
+        "key": "热燕麦奶",
+        "energyKcal": 157,
+        "proteinG": 3,
+        "fatG": 6,
+        "carbG": 21,
+        "sodiumMg": 114,
+        "calciumMg": 344,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "热燕麦奶中杯"
+    },
+    {
+      "code": "9900011128",
+      "name": "“堡”你欢乐套餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "迷你薯条"
+    },
+    {
+      "code": "9900011121",
+      "name": "“苹”水相“鱼”套餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "麦香鱼"
+    },
+    {
+      "code": "9900011126",
+      "name": "酥脆无双套餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "巨无霸"
+    },
+    {
+      "code": "9900011123",
+      "name": "“辣”么快乐套餐",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "蜜汁快乐"
+    },
+    {
+      "code": "9900009245",
+      "name": "牛气满满套餐",
+      "nutrition": {
+        "name": "牛气满满",
+        "key": "牛气满满",
+        "energyKcal": 495,
+        "proteinG": 26,
+        "fatG": 24,
+        "carbG": 42,
+        "sodiumMg": 764,
+        "calciumMg": 79,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "牛气满满"
+    },
+    {
+      "code": "9900009242",
+      "name": "“苹板”支撑Pro套餐",
+      "nutrition": {
+        "name": "“苹板”支撑Pro",
+        "key": "苹板支撑pro",
+        "energyKcal": 476,
+        "proteinG": 25,
+        "fatG": 18,
+        "carbG": 50,
+        "sodiumMg": 1077,
+        "calciumMg": 117,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "“苹板”支撑Pro"
+    },
+    {
+      "code": "521817",
+      "name": "【美汁源】“多汁柠柠”",
+      "nutrition": null,
+      "matchType": "none",
+      "matchedName": "酥酥多笋卷"
+    },
+    {
+      "code": "9900008751",
+      "name": "可乐",
+      "nutrition": {
+        "name": "可乐中杯",
+        "key": "可乐",
+        "energyKcal": 147,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 36,
+        "sodiumMg": 0,
+        "calciumMg": 10,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "可乐中杯"
+    },
+    {
+      "code": "3010",
+      "name": "雪碧小杯",
+      "nutrition": {
+        "name": "雪碧中杯",
+        "key": "雪碧",
+        "energyKcal": 105,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 26,
+        "sodiumMg": 29,
+        "calciumMg": 0,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "雪碧中杯"
+    },
+    {
+      "code": "515520",
+      "name": "中杯怡泉+C",
+      "nutrition": {
+        "name": "中杯怡泉+C",
+        "key": "怡泉c",
+        "energyKcal": 110,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 27,
+        "sodiumMg": 0,
+        "calciumMg": 0,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "中杯怡泉+C"
+    },
+    {
+      "code": "2430",
+      "name": "【美汁源】“黄金橙橙”",
+      "nutrition": {
+        "name": "【美汁源】“黄金橙橙”",
+        "key": "黄金橙橙",
+        "energyKcal": 165,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 41,
+        "sodiumMg": 53,
+        "calciumMg": 0,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "【美汁源】“黄金橙橙”"
+    },
+    {
+      "code": "515280",
+      "name": "阳光柠檬红茶小杯",
+      "nutrition": {
+        "name": "阳光柠檬红茶中杯",
+        "key": "阳光柠檬红茶",
+        "energyKcal": 117,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 29,
+        "sodiumMg": 17,
+        "calciumMg": 0,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "阳光柠檬红茶中杯"
+    },
+    {
+      "code": "3755",
+      "name": "纯牛奶",
+      "nutrition": {
+        "name": "纯牛奶（盒装）",
+        "key": "纯牛奶",
+        "energyKcal": 129,
+        "proteinG": 7,
+        "fatG": 7,
+        "carbG": 10,
+        "sodiumMg": 73,
+        "calciumMg": 231,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "纯牛奶（盒装）"
+    },
+    {
+      "code": "6362",
+      "name": "100%苹果汁",
+      "nutrition": {
+        "name": "100%苹果汁",
+        "key": "100%苹果汁",
+        "energyKcal": 88,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 21,
+        "sodiumMg": 0,
+        "calciumMg": 0,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "100%苹果汁"
+    },
+    {
+      "code": "3757",
+      "name": "纯悦",
+      "nutrition": {
+        "name": "纯悦",
+        "key": "纯悦",
+        "energyKcal": 0,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 0,
+        "sodiumMg": 0,
+        "calciumMg": 0,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "纯悦"
+    },
+    {
+      "code": "3505",
+      "name": "锡兰红茶",
+      "nutrition": {
+        "name": "锡兰红茶",
+        "key": "锡兰红茶",
+        "energyKcal": 2,
+        "proteinG": 0,
+        "fatG": 0,
+        "carbG": 0,
+        "sodiumMg": 0,
+        "calciumMg": 5,
+        "inferred": []
+      },
+      "matchType": "exact",
+      "matchedName": "锡兰红茶"
+    }
+  ],
+  "coupons": [
+    {
+      "id": "B2F635C28AF377A949D4A99E406A82DA",
+      "name": "灰焰圆筒第二份半价",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": null,
+      "faceValueFen": 750,
+      "targetCodes": [
+        "9900016277"
+      ],
+      "appliesToCode": null,
+      "promotionId": "112457010",
+      "orderTypes": [
+        1
+      ],
+      "beTypes": [
+        1,
+        5
+      ],
+      "expireAt": "2026-11-03 23:59:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": false,
+      "excludedReason": "面额/规则无法量化（如第二份半价）"
+    },
+    {
+      "id": "8692944B045928451618BFF22F535D2A",
+      "name": "中薯条买一送一",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": 1350,
+      "faceValueFen": null,
+      "targetCodes": [],
+      "appliesToCode": "4810",
+      "promotionId": "112458028",
+      "orderTypes": [
+        1,
+        2
+      ],
+      "beTypes": [
+        1,
+        2,
+        5
+      ],
+      "expireAt": "2026-10-16 23:59:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": true,
+      "excludedReason": null
+    },
+    {
+      "id": "E05F6BFB4BAFAA5DB44B233583BFE711",
+      "name": "王牌小食拼",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": 1590,
+      "faceValueFen": null,
+      "targetCodes": [],
+      "appliesToCode": null,
+      "promotionId": "112458029",
+      "orderTypes": [
+        1,
+        2
+      ],
+      "beTypes": [
+        1,
+        2,
+        5
+      ],
+      "expireAt": "2026-10-16 23:59:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": false,
+      "excludedReason": "未能定位到菜单中的具体商品"
+    },
+    {
+      "id": "B34BB3A364F39940475B7BA80D19310A",
+      "name": "巧克力味厚松饼猪柳蛋套餐",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": 2990,
+      "faceValueFen": null,
+      "targetCodes": [],
+      "appliesToCode": null,
+      "promotionId": "112458019",
+      "orderTypes": [
+        1
+      ],
+      "beTypes": [
+        1,
+        5
+      ],
+      "expireAt": "2026-10-18 10:29:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": false,
+      "excludedReason": "未能定位到菜单中的具体商品"
+    },
+    {
+      "id": "9EBF58D27361CE714F8138C2027E7437",
+      "name": "火腿扒堡早餐两件套",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": 990,
+      "faceValueFen": null,
+      "targetCodes": [],
+      "appliesToCode": null,
+      "promotionId": "112457030",
+      "orderTypes": [
+        1
+      ],
+      "beTypes": [
+        1,
+        5
+      ],
+      "expireAt": "2026-10-19 10:29:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": false,
+      "excludedReason": "未能定位到菜单中的具体商品"
+    },
+    {
+      "id": "B50B127D0FD960791AF07355DC9248A8",
+      "name": "芝香脆鸡扒堡早餐两件套",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": 990,
+      "faceValueFen": null,
+      "targetCodes": [],
+      "appliesToCode": null,
+      "promotionId": "112457032",
+      "orderTypes": [
+        1
+      ],
+      "beTypes": [
+        1,
+        5
+      ],
+      "expireAt": "2026-10-20 10:29:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": false,
+      "excludedReason": "未能定位到菜单中的具体商品"
+    },
+    {
+      "id": "64998BD7D24D18878BFAD34FD813E55B",
+      "name": "高达芝士蛋堡早餐两件套",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": 990,
+      "faceValueFen": null,
+      "targetCodes": [],
+      "appliesToCode": null,
+      "promotionId": "112457023",
+      "orderTypes": [
+        1
+      ],
+      "beTypes": [
+        1,
+        5
+      ],
+      "expireAt": "2026-10-21 10:29:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": false,
+      "excludedReason": "未能定位到菜单中的具体商品"
+    },
+    {
+      "id": "38190F2EAF191C2BB51657535EAA1E80",
+      "name": "大脆鸡扒堡早餐两件套",
+      "thresholdFen": null,
+      "discountFen": null,
+      "couponPriceFen": 990,
+      "faceValueFen": null,
+      "targetCodes": [],
+      "appliesToCode": null,
+      "promotionId": "112457026",
+      "orderTypes": [
+        1
+      ],
+      "beTypes": [
+        1,
+        5
+      ],
+      "expireAt": "2026-10-15 10:29:59",
+      "scope": null,
+      "source": "query-my-coupons",
+      "usable": false,
+      "excludedReason": "未能定位到菜单中的具体商品"
+    }
+  ],
+  "dataNotes": [
+    "菜单复用本地缓存（2026/10/10 10:57:58 抓取，TTL 内未消耗额外请求；--no-cache 可强制刷新）。",
+    "菜单 121 项参与计算（名称与单价均来自官方算价 calculate-price）。",
+    "通过 query-meal-detail 拆解并累加营养的套餐：7 个（只取 isDefault 默认组成项）。",
+    "有 1 个套餐的组成项累加结果超出常理（>3000 kcal），已按\"营养未知\"处理而不是拿错数硬算。",
+    "官方算价（calculate-price）结果已用于核验本地菜单价合计；与本地不一致时请以官方返回为准。",
+    "有 48 项餐品未匹配到官方营养数据：营养类优化中排除（不使用猜测值），但仍可参与「省钱底线」并在方案中标注营养未知。",
+    "口径：预算卡的是券前菜单价合计（避免为凑满减券而超支）；结论一律按券后实付排序。",
+    "发现 8 张可用券：1 张可量化并已纳入方案择优，7 张面额/规则无法量化（如第二份半价）不参与计算；本项目不会自动领券。",
+    "官方券多为「指定商品用券价」（如某餐品 9.9 元），本工具只在能定位到方案内具体商品时才计入优惠；定位不到的券宁可不算，也不猜一个金额。"
+  ]
+}

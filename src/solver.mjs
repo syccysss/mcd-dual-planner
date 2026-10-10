@@ -51,6 +51,12 @@ export const DEFAULT_MIN_SCORE = 70;
 const HARD_PLAN_LIMIT = 400_000;
 
 /**
+ * 触发截断后自动降级重算时的候选规模下限。
+ * 低于这个值裁剪会伤到"最便宜/蛋白最高/钠最低"等方向的可达性，宁可如实标注截断也不继续降。
+ */
+const MIN_PER_CATEGORY = 3;
+
+/**
  * 每个品类参与枚举的候选数上限（四个方向的并集，所以单品类实际保留数可达 4×）。
  * 默认取 6 而不是更大的值：枚举规模对「小食」是平方级（C(n,2)），
  * 实测真实门店每品类 8 时会冲到 40 万+ 方案、约 300 MB 堆并触发 HARD_PLAN_LIMIT 截断，
@@ -348,7 +354,7 @@ function planSignature(items) {
  * 主求解入口。
  * @returns {{plans: Array, pareto: Array, recommendations: Object, stats: Object}}
  */
-export function solve({
+function solveCore({
   items,
   nutritionByItem,
   targets = DEFAULT_TARGETS,
@@ -517,10 +523,51 @@ export function solve({
       budgetFen: budgetFen ?? null,
       minScore,
       perCategory,
+      perCategoryAdjusted: null,
       couponCount: couponList.length,
       couponApplied: withinBudget.filter((p) => (p.discountFen ?? 0) > 0).length,
       costBasis: '菜单价过滤预算，券后实付排序',
       dominanceNote: '候选集裁剪后枚举，非全量穷举；裁剪规模见 candidateStats。',
     },
   };
+}
+
+/**
+ * 求解入口：先按请求的候选规模算一次；若触发搜索截断，则**自动下调候选规模重算**，
+ * 直到能完整枚举为止。
+ *
+ * 为什么必须重算而不是"就用被截断的结果"：
+ *  枚举是深度优先、按品类顺序展开的（主食在最外层），撞上上限时被砍掉的永远是
+ *  「排在候选列表后面的主食」——而这些恰好是价格更高、蛋白往往更高的选项。
+ *  于是截断不只是"少了一部分解"，而是**系统性偏向便宜主食**，直接把「营养上限」
+ *  这个结论算歪。实测武汉门店（候选 79）就会撞到 40 万上限。
+ *  降级重算是用"候选少一点但枚举完整"换掉"候选多一点但结果有偏"，更可信。
+ *
+ * @returns solveCore 的结果；stats.perCategoryAdjusted 记录是否发生过降级。
+ */
+export function solve(options = {}) {
+  const requested = options.perCategory ?? DEFAULT_PER_CATEGORY;
+  const first = solveCore(options);
+  if (!first.stats.truncated || requested <= MIN_PER_CATEGORY) return first;
+
+  for (let k = requested - 1; k >= MIN_PER_CATEGORY; k -= 1) {
+    const attempt = solveCore({ ...options, perCategory: k });
+    if (!attempt.stats.truncated) {
+      attempt.stats.perCategoryAdjusted = {
+        requested,
+        used: k,
+        reason: '候选规模过大导致搜索截断，已自动下调以完成完整枚举',
+      };
+      return attempt;
+    }
+  }
+
+  // 极端菜单：降到下限仍截断 —— 保留截断标记，让战报如实告警，而不是假装结果完整。
+  const smallest = solveCore({ ...options, perCategory: MIN_PER_CATEGORY });
+  smallest.stats.perCategoryAdjusted = {
+    requested,
+    used: MIN_PER_CATEGORY,
+    reason: '即便降至最小候选规模仍发生截断（菜单过大），结果可能非全局最优',
+  };
+  return smallest;
 }

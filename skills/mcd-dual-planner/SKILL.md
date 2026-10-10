@@ -129,6 +129,16 @@ node bin/mcd-dual.mjs plan --budget 30 --kcal 700 --protein 30 --sodium 1200 \
 node tools/build-web-demo.mjs --data examples/live-snapshot.json --out web/index.html
 ```
 
+需要**跨门店交叉验证**或**把参数推到边界看行为**时：
+
+```bash
+# 多城市 × 多门店批量验证（输出每店快照 + 跨城同款商品价格对比）
+node tools/batch-verify.mjs --cities beijing,shanghai,guangzhou --per-city 1 --budget 40
+
+# 离线深度审计（边界 / 单调性 / 可复现性 / 诚实性断言，零 MCP 请求）
+node tools/deep-audit.mjs
+```
+
 菜单与算价结果会按门店**本地缓存 30 分钟**，所以 TTL 内重复求解只发个位数请求、秒级返回。
 
 ## 安全规则

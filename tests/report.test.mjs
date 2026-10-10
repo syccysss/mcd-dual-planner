@@ -83,3 +83,20 @@ test('渲染战报：实时模式下徽标改为实时数据', () => {
   assert.ok(svg.includes('满30减5'));
   assert.ok(svg.includes('验价失败'));
 });
+
+test('渲染战报：达标口径退化时，双赢推荐不得声称「满足全部硬目标」', () => {
+  const result = buildPlanDemo({ budgetYuan: 30 });
+  assert.ok(result.recommendations.some((r) => r.kind === 'valueBest'));
+  result.stats.qualifyingBasis = 'score-fallback';
+  const svg = renderReport(result);
+  assert.ok(svg.includes('没有方案完全满足硬目标'), '退化时必须如实说明，不能把不达标的说成达标');
+  assert.ok(svg.includes('已退化为得分门槛'), '战报必须显式标注达标口径已退化');
+});
+
+test('渲染战报：候选规模被自动下调以避免截断时必须留痕', () => {
+  const result = buildPlanDemo({ budgetYuan: 30 });
+  result.stats.perCategoryAdjusted = { requested: 6, used: 5, reason: '为避免搜索截断已自动下调' };
+  const svg = renderReport(result);
+  assert.ok(svg.includes('候选规模已自动下调'), '必须说明候选规模被调整过');
+  assert.ok(svg.includes('6→5'), '必须给出调整前后的具体数值');
+});

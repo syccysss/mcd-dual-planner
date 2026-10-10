@@ -299,3 +299,36 @@ test('solve：目标过严导致无人达标时，退化为得分门槛并如实
   assert.equal(result.stats.hardQualifying, 0, '该目标下不应有方案达标');
   assert.equal(result.stats.qualifyingBasis, 'score-fallback', '必须如实标注已退化');
 });
+
+test('solve：搜索截断时自动下调候选规模重算，而不是返回被砍断的结果', () => {
+  // 构造一个必然撞上 40 万方案上限的菜单：四类各 24/24/10/10 项，
+  // 且刻意让「最便宜 / 蛋白性价比 / 蛋白最高 / 钠最低」四个方向互不重叠，
+  // 从而每类都保留满 perCategory 个候选，组合数远超上限。
+  const items = [];
+  const nutritionByItem = new Map();
+  const spec = { 主食: 24, 小食: 24, 饮料: 10, 甜品: 10 };
+  const shape = (i) => {
+    if (i < 6) return { energyKcal: 100, proteinG: 1, sodiumMg: 1000 };
+    if (i < 12) return { energyKcal: 300, proteinG: 100, sodiumMg: 1000 };
+    if (i < 18) return { energyKcal: 600, proteinG: 500, sodiumMg: 1000 };
+    return { energyKcal: 200, proteinG: 10, sodiumMg: 1 };
+  };
+  let base = 100;
+  for (const [category, count] of Object.entries(spec)) {
+    for (let i = 0; i < count; i += 1) {
+      const nutrition = shape(i);
+      const item = { code: `${category}${i}`, name: `${category}${i}`, priceFen: base + i * 10 + (i >= 12 ? 3000 : 0), category };
+      items.push(item);
+      nutritionByItem.set(item, { nutrition, matchType: 'test', matchedName: item.name });
+    }
+    base += 500;
+  }
+
+  const result = solve({ items, nutritionByItem, budgetFen: 10_000_000, perCategory: 6, maxResults: 5 });
+  assert.equal(result.stats.truncated, false, '自动降级后不应再出现截断');
+  assert.ok(result.stats.enumerated < 400_000, `枚举量应低于硬上限，实际 ${result.stats.enumerated}`);
+  const adj = result.stats.perCategoryAdjusted;
+  assert.ok(adj, '发生降级时必须留下 perCategoryAdjusted 记录，便于战报如实说明');
+  assert.ok(adj.used < adj.requested, '降级后的候选规模必须小于请求值');
+  assert.ok(result.recommendations.length > 0, '降级后仍应给出推荐');
+});

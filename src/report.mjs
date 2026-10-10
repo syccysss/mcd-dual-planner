@@ -103,12 +103,19 @@ function planTitle(plan, index) {
   return KIND_LABELS[plan.kind] ?? `方案 ${String.fromCharCode(65 + index)}`;
 }
 
-function planReason(plan, index, targets) {
+function planReason(plan, index, targets, basis) {
   const t = plan.totals;
   const paid = t.discountFen > 0
     ? `券后实付 ¥${yuan(t.payableFen)}（菜单价 ¥${yuan(t.priceFen)} − 券 ¥${yuan(t.discountFen)}）`
     : `¥${yuan(t.priceFen)}`;
-  if (plan.kind === 'valueBest') return `满足全部硬目标（热量区间 + 蛋白下限 + 钠上限）里券后最便宜的一档：${paid} 换 ${t.proteinG} g 蛋白`;
+  if (plan.kind === 'valueBest') {
+    // 达标口径可能已退化（没有任何方案满足用户设定的硬目标）——此时不能说"满足全部硬目标"，
+    // 因为那是假话；如实说明"这是最接近的一档"，与 stats.qualifyingBasis 一致。
+    if (basis === 'score-fallback') {
+      return `没有方案完全满足硬目标（热量区间 / 蛋白下限 / 钠上限），这是最接近的一档：${paid} 换 ${t.proteinG} g 蛋白`;
+    }
+    return `满足全部硬目标（热量区间 + 蛋白下限 + 钠上限）里券后最便宜的一档：${paid} 换 ${t.proteinG} g 蛋白`;
+  }
   if (plan.kind === 'topScore') return `预算内营养得分最高：${plan.score} 分，热量 ${t.energyKcal} kcal（目标 ${targets.kcal} kcal）`;
   if (plan.kind === 'cheapest') return `券后实付最低：${paid}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
   return `候选方案：${paid}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
@@ -184,7 +191,7 @@ function drawPlanCard(plan, index, ctx) {
     cx += displayWidth(mark + label + (ok === null ? '（未知）' : '')) * 6 + 16;
   }
 
-  parts.push(el.text(x + 20, y + h - 12, planReason(plan, index, ctx.targets), { size: 11.5, fill: C.sub }));
+  parts.push(el.text(x + 20, y + h - 12, planReason(plan, index, ctx.targets, ctx.basis), { size: 11.5, fill: C.sub }));
 
   return { markup: parts.join(''), height: h };
 }
@@ -316,7 +323,10 @@ export function renderReport(result) {
     gx += displayWidth(text) * 6.6 + 26;
   }
   chunks.push(el.text(PAD + 20, y + 56,
-    `搜索空间：菜单 ${coverage.menuTotal ?? '—'} 项 → 候选 ${stats.candidateCount ?? '—'} 项 → 枚举 ${stats.totalPlans ?? '—'} 个方案 → 预算内 ${stats.withinBudget ?? '—'} 个 → 达标 ${stats.qualifying ?? '—'} 个（裁剪后枚举，非全量穷举${stats.truncated ? '；⚠ 已达方案数上限被截断' : ''}）`,
+    `搜索空间：菜单 ${coverage.menuTotal ?? '—'} 项 → 候选 ${stats.candidateCount ?? '—'} 项 → 枚举 ${stats.totalPlans ?? '—'} 个方案 → 预算内 ${stats.withinBudget ?? '—'} 个 → 达标 ${stats.qualifying ?? '—'} 个（裁剪后枚举，非全量穷举`
+    + `${stats.perCategoryAdjusted ? `；候选规模已自动下调 ${stats.perCategoryAdjusted.requested}→${stats.perCategoryAdjusted.used} 以避免搜索截断` : ''}`
+    + `${stats.truncated ? '；⚠ 已达方案数上限被截断' : ''}`
+    + `${stats.qualifyingBasis === 'score-fallback' ? '；⚠ 无方案满足全部硬目标，「达标」已退化为得分门槛' : ''}）`,
     { size: 11.5, fill: C.sub }));
   y += goalH + 24;
 
@@ -324,7 +334,7 @@ export function renderReport(result) {
   // 注意：卡片必须逐张累加 y 后绘制。否则三张卡片会画在同一个 y 上互相覆盖
   // （只看得见最后一张），而总高度却按三张算，留下大片空白。
   const cardMarkup = recommendations.map((plan, index) => {
-    const res = drawPlanCard(plan, index, { x: PAD, y, w: W - PAD * 2, budgetFen, targets, minScore: stats.minScore ?? 70 });
+    const res = drawPlanCard(plan, index, { x: PAD, y, w: W - PAD * 2, budgetFen, targets, minScore: stats.minScore ?? 70, basis: stats.qualifyingBasis });
     y += res.height + (index === recommendations.length - 1 ? 24 : 14);
     return res.markup;
   });

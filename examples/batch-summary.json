@@ -1,0 +1,2056 @@
+{
+  "generatedAt": "2026-10-10 03:15:17",
+  "budgetYuan": 40,
+  "beType": 1,
+  "elapsedSec": 88,
+  "storeCount": 8,
+  "rows": [
+    {
+      "city": "北京",
+      "storeCode": "1950526",
+      "storeName": "麦当劳北京新东安二号餐厅",
+      "address": "王府井大街138号新东安广场地下一层",
+      "menuTotal": 124,
+      "matched": 75,
+      "unmatched": 49,
+      "matchRate": 60,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 64,
+      "enumerated": 225216,
+      "truncated": false,
+      "withinBudget": 2326,
+      "qualifying": 28,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 5,
+      "perCategoryAdjusted": true,
+      "pareto": 16,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 29,
+          "payableYuan": 29,
+          "score": 65.1,
+          "kcal": 578,
+          "proteinG": 30,
+          "sodiumMg": 953,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 29,
+          "items": [
+            "双层深海鳕鱼堡",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 38.5,
+          "payableYuan": 38.5,
+          "score": 98.6,
+          "kcal": 695,
+          "proteinG": 30,
+          "sodiumMg": 970,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 38.5,
+          "items": [
+            "双层深海鳕鱼堡",
+            "阳光柠檬红茶小杯",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 13.9,
+          "payableYuan": 13.9,
+          "score": 15,
+          "kcal": 0,
+          "proteinG": 0,
+          "sodiumMg": 0,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 13.9,
+          "items": [
+            "精选超值随心配"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 9228,
+      "requestCount": 22
+    },
+    {
+      "city": "上海",
+      "storeCode": "1450104",
+      "storeName": "麦当劳上海黄浦悦荟广场餐厅",
+      "address": "南京东路３５３号（山东中路九江路）",
+      "menuTotal": 121,
+      "matched": 73,
+      "unmatched": 48,
+      "matchRate": 60,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 72,
+      "enumerated": 305280,
+      "truncated": false,
+      "withinBudget": 2994,
+      "qualifying": 32,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 6,
+      "perCategoryAdjusted": false,
+      "pareto": 16,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 29,
+          "payableYuan": 29,
+          "score": 65.1,
+          "kcal": 578,
+          "proteinG": 30,
+          "sodiumMg": 953,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 29,
+          "items": [
+            "双层深海鳕鱼堡",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 38.5,
+          "payableYuan": 38.5,
+          "score": 98.6,
+          "kcal": 695,
+          "proteinG": 30,
+          "sodiumMg": 970,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 38.5,
+          "items": [
+            "双层深海鳕鱼堡",
+            "阳光柠檬红茶小杯",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 13.9,
+          "payableYuan": 13.9,
+          "score": 15,
+          "kcal": 0,
+          "proteinG": 0,
+          "sodiumMg": 0,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 13.9,
+          "items": [
+            "精选超值随心配"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 10554,
+      "requestCount": 44
+    },
+    {
+      "city": "广州",
+      "storeCode": "1400011",
+      "storeName": "麦当劳广州今日广场餐厅",
+      "address": "体育西路77号首层及二层",
+      "menuTotal": 129,
+      "matched": 76,
+      "unmatched": 53,
+      "matchRate": 59,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 73,
+      "enumerated": 309120,
+      "truncated": false,
+      "withinBudget": 2990,
+      "qualifying": 27,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 6,
+      "perCategoryAdjusted": false,
+      "pareto": 14,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 29,
+          "payableYuan": 29,
+          "score": 65.1,
+          "kcal": 578,
+          "proteinG": 30,
+          "sodiumMg": 953,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 29,
+          "items": [
+            "双层深海鳕鱼堡",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 40,
+          "payableYuan": 40,
+          "score": 97.5,
+          "kcal": 707,
+          "proteinG": 37,
+          "sodiumMg": 1026,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 40,
+          "items": [
+            "双层深海鳕鱼堡",
+            "纯牛奶",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 13.9,
+          "payableYuan": 13.9,
+          "score": 15,
+          "kcal": 0,
+          "proteinG": 0,
+          "sodiumMg": 0,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 13.9,
+          "items": [
+            "精选超值随心配"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 8777,
+      "requestCount": 66
+    },
+    {
+      "city": "深圳",
+      "storeCode": "1421180",
+      "storeName": "麦当劳深圳华强北茂业餐厅",
+      "address": "华强北路与振兴路交汇处东方时代广场（以下简称“建筑物”）的一部分，具体为负101，即-1层B01019X号商铺",
+      "menuTotal": 123,
+      "matched": 72,
+      "unmatched": 51,
+      "matchRate": 59,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 66,
+      "enumerated": 250240,
+      "truncated": false,
+      "withinBudget": 2425,
+      "qualifying": 22,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 5,
+      "perCategoryAdjusted": true,
+      "pareto": 16,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 29,
+          "payableYuan": 29,
+          "score": 65.1,
+          "kcal": 578,
+          "proteinG": 30,
+          "sodiumMg": 953,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 29,
+          "items": [
+            "双层深海鳕鱼堡",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 38.5,
+          "payableYuan": 38.5,
+          "score": 98.6,
+          "kcal": 695,
+          "proteinG": 30,
+          "sodiumMg": 970,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 38.5,
+          "items": [
+            "双层深海鳕鱼堡",
+            "阳光柠檬红茶小杯",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 14,
+          "payableYuan": 14,
+          "score": 15,
+          "kcal": 0,
+          "proteinG": 0,
+          "sodiumMg": 0,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 14,
+          "items": [
+            "牛肉堡单品精选"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 11792,
+      "requestCount": 88
+    },
+    {
+      "city": "成都",
+      "storeCode": "3450410",
+      "storeName": "麦当劳成都锦江区联升巷(京都大厦)餐厅",
+      "address": "大科甲巷43号1栋1楼1号（自编号L10号）及2楼1号（自编号L210号）",
+      "menuTotal": 122,
+      "matched": 74,
+      "unmatched": 48,
+      "matchRate": 61,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 71,
+      "enumerated": 293664,
+      "truncated": false,
+      "withinBudget": 2376,
+      "qualifying": 24,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 6,
+      "perCategoryAdjusted": false,
+      "pareto": 17,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 30,
+          "payableYuan": 30,
+          "score": 65.1,
+          "kcal": 578,
+          "proteinG": 30,
+          "sodiumMg": 953,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 30,
+          "items": [
+            "双层深海鳕鱼堡",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 39.5,
+          "payableYuan": 39.5,
+          "score": 98.6,
+          "kcal": 695,
+          "proteinG": 30,
+          "sodiumMg": 970,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 39.5,
+          "items": [
+            "双层深海鳕鱼堡",
+            "阳光柠檬红茶小杯",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 13.9,
+          "payableYuan": 13.9,
+          "score": 15,
+          "kcal": 0,
+          "proteinG": 0,
+          "sodiumMg": 0,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 13.9,
+          "items": [
+            "精选超值随心配"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 9764,
+      "requestCount": 110
+    },
+    {
+      "city": "杭州",
+      "storeCode": "3330387",
+      "storeName": "麦当劳杭州国大城市广场餐厅",
+      "address": "延安路609号B2层B234麦当劳铺位",
+      "menuTotal": 126,
+      "matched": 76,
+      "unmatched": 50,
+      "matchRate": 60,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 74,
+      "enumerated": 360612,
+      "truncated": false,
+      "withinBudget": 2823,
+      "qualifying": 34,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 6,
+      "perCategoryAdjusted": false,
+      "pareto": 16,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 29,
+          "payableYuan": 29,
+          "score": 65.1,
+          "kcal": 578,
+          "proteinG": 30,
+          "sodiumMg": 953,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 29,
+          "items": [
+            "双层深海鳕鱼堡",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 38.5,
+          "payableYuan": 38.5,
+          "score": 98.6,
+          "kcal": 695,
+          "proteinG": 30,
+          "sodiumMg": 970,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 38.5,
+          "items": [
+            "双层深海鳕鱼堡",
+            "阳光柠檬红茶小杯",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 13.9,
+          "payableYuan": 13.9,
+          "score": 15,
+          "kcal": 0,
+          "proteinG": 0,
+          "sodiumMg": 0,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 13.9,
+          "items": [
+            "精选超值随心配"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 11055,
+      "requestCount": 132
+    },
+    {
+      "city": "西安",
+      "storeCode": "1960622",
+      "storeName": "麦当劳西安开元餐厅",
+      "address": "东大街解放市场6号首层",
+      "menuTotal": 123,
+      "matched": 73,
+      "unmatched": 50,
+      "matchRate": 59,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 71,
+      "enumerated": 302736,
+      "truncated": false,
+      "withinBudget": 2786,
+      "qualifying": 34,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 6,
+      "perCategoryAdjusted": false,
+      "pareto": 16,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 29,
+          "payableYuan": 29,
+          "score": 65.1,
+          "kcal": 578,
+          "proteinG": 30,
+          "sodiumMg": 953,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 29,
+          "items": [
+            "双层深海鳕鱼堡",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 38.5,
+          "payableYuan": 38.5,
+          "score": 98.6,
+          "kcal": 695,
+          "proteinG": 30,
+          "sodiumMg": 970,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 38.5,
+          "items": [
+            "双层深海鳕鱼堡",
+            "阳光柠檬红茶小杯",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 13.9,
+          "payableYuan": 13.9,
+          "score": 15,
+          "kcal": 0,
+          "proteinG": 0,
+          "sodiumMg": 0,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 13.9,
+          "items": [
+            "精选超值随心配"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 10475,
+      "requestCount": 154
+    },
+    {
+      "city": "武汉",
+      "storeCode": "1960090",
+      "storeName": "麦当劳武汉光谷通信广场餐厅",
+      "address": "虎泉街地铁2号线光谷站B出口大楼",
+      "menuTotal": 137,
+      "matched": 77,
+      "unmatched": 60,
+      "matchRate": 56,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 71,
+      "enumerated": 347760,
+      "truncated": false,
+      "withinBudget": 3496,
+      "qualifying": 24,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 5,
+      "perCategoryAdjusted": true,
+      "pareto": 16,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 29,
+          "payableYuan": 29,
+          "score": 65.1,
+          "kcal": 578,
+          "proteinG": 30,
+          "sodiumMg": 953,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 29,
+          "items": [
+            "双层深海鳕鱼堡",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 38.5,
+          "payableYuan": 38.5,
+          "score": 98.6,
+          "kcal": 695,
+          "proteinG": 30,
+          "sodiumMg": 970,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 38.5,
+          "items": [
+            "双层深海鳕鱼堡",
+            "阳光柠檬红茶小杯",
+            "圆筒冰淇淋"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 13.9,
+          "payableYuan": 13.9,
+          "score": 15,
+          "kcal": 0,
+          "proteinG": 0,
+          "sodiumMg": 0,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 13.9,
+          "items": [
+            "精选超值随心配"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 13954,
+      "requestCount": 176
+    }
+  ],
+  "crossCity": {
+    "comparableItems": 140,
+    "differingItems": 42,
+    "top": [
+      {
+        "code": "9900011056",
+        "name": "全明星双人分享餐八件套",
+        "min": 114.5,
+        "max": 117.5,
+        "diff": 3,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "全明星双人分享餐八件套",
+            "priceYuan": 117
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "全明星双人分享餐八件套",
+            "priceYuan": 114.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "全明星双人分享餐八件套",
+            "priceYuan": 117
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "全明星双人分享餐八件套",
+            "priceYuan": 117.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "全明星双人分享餐八件套",
+            "priceYuan": 117
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "全明星双人分享餐八件套",
+            "priceYuan": 117
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "全明星双人分享餐八件套",
+            "priceYuan": 114.5
+          }
+        ]
+      },
+      {
+        "code": "9900010110",
+        "name": "鱼牛汉堡四件套随心选",
+        "min": 58.5,
+        "max": 59.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "鱼牛汉堡四件套随心选",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "鱼牛汉堡四件套随心选",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "鱼牛汉堡四件套随心选",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "鱼牛汉堡四件套随心选",
+            "priceYuan": 59.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "鱼牛汉堡四件套随心选",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "鱼牛汉堡四件套随心选",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "鱼牛汉堡四件套随心选",
+            "priceYuan": 58.5
+          }
+        ]
+      },
+      {
+        "code": "9900005321",
+        "name": "BFF四宫格小食盘双人餐",
+        "min": 122.5,
+        "max": 123.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "BFF四宫格小食盘双人餐",
+            "priceYuan": 123
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "BFF四宫格小食盘双人餐",
+            "priceYuan": 122.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "BFF四宫格小食盘双人餐",
+            "priceYuan": 123
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "BFF四宫格小食盘双人餐",
+            "priceYuan": 122.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "BFF四宫格小食盘双人餐",
+            "priceYuan": 123.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "BFF四宫格小食盘双人餐",
+            "priceYuan": 123
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "BFF四宫格小食盘双人餐",
+            "priceYuan": 123
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "BFF四宫格小食盘双人餐",
+            "priceYuan": 122.5
+          }
+        ]
+      },
+      {
+        "code": "9900015602",
+        "name": "大堡口福三件套",
+        "min": 22.9,
+        "max": 23.9,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "大堡口福三件套",
+            "priceYuan": 22.9
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "大堡口福三件套",
+            "priceYuan": 22.9
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "大堡口福三件套",
+            "priceYuan": 23.9
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "大堡口福三件套",
+            "priceYuan": 22.9
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "大堡口福三件套",
+            "priceYuan": 22.9
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "大堡口福三件套",
+            "priceYuan": 22.9
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "大堡口福三件套",
+            "priceYuan": 22.9
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "大堡口福三件套",
+            "priceYuan": 22.9
+          }
+        ]
+      },
+      {
+        "code": "9900000888",
+        "name": "巨无霸四件套",
+        "min": 58.5,
+        "max": 59.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "巨无霸四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "巨无霸四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "巨无霸四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "巨无霸四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "巨无霸四件套",
+            "priceYuan": 59.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "巨无霸四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "巨无霸四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "巨无霸四件套",
+            "priceYuan": 58.5
+          }
+        ]
+      },
+      {
+        "code": "9900000886",
+        "name": "不素之霸双层牛堡四件套",
+        "min": 58.5,
+        "max": 59.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "不素之霸双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "不素之霸双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "不素之霸双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "不素之霸双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "不素之霸双层牛堡四件套",
+            "priceYuan": 59.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "不素之霸双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "不素之霸双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "不素之霸双层牛堡四件套",
+            "priceYuan": 58.5
+          }
+        ]
+      },
+      {
+        "code": "9900000885",
+        "name": "培根蔬萃双层牛堡四件套",
+        "min": 58.5,
+        "max": 59.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "培根蔬萃双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "培根蔬萃双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "培根蔬萃双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "培根蔬萃双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "培根蔬萃双层牛堡四件套",
+            "priceYuan": 59.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "培根蔬萃双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "培根蔬萃双层牛堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "培根蔬萃双层牛堡四件套",
+            "priceYuan": 58.5
+          }
+        ]
+      },
+      {
+        "code": "9900000893",
+        "name": "双层深海鳕鱼堡四件套",
+        "min": 58.5,
+        "max": 59.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "双层深海鳕鱼堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "双层深海鳕鱼堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "双层深海鳕鱼堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "双层深海鳕鱼堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "双层深海鳕鱼堡四件套",
+            "priceYuan": 59.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "双层深海鳕鱼堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "双层深海鳕鱼堡四件套",
+            "priceYuan": 58.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "双层深海鳕鱼堡四件套",
+            "priceYuan": 58.5
+          }
+        ]
+      },
+      {
+        "code": "9900005466",
+        "name": "巨无霸三件套",
+        "min": 36.5,
+        "max": 37.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "巨无霸三件套",
+            "priceYuan": 37.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "巨无霸三件套",
+            "priceYuan": 36.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "巨无霸三件套",
+            "priceYuan": 37.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "巨无霸三件套",
+            "priceYuan": 36.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "巨无霸三件套",
+            "priceYuan": 37
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "巨无霸三件套",
+            "priceYuan": 37.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "巨无霸三件套",
+            "priceYuan": 37.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "巨无霸三件套",
+            "priceYuan": 36.5
+          }
+        ]
+      },
+      {
+        "code": "9900005413",
+        "name": "双层深海鳕鱼堡三件套",
+        "min": 35,
+        "max": 36,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "双层深海鳕鱼堡三件套",
+            "priceYuan": 35
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "双层深海鳕鱼堡三件套",
+            "priceYuan": 35
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "双层深海鳕鱼堡三件套",
+            "priceYuan": 35
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "双层深海鳕鱼堡三件套",
+            "priceYuan": 35
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "双层深海鳕鱼堡三件套",
+            "priceYuan": 36
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "双层深海鳕鱼堡三件套",
+            "priceYuan": 35
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "双层深海鳕鱼堡三件套",
+            "priceYuan": 35
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "双层深海鳕鱼堡三件套",
+            "priceYuan": 35
+          }
+        ]
+      },
+      {
+        "code": "9900005460",
+        "name": "麦香鱼中套餐",
+        "min": 33,
+        "max": 34,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "麦香鱼中套餐",
+            "priceYuan": 33
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "麦香鱼中套餐",
+            "priceYuan": 33.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "麦香鱼中套餐",
+            "priceYuan": 33
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "麦香鱼中套餐",
+            "priceYuan": 34
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "麦香鱼中套餐",
+            "priceYuan": 33
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "麦香鱼中套餐",
+            "priceYuan": 33
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "麦香鱼中套餐",
+            "priceYuan": 33.5
+          }
+        ]
+      },
+      {
+        "code": "1100",
+        "name": "巨无霸",
+        "min": 25.5,
+        "max": 26.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "巨无霸",
+            "priceYuan": 26.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "巨无霸",
+            "priceYuan": 25.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "巨无霸",
+            "priceYuan": 26.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "巨无霸",
+            "priceYuan": 25.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "巨无霸",
+            "priceYuan": 26
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "巨无霸",
+            "priceYuan": 26.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "巨无霸",
+            "priceYuan": 26.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "巨无霸",
+            "priceYuan": 25.5
+          }
+        ]
+      },
+      {
+        "code": "9900003586",
+        "name": "双层深海鳕鱼堡",
+        "min": 24,
+        "max": 25,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "双层深海鳕鱼堡",
+            "priceYuan": 24
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "双层深海鳕鱼堡",
+            "priceYuan": 24
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "双层深海鳕鱼堡",
+            "priceYuan": 24
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "双层深海鳕鱼堡",
+            "priceYuan": 24
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "双层深海鳕鱼堡",
+            "priceYuan": 25
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "双层深海鳕鱼堡",
+            "priceYuan": 24
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "双层深海鳕鱼堡",
+            "priceYuan": 24
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "双层深海鳕鱼堡",
+            "priceYuan": 24
+          }
+        ]
+      },
+      {
+        "code": "1600",
+        "name": "麦香鱼",
+        "min": 22,
+        "max": 23,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "麦香鱼",
+            "priceYuan": 22
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "麦香鱼",
+            "priceYuan": 22.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "麦香鱼",
+            "priceYuan": 22
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "麦香鱼",
+            "priceYuan": 22.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "麦香鱼",
+            "priceYuan": 23
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "麦香鱼",
+            "priceYuan": 22
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "麦香鱼",
+            "priceYuan": 22
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "麦香鱼",
+            "priceYuan": 22.5
+          }
+        ]
+      },
+      {
+        "code": "9900016082",
+        "name": "心形薯饼5块",
+        "min": 14.5,
+        "max": 15.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "心形薯饼5块",
+            "priceYuan": 15.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "心形薯饼5块",
+            "priceYuan": 14.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "心形薯饼5块",
+            "priceYuan": 15.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "心形薯饼5块",
+            "priceYuan": 14.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "心形薯饼5块",
+            "priceYuan": 15.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "心形薯饼5块",
+            "priceYuan": 15.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "心形薯饼5块",
+            "priceYuan": 15.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "心形薯饼5块",
+            "priceYuan": 14.5
+          }
+        ]
+      },
+      {
+        "code": "4810",
+        "name": "中薯条",
+        "min": 13.5,
+        "max": 14.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "中薯条",
+            "priceYuan": 14.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "中薯条",
+            "priceYuan": 13.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "中薯条",
+            "priceYuan": 14.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "中薯条",
+            "priceYuan": 13.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "中薯条",
+            "priceYuan": 14.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "中薯条",
+            "priceYuan": 14.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "中薯条",
+            "priceYuan": 14.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "中薯条",
+            "priceYuan": 13.5
+          }
+        ]
+      },
+      {
+        "code": "9900008745",
+        "name": "新地",
+        "min": 12,
+        "max": 13,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "新地",
+            "priceYuan": 13
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "新地",
+            "priceYuan": 12
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "新地",
+            "priceYuan": 13
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "新地",
+            "priceYuan": 12
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "新地",
+            "priceYuan": 12.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "新地",
+            "priceYuan": 13
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "新地",
+            "priceYuan": 13
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "新地",
+            "priceYuan": 12
+          }
+        ]
+      },
+      {
+        "code": "6352",
+        "name": "阳光橙麦炫酷",
+        "min": 12.5,
+        "max": 13.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "阳光橙麦炫酷",
+            "priceYuan": 13.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "阳光橙麦炫酷",
+            "priceYuan": 13.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "阳光橙麦炫酷",
+            "priceYuan": 13
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "阳光橙麦炫酷",
+            "priceYuan": 12.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "阳光橙麦炫酷",
+            "priceYuan": 13.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "阳光橙麦炫酷",
+            "priceYuan": 13
+          }
+        ]
+      },
+      {
+        "code": "3505",
+        "name": "锡兰红茶",
+        "min": 10.5,
+        "max": 11.5,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "锡兰红茶",
+            "priceYuan": 10.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "锡兰红茶",
+            "priceYuan": 11.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "锡兰红茶",
+            "priceYuan": 10.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "锡兰红茶",
+            "priceYuan": 11.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "锡兰红茶",
+            "priceYuan": 11.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "锡兰红茶",
+            "priceYuan": 10.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "锡兰红茶",
+            "priceYuan": 10.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "锡兰红茶",
+            "priceYuan": 11.5
+          }
+        ]
+      },
+      {
+        "code": "521901",
+        "name": "月下相思扭扭薯",
+        "min": 15,
+        "max": 16,
+        "diff": 1,
+        "stores": [
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "月下相思扭扭薯",
+            "priceYuan": 15
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "月下相思扭扭薯",
+            "priceYuan": 16
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "月下相思扭扭薯",
+            "priceYuan": 16
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "月下相思扭扭薯",
+            "priceYuan": 16
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "月下相思扭扭薯",
+            "priceYuan": 15
+          }
+        ]
+      },
+      {
+        "code": "9900000884",
+        "name": "酥酥多笋卷四件套",
+        "min": 55,
+        "max": 55.5,
+        "diff": 0.5,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "酥酥多笋卷四件套",
+            "priceYuan": 55.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "酥酥多笋卷四件套",
+            "priceYuan": 55
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "酥酥多笋卷四件套",
+            "priceYuan": 55.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "酥酥多笋卷四件套",
+            "priceYuan": 55
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "酥酥多笋卷四件套",
+            "priceYuan": 55.5
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "酥酥多笋卷四件套",
+            "priceYuan": 55.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "酥酥多笋卷四件套",
+            "priceYuan": 55.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "酥酥多笋卷四件套",
+            "priceYuan": 55
+          }
+        ]
+      },
+      {
+        "code": "9900005453",
+        "name": "麦香鸡中套餐",
+        "min": 27.5,
+        "max": 28,
+        "diff": 0.5,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "麦香鸡中套餐",
+            "priceYuan": 27.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "麦香鸡中套餐",
+            "priceYuan": 28
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "麦香鸡中套餐",
+            "priceYuan": 27.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "麦香鸡中套餐",
+            "priceYuan": 28
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "麦香鸡中套餐",
+            "priceYuan": 28
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "麦香鸡中套餐",
+            "priceYuan": 27.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "麦香鸡中套餐",
+            "priceYuan": 27.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "麦香鸡中套餐",
+            "priceYuan": 28
+          }
+        ]
+      },
+      {
+        "code": "9900015008",
+        "name": "酥酥多笋卷三件套",
+        "min": 31.5,
+        "max": 32,
+        "diff": 0.5,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "酥酥多笋卷三件套",
+            "priceYuan": 32
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "酥酥多笋卷三件套",
+            "priceYuan": 31.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "酥酥多笋卷三件套",
+            "priceYuan": 32
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "酥酥多笋卷三件套",
+            "priceYuan": 31.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "酥酥多笋卷三件套",
+            "priceYuan": 32
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "酥酥多笋卷三件套",
+            "priceYuan": 32
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "酥酥多笋卷三件套",
+            "priceYuan": 32
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "酥酥多笋卷三件套",
+            "priceYuan": 31.5
+          }
+        ]
+      },
+      {
+        "code": "1450",
+        "name": "麦香鸡",
+        "min": 16.5,
+        "max": 17,
+        "diff": 0.5,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "麦香鸡",
+            "priceYuan": 16.5
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "麦香鸡",
+            "priceYuan": 17
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "麦香鸡",
+            "priceYuan": 16.5
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "麦香鸡",
+            "priceYuan": 17
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "麦香鸡",
+            "priceYuan": 17
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "麦香鸡",
+            "priceYuan": 16.5
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "麦香鸡",
+            "priceYuan": 16.5
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "麦香鸡",
+            "priceYuan": 17
+          }
+        ]
+      },
+      {
+        "code": "521816",
+        "name": "酥酥多笋卷",
+        "min": 20.5,
+        "max": 21,
+        "diff": 0.5,
+        "stores": [
+          {
+            "store": "1950526",
+            "city": "北京",
+            "name": "酥酥多笋卷",
+            "priceYuan": 21
+          },
+          {
+            "store": "1450104",
+            "city": "上海",
+            "name": "酥酥多笋卷",
+            "priceYuan": 20.5
+          },
+          {
+            "store": "1400011",
+            "city": "广州",
+            "name": "酥酥多笋卷",
+            "priceYuan": 21
+          },
+          {
+            "store": "1421180",
+            "city": "深圳",
+            "name": "酥酥多笋卷",
+            "priceYuan": 20.5
+          },
+          {
+            "store": "3450410",
+            "city": "成都",
+            "name": "酥酥多笋卷",
+            "priceYuan": 21
+          },
+          {
+            "store": "3330387",
+            "city": "杭州",
+            "name": "酥酥多笋卷",
+            "priceYuan": 21
+          },
+          {
+            "store": "1960622",
+            "city": "西安",
+            "name": "酥酥多笋卷",
+            "priceYuan": 21
+          },
+          {
+            "store": "1960090",
+            "city": "武汉",
+            "name": "酥酥多笋卷",
+            "priceYuan": 20.5
+          }
+        ]
+      }
+    ]
+  },
+  "callStats": {
+    "total": 176,
+    "byTool": [
+      {
+        "tool": "query-nearby-stores",
+        "count": 16
+      },
+      {
+        "tool": "now-time-info",
+        "count": 8
+      },
+      {
+        "tool": "list-nutrition-foods",
+        "count": 8
+      },
+      {
+        "tool": "query-meal-detail",
+        "count": 96
+      },
+      {
+        "tool": "query-store-coupons",
+        "count": 8
+      },
+      {
+        "tool": "available-coupons",
+        "count": 8
+      },
+      {
+        "tool": "query-my-coupons",
+        "count": 8
+      },
+      {
+        "tool": "calculate-price",
+        "count": 24
+      }
+    ],
+    "unmatchedParams": [],
+    "errors": 0
+  },
+  "note": "求解字段为 2026-10-10 修复「截断偏差」后重跑的结果（候选规模触发上限时自动下调并留痕）。"
+}

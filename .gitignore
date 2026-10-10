@@ -29,3 +29,7 @@ Thumbs.db
 
 # WorkBuddy 本地预览产物
 .workbuddy-preview/
+
+# 例外：examples/ 下的多门店验证与深度审计日志属于可复现的证据，需要入库
+!examples/batch-run.log
+!examples/deep-audit.log
