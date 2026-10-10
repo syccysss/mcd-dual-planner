@@ -108,7 +108,7 @@ function planReason(plan, index, targets) {
   const paid = t.discountFen > 0
     ? `券后实付 ¥${yuan(t.payableFen)}（菜单价 ¥${yuan(t.priceFen)} − 券 ¥${yuan(t.discountFen)}）`
     : `¥${yuan(t.priceFen)}`;
-  if (plan.kind === 'valueBest') return `达到营养门槛（得分 ≥ 门槛）的方案里券后最便宜的一档：${paid} 换 ${t.proteinG} g 蛋白`;
+  if (plan.kind === 'valueBest') return `满足全部硬目标（热量区间 + 蛋白下限 + 钠上限）里券后最便宜的一档：${paid} 换 ${t.proteinG} g 蛋白`;
   if (plan.kind === 'topScore') return `预算内营养得分最高：${plan.score} 分，热量 ${t.energyKcal} kcal（目标 ${targets.kcal} kcal）`;
   if (plan.kind === 'cheapest') return `券后实付最低：${paid}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
   return `候选方案：${paid}，热量 ${t.energyKcal} kcal，得分 ${plan.score}`;
@@ -316,7 +316,7 @@ export function renderReport(result) {
     gx += displayWidth(text) * 6.6 + 26;
   }
   chunks.push(el.text(PAD + 20, y + 56,
-    `搜索空间：菜单 ${coverage.menuTotal ?? '—'} 项 → 候选 ${stats.candidateCount ?? '—'} 项 → 枚举 ${stats.totalPlans ?? '—'} 个方案 → 落在预算内 ${stats.withinBudget ?? '—'} 个（裁剪后枚举，非全量穷举）`,
+    `搜索空间：菜单 ${coverage.menuTotal ?? '—'} 项 → 候选 ${stats.candidateCount ?? '—'} 项 → 枚举 ${stats.totalPlans ?? '—'} 个方案 → 预算内 ${stats.withinBudget ?? '—'} 个 → 达标 ${stats.qualifying ?? '—'} 个（裁剪后枚举，非全量穷举${stats.truncated ? '；⚠ 已达方案数上限被截断' : ''}）`,
     { size: 11.5, fill: C.sub }));
   y += goalH + 24;
 
@@ -394,6 +394,11 @@ export function renderReport(result) {
 
   // ---- 数据说明与免责
   const notes = [
+    // 搜索被截断时必须显式告警：否则会把"被砍断的搜索结果"当成完整最优解展示出去
+    ...(stats.truncated
+      ? [`⚠️ 搜索已被截断：候选组合数达到上限（${stats.totalPlans} 个方案），本次结果基于「部分」枚举，可能不是全局最优。请调小 --per-category 后重跑。`]
+      : []),
+    '「达标」判定：热量落在目标区间内、蛋白质不低于下限、钠不超过上限 —— 三项全部满足才算达标（不用复合得分代替硬目标）。',
     `数据来源：麦当劳中国 MCP Server（${meta.endpoint ?? 'https://mcp.mcd.cn'}），工具：${(meta.toolsUsed ?? []).join('、') || '—'}`,
     `营养覆盖：菜单 ${coverage.menuTotal ?? '—'} 项中 ${coverage.matched ?? '—'} 项匹配到${meta.mode === 'live' ? '官方营养数据' : '演示营养数据'}，${coverage.unmatched ?? '—'} 项未匹配（未匹配项不参与优化，避免用猜测值计算）。`,
     ...dataNotes,

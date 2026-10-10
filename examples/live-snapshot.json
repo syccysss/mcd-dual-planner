@@ -23,7 +23,7 @@
       "name": "“我就喜欢”鸡薯双全盒",
       "priceFen": 1590,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "小食",
       "categoryInferred": true,
       "rawCategory": "人气热卖",
       "tags": [
@@ -35,7 +35,7 @@
       "name": "龙焰芝士棒鸡腿堡三件套",
       "priceFen": 2990,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "人气热卖",
       "tags": [
@@ -47,7 +47,7 @@
       "name": "龙焰鸡腿堡三件套",
       "priceFen": 2690,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "人气热卖",
       "tags": [
@@ -59,7 +59,7 @@
       "name": "蘸酱炸鸡",
       "priceFen": 1190,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "小食",
       "categoryInferred": true,
       "rawCategory": "人气热卖",
       "tags": [
@@ -81,7 +81,7 @@
       "name": "龙焰美味四件套",
       "priceFen": 5700,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "人气热卖",
       "tags": []
@@ -91,7 +91,7 @@
       "name": "精选单人餐三件套",
       "priceFen": 3450,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "人气热卖",
       "tags": [
@@ -115,7 +115,7 @@
       "name": "人气超值四件套随心选",
       "priceFen": 5700,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "精选单人餐",
       "tags": [
@@ -151,7 +151,7 @@
       "name": "龙焰芝士棒鸡腿堡",
       "priceFen": 2700,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -164,7 +164,7 @@
       "name": "龙焰鸡腿堡",
       "priceFen": 2400,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -177,7 +177,7 @@
       "name": "龙焰芝士棒鸡腿堡四件套",
       "priceFen": 5700,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -189,7 +189,7 @@
       "name": "龙焰鸡腿堡四件套",
       "priceFen": 5700,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -201,7 +201,7 @@
       "name": "麦辣鸡腿堡四件套",
       "priceFen": 5700,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -213,7 +213,7 @@
       "name": "板烧鸡腿堡四件套",
       "priceFen": 5700,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -237,7 +237,7 @@
       "name": "板烧鸡腿堡三件套",
       "priceFen": 3450,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -251,7 +251,7 @@
       "name": "麦辣鸡腿汉堡三件套",
       "priceFen": 3350,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -264,7 +264,7 @@
       "name": "麦香鸡中套餐",
       "priceFen": 2800,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -291,7 +291,7 @@
       "name": "学生专享汉堡小食随心选",
       "priceFen": 2800,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -303,7 +303,7 @@
       "name": "麦辣鸡腿汉堡",
       "priceFen": 2250,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -317,7 +317,7 @@
       "name": "板烧鸡腿堡",
       "priceFen": 2350,
       "priceSource": "official-calculate-price",
-      "category": "小食",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -331,7 +331,7 @@
       "name": "麦香鸡",
       "priceFen": 1700,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "鸡肉汉堡\n/卷",
       "tags": [
@@ -383,7 +383,7 @@
       "name": "薄皮V翅双拼十翅",
       "priceFen": 4990,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "小食",
       "categoryInferred": true,
       "rawCategory": "小食拼盘\n/多人餐",
       "tags": [
@@ -422,7 +422,7 @@
       "name": "全明星双人分享餐八件套",
       "priceFen": 11750,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "小食拼盘\n/多人餐",
       "tags": [
@@ -446,7 +446,7 @@
       "name": "蘸酱麦麦脆汁鸡",
       "priceFen": 1190,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "小食",
       "categoryInferred": true,
       "rawCategory": "蘸酱炸鸡",
       "tags": [
@@ -459,7 +459,7 @@
       "name": "蘸酱脆皮鸡柳",
       "priceFen": 1190,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "小食",
       "categoryInferred": true,
       "rawCategory": "蘸酱炸鸡",
       "tags": [
@@ -538,7 +538,7 @@
       "name": "人气经典随心配",
       "priceFen": 1490,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "随心配\n1+1",
       "tags": [
@@ -550,7 +550,7 @@
       "name": "精选超值随心配",
       "priceFen": 1390,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "随心配\n1+1",
       "tags": [
@@ -674,7 +674,7 @@
       "name": "麦香鱼中套餐",
       "priceFen": 3400,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "巨无霸\n牛鱼肉堡",
       "tags": [
@@ -739,7 +739,7 @@
       "name": "麦香鱼",
       "priceFen": 2300,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "主食",
       "categoryInferred": true,
       "rawCategory": "巨无霸\n牛鱼肉堡",
       "tags": [
@@ -920,7 +920,7 @@
       "name": "薄皮焦香V翅",
       "priceFen": 1600,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "小食",
       "categoryInferred": true,
       "rawCategory": "炸鸡",
       "tags": [
@@ -970,7 +970,7 @@
       "name": "马苏里拉拉丝芝士条",
       "priceFen": 1100,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "小食",
       "categoryInferred": true,
       "rawCategory": "小食甜品\n/其他",
       "tags": [
@@ -984,7 +984,7 @@
       "name": "心形薯饼5块",
       "priceFen": 1550,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "小食",
       "categoryInferred": true,
       "rawCategory": "小食甜品\n/其他",
       "tags": [
@@ -998,7 +998,7 @@
       "name": "灰焰圆筒",
       "priceFen": 500,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "甜品",
       "categoryInferred": true,
       "rawCategory": "小食甜品\n/其他",
       "tags": [
@@ -1025,7 +1025,7 @@
       "name": "柠檬脆脆麦旋风",
       "priceFen": 1650,
       "priceSource": "official-calculate-price",
-      "category": "饮料",
+      "category": "甜品",
       "categoryInferred": true,
       "rawCategory": "小食甜品\n/其他",
       "tags": [
@@ -1162,7 +1162,7 @@
       "name": "冰浓浓黑巧中杯",
       "priceFen": 1390,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "麦咖啡™",
       "tags": [
@@ -1174,7 +1174,7 @@
       "name": "冰浓浓燕麦黑巧中杯",
       "priceFen": 1590,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "麦咖啡™",
       "tags": [
@@ -1186,7 +1186,7 @@
       "name": "美禄可可雪冰",
       "priceFen": 990,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "麦咖啡™",
       "tags": [
@@ -1223,7 +1223,7 @@
       "name": "冰燕麦奶铁中杯",
       "priceFen": 2300,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "麦咖啡™",
       "tags": [
@@ -1284,7 +1284,7 @@
       "name": "浓浓黑巧雪冰中杯",
       "priceFen": 2300,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "麦咖啡™",
       "tags": [
@@ -1308,7 +1308,7 @@
       "name": "热燕麦奶中杯",
       "priceFen": 2100,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "麦咖啡™",
       "tags": [
@@ -1350,7 +1350,7 @@
       "name": "【美汁源】“多汁柠柠”",
       "priceFen": 1200,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "饮品",
       "tags": [
@@ -1387,7 +1387,7 @@
       "name": "中杯怡泉+C",
       "priceFen": 1150,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "饮品",
       "tags": [
@@ -1399,7 +1399,7 @@
       "name": "【美汁源】“黄金橙橙”",
       "priceFen": 1300,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "饮品",
       "tags": [
@@ -1423,7 +1423,7 @@
       "name": "阳光橙麦炫酷",
       "priceFen": 1250,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "饮品",
       "tags": [
@@ -1459,7 +1459,7 @@
       "name": "纯悦",
       "priceFen": 750,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "饮品",
       "tags": [
@@ -1471,7 +1471,7 @@
       "name": "学生专享饮品随心选",
       "priceFen": 1000,
       "priceSource": "official-calculate-price",
-      "category": "其他",
+      "category": "饮料",
       "categoryInferred": true,
       "rawCategory": "饮品",
       "tags": [
@@ -2832,36 +2832,16 @@
     {
       "code": "9900016311",
       "name": "龙焰美味四件套",
-      "nutrition": {
-        "energyKcal": 3035,
-        "proteinG": 71,
-        "fatG": 73,
-        "carbG": 506,
-        "sodiumMg": 6860,
-        "calciumMg": 1291,
-        "inferred": [
-          "套餐营养按组成项累加"
-        ]
-      },
-      "matchType": "combo",
-      "matchedName": "龙焰美味四件套 + 选择主食 + 龙焰鸡腿堡 + 辣椒黄油风味酱 + 切块生菜 + 龙焰芝士棒鸡腿堡 + 小食 + 中薯条 + 马苏里拉拉丝芝士条 + 蓝莓爆爆珠麦旋风 + 5块心形薯饼+韩式辣椒黄油风味酱 + 柠檬脆脆麦旋风 + 奥利奥麦旋风 + 小杯玉米杯 + 麦乐鸡4块 + 韩式烟熏芝士风味酱麦麦脆汁鸡-腿 + 韩式烟熏芝士风味酱脆皮鸡柳 + 韩式烟熏芝士风味酱甜辣酱鸡球 + 薄皮焦香V翅 + 4个韩式甜辣酱鸡球（牧场酱） + 蘸蘸脆皮鸡柳（牧场酱） + 韩式甜辣酱鸡块 + 脆皮鸡柳3根 + 麦辣鸡翅2块 + 麦麦脆汁鸡-琵琶腿 + 选择套餐内饮料 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰 + 【美汁源】“多汁柠柠” + 冰浓浓黑巧中杯 + 换燕麦奶 + 美禄可可雪冰 + 麦咖啡™冰美式中杯 + 不加 + 加 + 鲜萃冰咖 + 大杯鲜萃咖啡 + 奶油球 + 白砂糖 + 麦咖啡™热美式中杯 + 麦咖啡™冰奶铁中杯 + 热浓浓黑巧中杯 + 冰浓浓燕麦黑巧中杯 + 热浓浓燕麦黑巧中杯 + 麦咖啡™热奶铁中杯 + 可乐麦炫酷 + 雪碧麦炫酷 + 怡泉+C麦炫酷 + 无糖可乐麦炫酷 + 无糖可口可乐中杯 + 【美汁源】“黄金橙橙” + 大杯怡泉+C + 雪碧大杯 + 阳光柠檬红茶大杯 + 锡兰红茶 + 纯牛奶 + 100%苹果汁"
+      "nutrition": null,
+      "matchType": "rejected-implausible",
+      "matchedName": "组成项累加超出常理，已按营养未知处理"
     },
     {
       "code": "9900004064",
       "name": "精选单人餐三件套",
-      "nutrition": {
-        "energyKcal": 6474,
-        "proteinG": 280,
-        "fatG": 271,
-        "carbG": 708,
-        "sodiumMg": 14735,
-        "calciumMg": 2431,
-        "inferred": [
-          "套餐营养按组成项累加"
-        ]
-      },
-      "matchType": "combo",
-      "matchedName": "精选单人餐三件套 + 主食任意选 + 板烧鸡腿堡 + 烤味酱 + 切块生菜 + 巨无霸 + 巨无霸酱 + 吉士 + 生菜 + 酸黄瓜 + 洋葱粒 + 麦辣鸡腿汉堡 + 麦香鸡酱 + 培根安格斯厚牛堡 + 烤牛肉风味酱 + 培根 + 黄油 + 原味双层深海鳕鱼堡 + 麦香鱼酱 + 选择套餐内小食 + 中薯条 + 5块心形薯饼+韩式辣椒黄油风味酱 + 大薯条 + 小杯玉米杯 + 选择套餐内饮料 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰 + 【美汁源】“多汁柠柠” + 热浓浓黑巧中杯 + 换燕麦奶 + 美禄可可雪冰 + 无糖可口可乐中杯 + 雪碧中杯 + 阳光柠檬红茶中杯 + 纯牛奶 + 麦咖啡™冰美式中杯 + 不加 + 加 + 大杯鲜萃咖啡 + 奶油球 + 白砂糖 + 麦咖啡™热美式中杯 + 麦咖啡™冰奶铁中杯 + 冰浓浓黑巧中杯 + 热浓浓燕麦黑巧中杯 + 冰浓浓燕麦黑巧中杯 + 大杯怡泉+C + 麦咖啡™热奶铁中杯 + 【美汁源】“黄金橙橙” + 锡兰红茶 + 100%苹果汁"
+      "nutrition": null,
+      "matchType": "rejected-implausible",
+      "matchedName": "组成项累加超出常理，已按营养未知处理"
     },
     {
       "code": "521950",
@@ -2873,53 +2853,23 @@
     {
       "code": "9900004236",
       "name": "人气超值四件套随心选",
-      "nutrition": {
-        "energyKcal": 4280,
-        "proteinG": 133,
-        "fatG": 131,
-        "carbG": 622,
-        "sodiumMg": 9840,
-        "calciumMg": 1611,
-        "inferred": [
-          "套餐营养按组成项累加"
-        ]
-      },
-      "matchType": "combo",
-      "matchedName": "人气超值四件套随心选 + 选择汉堡 + 麦辣鸡腿汉堡 + 麦香鸡酱 + 切块生菜 + 龙焰鸡腿堡 + 辣椒黄油风味酱 + 龙焰芝士棒鸡腿堡 + 双层脆鸡堡 + 生菜 + 板烧鸡腿堡 + 烤味酱 + 小食 + 中薯条 + 马苏里拉拉丝芝士条 + 蓝莓爆爆珠麦旋风 + 5块心形薯饼+韩式辣椒黄油风味酱 + 柠檬脆脆麦旋风 + 奥利奥麦旋风 + 小杯玉米杯 + 麦乐鸡4块 + 韩式烟熏芝士风味酱麦麦脆汁鸡-腿 + 韩式烟熏芝士风味酱脆皮鸡柳 + 韩式烟熏芝士风味酱甜辣酱鸡球 + 薄皮焦香V翅 + 4个韩式甜辣酱鸡球（牧场酱） + 蘸蘸脆皮鸡柳（牧场酱） + 韩式甜辣酱鸡块 + 脆皮鸡柳3根 + 麦辣鸡翅2块 + 麦麦脆汁鸡-琵琶腿 + 选择套餐内饮料 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰 + 【美汁源】“多汁柠柠” + 冰浓浓黑巧中杯 + 换燕麦奶 + 美禄可可雪冰 + 麦咖啡™冰美式中杯 + 不加 + 加 + 鲜萃冰咖 + 大杯鲜萃咖啡 + 奶油球 + 白砂糖 + 麦咖啡™热美式中杯 + 麦咖啡™冰奶铁中杯 + 热浓浓黑巧中杯 + 冰浓浓燕麦黑巧中杯 + 热浓浓燕麦黑巧中杯 + 麦咖啡™热奶铁中杯 + 可乐麦炫酷 + 雪碧麦炫酷 + 怡泉+C麦炫酷 + 无糖可乐麦炫酷 + 无糖可口可乐中杯 + 【美汁源】“黄金橙橙” + 大杯怡泉+C + 雪碧大杯 + 阳光柠檬红茶大杯 + 锡兰红茶 + 纯牛奶 + 100%苹果汁"
+      "nutrition": null,
+      "matchType": "rejected-implausible",
+      "matchedName": "组成项累加超出常理，已按营养未知处理"
     },
     {
       "code": "9900010110",
       "name": "鱼牛汉堡四件套随心选",
-      "nutrition": {
-        "energyKcal": 7531,
-        "proteinG": 315,
-        "fatG": 292,
-        "carbG": 889,
-        "sodiumMg": 15388,
-        "calciumMg": 2552,
-        "inferred": [
-          "套餐营养按组成项累加"
-        ]
-      },
-      "matchType": "combo",
-      "matchedName": "鱼牛汉堡四件套随心选 + 选择汉堡 + 巨无霸 + 巨无霸酱 + 吉士 + 生菜 + 酸黄瓜 + 洋葱粒 + 培根蔬萃双层牛堡 + 麦香鸡酱 + 番茄片 + 番茄酱 + 培根 + 不素之霸双层牛堡 + 芥末沙拉酱 + 风味双层深海鳕鱼堡 + 芥末酱 + 原味双层深海鳕鱼堡 + 麦香鱼酱 + 小食 + 中薯条 + 马苏里拉拉丝芝士条 + 蓝莓爆爆珠麦旋风 + 5块心形薯饼+韩式辣椒黄油风味酱 + 柠檬脆脆麦旋风 + 奥利奥麦旋风 + 小杯玉米杯 + 麦乐鸡4块 + 韩式烟熏芝士风味酱麦麦脆汁鸡-腿 + 韩式烟熏芝士风味酱脆皮鸡柳 + 韩式烟熏芝士风味酱甜辣酱鸡球 + 薄皮焦香V翅 + 4个韩式甜辣酱鸡球（牧场酱） + 蘸蘸脆皮鸡柳（牧场酱） + 韩式甜辣酱鸡块 + 脆皮鸡柳3根 + 麦辣鸡翅2块 + 麦麦脆汁鸡-琵琶腿 + 选择套餐内饮料 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰 + 冰浓浓黑巧中杯 + 换燕麦奶 + 美禄可可雪冰 + 麦咖啡™冰美式中杯 + 不加 + 加 + 鲜萃冰咖 + 大杯鲜萃咖啡 + 奶油球 + 白砂糖 + 麦咖啡™热美式中杯 + 麦咖啡™冰奶铁中杯 + 热浓浓黑巧中杯 + 冰浓浓燕麦黑巧中杯 + 热浓浓燕麦黑巧中杯 + 麦咖啡™热奶铁中杯 + 可乐麦炫酷 + 雪碧麦炫酷 + 怡泉+C麦炫酷 + 无糖可乐麦炫酷 + 无糖可口可乐中杯 + 【美汁源】“多汁柠柠” + 【美汁源】“黄金橙橙” + 大杯怡泉+C + 雪碧大杯 + 阳光柠檬红茶大杯 + 锡兰红茶 + 纯牛奶 + 100%苹果汁"
+      "nutrition": null,
+      "matchType": "rejected-implausible",
+      "matchedName": "组成项累加超出常理，已按营养未知处理"
     },
     {
       "code": "9900006957",
       "name": "安格斯厚牛堡四件套随心选",
-      "nutrition": {
-        "energyKcal": 5309,
-        "proteinG": 188,
-        "fatG": 206,
-        "carbG": 657,
-        "sodiumMg": 10539,
-        "calciumMg": 1907,
-        "inferred": [
-          "套餐营养按组成项累加"
-        ]
-      },
-      "matchType": "combo",
-      "matchedName": "安格斯厚牛堡四件套随心选 + 选择安格斯厚牛堡 + 芝士安格斯厚牛堡 + 醇香芝士风味酱 + 高达干酪片 + 番茄片 + 黄油 + 培根安格斯厚牛堡 + 吉士 + 烤牛肉风味酱 + 切块生菜 + 培根 + 小食 + 中薯条 + 马苏里拉拉丝芝士条 + 蓝莓爆爆珠麦旋风 + 5块心形薯饼+韩式辣椒黄油风味酱 + 柠檬脆脆麦旋风 + 奥利奥麦旋风 + 小杯玉米杯 + 麦乐鸡4块 + 韩式烟熏芝士风味酱麦麦脆汁鸡-腿 + 韩式烟熏芝士风味酱脆皮鸡柳 + 韩式烟熏芝士风味酱甜辣酱鸡球 + 薄皮焦香V翅 + 4个韩式甜辣酱鸡球（牧场酱） + 蘸蘸脆皮鸡柳（牧场酱） + 韩式甜辣酱鸡块 + 脆皮鸡柳3根 + 麦辣鸡翅2块 + 麦麦脆汁鸡-琵琶腿 + 选择套餐内饮料 + 可乐中杯 + 标准 + 去冰 + 多冰 + 少冰 + 冰浓浓黑巧中杯 + 换燕麦奶 + 美禄可可雪冰 + 麦咖啡™冰美式中杯 + 不加 + 加 + 鲜萃冰咖 + 大杯鲜萃咖啡 + 奶油球 + 白砂糖 + 麦咖啡™热美式中杯 + 麦咖啡™冰奶铁中杯 + 热浓浓黑巧中杯 + 冰浓浓燕麦黑巧中杯 + 热浓浓燕麦黑巧中杯 + 麦咖啡™热奶铁中杯 + 可乐麦炫酷 + 雪碧麦炫酷 + 怡泉+C麦炫酷 + 无糖可乐麦炫酷 + 无糖可口可乐中杯 + 【美汁源】“多汁柠柠” + 【美汁源】“黄金橙橙” + 大杯怡泉+C + 雪碧大杯 + 阳光柠檬红茶大杯 + 锡兰红茶 + 纯牛奶 + 100%苹果汁"
+      "nutrition": null,
+      "matchType": "rejected-implausible",
+      "matchedName": "组成项累加超出常理，已按营养未知处理"
     },
     {
       "code": "521953",

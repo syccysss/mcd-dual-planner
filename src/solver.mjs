@@ -15,7 +15,7 @@
  *      并对每个组合套用"门槛已满足里优惠最大的一张券"，得到券后实付；
  *   4) 求 (券后实付, 得分) 的帕累托前沿，并给出三个可执行结论：
  *        营养上限 —— 预算内得分最高
- *        双赢推荐 —— 达到营养门槛的方案里券后实付最低的（"用最少的钱跨过门槛"）
+ *        双赢推荐 —— 满足用户全部硬目标（热量区间 / 蛋白下限 / 钠上限）的方案里券后实付最低的
  *        省钱底线 —— 券后实付最低
  *
  * 设计原则：所有"推断"都要能被复核。裁剪了多少、排除了多少、哪些餐品营养未知，
@@ -49,6 +49,15 @@ export const DEFAULT_WEIGHTS = {
 export const DEFAULT_MIN_SCORE = 70;
 
 const HARD_PLAN_LIMIT = 400_000;
+
+/**
+ * 每个品类参与枚举的候选数上限（四个方向的并集，所以单品类实际保留数可达 4×）。
+ * 默认取 6 而不是更大的值：枚举规模对「小食」是平方级（C(n,2)），
+ * 实测真实门店每品类 8 时会冲到 40 万+ 方案、约 300 MB 堆并触发 HARD_PLAN_LIMIT 截断，
+ * 导致输出的是"被砍断的搜索结果"却不自知。6 在真实门店上稳定在 20 余万方案、不触发截断。
+ * 想要更强的最优性可用 --per-category 调大，但请留意 truncation 提示。
+ */
+export const DEFAULT_PER_CATEGORY = 6;
 
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
@@ -167,7 +176,7 @@ export function scorePlan(totals, targets = DEFAULT_TARGETS, weights = DEFAULT_W
  * 它们只按价格进入 cheapest-unknown 方向，数量受 unknownPerCategory 控制，
  * 防止组合空间爆炸；其方案得分天然很低，不会误入营养类推荐。
  */
-export function selectCandidates(items, nutritionByItem, { perCategory = 8, unknownPerCategory = null } = {}) {
+export function selectCandidates(items, nutritionByItem, { perCategory = DEFAULT_PER_CATEGORY, unknownPerCategory = null } = {}) {
   const unknownCap = unknownPerCategory ?? Math.min(perCategory, 6);
   const buckets = new Map();
   for (const item of items) {
@@ -301,6 +310,20 @@ function dominates(a, b) {
     && (ca < cb || a.score > b.score);
 }
 
+/**
+ * 「达标」的判定口径：用户显式设定的硬目标是否全部满足 —— 热量落在区间内、蛋白不低于下限、
+ * 钠不超过上限。三项缺一不可，且**营养未知（null）不算达标**。
+ *
+ * 为什么不用 `score >= minScore`：复合得分是自定义的序数指标，两项都能被"软性绕过"。
+ * 实测过一组真实数据：一个蛋白 29 g 的方案（用户要求 ≥30 g）因总分 83.6 被标成"达标"，
+ * 用户看到的就是"我要 30 g，你给我的达标方案是 29 g"。硬目标必须是硬约束。
+ * 脂肪是推导出来的软性控制项（不是用户设定），只参与打分，不参与达标判定。
+ */
+export function meetsUserTargets(plan) {
+  const c = plan?.checks ?? {};
+  return c.kcalInRange === true && c.proteinMet === true && c.sodiumOk === true;
+}
+
 /** 帕累托前沿：按券后实付升序，保留得分严格变高的点 */
 export function paretoFront(plans) {
   const sorted = [...plans].sort((a, b) => payableFenOf(a) - payableFenOf(b) || b.score - a.score);
@@ -333,7 +356,7 @@ export function solve({
   rules = DEFAULT_RULES,
   weights = DEFAULT_WEIGHTS,
   minScore = DEFAULT_MIN_SCORE,
-  perCategory = 8,
+  perCategory = DEFAULT_PER_CATEGORY,
   maxResults = 200,
   coupons = [],
 } = {}) {
@@ -435,7 +458,7 @@ export function solve({
   rec(0, 0, {});
 
   // 预算口径说明：预算卡的是「券前菜单价」（避免为了凑满减券而超支），
-  // 而三个结论的择优一律按「券后实付」排序 —— 用户真正关心的是掏多少钱。
+  // 而各结论的择优一律按「券后实付」排序 —— 用户真正关心的是掏多少钱。
   const withinBudget = budgetFen === undefined || budgetFen === null
     ? plans
     : plans.filter((p) => p.totals.priceFen <= budgetFen);
@@ -449,7 +472,13 @@ export function solve({
   );
   const pareto = paretoFront(withinBudget);
 
-  const qualifying = withinBudget.filter((p) => p.score >= minScore);
+  // 「达标」= 用户硬目标全部满足（热量区间 / 蛋白下限 / 钠上限），见 meetsUserTargets。
+  // 若没有任何方案达标（目标设得过严时会发生），退回到「得分门槛」并在 stats 里标注
+  // qualifyingBasis，让战报如实说明"无方案完全满足全部目标"，而不是把不达标的方案冒充成达标。
+  const hardQualifying = withinBudget.filter(meetsUserTargets);
+  const scoreQualifying = withinBudget.filter((p) => p.score >= minScore);
+  const qualifying = hardQualifying.length ? hardQualifying : scoreQualifying;
+  const qualifyingBasis = hardQualifying.length ? 'hard-targets' : 'score-fallback';
   const valueBest = [...qualifying].sort(byCost)[0] ?? null;
 
   const cheapest = [...withinBudget].sort(byCost)[0] ?? null;
@@ -480,6 +509,9 @@ export function solve({
       totalPlans: plans.length,
       withinBudget: withinBudget.length,
       qualifying: qualifying.length,
+      qualifyingBasis,
+      hardQualifying: hardQualifying.length,
+      scoreQualifying: scoreQualifying.length,
       prunedByBudget,
       truncated,
       budgetFen: budgetFen ?? null,

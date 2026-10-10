@@ -1,7 +1,7 @@
 {
   "meta": {
     "mode": "demo",
-    "generatedAt": "2026-10-09 13:16:52",
+    "generatedAt": "2026-10-10 02:02:01",
     "store": {
       "code": "DEMO-0001",
       "name": "演示餐厅（合成数据，非真实门店）",
@@ -84,7 +84,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250
@@ -153,7 +155,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2450
@@ -229,7 +233,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -298,7 +304,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2450
@@ -374,7 +382,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -443,7 +453,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -512,7 +524,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2450
@@ -581,7 +595,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2350
@@ -650,7 +666,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -719,7 +737,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2150
@@ -788,7 +808,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2500
@@ -857,7 +879,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -933,7 +957,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -1009,7 +1035,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -1078,7 +1106,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -1154,7 +1184,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -1223,7 +1255,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -1299,7 +1333,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -1368,7 +1404,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -1444,7 +1482,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -1513,7 +1553,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -1589,7 +1631,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -1658,7 +1702,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250
@@ -1727,7 +1773,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -1803,7 +1851,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -1872,7 +1922,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2150
@@ -1941,7 +1993,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -2017,7 +2071,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -2086,7 +2142,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2050
@@ -2162,7 +2220,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -2231,7 +2291,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -2307,7 +2369,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -2376,7 +2440,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -2445,7 +2511,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2500
@@ -2514,7 +2582,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -2583,7 +2653,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1950
@@ -2659,7 +2731,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -2728,7 +2802,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -2797,7 +2873,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250
@@ -2866,7 +2944,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -2935,7 +3015,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2200
@@ -3011,7 +3093,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -3080,7 +3164,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -3149,7 +3235,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250
@@ -3225,7 +3313,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -3294,7 +3384,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2450
@@ -3370,7 +3462,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -3439,7 +3533,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -3508,7 +3604,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -3577,7 +3675,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2500
@@ -3653,7 +3753,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -3722,7 +3824,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -3798,7 +3902,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -3874,7 +3980,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250
@@ -3943,7 +4051,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -4012,7 +4122,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2500
@@ -4081,7 +4193,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2200
@@ -4150,7 +4264,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2300
@@ -4219,7 +4335,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2500
@@ -4295,7 +4413,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -4364,7 +4484,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2050
@@ -4426,7 +4548,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2050
@@ -4495,7 +4619,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -4571,7 +4697,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2300
@@ -4640,7 +4768,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2450
@@ -4702,7 +4832,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1850
@@ -4771,7 +4903,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2300
@@ -4840,7 +4974,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -4902,7 +5038,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1550
@@ -4964,7 +5102,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1850
@@ -5033,7 +5173,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1850
@@ -5109,7 +5251,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2300
@@ -5178,7 +5322,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2400
@@ -5247,7 +5393,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2500
@@ -5309,7 +5457,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1650
@@ -5371,7 +5521,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1750
@@ -5440,7 +5592,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -5516,7 +5670,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2600
@@ -5585,7 +5741,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1850
@@ -5654,7 +5812,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2150
@@ -5723,7 +5883,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250
@@ -5799,7 +5961,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2300
@@ -5868,7 +6032,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2150
@@ -5944,7 +6110,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2500
@@ -6013,7 +6181,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -6089,7 +6259,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -6158,7 +6330,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2400
@@ -6227,7 +6401,9 @@
         "thresholdFen": 3000,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 500,
       "payableFen": 2500
@@ -6303,7 +6479,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2100
@@ -6379,7 +6557,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2400
@@ -6455,7 +6635,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2500
@@ -6524,7 +6706,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1350
@@ -6593,7 +6777,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1650
@@ -6662,7 +6848,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1750
@@ -6738,7 +6926,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -6807,7 +6997,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1750
@@ -6876,7 +7068,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1900
@@ -6945,7 +7139,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2150
@@ -7014,7 +7210,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2200
@@ -7083,7 +7281,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2300
@@ -7152,7 +7352,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250
@@ -7221,7 +7423,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -7290,7 +7494,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -7359,7 +7565,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2450
@@ -7428,7 +7636,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1700
@@ -7497,7 +7707,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2000
@@ -7566,7 +7778,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2100
@@ -7642,7 +7856,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -7718,7 +7934,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2650
@@ -7780,7 +7998,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 950
@@ -7842,7 +8062,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1250
@@ -7904,7 +8126,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1350
@@ -7973,7 +8197,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1900
@@ -8042,7 +8268,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1900
@@ -8111,7 +8339,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2150
@@ -8180,7 +8410,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2200
@@ -8249,7 +8481,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2200
@@ -8318,7 +8552,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2300
@@ -8387,7 +8623,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2300
@@ -8456,7 +8694,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2450
@@ -8525,7 +8765,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2550
@@ -8591,7 +8833,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 950
@@ -8660,7 +8904,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1350
@@ -8722,7 +8968,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1550
@@ -8784,7 +9032,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1850
@@ -8853,7 +9103,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 1950
@@ -8922,7 +9174,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2050
@@ -8991,7 +9245,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2150
@@ -9060,83 +9316,15 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250
     }
   ],
   "recommendations": [
-    {
-      "items": [
-        {
-          "code": "D-CRISPY",
-          "name": "原味鸡腿堡",
-          "priceFen": 1950,
-          "category": "主食",
-          "demo": true
-        },
-        {
-          "code": "D-CONE",
-          "name": "圆筒冰淇淋",
-          "priceFen": 400,
-          "category": "甜品",
-          "demo": true
-        }
-      ],
-      "totals": {
-        "priceFen": 2350,
-        "energyKcal": 610,
-        "proteinG": 28,
-        "fatG": 25,
-        "carbG": 66,
-        "sodiumMg": 970,
-        "calciumMg": 240,
-        "unknownFields": 0,
-        "unknownItems": 0,
-        "unknown": {
-          "energy": false,
-          "protein": false,
-          "fat": false,
-          "carb": false,
-          "sodium": false
-        },
-        "discountFen": 300,
-        "payableFen": 2050
-      },
-      "score": 71.3,
-      "parts": {
-        "energyFit": 0.357,
-        "proteinFit": 0.933,
-        "fatFit": 1,
-        "sodiumPenalty": 0
-      },
-      "checks": {
-        "kcalInRange": true,
-        "proteinMet": false,
-        "sodiumOk": true,
-        "fatOk": true
-      },
-      "derived": {
-        "targetKcal": 700,
-        "tolerance": 0.2,
-        "targetProtein": 30,
-        "sodiumMax": 1200,
-        "fatMax": 27.2
-      },
-      "coupon": {
-        "id": "DEMO-C3",
-        "name": "无门槛立减 3 元（演示券）",
-        "discountFen": 300,
-        "thresholdFen": 0,
-        "expireAt": null,
-        "scope": "order",
-        "demo": true
-      },
-      "discountFen": 300,
-      "payableFen": 2050,
-      "kind": "valueBest"
-    },
     {
       "items": [
         {
@@ -9201,11 +9389,13 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 2250,
-      "kind": "topScore"
+      "kind": "valueBest"
     },
     {
       "items": [
@@ -9264,7 +9454,9 @@
         "thresholdFen": 0,
         "expireAt": null,
         "scope": "order",
-        "demo": true
+        "demo": true,
+        "usable": true,
+        "excludedReason": null
       },
       "discountFen": 300,
       "payableFen": 950,
@@ -9310,12 +9502,15 @@
     "enumerated": 10440,
     "totalPlans": 10440,
     "withinBudget": 121,
-    "qualifying": 31,
+    "qualifying": 6,
+    "qualifyingBasis": "hard-targets",
+    "hardQualifying": 6,
+    "scoreQualifying": 31,
     "prunedByBudget": 1,
     "truncated": false,
     "budgetFen": 3000,
     "minScore": 70,
-    "perCategory": 8,
+    "perCategory": 6,
     "couponCount": 3,
     "couponApplied": 121,
     "costBasis": "菜单价过滤预算，券后实付排序",
@@ -9334,7 +9529,9 @@
       "thresholdFen": 3000,
       "expireAt": null,
       "scope": "order",
-      "demo": true
+      "demo": true,
+      "usable": true,
+      "excludedReason": null
     },
     {
       "id": "DEMO-C2",
@@ -9343,7 +9540,9 @@
       "thresholdFen": 5000,
       "expireAt": null,
       "scope": "order",
-      "demo": true
+      "demo": true,
+      "usable": true,
+      "excludedReason": null
     },
     {
       "id": "DEMO-C3",
@@ -9352,13 +9551,15 @@
       "thresholdFen": 0,
       "expireAt": null,
       "scope": "order",
-      "demo": true
+      "demo": true,
+      "usable": true,
+      "excludedReason": null
     }
   ],
   "dataNotes": [
     "当前为离线演示模式：菜单、价格、营养与优惠券均为合成示意数据，不是麦当劳官方实时数据。",
     "接入 MCP Token 后（去掉 --demo）将改为调用官方接口获取真实数据。",
-    "口径：预算卡券前菜单价，三个结论按券后实付排序；券按「订单级满减」估算（不区分商品适用范围）。",
+    "口径：预算卡券前菜单价，结论按券后实付排序（三个结论重合时去重，可能只输出 1~2 条）；演示券为订单级满减（真实官方券多为「指定商品用券价」）。",
     "未检测到 MCD_MCP_TOKEN，已自动使用演示模式；设置 Token 后即切换为官方实时数据。"
   ],
   "priceVerification": null

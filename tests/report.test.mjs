@@ -35,6 +35,20 @@ test('渲染战报：包含画布、模式徽标与方案卡片', () => {
   assert.ok(svg.includes('数据口径与说明'));
 });
 
+test('渲染战报：数据口径里写明「达标」的判定口径', () => {
+  const result = buildPlanDemo({ budgetYuan: 30 });
+  const svg = renderReport(result);
+  assert.ok(svg.includes('三项全部满足才算达标'), '必须说明达标=硬目标全满足');
+});
+
+test('渲染战报：搜索被截断时必须显式告警，不能把部分枚举当完整最优解', () => {
+  const result = buildPlanDemo({ budgetYuan: 30 });
+  result.stats.truncated = true;
+  const svg = renderReport(result);
+  assert.ok(svg.includes('截断'), '战报必须出现截断告警');
+  assert.ok(svg.includes('可能不是全局最优'));
+});
+
 test('渲染战报：门店名里的特殊字符被正确转义，不会破坏 SVG 结构', () => {
   const result = buildPlanDemo({ budgetYuan: 30 });
   result.meta.store = { name: 'A & B <危险> "店"', code: 'X1' };

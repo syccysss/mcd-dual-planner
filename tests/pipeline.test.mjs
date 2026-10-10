@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { buildPlanDemo, buildSolverOptions, pickBestCoupon, extractComboParts, extractMenuCodes } from '../src/pipeline.mjs';
+import { buildPlanDemo, buildSolverOptions, pickBestCoupon, extractComboParts, extractMenuCodes,
+  dedupeCoupons, isPlausibleCombo } from '../src/pipeline.mjs';
 import { renderReport } from '../src/report.mjs';
 import { demoDataset } from '../src/demo-data.mjs';
 
@@ -109,4 +110,50 @@ test('菜单编码提取：从官方 query-meals 结构（categories + 顶层 me
   assert.deepEqual(codes.map((c) => c.code).sort(), ['515946', '521954', '9900016076']);
   assert.equal(codes.find((c) => c.code === '9900016076').tags[0], '心形薯饼同款比心');
   assert.equal(codes.find((c) => c.code === '521954').cat, '人气热卖');
+});
+
+test('券去重：不同 id、相同名称的券合并成一张（否则「15 张可用券」是虚高的）', () => {
+  const raw = [
+    { id: 'A1', name: '麦旋风任选', couponPriceFen: 990, targetCodes: ['C1'], source: 'query-store-coupons' },
+    { id: 'A2', name: '麦旋风任选', couponPriceFen: 990, appliesToCode: 'C1', source: 'query-my-coupons' },
+    { id: 'A3', name: '麦旋风任选', couponPriceFen: 990, source: 'available-coupons' },
+    { id: 'B1', name: '薯薯任选', couponPriceFen: 1200, source: 'query-my-coupons' },
+  ];
+  const merged = dedupeCoupons(raw);
+  assert.equal(merged.length, 2, '同名券应合并，实测真实门店 15 条只有 8 个不同券名');
+  const mcd = merged.find((c) => c.name === '麦旋风任选');
+  assert.equal(mcd.couponPriceFen, 990);
+  assert.equal(mcd.appliesToCode, 'C1', '合并后应保留任一视图才有的用券价适用商品');
+  assert.deepEqual(mcd.targetCodes, ['C1']);
+});
+
+test('套餐拆解：只取 isDefault 默认选中的组成项，不把可选项也算进去', () => {
+  const menu = [
+    { name: '板烧鸡腿堡', code: 'B1', priceFen: 2000, category: '主食' },
+    { name: '麦辣鸡腿堡', code: 'B2', priceFen: 2000, category: '主食' },
+    { name: '薯条', code: 'F1', priceFen: 1000, category: '小食' },
+    { name: '可乐', code: 'D1', priceFen: 900, category: '饮料' },
+  ];
+  const payload = {
+    data: {
+      name: '板烧三件套',
+      choices: [
+        { name: '主食', choices: [{ name: '板烧鸡腿堡', isDefault: 1 }, { name: '麦辣鸡腿堡', isDefault: 0 }] },
+        { name: '小食', choices: [{ name: '薯条', isDefault: 1 }] },
+        { name: '饮料', choices: [{ name: '可乐', isDefault: 1 }] },
+      ],
+    },
+  };
+  const names = extractComboParts(payload, menu).map((p) => p.name).sort();
+  assert.deepEqual(names, ['可乐', '板烧鸡腿堡', '薯条'].sort());
+  assert.ok(!names.includes('麦辣鸡腿堡'), '未选中的可选项不应被算作组成项');
+});
+
+test('套餐拆解：无 isDefault 标记时退回全部项，但超出常理的累加会被守卫拒绝', () => {
+  const payload = { data: { items: [{ name: 'A' }, { name: 'B' }] } };
+  assert.equal(extractComboParts(payload, []).length, 2);
+  // 真实事故：四件套被累加成 7531 kcal / 蛋白 315 g（正常约 1000–1300 kcal）
+  assert.equal(isPlausibleCombo({ energyKcal: 7531, proteinG: 315, sodiumMg: 15388 }), false);
+  assert.equal(isPlausibleCombo({ energyKcal: 900, proteinG: 35, sodiumMg: 1800 }), true);
+  assert.equal(isPlausibleCombo(null), false);
 });

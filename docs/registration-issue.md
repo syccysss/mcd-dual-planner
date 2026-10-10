@@ -65,7 +65,7 @@ SVG 战报。零第三方依赖，全程只读，不领券不下单。另附**�
 - [x] 战报示例图已放入 `examples/`，README 直接可见；
 - [x] 单文件网页 demo（`web/index.html`，真实门店快照）：**零依赖离线可开**，内联与 CLI 同一份求解器，
       评审不用装环境就能交互体验；
-- [x] 59 个单元测试，`npm test` 可复现；
+- [x] 66 个单元测试，`npm test` 可复现；
 - [x] 零依赖，评审 `git clone` 即可运行；
 - [x] 已知限制与未验证项如实列出（`docs/ACCEPTANCE.md`）；
 - [x] GitHub Actions 工作流（`.github/workflows/ci.yml`）：跑测试、离线冒烟、SVG 几何校验，

@@ -13,7 +13,8 @@
 import { normalizeCoupons, normalizeNutrition, normalizePrice, normalizeStores,
   matchNutrition, sanityCheckMenu, nameKey, inferCategory, mergeCoupon } from './normalize.mjs';
 import { cacheLoad, cacheSave } from './cache.mjs';
-import { solve, pickBestCoupon, DEFAULT_RULES, DEFAULT_TARGETS, DEFAULT_WEIGHTS, DEFAULT_MIN_SCORE } from './solver.mjs';
+import { solve, pickBestCoupon, DEFAULT_RULES, DEFAULT_TARGETS, DEFAULT_WEIGHTS, DEFAULT_MIN_SCORE,
+  DEFAULT_PER_CATEGORY } from './solver.mjs';
 import { ToolRegistry, summarizeCalls, mapParams } from './tools.mjs';
 import { demoDataset } from './demo-data.mjs';
 
@@ -22,7 +23,7 @@ const DEFAULT_SOLVER_OPTIONS = {
   rules: { ...DEFAULT_RULES },
   weights: { ...DEFAULT_WEIGHTS },
   minScore: DEFAULT_MIN_SCORE,
-  perCategory: 8,
+  perCategory: DEFAULT_PER_CATEGORY,
 };
 
 /** 把用户选项合并成求解参数 */
@@ -38,7 +39,7 @@ export function buildSolverOptions(options = {}) {
     ...DEFAULT_SOLVER_OPTIONS,
     targets,
     minScore: options.minScore !== undefined ? Number(options.minScore) : DEFAULT_MIN_SCORE,
-    perCategory: options.perCategory !== undefined ? Number(options.perCategory) : 8,
+    perCategory: options.perCategory !== undefined ? Number(options.perCategory) : DEFAULT_PER_CATEGORY,
     budgetFen: options.budgetYuan !== undefined ? Math.round(Number(options.budgetYuan) * 100) : undefined,
   };
 }
@@ -85,10 +86,38 @@ export function buildPlanDemo(options = {}) {
     coupons: demoCoupons,
     dataNotes: [
       ...dataset.warnings,
-      '口径：预算卡券前菜单价，三个结论按券后实付排序；演示券为订单级满减（真实官方券多为「指定商品用券价」）。',
+      '口径：预算卡券前菜单价，结论按券后实付排序（三个结论重合时去重，可能只输出 1~2 条）；演示券为订单级满减（真实官方券多为「指定商品用券价」）。',
     ],
     priceVerification: null,
   };
+}
+
+/**
+ * 券去重：同一张券会在门店券 / 卡包券里以「不同 id、相同名称」重复出现
+ * （实测真实门店 15 条里只有 8 个不同券名），因此同时按 id 与名称建索引，
+ * 任一命中即合并 —— 否则报出去的「15 张可用券」是虚高的。
+ */
+export function dedupeCoupons(coupons) {
+  const byId = new Map();
+  const byName = new Map();
+  const out = [];
+  for (const c of coupons) {
+    const nk = nameKey(c.name ?? '');
+    const existing = byId.get(c.id) ?? (nk ? byName.get(nk) : undefined);
+    if (existing) {
+      const merged = mergeCoupon(existing, c);
+      const at = out.indexOf(existing);
+      if (at >= 0) out[at] = merged; else out.push(merged);
+      byId.set(c.id, merged);
+      if (existing.id && existing.id !== c.id) byId.set(existing.id, merged);
+      if (nk) byName.set(nk, merged);
+    } else {
+      out.push(c);
+      byId.set(c.id, c);
+      if (nk) byName.set(nk, c);
+    }
+  }
+  return out;
 }
 
 /**
@@ -227,6 +256,7 @@ export async function buildPlanLive(registry, options = {}) {
   const comboBudget = options.comboLookupLimit ?? 12;
   const unresolved = menuItems.filter((item) => !nutritionByItem.get(item)?.nutrition);
   let comboResolved = 0;
+  let comboRejected = 0;
   if (registry.has('query-meal-detail') && unresolved.length && comboBudget > 0) {
     const detailTool = registry.schema('query-meal-detail');
     for (const item of unresolved.slice(0, comboBudget)) {
@@ -242,7 +272,7 @@ export async function buildPlanLive(registry, options = {}) {
         const parts = extractComboParts(detailRes.data ?? detailRes.raw, menuItems);
         if (parts.length >= 2) {
           const summed = sumPartsNutrition(parts, nutritionByItem);
-          if (summed) {
+          if (summed && isPlausibleCombo(summed)) {
             nutritionByItem.set(item, {
               nutrition: summed,
               matchType: 'combo',
@@ -250,15 +280,21 @@ export async function buildPlanLive(registry, options = {}) {
             });
             comboResolved += 1;
             matched += 1;
+          } else if (summed) {
+            // 累加结果不合常理（多半是把"可选"的每一项都算进去了）：丢弃，宁可当未知
+            comboRejected += 1;
           }
         }
       } catch {
         // 单个套餐拆解失败不影响整体，继续
       }
     }
+    if (comboResolved > 0 || comboRejected > 0) toolsUsed.push('query-meal-detail');
     if (comboResolved > 0) {
-      toolsUsed.push('query-meal-detail');
-      dataNotes.push(`通过 query-meal-detail 拆解并累加营养的套餐：${comboResolved} 个（营养值为组成项之和）。`);
+      dataNotes.push(`通过 query-meal-detail 拆解并累加营养的套餐：${comboResolved} 个（只取 isDefault 默认组成项）。`);
+    }
+    if (comboRejected > 0) {
+      dataNotes.push(`有 ${comboRejected} 个套餐的组成项累加结果超出常理（>${COMBO_PLAUSIBLE_LIMITS.energyKcal} kcal），已按"营养未知"处理而不是拿错数硬算。`);
     }
   }
 
@@ -285,10 +321,8 @@ export async function buildPlanLive(registry, options = {}) {
       warnings.push(`查询优惠券 ${toolName} 失败：${err.message}`);
     }
   }
-  // 同一张券会同时出现在门店券（带适用商品）与卡包券（带用券价）里，按 id 合并而不是覆盖
-  const couponById = new Map();
-  for (const c of coupons) couponById.set(c.id, mergeCoupon(couponById.get(c.id), c));
-  const uniqCoupons = [...couponById.values()];
+  // 同一张券会在门店券/卡包券里以「不同 id、相同名称」重复出现，按 id 与名称双键合并去重
+  const uniqCoupons = dedupeCoupons(coupons);
 
   // 6.1) 券落到具体商品：官方券是「商品级用券价」，必须定位到方案里确实包含的商品才算数；
   //      同时按当前取餐方式（beType / orderType）过滤掉用不了的券。
@@ -407,7 +441,7 @@ export async function buildPlanLive(registry, options = {}) {
   if (matchStats.unmatched > 0) {
     dataNotes.push(`有 ${matchStats.unmatched} 项餐品未匹配到官方营养数据：营养类优化中排除（不使用猜测值），但仍可参与「省钱底线」并在方案中标注营养未知。`);
   }
-  dataNotes.push('口径：预算卡的是券前菜单价合计（避免为凑满减券而超支）；三个结论一律按券后实付排序。');
+  dataNotes.push('口径：预算卡的是券前菜单价合计（避免为凑满减券而超支）；结论一律按券后实付排序。');
   if (uniqCoupons.length > 0) {
     dataNotes.push(`发现 ${uniqCoupons.length} 张可用券：${usableCoupons.length} 张可量化并已纳入方案择优`
       + `${unquantifiedCoupon > 0 ? `，${unquantifiedCoupon} 张面额/规则无法量化（如第二份半价）不参与计算` : ''}`
@@ -504,31 +538,61 @@ function summarizeMatch(nutritionByItem, menuItems) {
 }
 
 /** 从套餐详情里抽出组成项（尽量按名称对齐菜单项，拿不到就只留名称） */
+/**
+ * 从一个套餐详情响应里提取「实际组成项」。
+ *
+ * 官方 `query-meal-detail` 的 Output 规则写明：默认选中的搭配用 `isDefault=1` 标注。
+ * 旧实现把整棵响应树（含**全部可选项**）都当组成项累加，导致一份「四件套」被算成
+ * 7531 kcal / 蛋白 315 g（正常约 1000–1300 kcal）——那是把"可选的每一样"都加了一遍。
+ * 这里改为：只要响应里出现过 isDefault 标记，就**只取默认选中的项**。
+ */
 export function extractComboParts(payload, menuItems) {
   const found = [];
-  const visit = (node, depth = 0) => {
+  let sawDefaultMarker = false;
+  const isTrue = (v) => v === 1 || v === true || v === '1';
+  const isMarker = (v) => v === 0 || v === 1 || v === '0' || v === '1' || v === true || v === false;
+
+  const visit = (node, depth = 0, parentDefault = false) => {
     if (!node || typeof node !== 'object' || depth > 10) return;
     if (Array.isArray(node)) {
-      node.forEach((n) => visit(n, depth + 1));
+      node.forEach((n) => visit(n, depth + 1, parentDefault));
       return;
     }
+    const marked = isMarker(node.isDefault);
+    if (marked) sawDefaultMarker = true;
+    const effectiveDefault = parentDefault || (marked && isTrue(node.isDefault));
+
     const name = node.name ?? node.productName ?? node.mealName ?? node.itemName;
     if (typeof name === 'string' && name.trim()) {
       const key = nameKey(name);
       const hit = menuItems.find((m) => nameKey(m.name) === key)
         ?? menuItems.find((m) => nameKey(m.name).includes(key) || key.includes(nameKey(m.name)));
-      found.push({ name: name.trim(), item: hit ?? null });
+      found.push({ name: name.trim(), item: hit ?? null, isDefault: effectiveDefault });
     }
-    Object.values(node).forEach((v) => visit(v, depth + 1));
+    Object.values(node).forEach((v) => visit(v, depth + 1, effectiveDefault));
   };
   visit(payload);
+
+  // 出现 isDefault 标记 => 只保留默认选中的组成项；否则退回全部项，由离群值守卫兜底
+  const selected = sawDefaultMarker ? found.filter((p) => p.isDefault) : found;
   // 去掉与套餐本身同名的项，并按名称去重
   const uniq = new Map();
-  for (const part of found) {
+  for (const part of selected) {
     const key = nameKey(part.name);
     if (!key || !uniq.has(key)) uniq.set(key, part);
   }
   return [...uniq.values()];
+}
+
+/** 单个餐品的营养不可能超过这个量级；超出即说明拆解把整棵选项树都加进去了 */
+export const COMBO_PLAUSIBLE_LIMITS = { energyKcal: 3000, proteinG: 150, sodiumMg: 6000 };
+
+/** 校验套餐累加结果是否合常理：不合常理时宁可当"未知"，也不喂进优化 */
+export function isPlausibleCombo(nutrition) {
+  if (!nutrition) return false;
+  return (nutrition.energyKcal ?? 0) <= COMBO_PLAUSIBLE_LIMITS.energyKcal
+    && (nutrition.proteinG ?? 0) <= COMBO_PLAUSIBLE_LIMITS.proteinG
+    && (nutrition.sodiumMg ?? 0) <= COMBO_PLAUSIBLE_LIMITS.sodiumMg;
 }
 
 /** 累加套餐组成项的营养 */

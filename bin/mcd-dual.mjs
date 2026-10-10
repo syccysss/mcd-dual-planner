@@ -37,7 +37,7 @@ plan 选项：
   --sodium <毫克>            钠上限，默认 1200
   --tolerance <比例>         热量容差，默认 0.2（即 ±20%）
   --min-score <分值>         "营养合格"门槛，默认 70
-  --per-category <数量>      每品类参与枚举的候选数，默认 8（调大更接近穷举）
+  --per-category <数量>      每品类参与枚举的候选数，默认 6（调大更接近穷举，但可能触发搜索截断）
   --out <path>               战报输出路径，默认 reports/report.svg
   --no-verify                跳过官方算价核验（减少请求量）
   --dump-data <path>        写出本次使用的原始数据集（门店/菜单/营养/券）快照，
@@ -165,6 +165,12 @@ function printPlanSummary(result, { outPath, jsonPath, dataPath }) {
   const s = result.stats;
   out.push(`  搜索空间  菜单 ${result.coverage.menuTotal} 项 → 候选 ${s.candidateCount} 项`
     + ` → 枚举 ${s.totalPlans} 个方案 → 预算内 ${s.withinBudget} 个 → 达标 ${s.qualifying} 个`);
+  if (s.truncated) {
+    out.push('  ⚠️ 搜索已截断  候选组合数达到上限，本次结果基于「部分」枚举、可能非全局最优；请调小 --per-category 后重跑');
+  }
+  if (s.qualifyingBasis === 'score-fallback') {
+    out.push(`  ⚠️ 无方案满足全部硬目标（热量区间 / 蛋白下限 / 钠上限），"达标"已退化为得分 ≥ ${s.minScore} 分`);
+  }
   const nutritionSource = result.meta.mode === 'live' ? '官方营养数据' : '演示营养数据';
   out.push(`  营养覆盖  ${result.coverage.matched}/${result.coverage.menuTotal} 项匹配到${nutritionSource}`
     + `（未匹配 ${result.coverage.unmatched} 项已排除，不使用猜测值）`);
@@ -327,7 +333,7 @@ async function cmdPlan(options) {
   if (result.recommendations.length === 0) {
     const reason = result.stats.withinBudget === 0
       ? '预算内没有可行组合，请提高 --budget 或放宽营养目标。'
-      : '没有方案达到营养门槛，可降低 --min-score 或放宽 --kcal/--protein。';
+      : '没有方案满足全部硬目标（热量区间 / 蛋白下限 / 钠上限），可放宽 --kcal/--protein/--sodium。';
     throw new Error(`未找到可推荐方案：${reason}`);
   }
 

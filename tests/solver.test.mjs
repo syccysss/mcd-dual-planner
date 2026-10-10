@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   solve, scorePlan, sumPlan, selectCandidates, paretoFront,
-  couponSaving, pickBestCouponForPlan,
+  couponSaving, pickBestCouponForPlan, meetsUserTargets,
   DEFAULT_TARGETS, DEFAULT_RULES, DEFAULT_WEIGHTS,
 } from '../src/solver.mjs';
 
@@ -266,4 +266,36 @@ test('solve：商品级用券价生效后，含该商品的方案券后实付下
   assert.equal(planWithFries.totals.payableFen, planWithFries.totals.priceFen - 310);
   const planNoFries = result.plans.find((p) => !p.items.some((i) => i.code === 'F1'));
   assert.equal(planNoFries.discountFen, 0, '不含目标商品的方案不应降价');
+});
+
+test('meetsUserTargets：达标 = 用户硬目标全满足，复合得分再高也不算', () => {
+  // 真实数据里出现过的事故：蛋白 29 g（用户要 ≥30 g）因总分 83.6 被标成「达标」
+  assert.equal(meetsUserTargets({ score: 83.6, checks: { kcalInRange: true, proteinMet: false, sodiumOk: true, fatOk: false } }), false);
+  // 脂肪是推导出来的软性控制项，不参与达标判定
+  assert.equal(meetsUserTargets({ score: 60, checks: { kcalInRange: true, proteinMet: true, sodiumOk: true, fatOk: false } }), true);
+  // 营养未知（null）不等于达标 —— 不能拿"没数据"冒充"合格"
+  assert.equal(meetsUserTargets({ score: 90, checks: { kcalInRange: null, proteinMet: null, sodiumOk: null, fatOk: null } }), false);
+});
+
+test('solve：双赢推荐必须是「硬目标全满足里券后最便宜」的那个，而不是「得分高」的那个', () => {
+  const { items, nutritionByItem } = makeFixture();
+  const result = solve({ items, nutritionByItem, budgetFen: 4500, targets: { ...DEFAULT_TARGETS } });
+  const valueBest = result.recommendations.find((r) => r.kind === 'valueBest');
+  assert.ok(valueBest, '应存在双赢推荐');
+  assert.equal(meetsUserTargets(valueBest), true,
+    `双赢推荐必须满足全部硬目标，实际 checks=${JSON.stringify(valueBest.checks)}`);
+  assert.ok(valueBest.totals.proteinG >= DEFAULT_TARGETS.proteinG);
+  assert.equal(result.stats.qualifyingBasis, 'hard-targets');
+  // 硬目标口径更严，达标数不应超过「得分达标」数
+  assert.ok(result.stats.hardQualifying <= result.stats.scoreQualifying);
+});
+
+test('solve：目标过严导致无人达标时，退化为得分门槛并如实标注 qualifyingBasis', () => {
+  const { items, nutritionByItem } = makeFixture();
+  const result = solve({
+    items, nutritionByItem, budgetFen: 4500,
+    targets: { kcal: 700, kcalTolerance: 0.01, proteinG: 200, sodiumMaxMg: 50 },
+  });
+  assert.equal(result.stats.hardQualifying, 0, '该目标下不应有方案达标');
+  assert.equal(result.stats.qualifyingBasis, 'score-fallback', '必须如实标注已退化');
 });

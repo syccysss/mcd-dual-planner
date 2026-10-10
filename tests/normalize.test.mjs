@@ -39,6 +39,25 @@ test('品类推断：接口给了就用接口的，没给才按名称推断并�
   assert.deepEqual(inferCategory('未知神秘餐品'), { category: '其他', inferred: true });
 });
 
+test('品类推断：主食的形态强特征优先于小食的配料词（否则汉堡会被判成小食）', () => {
+  // 「板烧鸡腿堡」含小食关键字「鸡腿」，但它是主食。顺序写反会把一批汉堡归进小食，
+  // 而小食上限是 2 —— 等于允许一份方案里塞进 3 个汉堡。真实门店曾错分 13 个。
+  assert.equal(inferCategory('板烧鸡腿堡').category, '主食');
+  assert.equal(inferCategory('麦辣鸡腿堡四件套').category, '主食');
+  assert.equal(inferCategory('龙焰芝士棒鸡腿堡').category, '主食');
+  // 新增的主食名（原来落到「其他」而被永久排除）
+  assert.equal(inferCategory('麦香鱼').category, '主食');
+  assert.equal(inferCategory('麦香鸡').category, '主食');
+  // 真正的小食仍留在小食（去掉裸「麦辣」后不再被主食提前拦下）
+  assert.equal(inferCategory('麦辣鸡翅4块中套餐').category, '小食');
+  assert.equal(inferCategory('麦乐鸡经典中套餐').category, '小食');
+  assert.equal(inferCategory('薄皮焦香V翅').category, '小食');
+  // 补全的甜品 / 饮料关键字
+  assert.equal(inferCategory('灰焰圆筒').category, '甜品');
+  assert.equal(inferCategory('美禄可可雪冰').category, '饮料');
+  assert.equal(inferCategory('学生专享饮品随心选').category, '饮料');
+});
+
 test('营养单位推断：kJ 自动换算成 kcal，钠 g 自动换算成 mg，并留下推断痕迹', () => {
   const kj = extractNutrition({ name: 'X', energy: 2000, protein: 10 });
   assert.equal(Math.round(kj.energyKcal), 478);
