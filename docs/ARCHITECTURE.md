@@ -85,7 +85,11 @@
 | beType | 官方选址工具 | 官方额外要求 |
 |---|---|---|
 | 1 到店自提 / 5 得来速 | `query-nearby-stores`（该工具的 beType 枚举**只有 1、5**） | 得来速门店会返回额外的 `beCode`，后续工具**必须一并传** |
-| 2 麦乐送 / 6 企业团餐 | `delivery-query-addresses` → `addressId` → `delivery-query-stores` | 强制 `orderType=2`；`query-meals` 缺 `beCode` 直接报 `600048` |
+| 2 麦乐送 | `delivery-query-addresses` → `addressId` → `delivery-query-stores` | 强制 `orderType=2`；`query-meals` 缺 `beCode` 直接报 `600048` |
+
+> 官方还有 `beType=6`（企业团餐），走与麦乐送相同的链路，但**本项目刻意不支持**：
+> 需企业账号资质、无法验证，且本引擎求解「单人餐」，与团餐的多人批量模型不匹配。
+> 取餐方式白名单收敛为 `1 / 2 / 5`（`SUPPORTED_BE_TYPES`），传 `6` 会直接报错而不是静默按外送跑。
 
 **把 `beType=2` 丢给 `query-nearby-stores` 不会报错，只会静默返回空列表** —— 这正是"看起来支持麦乐送、
 实际一家店都找不到"的成因。因此选址被抽成 `resolveStores(registry, options)`，

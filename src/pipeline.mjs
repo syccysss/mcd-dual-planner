@@ -121,18 +121,49 @@ export function dedupeCoupons(coupons) {
 }
 
 /**
+ * 本项目支持的取餐方式。
+ *
+ * **刻意不支持企业团餐（beType=6）**，两层原因缺一不可：
+ *   1. 无法验证 —— 官方要企业账号资质才能取到团餐门店，本项目没有；未实测即不声称可用。
+ *   2. 模型不匹配 —— 本项目求解的是"单人餐"（1 主食 + 0~2 小食 + 0~1 饮料 + 0~1 甜品，
+ *      按单餐热量/蛋白/钠目标择优），而团餐是多人批量场景（起订份数、企业协议价、统一配送），
+ *      这套单餐营养双目标模型对它本身没有意义。
+ * 白名单在此收敛：命令行传 6 会得到**明确报错**，而不是被当成"另一种外送"静默跑通。
+ */
+export const SUPPORTED_BE_TYPES = Object.freeze([1, 2, 5]);
+export const BE_TYPE_LABELS = Object.freeze({ 1: '到店自取', 2: '麦乐送', 5: '得来速' });
+
+/** 校验取餐方式；不支持的取值一律抛错（**不静默降级**）。 */
+export function assertSupportedBeType(beType) {
+  if (beType === 6) {
+    throw new Error(
+      '企业团餐（beType=6）不在本项目支持范围内：它需要企业账号资质、本项目无法验证，'
+      + '且本项目求解的是「单人餐」营养目标，与团餐的多人批量场景不匹配。'
+      + '请改用 --be-type 1（到店自取）/ 2（麦乐送）/ 5（得来速）。',
+    );
+  }
+  if (!SUPPORTED_BE_TYPES.includes(beType)) {
+    throw new Error(`不支持的取餐方式 beType=${beType}。可用：--be-type 1（到店自取）/ 2（麦乐送）/ 5（得来速）。`);
+  }
+  return beType;
+}
+
+/**
  * 按取餐方式定位门店 —— 实时求解与批量验证工具共用同一套逻辑，避免两处口径漂移。
  *
  * beType 决定的不只是"去哪家店"，还决定**用哪个工具找店**：
  *   - 1 到店自提 / 5 得来速：`query-nearby-stores`（官方该工具的 beType 枚举只有 1、5）
- *   - 2 麦乐送 / 6 企业团餐：必须先 `delivery-query-addresses` 取地址编号，
+ *   - 2 麦乐送：必须先 `delivery-query-addresses` 取地址编号，
  *     再 `delivery-query-stores`。官方同时强制 orderType=2。
  * 把 beType=2 丢给 query-nearby-stores 只会**静默返回空列表**（不报错），
  * 这正是"看起来支持麦乐送、实际一家店也找不到"的原因，必须分开走。
+ * （企业团餐 beType=6 虽属同一条外送链路，但本项目刻意不支持，见 SUPPORTED_BE_TYPES。）
  */
 export async function resolveStores(registry, options = {}) {
-  const beType = options.beType === undefined || options.beType === null ? 1 : Number(options.beType);
-  const isDelivery = beType === 2 || beType === 6;
+  const beType = assertSupportedBeType(
+    options.beType === undefined || options.beType === null ? 1 : Number(options.beType),
+  );
+  const isDelivery = beType === 2;
   const orderType = options.orderType === undefined || options.orderType === null
     ? (isDelivery ? 2 : 1)
     : Number(options.orderType);
@@ -144,7 +175,7 @@ export async function resolveStores(registry, options = {}) {
 
   if (isDelivery) {
     if (!registry.has('delivery-query-addresses')) {
-      throw new Error('当前 MCP 服务未暴露 delivery-query-addresses，无法使用麦乐送/企业团餐。');
+      throw new Error('当前 MCP 服务未暴露 delivery-query-addresses，无法使用麦乐送。');
     }
     const addrRes = await registry.call('delivery-query-addresses', {});
     toolsUsed.push('delivery-query-addresses');
@@ -158,7 +189,7 @@ export async function resolveStores(registry, options = {}) {
       : (options.city ? addresses.find((a) => (a.cityHint ?? '').includes(String(options.city))) : null))
       ?? addresses[0];
     usedAddressId = picked.id;
-    dataNotes.push(`麦乐送/团餐使用账号下已保存的配送地址（共 ${addresses.length} 个，仅取地址编号用于选址，收货信息不入库）。`);
+    dataNotes.push(`麦乐送使用账号下已保存的配送地址（共 ${addresses.length} 个，仅取地址编号用于选址，收货信息不入库）。`);
 
     const deliveryStoreTool = registry.schema('delivery-query-stores');
     if (!deliveryStoreTool) throw new Error('当前 MCP 服务未暴露 delivery-query-stores，无法按配送地址定位门店。');

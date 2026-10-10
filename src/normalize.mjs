@@ -571,7 +571,8 @@ export function normalizeStores(payload) {
     // 到店（beType=1）门店只有 storeCode；得来速（beType=5）/麦乐送（beType=2）门店
     // 两者都有（如 storeCode=3450230、beCode=345023041），而 query-meals /
     // calculate-price 要求**分别**传 storeCode 与 beCode，缺 beCode 会被官方
-    // 以 600048（"外送场景下 beType=2/5/6 时必传 beCode"）或空菜单拒绝。
+    // 以 600048（官方原文："外送场景下 beType=2/5/6 时必传 beCode"）或空菜单拒绝；
+    // 本项目只用 2（麦乐送）与 5（得来速），不支持 6（企业团餐）。
     const storeCodeRaw = pick(node, ['storeCode', 'store_code', 'id', 'storeId', 'code']);
     const beCodeRaw = pick(node, ['beCode', 'be_code']);
     const code = String(storeCodeRaw ?? beCodeRaw);

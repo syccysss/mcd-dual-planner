@@ -28,8 +28,8 @@ Token 仅从环境变量 `MCD_MCP_TOKEN` 读取，**不写入任何文件、日�
 |:--:|---|---|:--:|---|
 | 1 | `now-time-info` | 获取服务器当前时间，用于判断活动与券的有效期 | 否 | 退化为本地时间，并在战报口径中注明 |
 | 2 | `query-nearby-stores` | 到店自提 / 得来速定位门店（官方该工具的 `beType` **枚举只有 1、5**） | 条件必需 | 直接报错并提示用 `--city` / `--store` 补充条件 |
-| 2b | `delivery-query-addresses` | 麦乐送 / 团餐：取账号下配送地址的**编号**（姓名/电话/门牌即丢弃） | 条件必需 | 报错提示先在官方渠道添加收货地址；本项目不代建地址 |
-| 2c | `delivery-query-stores` | 麦乐送 / 团餐：按地址编号查可配送门店 | 条件必需 | 报错提示更换地址或改用 `--be-type 1` |
+| 2b | `delivery-query-addresses` | 麦乐送：取账号下配送地址的**编号**（姓名/电话/门牌即丢弃） | 条件必需 | 报错提示先在官方渠道添加收货地址；本项目不代建地址 |
+| 2c | `delivery-query-stores` | 麦乐送：按地址编号查可配送门店 | 条件必需 | 报错提示更换地址或改用 `--be-type 1` |
 | 3 | `query-meals` | 拉取门店实时菜单的**商品编码清单**（官方不返回名称与价格） | **是** | 直接报错，说明可能是门店编码、`beCode` 或 `beType` 不匹配 |
 | 4 | `calculate-price` | **逐品调用**：一次同时返回 `productName` 与单价（分），构建完整菜单；售罄/不可售项跳过 | **是** | 单品失败仅跳过该品；全部失败则报错 |
 | 5 | `list-nutrition-foods` | 官方营养库（toon 紧凑格式：能量、蛋白质、脂肪、碳水、钠、钙） | **是** | 直接报错；无营养数据则无法做双目标优化 |
@@ -67,7 +67,7 @@ Token 仅从环境变量 `MCD_MCP_TOKEN` 读取，**不写入任何文件、日�
      ├─ beType=1 到店 / 5 得来速
      │     query-nearby-stores(searchType=2 城市+关键词, beType)
      │       └─ 得来速门店会额返回 beCode，后续工具必须与 storeCode 一并传
-     └─ beType=2 麦乐送 / 6 团餐
+     └─ beType=2 麦乐送（官方另有 beType=6 企业团餐，本项目**不支持**：需企业账号资质且模型不匹配）
            delivery-query-addresses ──► 地址编号（只取 id，收货信息即丢弃）
                 └─ delivery-query-stores(beType, addressId) ──► 可配送门店
                                          │

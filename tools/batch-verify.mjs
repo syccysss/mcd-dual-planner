@@ -16,6 +16,8 @@
  *   node tools/batch-verify.mjs --cities chengdu --be-type 5       # 得来速车道取餐
  *   node tools/batch-verify.mjs --be-type 2                        # 麦乐送（按账号配送地址分站）
  *
+ * 支持的取餐方式：1（到店）/ 2（麦乐送）/ 5（得来速）。6（企业团餐）**不支持**，传了会直接报错。
+ *
  * 产物（均可安全分享，Token 不会落盘；外送场景亦不落盘任何收货信息）：
  *   examples/stores/<门店编码>.json    每店原始快照（菜单/营养/券/匹配）
  *   examples/batch-summary.json        跨店汇总（含跨城同款商品价格对比）
@@ -26,7 +28,7 @@ import { fileURLToPath } from 'node:url';
 
 import { McpClient, McpError, DEFAULT_ENDPOINT } from '../src/mcp-client.mjs';
 import { ToolRegistry, mapParams, summarizeCalls } from '../src/tools.mjs';
-import { buildPlanLive, resolveStores } from '../src/pipeline.mjs';
+import { buildPlanLive, resolveStores, assertSupportedBeType } from '../src/pipeline.mjs';
 import { normalizeStores, normalizeAddresses } from '../src/normalize.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -73,12 +75,12 @@ function resolveCity(key) {
 
 /**
  * 定位门店。
- *  - 外送（beType 2/6）：复用 pipeline 的 resolveStores，走「账号配送地址 → 可配送门店」，
+ *  - 外送（beType 2）：复用 pipeline 的 resolveStores，走「账号配送地址 → 可配送门店」，
  *    与实时求解完全同一套逻辑，避免两处口径漂移。
  *  - 到店/得来速（beType 1/5）：城市 + 地标关键词，关键词命中为空时退回只按城市。
  */
 async function findStores(registry, station, beType) {
-  if (beType === 2 || beType === 6) {
+  if (beType === 2) {
     const { stores } = await resolveStores(registry, { beType, addressId: station.addressId });
     return stores;
   }
@@ -220,7 +222,7 @@ async function main() {
   const cities = String(options.cities ?? DEFAULT_CITIES).split(',').map(resolveCity).filter(Boolean);
   const perCity = Math.max(1, Number(options['per-city'] ?? 1));
   const budgetYuan = Number(options.budget ?? 40);
-  const beType = Number(options['be-type'] ?? 1);
+  const beType = assertSupportedBeType(Number(options['be-type'] ?? 1));
   const outDir = resolve(ROOT, String(options.out ?? 'examples/stores'));
   const summaryPath = resolve(ROOT, String(options.summary ?? 'examples/batch-summary.json'));
 
@@ -240,7 +242,7 @@ async function main() {
 
   // 到店/得来速按「城市」分站；外送按「配送地址」分站（地址属于账号，不属于城市）
   let stations = cities;
-  if (beType === 2 || beType === 6) {
+  if (beType === 2) {
     const addrRes = await registry.call('delivery-query-addresses', {});
     const addresses = normalizeAddresses(addrRes.data ?? addrRes.raw);
     if (!addresses.length) {

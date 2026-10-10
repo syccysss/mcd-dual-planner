@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import { buildPlanDemo, buildSolverOptions, pickBestCoupon, extractComboParts, extractMenuCodes,
-  dedupeCoupons, isPlausibleCombo } from '../src/pipeline.mjs';
+  dedupeCoupons, isPlausibleCombo, assertSupportedBeType, SUPPORTED_BE_TYPES } from '../src/pipeline.mjs';
 import { renderReport } from '../src/report.mjs';
 import { demoDataset } from '../src/demo-data.mjs';
 
@@ -156,4 +156,19 @@ test('套餐拆解：无 isDefault 标记时退回全部项，但超出常理的
   assert.equal(isPlausibleCombo({ energyKcal: 7531, proteinG: 315, sodiumMg: 15388 }), false);
   assert.equal(isPlausibleCombo({ energyKcal: 900, proteinG: 35, sodiumMg: 1800 }), true);
   assert.equal(isPlausibleCombo(null), false);
+});
+
+test('取餐方式白名单：1/2/5 放行，企业团餐 6 与非法值一律显式报错（不静默降级）', () => {
+  assert.deepEqual([...SUPPORTED_BE_TYPES], [1, 2, 5]);
+  for (const ok of [1, 2, 5]) assert.equal(assertSupportedBeType(ok), ok);
+
+  // 企业团餐必须给出**专门的**说明（而不是笼统的"参数非法"）
+  assert.throws(() => assertSupportedBeType(6), (err) => {
+    assert.match(err.message, /企业团餐/);
+    assert.match(err.message, /--be-type 1/);
+    return true;
+  });
+  // 未知取值也要报错，且带上可用取值
+  assert.throws(() => assertSupportedBeType(99), /不支持的取餐方式/);
+  assert.throws(() => assertSupportedBeType(NaN), /不支持的取餐方式/);
 });
