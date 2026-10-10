@@ -1,0 +1,27 @@
+外送场景（beType=2）：账号下有 2 个配送地址，逐地址验证可配送门店。
+
+=== 北京市 ===
+  命中 3 家门店，取前 1 家
+  ✓ 北京市 / 麦当劳北京回龙观西大街餐厅（1950147）　beType=2/orderType=2
+      菜单 122 · 营养 72(59%) · 券 8(可用1) · 候选 69 · 枚举 264960【候选规模自动 6→5】 · 预算内 4278 · 达标 99(hard-targets) · 帕累托 12
+      双赢推荐 ¥35.5(95.7分/30g蛋白)[到手¥43.4] | 营养上限 ¥48(98.9分/35g蛋白)[到手¥56.7] | 省钱底线 ¥15(34.5分/13g蛋白)[到手¥22.1]
+
+=== 上海市 ===
+  命中 2 家门店，取前 1 家
+  ✓ 上海市 / 麦当劳上海嘉定大融城餐厅（1450227）　beType=2/orderType=2
+      菜单 131 · 营养 76(58%) · 券 8(可用1) · 候选 77 · 枚举 370260 · 预算内 5258 · 达标 159(hard-targets) · 帕累托 12
+      双赢推荐 ¥35.5(95.7分/30g蛋白)[到手¥43.4] | 营养上限 ¥47.9(100分/39g蛋白)[到手¥55.8] | 省钱底线 ¥15(34.5分/13g蛋白)[到手¥22.1]
+
+════════════════════════════════════════════════════════════════════════
+  多门店验证汇总：成功 2 / 尝试 2 家门店，用时 64s
+════════════════════════════════════════════════════════════════════════
+  营养匹配率：北京市 59% · 上海市 58%
+  达标(硬目标)：北京市 99 · 上海市 159
+  搜索截断：无（全部完整枚举）
+  官方验价：全部一致
+
+  跨城同款商品价格：可比 114 款，其中 0 款存在城市间价差
+
+  调用统计：{"total":182,"byTool":[{"tool":"delivery-query-addresses","count":5},{"tool":"delivery-query-stores","count":4},{"tool":"now-time-info","count":2},{"tool":"list-nutrition-foods","count":2},{"tool":"query-meal-detail","count":24},{"tool":"query-store-coupons","count":2},{"tool":"available-coupons","count":2},{"tool":"query-my-coupons","count":2},{"tool":"calculate-price","count":138},{"tool":"query-meals","count":1}],"unmatchedParams":[],"errors":0}
+  快照目录：E:\SOFT\DeepSeek_Space\麦当劳\examples\stores-be2
+  汇总文件：E:\SOFT\DeepSeek_Space\麦当劳\examples\batch-be2.json

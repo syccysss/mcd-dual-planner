@@ -377,7 +377,10 @@ export function renderReport(result) {
 
   // ---- 官方验价
   if (priceVerification && (priceVerification.verified?.length || priceVerification.failures?.length)) {
-    const boxH = 34 + (priceVerification.verified.length + priceVerification.failures.length) * 22 + 16;
+    // 外送场景每个方案会多出一行「到手价」，盒高要把它算进去，否则底部会被裁掉
+    const extraRows = priceVerification.verified.filter((r) =>
+      r.officialTotalFen !== null && r.officialTotalFen !== undefined && r.officialTotalFen !== r.officialFen).length;
+    const boxH = 34 + (priceVerification.verified.length + priceVerification.failures.length + extraRows) * 22 + 16;
     chunks.push(el.rect(PAD, y, W - PAD * 2, boxH, { rx: 10, fill: '#FFFFFF', stroke: C.line, sw: 1 }));
     chunks.push(el.text(PAD + 20, y + 26, '官方算价核验（calculate-price）', { size: 14, weight: 700, fill: C.ink }));
     let ly = y + 50;
@@ -394,6 +397,17 @@ export function renderReport(result) {
         { size: 12, fill: C.ink }));
       chunks.push(el.text(PAD + 640, ly, couponText, { size: 11.5, fill: C.sub }));
       ly += 22;
+      // 外送场景：官方 total 含配送费与打包费，单独作为「到手价」列出，不与餐品价混为一谈
+      if (row.officialTotalFen !== null && row.officialTotalFen !== undefined && row.officialTotalFen !== row.officialFen) {
+        const fees = [
+          row.deliveryFen ? `配送 ¥${yuan(row.deliveryFen)}` : null,
+          row.packingFen ? `打包 ¥${yuan(row.packingFen)}` : null,
+        ].filter(Boolean).join(' + ');
+        const over = budgetFen !== null && budgetFen !== undefined && row.officialTotalFen > budgetFen;
+        chunks.push(el.text(PAD + 40, ly, `到手价 ¥${yuan(row.officialTotalFen)}${fees ? `（含 ${fees}）` : ''}`
+          + (over ? `　⚠ 超出预算 ¥${yuan(budgetFen)}` : ''), { size: 11.5, fill: over ? C.bad : C.sub }));
+        ly += 22;
+      }
     }
     for (const row of priceVerification.failures) {
       chunks.push(el.text(PAD + 20, ly, `#${row.index + 1} ${row.label}：验价失败 —— ${row.reason}`, { size: 12, fill: C.bad }));

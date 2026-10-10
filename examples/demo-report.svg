@@ -7,7 +7,7 @@
 <text x="32" y="86" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Source Han Sans SC',-apple-system,sans-serif" font-size="14" font-weight="400" fill="#FFE9E7" text-anchor="start" opacity="1">预算与营养的双目标最优解 —— 由麦当劳中国 MCP 实时数据算出</text>
 <rect x="958" y="34" width="250" height="30" rx="15" fill="#7A4B00" stroke="none" stroke-width="1" opacity="1"/>
 <text x="1083" y="54" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Source Han Sans SC',-apple-system,sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF" text-anchor="middle" opacity="1">演示数据（离线示例，非官方实时结果）</text>
-<text x="32" y="112" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Source Han Sans SC',-apple-system,sans-serif" font-size="12.5" font-weight="400" fill="#FFD9D6" text-anchor="start" opacity="1">门店：演示餐厅（合成数据，非真实门店）（DEMO-0001）　|　生成时间：2026-10-10 03:10:18　|　预算：¥30.00</text>
+<text x="32" y="112" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Source Han Sans SC',-apple-system,sans-serif" font-size="12.5" font-weight="400" fill="#FFD9D6" text-anchor="start" opacity="1">门店：演示餐厅（合成数据，非真实门店）（DEMO-0001）　|　生成时间：2026-10-10 03:45:37　|　预算：¥30.00</text>
 <rect x="32" y="160" width="1176" height="76" rx="10" fill="#F7F7F7" stroke="#E3E3E3" stroke-width="1" opacity="1"/>
 <text x="52" y="192" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Source Han Sans SC',-apple-system,sans-serif" font-size="13" font-weight="600" fill="#1A1A1A" text-anchor="start" opacity="1">热量目标 700 kcal（容差 ±20%）</text>
 <text x="276" y="192" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Source Han Sans SC',-apple-system,sans-serif" font-size="13" font-weight="600" fill="#1A1A1A" text-anchor="start" opacity="1">蛋白质 ≥ 30 g</text>

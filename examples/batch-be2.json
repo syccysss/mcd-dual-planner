@@ -1,0 +1,239 @@
+{
+  "generatedAt": "2026-10-10 03:39:02",
+  "budgetYuan": 50,
+  "beType": 2,
+  "elapsedSec": 64,
+  "storeCount": 2,
+  "rows": [
+    {
+      "city": "北京市",
+      "storeCode": "1950147",
+      "storeName": "麦当劳北京回龙观西大街餐厅",
+      "address": null,
+      "beType": 2,
+      "orderType": 2,
+      "menuTotal": 122,
+      "matched": 72,
+      "unmatched": 50,
+      "matchRate": 59,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 69,
+      "enumerated": 264960,
+      "truncated": false,
+      "withinBudget": 4278,
+      "qualifying": 99,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 5,
+      "perCategoryAdjusted": true,
+      "pareto": 12,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 35.5,
+          "payableYuan": 35.5,
+          "score": 95.7,
+          "kcal": 706,
+          "proteinG": 30,
+          "sodiumMg": 1064,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 35.5,
+          "deliveredYuan": 43.4,
+          "deliveryFeeYuan": 6,
+          "packingFeeYuan": 1.9,
+          "items": [
+            "双层深海鳕鱼堡",
+            "菠萝派"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 48,
+          "payableYuan": 48,
+          "score": 98.9,
+          "kcal": 706,
+          "proteinG": 35,
+          "sodiumMg": 1202,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 48,
+          "deliveredYuan": 56.7,
+          "deliveryFeeYuan": 6,
+          "packingFeeYuan": 2.7,
+          "items": [
+            "汉堡包",
+            "薄皮焦香V翅",
+            "奥利奥麦旋风"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 15,
+          "payableYuan": 15,
+          "score": 34.5,
+          "kcal": 248,
+          "proteinG": 13,
+          "sodiumMg": 492,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 15,
+          "deliveredYuan": 22.1,
+          "deliveryFeeYuan": 6,
+          "packingFeeYuan": 1.1,
+          "items": [
+            "汉堡包"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 13764,
+      "requestCount": 25
+    },
+    {
+      "city": "上海市",
+      "storeCode": "1450227",
+      "storeName": "麦当劳上海嘉定大融城餐厅",
+      "address": null,
+      "beType": 2,
+      "orderType": 2,
+      "menuTotal": 131,
+      "matched": 76,
+      "unmatched": 55,
+      "matchRate": 58,
+      "couponDeduped": 8,
+      "couponUsable": 1,
+      "candidates": 77,
+      "enumerated": 370260,
+      "truncated": false,
+      "withinBudget": 5258,
+      "qualifying": 159,
+      "qualifyingBasis": "hard-targets",
+      "perCategoryRequested": 6,
+      "perCategoryUsed": 6,
+      "perCategoryAdjusted": false,
+      "pareto": 12,
+      "recs": [
+        {
+          "kind": "valueBest",
+          "label": "双赢推荐",
+          "priceYuan": 35.5,
+          "payableYuan": 35.5,
+          "score": 95.7,
+          "kcal": 706,
+          "proteinG": 30,
+          "sodiumMg": 1064,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 35.5,
+          "deliveredYuan": 43.4,
+          "deliveryFeeYuan": 6,
+          "packingFeeYuan": 1.9,
+          "items": [
+            "双层深海鳕鱼堡",
+            "菠萝派"
+          ]
+        },
+        {
+          "kind": "topScore",
+          "label": "营养上限",
+          "priceYuan": 47.9,
+          "payableYuan": 47.9,
+          "score": 100,
+          "kcal": 703,
+          "proteinG": 39,
+          "sodiumMg": 1016,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 47.9,
+          "deliveredYuan": 55.8,
+          "deliveryFeeYuan": 6,
+          "packingFeeYuan": 1.9,
+          "items": [
+            "双层深海鳕鱼堡",
+            "苹果片",
+            "麦咖啡™热奶铁中杯"
+          ]
+        },
+        {
+          "kind": "cheapest",
+          "label": "省钱底线",
+          "priceYuan": 15,
+          "payableYuan": 15,
+          "score": 34.5,
+          "kcal": 248,
+          "proteinG": 13,
+          "sodiumMg": 492,
+          "couponName": null,
+          "verified": true,
+          "officialYuan": 15,
+          "deliveredYuan": 22.1,
+          "deliveryFeeYuan": 6,
+          "packingFeeYuan": 1.1,
+          "items": [
+            "汉堡包"
+          ]
+        }
+      ],
+      "verifyFailures": [],
+      "elapsedMs": 49049,
+      "requestCount": 182
+    }
+  ],
+  "crossCity": {
+    "comparableItems": 114,
+    "differingItems": 0,
+    "top": []
+  },
+  "callStats": {
+    "total": 182,
+    "byTool": [
+      {
+        "tool": "delivery-query-addresses",
+        "count": 5
+      },
+      {
+        "tool": "delivery-query-stores",
+        "count": 4
+      },
+      {
+        "tool": "now-time-info",
+        "count": 2
+      },
+      {
+        "tool": "list-nutrition-foods",
+        "count": 2
+      },
+      {
+        "tool": "query-meal-detail",
+        "count": 24
+      },
+      {
+        "tool": "query-store-coupons",
+        "count": 2
+      },
+      {
+        "tool": "available-coupons",
+        "count": 2
+      },
+      {
+        "tool": "query-my-coupons",
+        "count": 2
+      },
+      {
+        "tool": "calculate-price",
+        "count": 138
+      },
+      {
+        "tool": "query-meals",
+        "count": 1
+      }
+    ],
+    "unmatchedParams": [],
+    "errors": 0
+  }
+}

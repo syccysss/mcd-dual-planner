@@ -17,7 +17,7 @@ import { ToolRegistry, READ_ONLY_TOOLS, summarizeCalls } from '../src/tools.mjs'
 import { buildPlanDemo, buildPlanLive } from '../src/pipeline.mjs';
 import { demoDataset } from '../src/demo-data.mjs';
 import { renderReport } from '../src/report.mjs';
-import { formatYuan } from '../src/normalize.mjs';
+import { formatYuan, normalizeAddresses } from '../src/normalize.mjs';
 
 const HELP = `麦麦双赢（M-Dual Planner）— 省钱 × 营养 双目标配餐引擎
 
@@ -47,8 +47,11 @@ plan 选项：
   --city <城市>              城市，如 成都
   --store <关键词>           门店名或地标关键词
   --store-code <门店编码>    直接指定门店编码
-  --be-type <数字>           取餐方式，1=到店取餐，2=麦乐送，5=得来速，6=企业团餐（默认 1）
-  --order-type <数字>        订单类型，1=到店（默认），2=外送
+  --be-type <数字>           取餐方式，1=到店取餐，5=得来速（这两者用城市+关键词找店）；
+                             2=麦乐送，6=企业团餐（用账号下的配送地址找店，自动 orderType=2）
+  --order-type <数字>        订单类型，1=到店（默认；beType 2/6 时自动为 2）
+  --address-id <地址编号>    外送场景指定用哪个配送地址（默认取账号下第一个；
+                             地址编号可用 doctor --addresses 查看）。收货信息不会被保存。
   --search-type <数字>       1=收藏餐厅，2=按城市+关键词搜索（默认）
   --combo-limit <数量>       最多拆解多少个套餐的营养，默认 12
   --no-cache                 禁用本地菜单缓存（强制重新拉取菜单与逐品算价）
@@ -59,6 +62,8 @@ plan 选项：
 
 doctor 选项：
   --dump-schema <path>       把 tools/list 的原始 schema 写到文件，便于核对参数名
+  --addresses                列出账号下的配送地址编号与所在城市（供 --address-id 使用）；
+                             只输出编号与城市，收货人/电话/门牌不会显示
 
 环境变量：
   MCD_MCP_TOKEN              麦当劳 MCP Token（在 https://open.mcd.cn/mcp 申请）
@@ -154,6 +159,16 @@ function printPlanSummary(result, { outPath, jsonPath, dataPath }) {
       const payable = row.localPayableFen !== undefined && row.localPayableFen !== row.localFen
         ? `　本地估算券后实付 ¥${formatYuan(row.localPayableFen)}` : '';
       out.push(`    ${row.label}：本地菜单价 ¥${formatYuan(row.localFen)} → 官方 ¥${formatYuan(row.officialFen)}（${deltaText}）${coupon}${payable}`);
+      // 外送场景：官方 total 含配送费与打包费，单独作为「到手价」列出，避免与餐品价混为一谈
+      if (row.officialTotalFen !== null && row.officialTotalFen !== undefined && row.officialTotalFen !== row.officialFen) {
+        const fees = [
+          row.deliveryFen ? `配送 ¥${formatYuan(row.deliveryFen)}` : null,
+          row.packingFen ? `打包 ¥${formatYuan(row.packingFen)}` : null,
+        ].filter(Boolean).join(' + ');
+        out.push(`      到手价 ¥${formatYuan(row.officialTotalFen)}${fees ? `（含 ${fees}）` : ''}`
+          + (result.budgetFen !== null && result.budgetFen !== undefined && row.officialTotalFen > result.budgetFen
+            ? `　⚠ 超出预算 ¥${formatYuan(result.budgetFen)}` : ''));
+      }
     }
     for (const row of result.priceVerification.failures) {
       out.push(`    ${row.label}：验价失败 —— ${row.reason}`);
@@ -263,6 +278,22 @@ async function cmdDoctor(options) {
       out.push(`    📄 工具 schema 已导出：${target}（不含 Token，可安全分享）`);
     }
 
+    // 列出可用于 --address-id 的配送地址编号。**只输出编号与城市**，
+    // 收货人 / 电话 / 门牌一概不打印 —— 自检输出常常会被贴进 issue 或聊天窗口，
+    // 那里是最容易把个人隐私带出去的地方。
+    if (options.addresses) {
+      if (!registry.has('delivery-query-addresses')) {
+        out.push('    ⚠️ 当前 MCP 服务未暴露 delivery-query-addresses，无法列出配送地址。');
+      } else {
+        const res = await registry.call('delivery-query-addresses', {});
+        const addresses = normalizeAddresses(res.data ?? res.raw);
+        out.push('');
+        out.push(`    📍 账号下配送地址（${addresses.length} 个，仅显示编号与城市，用于 --address-id）：`);
+        for (const a of addresses) out.push(`        ${a.id}  ${a.cityHint ?? '（未识别城市）'}`);
+        if (!addresses.length) out.push('        （无）外送场景需先在麦当劳官方渠道添加收货地址');
+      }
+    }
+
     out.push(`    请求统计：${JSON.stringify(summarizeCalls(registry.callLog))}`);
     out.push('');
     out.push('  自检通过。可以运行： mcd-dual plan --budget 30 --city <你的城市> --store <门店关键词>');
@@ -320,6 +351,7 @@ async function cmdPlan(options) {
       storeCode: options['store-code'],
       beType: options['be-type'] !== undefined ? Number(options['be-type']) : undefined,
       orderType: options['order-type'] !== undefined ? Number(options['order-type']) : undefined,
+      addressId: options['address-id'],
       searchType: options['search-type'] !== undefined ? Number(options['search-type']) : undefined,
       comboLookupLimit: options['combo-limit'] !== undefined ? Number(options['combo-limit']) : undefined,
       verify: !options['no-verify'],

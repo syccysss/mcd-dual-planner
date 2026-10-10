@@ -100,3 +100,24 @@ test('渲染战报：候选规模被自动下调以避免截断时必须留痕',
   assert.ok(svg.includes('候选规模已自动下调'), '必须说明候选规模被调整过');
   assert.ok(svg.includes('6→5'), '必须给出调整前后的具体数值');
 });
+
+test('渲染战报：外送场景单独列出「到手价」（含配送/打包），超出预算时告警', () => {
+  const result = buildPlanDemo({ budgetYuan: 30 });
+  result.meta.mode = 'live';
+  result.meta.beType = 2;
+  result.meta.orderType = 2;
+  // 菜价一致，但官方到手价含配送费与打包费，且超过预算
+  result.priceVerification = {
+    verified: [{
+      index: 0, label: '双赢推荐',
+      localFen: 3550, officialFen: 3550, officialTotalFen: 4340,
+      deliveryFen: 600, packingFen: 190, couponName: null,
+    }],
+    failures: [],
+  };
+  const svg = renderReport(result);
+  assert.ok(svg.includes('到手价'), '外送必须把到手价与餐品价分开列，不能只给一个数');
+  assert.ok(svg.includes('配送 ¥6.00'), '必须列出配送费');
+  assert.ok(svg.includes('打包 ¥1.90'), '必须列出打包费');
+  assert.ok(svg.includes('超出预算'), '到手价超过预算时必须显式告警，不能假装在预算内');
+});

@@ -522,7 +522,16 @@ export function normalizePrice(payload) {
   const totalFen = toNumber(pick(source, TOTAL_KEYS));
   const discountFen = toNumber(pick(source, ['discountAmount', 'discount_amount', 'discount', 'couponAmount',
     'coupon_amount', 'reduceAmount', 'reduce_amount']));
-  const deliveryFen = toNumber(pick(source, ['deliveryFee', 'delivery_fee', 'freight', 'shippingFee', 'packingFee']));
+  // 商品价（不含配送费/打包费）。外送场景下官方 price 已经包含 deliveryPrice + packingPrice，
+  // 用 price 当「商品单价」会把订单级费用重复计入**每一个**商品，因此这里单独取出商品价。
+  const productFen = toNumber(pick(source, ['productPrice', 'product_price', 'productAmount', 'product_amount',
+    'itemsAmount', 'items_amount']));
+  // 真实字段名是 deliveryPrice / packingPrice（不是 deliveryFee / freight）：原先按猜测的
+  // 名字解析导致这两个值恒为 null，配送费被静默忽略。
+  const deliveryFen = toNumber(pick(source, ['deliveryPrice', 'delivery_price', 'deliveryOriginalPrice',
+    'deliveryFee', 'delivery_fee', 'freight', 'shippingFee']));
+  const packingFen = toNumber(pick(source, ['packingPrice', 'packing_price', 'packingOriginalPrice',
+    'packingFee', 'packing_fee', 'packFee']));
   const originalFen = toNumber(pick(source, ['originalAmount', 'original_amount', 'originAmount', 'listAmount']));
 
   const lines = collect(source, (o) => {
@@ -537,9 +546,11 @@ export function normalizePrice(payload) {
 
   return {
     totalFen: totalFen === null ? null : Math.round(totalFen),
+    productFen: productFen === null ? null : Math.round(productFen),
     originalFen: originalFen === null ? null : Math.round(originalFen),
     discountFen: discountFen === null ? null : Math.round(discountFen),
     deliveryFen: deliveryFen === null ? null : Math.round(deliveryFen),
+    packingFen: packingFen === null ? null : Math.round(packingFen),
     lines,
     raw: source,
   };
@@ -550,15 +561,23 @@ export function normalizePrice(payload) {
 export function normalizeStores(payload) {
   const nodes = collect(payload, (obj) => {
     const name = pick(obj, ['storeName', 'store_name', 'name', 'shopName', 'restaurantName']);
-    const code = pick(obj, ['beCode', 'be_code', 'storeCode', 'store_code', 'code', 'id', 'storeId']);
+    const code = pick(obj, ['storeCode', 'store_code', 'beCode', 'be_code', 'code', 'id', 'storeId']);
     return typeof name === 'string' && name.trim() && code !== undefined && code !== null;
   });
 
   const byCode = new Map();
   for (const node of nodes) {
-    const code = String(pick(node, ['beCode', 'be_code', 'storeCode', 'store_code', 'code', 'id', 'storeId']));
+    // storeCode 与 beCode 是**两个不同的编码**，不能合并：
+    // 到店（beType=1）门店只有 storeCode；得来速（beType=5）/麦乐送（beType=2）门店
+    // 两者都有（如 storeCode=3450230、beCode=345023041），而 query-meals /
+    // calculate-price 要求**分别**传 storeCode 与 beCode，缺 beCode 会被官方
+    // 以 600048（"外送场景下 beType=2/5/6 时必传 beCode"）或空菜单拒绝。
+    const storeCodeRaw = pick(node, ['storeCode', 'store_code', 'id', 'storeId', 'code']);
+    const beCodeRaw = pick(node, ['beCode', 'be_code']);
+    const code = String(storeCodeRaw ?? beCodeRaw);
     byCode.set(code, {
       code,
+      beCode: beCodeRaw === undefined || beCodeRaw === null ? null : String(beCodeRaw),
       name: String(pick(node, ['storeName', 'store_name', 'name', 'shopName', 'restaurantName'])).trim(),
       address: pick(node, ['address', 'storeAddress', 'addr', 'fullAddress']) ?? null,
       distance: pick(node, ['distance', 'distanceText', 'distanceMeter']) ?? null,
@@ -567,6 +586,33 @@ export function normalizeStores(payload) {
     });
   }
   return [...byCode.values()];
+}
+
+/**
+ * 配送地址归一化 —— **只保留选址必需的信息**。
+ *
+ * 官方 `delivery-query-addresses` 返回的是账号下真实保存的收货地址，含收货人姓名、
+ * 手机号、详细门牌。这些都是个人隐私，本项目只用其中的 `addressId` 去查可配送门店，
+ * 因此这里**只回传 id 与一个用于匹配城市的粗粒度提示**，姓名/电话/门牌一律丢弃，
+ * 从源头保证它们不会进入结果对象、不会写进快照、不会出现在战报里。
+ */
+export function normalizeAddresses(payload) {
+  const nodes = collect(payload, (obj) => {
+    const id = pick(obj, ['addressId', 'address_id', 'addrId', 'id']);
+    return id !== undefined && id !== null && String(id).trim() !== '';
+  });
+
+  const byId = new Map();
+  for (const node of nodes) {
+    const id = String(pick(node, ['addressId', 'address_id', 'addrId', 'id']));
+    // 只从完整地址里截出"省/市"一级片段做城市匹配，其余一概不留
+    const full = pick(node, ['fullAddress', 'address', 'detail', 'full_address']);
+    const cityHint = typeof full === 'string'
+      ? (full.match(/[\u4e00-\u9fa5]{2,8}?(?:省|市|自治区|特别行政区)/)?.[0] ?? null)
+      : null;
+    byId.set(id, { id, cityHint });
+  }
+  return [...byId.values()];
 }
 
 // ---------------------------------------------------------------- 校验

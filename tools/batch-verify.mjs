@@ -13,8 +13,10 @@
  *   node tools/batch-verify.mjs --cities beijing,shanghai,guangzhou
  *   node tools/batch-verify.mjs --cities chengdu --per-city 3      # 同城多店
  *   node tools/batch-verify.mjs --cities beijing --budget 20       # 收紧预算
+ *   node tools/batch-verify.mjs --cities chengdu --be-type 5       # 得来速车道取餐
+ *   node tools/batch-verify.mjs --be-type 2                        # 麦乐送（按账号配送地址分站）
  *
- * 产物（均可安全分享，Token 不会落盘）：
+ * 产物（均可安全分享，Token 不会落盘；外送场景亦不落盘任何收货信息）：
  *   examples/stores/<门店编码>.json    每店原始快照（菜单/营养/券/匹配）
  *   examples/batch-summary.json        跨店汇总（含跨城同款商品价格对比）
  */
@@ -24,8 +26,8 @@ import { fileURLToPath } from 'node:url';
 
 import { McpClient, McpError, DEFAULT_ENDPOINT } from '../src/mcp-client.mjs';
 import { ToolRegistry, mapParams, summarizeCalls } from '../src/tools.mjs';
-import { buildPlanLive } from '../src/pipeline.mjs';
-import { normalizeStores } from '../src/normalize.mjs';
+import { buildPlanLive, resolveStores } from '../src/pipeline.mjs';
+import { normalizeStores, normalizeAddresses } from '../src/normalize.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -69,16 +71,26 @@ function resolveCity(key) {
   return { key: k, city: k, keyword: k };
 }
 
-/** 按城市定位门店：优先「城市 + 地标关键词」，失败则退回只按城市 */
-async function findStores(registry, cityInfo, beType) {
+/**
+ * 定位门店。
+ *  - 外送（beType 2/6）：复用 pipeline 的 resolveStores，走「账号配送地址 → 可配送门店」，
+ *    与实时求解完全同一套逻辑，避免两处口径漂移。
+ *  - 到店/得来速（beType 1/5）：城市 + 地标关键词，关键词命中为空时退回只按城市。
+ */
+async function findStores(registry, station, beType) {
+  if (beType === 2 || beType === 6) {
+    const { stores } = await resolveStores(registry, { beType, addressId: station.addressId });
+    return stores;
+  }
+
   const tool = registry.schema('query-nearby-stores');
   if (!tool) throw new Error('未暴露 query-nearby-stores');
 
   // 注意：官方真实参数名是 city（不是 cityName），所以每个逻辑参数都要给出候选名列表，
   // 由 mapParams 按 schema 归一化匹配，否则城市会静默丢失、查不到任何门店。
   const attempts = [
-    { searchType: 2, city: cityInfo.city, keyword: cityInfo.keyword, beType },
-    { searchType: 2, city: cityInfo.city, beType },
+    { searchType: 2, city: station.city, keyword: station.keyword, beType },
+    { searchType: 2, city: station.city, beType },
   ];
   let lastError = null;
   for (const desired of attempts) {
@@ -114,6 +126,8 @@ function summarize(result, cityInfo, store) {
     storeCode: result.meta.store?.code ?? store.code,
     storeName: result.meta.store?.name ?? store.name,
     address: store.address ?? null,
+    beType: result.meta.beType ?? null,
+    orderType: result.meta.orderType ?? null,
     menuTotal,
     matched,
     unmatched: result.coverage?.unmatched ?? null,
@@ -146,6 +160,11 @@ function summarize(result, cityInfo, store) {
         couponName: v?.couponName ?? null,
         verified: v ? v.officialFen === v.localFen : null,
         officialYuan: v?.officialFen != null ? +(v.officialFen / 100).toFixed(2) : null,
+        // 外送场景：官方到手价（含配送费 + 打包费），与"餐品价"区分开
+        deliveredYuan: v?.officialTotalFen != null && v.officialTotalFen !== v.officialFen
+          ? +(v.officialTotalFen / 100).toFixed(2) : null,
+        deliveryFeeYuan: v?.deliveryFen != null ? +(v.deliveryFen / 100).toFixed(2) : null,
+        packingFeeYuan: v?.packingFen != null ? +(v.packingFen / 100).toFixed(2) : null,
         items: (r.items ?? []).map((x) => x.name),
       };
     }),
@@ -179,8 +198,10 @@ function crossCityPrices(menus, rows) {
 }
 
 function logRow(row) {
-  const recs = row.recs.map((r) => `${r.label} ¥${r.payableYuan}(${r.score}分/${r.proteinG}g蛋白)`).join(' | ');
+  const recs = row.recs.map((r) => `${r.label} ¥${r.payableYuan}(${r.score}分/${r.proteinG}g蛋白)`
+    + (r.deliveredYuan != null ? `[到手¥${r.deliveredYuan}]` : '')).join(' | ');
   console.log(`  ✓ ${row.city} / ${row.storeName}（${row.storeCode}）`
+    + `　beType=${row.beType}/orderType=${row.orderType}`
     + `\n      菜单 ${row.menuTotal} · 营养 ${row.matched}(${row.matchRate}%) · 券 ${row.couponDeduped}(可用${row.couponUsable})`
     + ` · 候选 ${row.candidates} · 枚举 ${row.enumerated}${row.truncated ? '【截断】' : ''}`
     + `${row.perCategoryAdjusted ? `【候选规模自动 ${row.perCategoryRequested}→${row.perCategoryUsed}】` : ''}`
@@ -217,8 +238,26 @@ async function main() {
   const menus = new Map();
   const startedAll = Date.now();
 
-  for (const cityInfo of cities) {
-    console.log(`\n=== ${cityInfo.city}（关键词：${cityInfo.keyword}）===`);
+  // 到店/得来速按「城市」分站；外送按「配送地址」分站（地址属于账号，不属于城市）
+  let stations = cities;
+  if (beType === 2 || beType === 6) {
+    const addrRes = await registry.call('delivery-query-addresses', {});
+    const addresses = normalizeAddresses(addrRes.data ?? addrRes.raw);
+    if (!addresses.length) {
+      console.log('✗ 账号下没有可用配送地址，无法进行外送验证。');
+      process.exit(1);
+    }
+    stations = addresses.map((a, i) => ({
+      key: a.id,
+      city: a.cityHint ?? `地址 #${i + 1}`,
+      keyword: null,
+      addressId: a.id,
+    }));
+    console.log(`外送场景（beType=${beType}）：账号下有 ${addresses.length} 个配送地址，逐地址验证可配送门店。`);
+  }
+
+  for (const cityInfo of stations) {
+    console.log(`\n=== ${cityInfo.city}${cityInfo.keyword ? `（关键词：${cityInfo.keyword}）` : ''} ===`);
     let stores = [];
     try {
       stores = await findStores(registry, cityInfo, beType);
@@ -245,6 +284,7 @@ async function main() {
           // 只给 city 不给 keyword 时官方可能返回空列表，导致找不到目标门店。
           storeKeyword: cityInfo.keyword,
           storeCode: store.code,
+          addressId: cityInfo.addressId,
           beType,
           verify: true,
           cache: !options['no-cache'],
@@ -255,6 +295,8 @@ async function main() {
           mode: result.meta.mode,
           city: cityInfo.city,
           store: result.meta.store,
+          beType: result.meta.beType ?? null,
+          orderType: result.meta.orderType ?? null,
           generatedAt: result.meta.generatedAt,
           targets: result.targets,
           budgetFen: result.budgetFen,

@@ -1,7 +1,7 @@
 {
   "meta": {
     "mode": "demo",
-    "generatedAt": "2026-10-10 03:10:18",
+    "generatedAt": "2026-10-10 03:45:37",
     "store": {
       "code": "DEMO-0001",
       "name": "演示餐厅（合成数据，非真实门店）",
@@ -54,6 +54,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -125,6 +126,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2450
       },
@@ -203,6 +205,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -274,6 +277,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2450
       },
@@ -352,6 +356,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -423,6 +428,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -494,6 +500,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2450
       },
@@ -565,6 +572,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2350
       },
@@ -636,6 +644,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -707,6 +716,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2150
       },
@@ -778,6 +788,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2500
       },
@@ -849,6 +860,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -927,6 +939,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -1005,6 +1018,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -1076,6 +1090,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -1154,6 +1169,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -1225,6 +1241,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -1303,6 +1320,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -1374,6 +1392,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -1452,6 +1471,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -1523,6 +1543,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -1601,6 +1622,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -1672,6 +1694,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -1743,6 +1766,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -1821,6 +1845,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -1892,6 +1917,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2150
       },
@@ -1963,6 +1989,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -2041,6 +2068,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -2112,6 +2140,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2050
       },
@@ -2190,6 +2219,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -2261,6 +2291,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -2339,6 +2370,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -2410,6 +2442,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -2481,6 +2514,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2500
       },
@@ -2552,6 +2586,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -2623,6 +2658,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1950
       },
@@ -2701,6 +2737,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -2772,6 +2809,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -2843,6 +2881,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -2914,6 +2953,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -2985,6 +3025,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2200
       },
@@ -3063,6 +3104,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -3134,6 +3176,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -3205,6 +3248,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -3283,6 +3327,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -3354,6 +3399,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2450
       },
@@ -3432,6 +3478,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -3503,6 +3550,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -3574,6 +3622,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -3645,6 +3694,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2500
       },
@@ -3723,6 +3773,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -3794,6 +3845,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -3872,6 +3924,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -3950,6 +4003,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -4021,6 +4075,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -4092,6 +4147,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2500
       },
@@ -4163,6 +4219,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2200
       },
@@ -4234,6 +4291,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2300
       },
@@ -4305,6 +4363,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2500
       },
@@ -4383,6 +4442,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -4454,6 +4514,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2050
       },
@@ -4518,6 +4579,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2050
       },
@@ -4589,6 +4651,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -4667,6 +4730,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2300
       },
@@ -4738,6 +4802,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2450
       },
@@ -4802,6 +4867,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1850
       },
@@ -4873,6 +4939,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2300
       },
@@ -4944,6 +5011,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -5008,6 +5076,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1550
       },
@@ -5072,6 +5141,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1850
       },
@@ -5143,6 +5213,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1850
       },
@@ -5221,6 +5292,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2300
       },
@@ -5292,6 +5364,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2400
       },
@@ -5363,6 +5436,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2500
       },
@@ -5427,6 +5501,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1650
       },
@@ -5491,6 +5566,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1750
       },
@@ -5562,6 +5638,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -5640,6 +5717,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2600
       },
@@ -5711,6 +5789,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1850
       },
@@ -5782,6 +5861,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2150
       },
@@ -5853,6 +5933,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -5931,6 +6012,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2300
       },
@@ -6002,6 +6084,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2150
       },
@@ -6080,6 +6163,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2500
       },
@@ -6151,6 +6235,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -6229,6 +6314,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -6300,6 +6386,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2400
       },
@@ -6371,6 +6458,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 500,
         "payableFen": 2500
       },
@@ -6449,6 +6537,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2100
       },
@@ -6527,6 +6616,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2400
       },
@@ -6605,6 +6695,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2500
       },
@@ -6676,6 +6767,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1350
       },
@@ -6747,6 +6839,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1650
       },
@@ -6818,6 +6911,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1750
       },
@@ -6896,6 +6990,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -6967,6 +7062,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1750
       },
@@ -7038,6 +7134,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1900
       },
@@ -7109,6 +7206,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2150
       },
@@ -7180,6 +7278,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2200
       },
@@ -7251,6 +7350,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2300
       },
@@ -7322,6 +7422,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -7393,6 +7494,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -7464,6 +7566,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -7535,6 +7638,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2450
       },
@@ -7606,6 +7710,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1700
       },
@@ -7677,6 +7782,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2000
       },
@@ -7748,6 +7854,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2100
       },
@@ -7826,6 +7933,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -7904,6 +8012,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2650
       },
@@ -7968,6 +8077,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 950
       },
@@ -8032,6 +8142,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1250
       },
@@ -8096,6 +8207,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1350
       },
@@ -8167,6 +8279,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1900
       },
@@ -8238,6 +8351,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1900
       },
@@ -8309,6 +8423,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2150
       },
@@ -8380,6 +8495,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2200
       },
@@ -8451,6 +8567,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2200
       },
@@ -8522,6 +8639,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2300
       },
@@ -8593,6 +8711,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2300
       },
@@ -8664,6 +8783,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2450
       },
@@ -8735,6 +8855,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2550
       },
@@ -8803,6 +8924,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 950
       },
@@ -8874,6 +8996,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1350
       },
@@ -8938,6 +9061,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1550
       },
@@ -9002,6 +9126,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1850
       },
@@ -9073,6 +9198,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 1950
       },
@@ -9144,6 +9270,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2050
       },
@@ -9215,6 +9342,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2150
       },
@@ -9286,6 +9414,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -9359,6 +9488,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 2250
       },
@@ -9424,6 +9554,7 @@
           "carb": false,
           "sodium": false
         },
+        "surchargeFen": 0,
         "discountFen": 300,
         "payableFen": 950
       },
@@ -9514,6 +9645,7 @@
     "perCategoryAdjusted": null,
     "couponCount": 3,
     "couponApplied": 121,
+    "surchargeFen": 0,
     "costBasis": "菜单价过滤预算，券后实付排序",
     "dominanceNote": "候选集裁剪后枚举，非全量穷举；裁剪规模见 candidateStats。"
   },

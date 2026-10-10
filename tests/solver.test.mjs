@@ -332,3 +332,32 @@ test('solve：搜索截断时自动下调候选规模重算，而不是返回被
   assert.ok(adj.used < adj.requested, '降级后的候选规模必须小于请求值');
   assert.ok(result.recommendations.length > 0, '降级后仍应给出推荐');
 });
+
+test('订单级附加费：整单计一次的配送/打包费计入预算与到手价，且默认 0 时与改动前完全一致', () => {
+  const { items, nutritionByItem } = makeFixture();
+  const base = { items, nutritionByItem, targets: DEFAULT_TARGETS, budgetFen: 4000 };
+
+  // 默认（到店）没有附加费：totals.surchargeFen 为 0，payableFen 与 priceFen 的差只来自券
+  const dineIn = solve(base);
+  assert.equal(dineIn.stats.surchargeFen, 0);
+  for (const plan of dineIn.plans.slice(0, 10)) {
+    assert.equal(plan.totals.surchargeFen, 0);
+    assert.equal(plan.totals.payableFen, Math.max(0, plan.totals.priceFen - (plan.totals.discountFen ?? 0)));
+  }
+
+  // 外送：附加费 ¥9 作为整单常数
+  const delivery = solve({ ...base, surchargeFen: 900 });
+  assert.equal(delivery.stats.surchargeFen, 900);
+  for (const plan of delivery.plans.slice(0, 10)) {
+    assert.equal(plan.totals.surchargeFen, 900, '附加费应按整单记一次，不随餐品数量放大');
+    assert.equal(plan.totals.payableFen, Math.max(0, plan.totals.priceFen + 900 - (plan.totals.discountFen ?? 0)));
+  }
+  // 预算口径：附加费后总额不得超预算（否则配送费会躲在预算之外）
+  for (const plan of delivery.plans) {
+    assert.ok(plan.totals.priceFen + 900 <= 4000, '预算必须把订单级费用算进去');
+  }
+  // 附加费是常数 ⇒ 不改变方案的相对优劣排序（成本轴整体平移）
+  const sig = (p) => p.items.map((i) => i.code).join('+');
+  assert.deepEqual(delivery.recommendations.map(sig), dineIn.recommendations.map(sig),
+    '整单常数不应改变推荐方案本身');
+});

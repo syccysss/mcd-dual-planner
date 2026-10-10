@@ -10,7 +10,7 @@
  * 全流程只读：不创建订单、不领券、不扣积分。
  */
 
-import { normalizeCoupons, normalizeNutrition, normalizePrice, normalizeStores,
+import { normalizeCoupons, normalizeNutrition, normalizePrice, normalizeStores, normalizeAddresses,
   matchNutrition, sanityCheckMenu, nameKey, inferCategory, mergeCoupon } from './normalize.mjs';
 import { cacheLoad, cacheSave } from './cache.mjs';
 import { solve, pickBestCoupon, DEFAULT_RULES, DEFAULT_TARGETS, DEFAULT_WEIGHTS, DEFAULT_MIN_SCORE,
@@ -121,6 +121,85 @@ export function dedupeCoupons(coupons) {
 }
 
 /**
+ * 按取餐方式定位门店 —— 实时求解与批量验证工具共用同一套逻辑，避免两处口径漂移。
+ *
+ * beType 决定的不只是"去哪家店"，还决定**用哪个工具找店**：
+ *   - 1 到店自提 / 5 得来速：`query-nearby-stores`（官方该工具的 beType 枚举只有 1、5）
+ *   - 2 麦乐送 / 6 企业团餐：必须先 `delivery-query-addresses` 取地址编号，
+ *     再 `delivery-query-stores`。官方同时强制 orderType=2。
+ * 把 beType=2 丢给 query-nearby-stores 只会**静默返回空列表**（不报错），
+ * 这正是"看起来支持麦乐送、实际一家店也找不到"的原因，必须分开走。
+ */
+export async function resolveStores(registry, options = {}) {
+  const beType = options.beType === undefined || options.beType === null ? 1 : Number(options.beType);
+  const isDelivery = beType === 2 || beType === 6;
+  const orderType = options.orderType === undefined || options.orderType === null
+    ? (isDelivery ? 2 : 1)
+    : Number(options.orderType);
+
+  const toolsUsed = [];
+  const dataNotes = [];
+  let stores = [];
+  let usedAddressId = null;
+
+  if (isDelivery) {
+    if (!registry.has('delivery-query-addresses')) {
+      throw new Error('当前 MCP 服务未暴露 delivery-query-addresses，无法使用麦乐送/企业团餐。');
+    }
+    const addrRes = await registry.call('delivery-query-addresses', {});
+    toolsUsed.push('delivery-query-addresses');
+    // 只取地址编号用于选址；**收货人、电话、门牌一律不进入结果、不进入快照、不落盘**
+    const addresses = normalizeAddresses(addrRes.data ?? addrRes.raw);
+    if (addresses.length === 0) {
+      throw new Error('该账号下没有可用配送地址。请先在麦当劳官方渠道添加收货地址后重试（本项目不会替你创建地址）。');
+    }
+    const picked = (options.addressId
+      ? addresses.find((a) => a.id === String(options.addressId))
+      : (options.city ? addresses.find((a) => (a.cityHint ?? '').includes(String(options.city))) : null))
+      ?? addresses[0];
+    usedAddressId = picked.id;
+    dataNotes.push(`麦乐送/团餐使用账号下已保存的配送地址（共 ${addresses.length} 个，仅取地址编号用于选址，收货信息不入库）。`);
+
+    const deliveryStoreTool = registry.schema('delivery-query-stores');
+    if (!deliveryStoreTool) throw new Error('当前 MCP 服务未暴露 delivery-query-stores，无法按配送地址定位门店。');
+    const dsParams = mapParams(deliveryStoreTool, [
+      { keys: ['beType'], value: beType },
+      { keys: ['addressId', 'addrId', 'id'], value: usedAddressId },
+    ]);
+    const dsRes = await registry.call('delivery-query-stores', dsParams.args);
+    toolsUsed.push('delivery-query-stores');
+    stores = normalizeStores(dsRes.data ?? dsRes.raw);
+    if (stores.length === 0) {
+      throw new Error('该配送地址附近没有可配送门店，请更换地址或改用 --be-type 1（到店）。');
+    }
+  } else {
+    const storeTool = registry.schema('query-nearby-stores');
+    if (!storeTool) throw new Error('当前 MCP 服务未暴露 query-nearby-stores，无法定位门店。');
+
+    const storeParams = mapParams(storeTool, [
+      { keys: ['searchType'], value: options.searchType ?? 2 },
+      { keys: ['cityName', 'city', 'cityCode'], value: options.city },
+      { keys: ['keyword', 'storeName', 'storeKeyword', 'searchKey', 'address'], value: options.storeKeyword },
+      { keys: ['beType'], value: beType },
+      { keys: ['longitude', 'lng'], value: options.lng },
+      { keys: ['latitude', 'lat'], value: options.lat },
+    ]);
+    if (storeParams.unmatched.length) {
+      dataNotes.push(`门店查询有未匹配参数：${storeParams.unmatched.join('、')}（官方工具可能已改名，已自动跳过）。`);
+    }
+
+    const storeRes = await registry.call('query-nearby-stores', storeParams.args);
+    toolsUsed.push('query-nearby-stores');
+    stores = normalizeStores(storeRes.data ?? storeRes.raw);
+    if (stores.length === 0) {
+      throw new Error('未查询到门店。请用 --city 指定城市、--store 指定门店名或地标后重试。');
+    }
+  }
+
+  return { stores, beType, isDelivery, orderType, usedAddressId, toolsUsed, dataNotes };
+}
+
+/**
  * 实时模式：连接官方 MCP 取真实数据。
  * 任何一步失败都会抛出带可操作提示的错误，而不是"悄悄降级成假数据"。
  */
@@ -142,28 +221,12 @@ export async function buildPlanLive(registry, options = {}) {
     }
   }
 
-  // 2) 门店
-  const storeTool = registry.schema('query-nearby-stores');
-  if (!storeTool) throw new Error('当前 MCP 服务未暴露 query-nearby-stores，无法定位门店。');
+  // 2) 取餐方式（beType）决定两件事：用哪个工具找门店、订单类型（orderType）是多少。
+  const { stores, beType, isDelivery, orderType, toolsUsed: storeTools, dataNotes: storeNotes } =
+    await resolveStores(registry, options);
+  toolsUsed.push(...storeTools);
+  dataNotes.push(...storeNotes);
 
-  const storeParams = mapParams(storeTool, [
-    { keys: ['searchType'], value: options.searchType ?? 2 },
-    { keys: ['cityName', 'city', 'cityCode'], value: options.city },
-    { keys: ['keyword', 'storeName', 'storeKeyword', 'searchKey', 'address'], value: options.storeKeyword },
-    { keys: ['beType'], value: options.beType ?? 1 },
-    { keys: ['longitude', 'lng'], value: options.lng },
-    { keys: ['latitude', 'lat'], value: options.lat },
-  ]);
-  if (storeParams.unmatched.length) {
-    dataNotes.push(`门店查询有未匹配参数：${storeParams.unmatched.join('、')}（官方工具可能已改名，已自动跳过）。`);
-  }
-
-  const storeRes = await registry.call('query-nearby-stores', storeParams.args);
-  toolsUsed.push('query-nearby-stores');
-  const stores = normalizeStores(storeRes.data ?? storeRes.raw);
-  if (stores.length === 0) {
-    throw new Error('未查询到门店。请用 --city 指定城市、--store 指定门店名或地标后重试。');
-  }
   const store = options.storeCode
     ? stores.find((s) => s.code === String(options.storeCode)) ?? stores[0]
     : stores[0];
@@ -171,7 +234,7 @@ export async function buildPlanLive(registry, options = {}) {
 
   // 3) 菜单编码清单：官方 query-meals 只返回商品编码与标签，名称与价格需逐品调用官方算价
   //    两步整体可走本地缓存（TTL 内复用，二次求解从 140 次请求降到个位数）
-  const cacheParams = { storeCode: store.code, beType: options.beType ?? 1, orderType: options.orderType ?? 1 };
+  const cacheParams = { storeCode: store.code, beType, orderType };
   let menuItems = null;
   let pricingFailed = 0;
   if (options.cache !== false) {
@@ -188,9 +251,10 @@ export async function buildPlanLive(registry, options = {}) {
     const menuTool = registry.schema('query-meals');
     if (!menuTool) throw new Error('当前 MCP 服务未暴露 query-meals，无法获取菜单。');
     const menuParams = mapParams(menuTool, [
-      { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
-      { keys: ['beType'], value: options.beType ?? 1 },
-      { keys: ['orderType'], value: options.orderType ?? 1 },
+      { keys: ['storeCode', 'storeId', 'code'], value: store.code },
+      { keys: ['beCode'], value: store.beCode },
+      { keys: ['beType'], value: beType },
+      { keys: ['orderType'], value: orderType },
     ]);
     const menuRes = await registry.call('query-meals', menuParams.args);
     toolsUsed.push('query-meals');
@@ -206,9 +270,10 @@ export async function buildPlanLive(registry, options = {}) {
     for (const entry of menuEntries) {
       try {
         const priceGroups = [
-          { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
-          { keys: ['beType'], value: options.beType ?? 1 },
-          { keys: ['orderType'], value: options.orderType ?? 1 },
+          { keys: ['storeCode', 'storeId', 'code'], value: store.code },
+          { keys: ['beCode'], value: store.beCode },
+          { keys: ['beType'], value: beType },
+          { keys: ['orderType'], value: orderType },
           { keys: ['products', 'meals', 'items', 'productList', 'cart'], value: [{ productCode: entry.code, quantity: 1 }] },
         ];
         const priceParams = mapParams(priceTool, priceGroups);
@@ -216,11 +281,18 @@ export async function buildPlanLive(registry, options = {}) {
         const priced = normalizePrice(priceRes.data ?? priceRes.raw);
         const line = priced?.lines?.[0];
         if (line && priced.totalFen !== null) {
+          // 外送场景：官方 totalFen（price）已含配送费与打包费，若拿它当单品价，
+          // 会把一笔**整单**费用重复计入每一个餐品。故单品价只认商品价（productFen）；
+          // 订单级的配送费/打包费在最终推荐方案的官方验价里单独列出，不进单品价。
+          const itemPriceFen = isDelivery
+            ? (priced.productFen
+              ?? Math.max(0, priced.totalFen - (priced.deliveryFen ?? 0) - (priced.packingFen ?? 0)))
+            : priced.totalFen;
           const { category, inferred } = inferCategory(line.name);
           menuItems.push({
             code: entry.code,
             name: line.name,
-            priceFen: priced.totalFen,
+            priceFen: itemPriceFen,
             priceSource: 'official-calculate-price',
             category,
             categoryInferred: inferred,
@@ -264,9 +336,10 @@ export async function buildPlanLive(registry, options = {}) {
       try {
         const detailParams = mapParams(detailTool, [
           { keys: ['code', 'productCode', 'mealCode', 'skuCode'], value: item.code },
-          { keys: ['storeCode', 'storeId', 'beCode'], value: store.code },
-          { keys: ['beType'], value: options.beType ?? 1 },
-          { keys: ['orderType'], value: options.orderType ?? 1 },
+          { keys: ['storeCode', 'storeId'], value: store.code },
+          { keys: ['beCode'], value: store.beCode },
+          { keys: ['beType'], value: beType },
+          { keys: ['orderType'], value: orderType },
         ]);
         const detailRes = await registry.call('query-meal-detail', detailParams.args);
         const parts = extractComboParts(detailRes.data ?? detailRes.raw, menuItems);
@@ -303,9 +376,10 @@ export async function buildPlanLive(registry, options = {}) {
   // 6) 优惠券（只读：不领券）
   const coupons = [];
   const couponSources = [
-    ['query-store-coupons', [{ keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
-      { keys: ['beType'], value: options.beType ?? 1 },
-      { keys: ['orderType'], value: options.orderType ?? 1 }]],
+    ['query-store-coupons', [{ keys: ['storeCode', 'storeId', 'code'], value: store.code },
+      { keys: ['beCode'], value: store.beCode },
+      { keys: ['beType'], value: beType },
+      { keys: ['orderType'], value: orderType }]],
     ['available-coupons', []],
     ['query-my-coupons', []],
   ];
@@ -326,8 +400,6 @@ export async function buildPlanLive(registry, options = {}) {
 
   // 6.1) 券落到具体商品：官方券是「商品级用券价」，必须定位到方案里确实包含的商品才算数；
   //      同时按当前取餐方式（beType / orderType）过滤掉用不了的券。
-  const beType = options.beType ?? 1;
-  const orderType = options.orderType ?? 1;
   const menuCodeSet = new Set(menuItems.map((m) => String(m.code)));
   const usableCoupons = [];
   let unusableCoupon = 0;
@@ -408,9 +480,10 @@ export async function buildPlanLive(registry, options = {}) {
         const couponId = plan.coupon ?? pickBestCoupon(uniqCoupons, plan.totals.priceFen);
         // 官方算价 items 的商品编码字段名是 productCode，不是 code
         const groups = [
-          { keys: ['storeCode', 'storeId', 'beCode', 'code'], value: store.code },
-          { keys: ['beType'], value: options.beType ?? 1 },
-          { keys: ['orderType'], value: options.orderType ?? 1 },
+          { keys: ['storeCode', 'storeId', 'code'], value: store.code },
+          { keys: ['beCode'], value: store.beCode },
+          { keys: ['beType'], value: beType },
+          { keys: ['orderType'], value: orderType },
           { keys: ['products', 'meals', 'items', 'productList', 'cart'], value: plan.items.map((item) => ({ productCode: item.code, quantity: 1 })) },
           { keys: ['couponIds', 'couponId', 'coupons'], value: couponId ? [couponId.id] : undefined },
         ];
@@ -418,12 +491,21 @@ export async function buildPlanLive(registry, options = {}) {
         const res = await registry.call('calculate-price', params.args);
         toolsUsed.push('calculate-price');
         const priced = normalizePrice(res.data ?? res.raw);
+        // 两把尺子分开量：
+        //  ① 餐品价：本地合计应等于官方 productPrice（外送下官方 price 含配送/打包，不能直接比）
+        //  ② 到手价：官方 price（= 餐品 + 配送 + 打包），单独列出给用户看真实支出
+        const officialProductFen = priced?.productFen ?? priced?.totalFen ?? null;
+        const officialTotalFen = priced?.totalFen ?? null;
         priceVerification.verified.push({
           index: i,
           label,
           localFen: plan.totals.priceFen,
           localPayableFen: plan.totals.payableFen,
-          officialFen: priced?.totalFen ?? null,
+          officialFen: officialProductFen,
+          officialProductFen,
+          officialTotalFen,
+          deliveryFen: priced?.deliveryFen ?? null,
+          packingFen: priced?.packingFen ?? null,
           discountFen: priced?.discountFen ?? plan.discountFen ?? null,
           couponName: couponId?.name ?? null,
         });
@@ -433,6 +515,22 @@ export async function buildPlanLive(registry, options = {}) {
     }
     if (priceVerification.verified.some((v) => v.officialFen !== null)) {
       dataNotes.push('官方算价（calculate-price）结果已用于核验本地菜单价合计；与本地不一致时请以官方返回为准。');
+    }
+  }
+
+  // 外送场景的成本口径说明：必须用**实际核验到的数据**来写。
+  // 之前把这段放在验价之前、依据"是否从逐品算价里取到附加费"，缓存命中时会写出一句
+  // 与下方验价区（明明白白列出配送费/打包费）自相矛盾的话 —— 说明本身也不能撒谎。
+  if (isDelivery) {
+    const withFees = (priceVerification?.verified ?? []).filter(
+      (v) => v.officialTotalFen !== null && v.officialTotalFen !== undefined && v.officialTotalFen !== v.officialFen,
+    );
+    if (withFees.length) {
+      dataNotes.push('本单为外送：配送费与打包费按整单收取，且打包费随商品组合变化'
+        + '（实测 ¥0 / ¥1.90 / ¥3.00，取决于可打包商品件数），无法在枚举数十万个方案时逐单精算。'
+        + '因此预算与择优按**餐品价**（逐品官方算价，精确）；每个推荐方案的**到手价**由官方算价单独核验后列出，含配送费与打包费，不使用估算值。');
+    } else {
+      dataNotes.push('外送场景本次未从官方算价中取到配送费/打包费字段，到手价仅按餐品计，请以官方结算页为准。');
     }
   }
 
@@ -459,6 +557,8 @@ export async function buildPlanLive(registry, options = {}) {
         ? (serverTime?.datetime ?? (typeof serverTime === 'string' ? serverTime : null)) ?? new Date().toISOString().replace('T', ' ').slice(0, 19)
         : new Date().toISOString().replace('T', ' ').slice(0, 19),
       store,
+      beType,
+      orderType,
       endpoint: options.endpoint ?? 'https://mcp.mcd.cn',
       toolsUsed: [...new Set(toolsUsed)],
       callStats: summarizeCalls(registry.callLog),

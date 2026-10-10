@@ -365,8 +365,14 @@ function solveCore({
   perCategory = DEFAULT_PER_CATEGORY,
   maxResults = 200,
   coupons = [],
+  surchargeFen = 0,
 } = {}) {
   const couponList = Array.isArray(coupons) ? coupons : [];
+  // 订单级附加费（外送场景的配送费 + 打包费）。它是**整单固定**的，不随餐品数量变化，
+  // 因此不能摊进单品价（否则每个商品都会被重复计一次），只能作为常数参与预算与实付。
+  // 到店场景为 0，此时下方所有逻辑与改动前逐字节等价。
+  const orderSurcharge = Number.isFinite(Number(surchargeFen)) && Number(surchargeFen) > 0
+    ? Math.round(Number(surchargeFen)) : 0;
   const { candidates, stats: candidateStats } = selectCandidates(items, nutritionByItem, { perCategory });
 
   const byCategory = new Map();
@@ -407,8 +413,9 @@ function solveCore({
       // 成本口径落到券后实付，这样"省钱"才是用户实际要掏的钱。
       const coupon = couponList.length ? pickBestCouponForPlan(couponList, planItems) : null;
       const discountFen = coupon ? couponSaving(coupon, planItems) : 0;
+      totals.surchargeFen = orderSurcharge;
       totals.discountFen = discountFen;
-      totals.payableFen = Math.max(0, totals.priceFen - discountFen);
+      totals.payableFen = Math.max(0, totals.priceFen + orderSurcharge - discountFen);
       enumerated += 1;
       plans.push({
         items: planItems,
@@ -461,13 +468,16 @@ function solveCore({
     pick(0, 1);
   };
 
-  rec(0, 0, {});
+  // 起点带上订单级附加费：这样"预算"卡的是**到手支出**（餐品 + 配送 + 打包），
+  // 而不是让配送费躲在预算之外偷偷超标。到店场景附加费为 0，行为不变。
+  rec(0, orderSurcharge, {});
 
-  // 预算口径说明：预算卡的是「券前菜单价」（避免为了凑满减券而超支），
+  // 预算口径说明：预算卡的是「券前」的**到手价**（餐品菜单价 + 订单级配送/打包费；
+  // 到店场景无附加费）。避免为了凑满减券而超支，也避免配送费被排除在预算之外。
   // 而各结论的择优一律按「券后实付」排序 —— 用户真正关心的是掏多少钱。
   const withinBudget = budgetFen === undefined || budgetFen === null
     ? plans
-    : plans.filter((p) => p.totals.priceFen <= budgetFen);
+    : plans.filter((p) => p.totals.priceFen + orderSurcharge <= budgetFen);
 
   const byCost = (a, b) => payableFenOf(a) - payableFenOf(b)
     || a.totals.priceFen - b.totals.priceFen
@@ -526,7 +536,10 @@ function solveCore({
       perCategoryAdjusted: null,
       couponCount: couponList.length,
       couponApplied: withinBudget.filter((p) => (p.discountFen ?? 0) > 0).length,
-      costBasis: '菜单价过滤预算，券后实付排序',
+      surchargeFen: orderSurcharge,
+      costBasis: orderSurcharge > 0
+        ? '预算卡券前到手价（餐品 + 配送/打包），券后实付排序'
+        : '菜单价过滤预算，券后实付排序',
       dominanceNote: '候选集裁剪后枚举，非全量穷举；裁剪规模见 candidateStats。',
     },
   };

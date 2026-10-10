@@ -4,7 +4,8 @@ import assert from 'node:assert/strict';
 import {
   fenToYuan, yuanToFen, formatYuan, toNumber, nameKey, inferCategory,
   extractNutrition, normalizeMenu, normalizeNutrition, parseToonTable, matchNutrition,
-  normalizeCoupons, mergeCoupon, normalizePrice, normalizeStores, sanityCheckMenu,
+  normalizeCoupons, mergeCoupon, normalizePrice, normalizeStores, normalizeAddresses,
+  sanityCheckMenu,
 } from '../src/normalize.mjs';
 
 test('金额换算：分 ↔ 元，格式化固定两位小数', () => {
@@ -218,4 +219,64 @@ test('优惠券归一化：解析商品级用券价与适用商品，并按 id �
   assert.equal(face[0].faceValueFen, 750);
   assert.equal(face[0].couponPriceFen, null);
   assert.equal(face[0].discountFen, null);
+});
+
+test('门店归一化：storeCode 与 beCode 是两个不同编码，不能合并（得来速/麦乐送会各传一个）', () => {
+  // 真实样本：成都得来速门店同时带 storeCode(7 位) 与 beCode(9 位)，两者不同
+  const stores = normalizeStores({
+    data: { stores: [{ storeCode: '3450230', beCode: '345023041', storeName: '成都三友路得来速餐厅' }] },
+  });
+  assert.equal(stores.length, 1);
+  assert.equal(stores[0].code, '3450230', 'code 必须取 storeCode（query-meals 要求的是它）');
+  assert.equal(stores[0].beCode, '345023041', 'beCode 必须单独保留，否则官方报 600048 或返回空菜单');
+
+  // 到店门店只有 storeCode、没有 beCode：beCode 应为 null 而非 undefined
+  const dineIn = normalizeStores({ data: [{ storeCode: '3450410', storeName: '成都春熙路联升巷餐厅' }] });
+  assert.equal(dineIn[0].code, '3450410');
+  assert.equal(dineIn[0].beCode, null);
+
+  // 只有 beCode 时也不能崩，退回用它当 code
+  const onlyBe = normalizeStores({ data: [{ beCode: 'S1', storeName: '只有 beCode 的店' }] });
+  assert.equal(onlyBe[0].code, 'S1');
+  assert.equal(onlyBe[0].beCode, 'S1');
+});
+
+test('配送地址归一化：只保留选址需要的编号与城市提示，收货人/电话/门牌一律丢弃', () => {
+  const addresses = normalizeAddresses({
+    data: { addresses: [
+      { addressId: 'A1', contactName: '二狗', phone: '159****6456',
+        fullAddress: '北京市昌平区回龙观西大街龙腾苑3区 龙腾苑3区2号楼5单元602' },
+      { addressId: 'A2', contactName: '二狗', phone: '159****6456',
+        fullAddress: '上海市嘉定区沈徐路128弄 金沙湾绿地和苑1期2号楼1602' },
+    ] },
+  });
+  assert.equal(addresses.length, 2);
+  assert.deepEqual(addresses.map((a) => a.id), ['A1', 'A2']);
+  assert.ok(addresses[0].cityHint.includes('北京'), '城市提示用于按城市挑地址');
+  // 关键隐私断言：返回对象里不得出现姓名、电话、门牌
+  const serialized = JSON.stringify(addresses);
+  assert.ok(!serialized.includes('二狗'), '收货人姓名不得进入结果');
+  assert.ok(!serialized.includes('159'), '手机号不得进入结果');
+  assert.ok(!serialized.includes('602'), '详细门牌不得进入结果');
+});
+
+test('算价归一化：外送场景分离出商品价、配送费与打包费（真实字段名是 productPrice/deliveryPrice/packingPrice）', () => {
+  // 取自官方麦乐送 calculate-price 的真实返回
+  const priced = normalizePrice({
+    productOriginalPrice: 13260, productPrice: 13260,
+    deliveryOriginalPrice: 600, deliveryPrice: 600,
+    packingOriginalPrice: 570, packingPrice: 300,
+    originalPrice: 14430, discount: 270, price: 14160,
+  });
+  assert.equal(priced.productFen, 13260, '商品价必须单独取出，否则会被当成含配送费的单价');
+  assert.equal(priced.deliveryFen, 600, '原先按 deliveryFee/freight 找，永远解析不到');
+  assert.equal(priced.packingFen, 300);
+  assert.equal(priced.totalFen, 14160);
+  // 官方 total = 商品 + 配送 + 打包，三者关系必须自洽
+  assert.equal(priced.productFen + priced.deliveryFen + priced.packingFen, priced.totalFen);
+
+  // 到店场景没有这些字段时应为 null（"没返回" ≠ 0）
+  const dineIn = normalizePrice({ price: 2550, productPrice: 2550 });
+  assert.equal(dineIn.deliveryFen, null);
+  assert.equal(dineIn.packingFen, null);
 });
