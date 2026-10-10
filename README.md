@@ -9,7 +9,7 @@
 ![Node](https://img.shields.io/badge/Node.js-%E2%89%A520-339933?logo=node.js&logoColor=white)
 ![dependencies](https://img.shields.io/badge/dependencies-0-blue)
 ![read--only](https://img.shields.io/badge/MCP-%E5%8F%AA%E8%AF%BB%E4%B8%8D%E4%B8%8B%E5%8D%95-success)
-![tests](https://img.shields.io/badge/tests-76%20passed-brightgreen)
+[![CI](https://github.com/syccysss/mcd-dual-planner/actions/workflows/ci.yml/badge.svg)](https://github.com/syccysss/mcd-dual-planner/actions/workflows/ci.yml)
 
 </div>
 
@@ -212,7 +212,7 @@ node tools/build-web-demo.mjs --out web/demo.html --title "麦麦双赢（演示
   有一条单元测试会扫描整个仓库，确保没有任何文件包含形似真实 Token 的字符串。
 - **失败不伪装**：实时模式任何一步失败都直接报错并给出可操作提示，**绝不静默降级成演示数据**——
   「看起来像真数据的假数据」是这类工具最危险的失败方式。
-- **可复现**：76 个单元测试覆盖单位推断、名称匹配、约束求解、帕累托前沿、券后实付排序、渲染转义与安全边界；
+- **可复现**：77 个单元测试覆盖单位推断、名称匹配、约束求解、帕累托前沿、券后实付排序、渲染转义与安全边界；
   相同输入两次求解结果完全一致。
 
 ```bash
@@ -282,7 +282,7 @@ npm test        # 或 node --test（自动发现 tests/ 下用例）
 │   ├── index.html              # 真实门店快照版单文件网页
 │   └── demo.html               # 演示数据版单文件网页
 ├── skills/mcd-dual-planner/    # WorkBuddy Skill
-├── tests/                      # 76 个单元测试
+├── tests/                      # 77 个单元测试
 ├── docs/                       # 架构、求解器模型、验收记录
 ├── examples/                   # 示例战报、结果 JSON 与验证证据：
 │   ├── stores/                 #   8 城 × 1 店（到店）快照
